@@ -14,11 +14,16 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 - 1.0.0: Initial release
 
+## Requirements
+
+- Alfred (4 or 5) [Powerpack](https://www.alfredapp.com/shop/)
+- OpenAI [API key](https://openai.com/api/)
+
 ## Setting Up
 
 To start using this workflow, you must set the environment variable `apikey`, which you can get by creating an [OpeAI account](https://openai.com/api/). See also [Configuration](#configuration) section below.
 
-## Methods of Activation
+## How to Execute This Workflow
 
 **Using Selected Text**
 
