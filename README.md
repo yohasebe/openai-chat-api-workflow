@@ -32,15 +32,15 @@ To start using this workflow, you must set the environment variable `apikey`, wh
 
 The input text is used as a query to OpenAI text-completion API. The original input text can be prepended or postfixed with instructional text to compose a complex query to be given to the API.
 
-#### <span><img src='./icons/patch-question.png' style='height:1em;'/></span> Direct Query
+#### <span><img src='./icons/patch-question.png' style='height:2em;'/></span> Direct Query
 
 Input text string is directly input as a query to OpenAI text-completion API.
 
-#### <span><img src='./icons/arrow-bar-down.png' style='height:1em;'/></span> Prepend Text
+#### <span><img src='./icons/arrow-bar-down.png' style='height:2em;'/></span> Prepend Text
 
 After the initial text is entered, the user is prompted for additional text. The additional text is added *before* the initial text and the resulting text is used as the query.
 
-#### <span><img src='./icons/arrow-bar-up.png' style='height:1em;'/></span> Append Text
+#### <span><img src='./icons/arrow-bar-up.png' style='height:2em;'/></span> Append Text
 
 After the initial text is entered, the user is prompted for additional text. The additional text is added *after* the initial text and the resulting text is used as the query.
 
@@ -55,47 +55,47 @@ These are features based on OpenAI's example usages of its text-completion API. 
 
 ### Langauage-related
 
-#### <span><img src='./icons/translate.png' style='height:1em;'/></span> Translate L1 to L2 
+#### <span><img src='./icons/translate.png' style='height:2em;'/></span> Translate L1 to L2 
 
 Translate text in the language specified in the variable `first_language` to the language specified in the variable `second_language`.
 
-#### <span><img src='./icons/translate.png' style='height:1em;'/></span> Translate L2 to L1 
+#### <span><img src='./icons/translate.png' style='height:2em;'/></span> Translate L2 to L1 
 
 Translate text in the language specified in the variable `second_language` to the language specified in the variable `first_language`.
 
-#### <span><img src='./icons/pencil.png' style='height:1em;'/></span> Grammar Correction
+#### <span><img src='./icons/pencil.png' style='height:2em;'/></span> Grammar Correction
 
 Corrects sentences into standard English. See OpenAI's [description](https://beta.openai.com/examples/default-grammar).
 
 ### Idea-related
 
-#### <span><img src='./icons/lightbulb.png' style='height:1em;'/></span> Brainstorm
+#### <span><img src='./icons/lightbulb.png' style='height:2em;'/></span> Brainstorm
 
 Brainstorm some ideas about a given text.
 
-#### <span><img src='./icons/book.png' style='height:1em;'/></span> Create Study Notes
+#### <span><img src='./icons/book.png' style='height:2em;'/></span> Create Study Notes
 
 Provide a topic and get study notes. See OpenAI's [description](https://beta.openai.com/examples/default-study-notes) for this example.
 
-#### <span><img src='./icons/arrow-left-right.png' style='height:1em;'/></span> Analogy Maker 
+#### <span><img src='./icons/arrow-left-right.png' style='height:2em;'/></span> Analogy Maker 
 
 Create analogies. See OpenAI's [description](https://beta.openai.com/examples/default-analogy-maker) for this example.
 
-#### <span><img src='./icons/list-ul.png' style='height:1em;'/></span> Essay Outline 
+#### <span><img src='./icons/list-ul.png' style='height:2em;'/></span> Essay Outline 
 
 Generate an outline for a research topic. See OpenAI's [description](https://beta.openai.com/examples/default-essay-outline) for this example.
 
 ### Summarization-related
 
-#### <span><img src='./icons/chat-left-quote.png' style='height:1em;'/></span> TL;DR Summarization 
+#### <span><img src='./icons/chat-left-quote.png' style='height:2em;'/></span> TL;DR Summarization 
 
 Summarize text by adding a 'tl;dr:' to the end of a text passage. See OpenAI's [description](https://beta.openai.com/examples/default-tldr-summary) for this example.
 
-#### <span><img src='./icons/emoji-smile.png' style='height:1em;'/></span> Summarize for a 2nd Grader 
+#### <span><img src='./icons/emoji-smile.png' style='height:2em;'/></span> Summarize for a 2nd Grader 
 
 Translates difficult text into simpler concepts. See OpenAI's [description](https://beta.openai.com/examples/default-summarize) for this example.
 
-#### <span><img src='./icons/key.png' style='height:1em;'/></span> Keywords
+#### <span><img src='./icons/key.png' style='height:2em;'/></span> Keywords
 
 Extract keywords from a block of text. At a lower temperature it picks keywords from the text. See OpenAI's [description](https://beta.openai.com/examples/default-keywords) for this example.
 
