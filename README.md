@@ -1,6 +1,6 @@
 # OpenAI Text-Completion Workflow for Alfred
 
-An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](https://beta.openai.com/)'s text-completion API.
+An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](https://beta.openai.com/) GPT-3 text-completion API.
 
 ## Downloads
 
@@ -36,11 +36,11 @@ The input text is used as a query to OpenAI text-completion API. The original in
 
 Input text string is directly input as a query to OpenAI text-completion API.
 
-#### <span><img src='./icons/arrow-bar-down.png' style='height:2em;'/></span> Prepend Text
+#### <span><img src='./icons/arrow-bar-down.png' style='height:2em;'/></span> Prepend Text + Query
 
 After the initial text is entered, the user is prompted for additional text. The additional text is added *before* the initial text and the resulting text is used as the query.
 
-#### <span><img src='./icons/arrow-bar-up.png' style='height:2em;'/></span> Append Text
+#### <span><img src='./icons/arrow-bar-up.png' style='height:2em;'/></span> Append Text + Query
 
 After the initial text is entered, the user is prompted for additional text. The additional text is added *after* the initial text and the resulting text is used as the query.
 
