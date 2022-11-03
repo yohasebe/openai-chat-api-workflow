@@ -18,7 +18,7 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 To start using this workflow, you must set the environment variable `apikey`, which you can get by creating an [OpeAI account](https://openai.com/api/). See also [Configuration](#configuration) section below.
 
-## Methods of Giving Query Text
+## Methods of Activation
 
 **Using Selected Text**
 
