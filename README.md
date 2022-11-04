@@ -8,12 +8,13 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 ## Downloads
 
-**Current version**: `1.0.0`
+**Current version**: `1.1.0`
 
 [Download workflow](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
+- 1.1.0: "Ask in Your Language" feature added
 - 1.0.0: Initial release
 
 ## Requirements
@@ -55,7 +56,7 @@ After the initial text is entered, the user is prompted for additional text. The
 
 ## Specific Commands
 
-These are features based on OpenAI's example usages of its text-completion API. The user-specified values to the following environmental variables are ignored when runing these commands:
+These are features mainly based on OpenAI's example usages of its text-completion API. The user-specified values to the following environmental variables are ignored when runing these commands:
 
 - `frequency_penalty` 
 - `presence_penalty`  
@@ -63,6 +64,10 @@ These are features based on OpenAI's example usages of its text-completion API. 
 - `top_p`             
 
 ### Langauage-related
+
+#### <span><img src='./icons/quora.png' style='height:2em;'/></span> Ask in Your Language 
+
+You can ask questions in the language set to the variable `your_language`.
 
 #### <span><img src='./icons/translate.png' style='height:2em;'/></span> Translate L1 to L2 
 
@@ -116,15 +121,15 @@ You can check how many tokens you have used so far in the current billing period
 
 ### Environment Variables
 
-| Variable            | Explanation                                                                                                             | Default Value      |
-| -                   | ---                                                                                                                     | -                  |
-| `apikey` (required) | Your secret API key for OpenAI                                                                                          |                    |
-| `first_language`    | The primary language (usually your native language) [e.g. `English`]                                                    |                    |
-| `second_language`   | The secondary language (usually the source language of translation) [e.g. `Japanese`]                                   |                    |
-| `model`             | The model which will generate the completion                                                                            | `text-davinci-002` |
-| `sound`             | Play sound when result is ready                                                                                         | `true`             |
-| `speak`             | Read aloud the result text using "say" command of MacOS                                                                 | `false`            |
-| `max_characters`    | Maximum number of characters that can be included in a query                                                            | `4096`            |
+| Variable            | Explanation                                                         | Default Value      |
+| -                   | ---                                                                 | -                  |
+| `apikey` (required) | Your secret API key for OpenAI                                      |                    |
+| `first_language`    | The primary language (usually your native language)                 | `English`          |
+| `second_language`   | The secondary language (usually the source language of translation) | `Japanese`         |
+| `model`             | The model which will generate the completion                        | `text-davinci-002` |
+| `sound`             | Play sound when result is ready                                     | `true`             |
+| `speak`             | Read aloud the result text using "say" command of MacOS             | `false`            |
+| `max_characters`    | Maximum number of characters that can be included in a query        | `4096`             |
 | `max_tokens`        | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens)        | `2048`             |
 | `frequency_penalty` | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty) | `0`                |
 | `temperature`       | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature)       | `0.3`              |
