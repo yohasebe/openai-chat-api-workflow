@@ -67,7 +67,7 @@ These are features mainly based on OpenAI's example usages of its text-completio
 
 #### <span><img src='./icons/quora.png' style='height:2em;'/></span> Ask in Your Language 
 
-You can ask questions in the language set to the variable `your_language`.
+You can ask questions in the language set to the variable `first_language`.
 
 #### <span><img src='./icons/translate.png' style='height:2em;'/></span> Translate L1 to L2 
 
