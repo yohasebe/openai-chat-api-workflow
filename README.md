@@ -4,8 +4,6 @@
 
 An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](https://beta.openai.com/) GPT-3 text-completion API.
 
-<img src='https://user-images.githubusercontent.com/18207/199722607-e7d0dd82-30ec-482a-b9d6-5609561fc359.gif' style='width:700px;'/>
-
 ## Downloads
 
 **Current version**: `1.1.0`
@@ -46,15 +44,17 @@ The input text is used as a query to OpenAI text-completion API. The original in
 
 Input text string is directly input as a query to OpenAI text-completion API.
 
+<img src='https://user-images.githubusercontent.com/18207/199722607-e7d0dd82-30ec-482a-b9d6-5609561fc359.gif' style='width:700px;'/>
+
 #### <span><img src='./icons/arrow-bar-down.png' style='height:2em;'/></span> Prepend Text + Query
 
 After the initial text is entered, the user is prompted for additional text. The additional text is added *before* the initial text and the resulting text is used as the query.
 
+<img src='https://user-images.githubusercontent.com/18207/200111874-d90e17a0-3b82-4edd-a3c5-e58c61e35377.gif' style='width:700px;'/>
+
 #### <span><img src='./icons/arrow-bar-up.png' style='height:2em;'/></span> Append Text + Query
 
 After the initial text is entered, the user is prompted for additional text. The additional text is added *after* the initial text and the resulting text is used as the query.
-
-<img src='https://user-images.githubusercontent.com/18207/200111874-d90e17a0-3b82-4edd-a3c5-e58c61e35377.gif' style='width:700px;'/>
 
 ## Specific Commands
 
