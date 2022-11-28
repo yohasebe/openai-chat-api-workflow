@@ -6,12 +6,13 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 ## Downloads
 
-**Current version**: `1.1.0`
+**Current version**: **1.1.1**
 
 [Download workflow](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
+- 1.1.1: `text-davinci-003` model added and made default 
 - 1.1.0: "Ask in Your Language" feature added
 - 1.0.0: Initial release
 
