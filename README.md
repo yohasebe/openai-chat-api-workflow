@@ -12,7 +12,7 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 **Change Log**
 
-- 1.1.2: Include original prompt in the response
+- 1.1.3: Include original prompt in the response
 - 1.1.1: `text-davinci-003` model added and made default 
 - 1.1.0: "Ask in Your Language" feature added
 - 1.0.0: Initial release
@@ -132,11 +132,11 @@ You can check how many tokens you have used so far in the current billing period
 | `apikey` (required) | Your secret API key for OpenAI                                      |                    |
 | `first_language`    | The primary language (usually your native language)                 | `English`          |
 | `second_language`   | The secondary language (usually the source language of translation) | `Japanese`         |
-| `model`             | The model which will generate the completion                        | `text-davinci-002` |
+| `model`             | The model which will generate the completion                        | `text-davinci-003` |
 | `sound`             | Play sound when result is ready                                     | `true`             |
 | `speak`             | Read aloud the result text using "say" command of MacOS             | `false`            |
-| `max_characters`    | Maximum number of characters that can be included in a query        | `4096`             |
-| `max_tokens`        | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens)        | `2048`             |
+| `max_characters`    | Maximum number of characters that can be included in a query        | `10000`             |
+| `max_tokens`        | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens)        | `4000`             |
 | `frequency_penalty` | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty) | `0`                |
 | `temperature`       | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature)       | `0.3`              |
 | `top_p`             | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-top_p)             | `1.0`              |
