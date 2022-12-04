@@ -12,6 +12,7 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 **Change Log**
 
+- 1.2.0: "check-for-update command has been added
 - 1.1.3: Include original prompt in the response
 - 1.1.1: `text-davinci-003` model added and made default 
 - 1.1.0: "Ask in Your Language" feature added
