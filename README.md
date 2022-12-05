@@ -21,8 +21,9 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 ## Requirements
 
-- Alfred (4 or 5) [Powerpack](https://www.alfredapp.com/shop/)
+- Alfred 5 [Powerpack](https://www.alfredapp.com/shop/)
 - OpenAI [API key](https://openai.com/api/)
+- [Pandoc](https://pandoc.org/) command (optional)
 
 ## Setting Up
 
