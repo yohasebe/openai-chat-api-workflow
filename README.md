@@ -160,18 +160,18 @@ You can check how many tokens you have used so far in the current billing period
 
 ## Configuration
 
-### Environment Variables
+### Settings
 
 | Variable            | Explanation                                                         | Default Value      |
 | -                   | ---                                                                 | -                  |
 | `apikey` (required) | Your secret API key for OpenAI                                      |                    |
+| `model`             | The [model](https://beta.openai.com/docs/api-reference/models) which will generate the completion                                | `text-davinci-003` |
 | `first_language`    | The primary language (usually your native language)                 | `English`          |
 | `second_language`   | The secondary language (usually the source language of translation) | `Japanese`         |
-| `model`             | The model which will generate the completion                        | `text-davinci-003` |
-| `pandoc`            | Path to `pandoc` command                                            |                    |
 | `sound`             | Play sound when result is ready                                     | `true`             |
 | `speak`             | Read aloud the result text using "say" command of MacOS             | `false`            |
 | `max_characters`    | Maximum number of characters that can be included in a query        | `10000`            |
+| `pandoc`            | Path to `pandoc` command                                            |                    |
 | `max_tokens`        | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens)        | `2048`             |
 | `frequency_penalty` | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty) | `0`                |
 | `temperature`       | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature)       | `0.3`              |
