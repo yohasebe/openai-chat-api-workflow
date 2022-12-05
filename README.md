@@ -12,7 +12,7 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 **Change Log**
 
-- 1.3.0: write-program-code command added
+- 1.3.0: "Write Program Code" feature added
 - 1.3.0: `pandoc` option added
 - 1.2.0: check-for-update command added
 - 1.1.3: Include original prompt in the response
