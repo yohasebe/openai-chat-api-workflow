@@ -57,13 +57,13 @@ Type `check-for-update` and run the workflow. If there is a newer version, click
 
 **Using Selected Text**
 
-- Universal action (**OpenAI Query**)
+- Universal action (`OpenAI Query`)
 - Hotkey
 
 **Using Alfred Text Box**
 
 - Keyword (`openai`)
-- Fallback search (**OpenAI Query**)
+- Fallback search (`OpenAI Query`)
 
 ## General Query
 
