@@ -37,7 +37,7 @@ Installation using [homebrew](https://brew.sh/):
   brew install pandoc
 ```
 
-You can check paths to `pandoc` aas follows once it has been installed:
+You can check path to `pandoc` as follows once it has been installed:
 
 ```shell
 > which pandoc
