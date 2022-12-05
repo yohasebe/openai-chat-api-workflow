@@ -6,13 +6,14 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 ## Downloads
 
-**Current version**: **1.1.2**
+**Current version**: **1.3.0**
 
 [Download workflow](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
-- 1.2.0: "check-for-update command has been added
+- 1.3.0: `pandoc` option has been added
+- 1.2.0: check-for-update command has been added
 - 1.1.3: Include original prompt in the response
 - 1.1.1: `text-davinci-003` model added and made default 
 - 1.1.0: "Ask in Your Language" feature added
@@ -26,6 +27,26 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 ## Setting Up
 
 To start using this workflow, you must set the environment variable `apikey`, which you can get by creating an [OpeAI account](https://openai.com/api/). See also [Configuration](#configuration) section below.
+
+It is strongly **recommended** that you install the `pandoc` command and set its path to the `Path to pandoc` setting. This will allow this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled (especially usefull when using this workflow to generate program code).
+
+Installation using [homebrew](https://brew.sh/):
+
+```shell
+  brew install pandoc
+```
+
+You can check paths to `pandoc` aas follows once it has been installed:
+
+```shell
+> which pandoc
+# When installing on Apple Sillicon Model with homebrew 
+#/opt/homebrew/bin/pandoc
+# When installing on Intel Model with homebrew 
+#/usr/local/bin/pandoc
+```
+
+Then set the path in the `path to Pandoc` setting.
 
 ## Check for Update
 
@@ -63,7 +84,15 @@ After the initial text is entered, the user is prompted for additional text. The
 
 After the initial text is entered, the user is prompted for additional text. The additional text is added *after* the initial text and the resulting text is used as the query.
 
-## Specific Commands
+### Program Code Genaration/Completion
+
+#### <span><img src='./icons/quora.png' style='height:2em;'/></span> Ask in Your Language 
+
+GPT-3 will generate program code and example output according to the text entered. Specify the purpose of the program, its function, the language and technology to be used, etc.
+
+**Note**:It is strongly recommended that you install the `pandoc` command and set its path to the `Path to pandoc` setting. This will allow this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled. 
+
+## More Specific Commands
 
 These are features mainly based on OpenAI's example usages of its text-completion API. The user-specified values to the following environmental variables are ignored when runing these commands:
 
@@ -138,10 +167,11 @@ You can check how many tokens you have used so far in the current billing period
 | `first_language`    | The primary language (usually your native language)                 | `English`          |
 | `second_language`   | The secondary language (usually the source language of translation) | `Japanese`         |
 | `model`             | The model which will generate the completion                        | `text-davinci-003` |
+| `pandoc`            | Path to `pandoc` command                                            |                    |
 | `sound`             | Play sound when result is ready                                     | `true`             |
 | `speak`             | Read aloud the result text using "say" command of MacOS             | `false`            |
-| `max_characters`    | Maximum number of characters that can be included in a query        | `10000`             |
-| `max_tokens`        | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens)        | `4000`             |
+| `max_characters`    | Maximum number of characters that can be included in a query        | `10000`            |
+| `max_tokens`        | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens)        | `2048`             |
 | `frequency_penalty` | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty) | `0`                |
 | `temperature`       | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature)       | `0.3`              |
 | `top_p`             | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-top_p)             | `1.0`              |
