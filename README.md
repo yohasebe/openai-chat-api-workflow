@@ -92,7 +92,7 @@ After the initial text is entered, the user is prompted for additional text. The
 
 GPT-3 will generate program code and example output according to the text entered. Specify the purpose of the program, its function, the language and technology to be used, etc.
 
-**Note**:It is strongly recommended that you install the `pandoc` command and set its path to the `Path to pandoc` setting. This will allow this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled. 
+**Note**: It is strongly recommended that you install the `pandoc` command and set its path to the `Path to pandoc` setting. This will allow this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled. 
 
 **Example Input**
 
