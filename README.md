@@ -87,7 +87,7 @@ After the initial text is entered, the user is prompted for additional text. The
 
 ### Program Code Genaration/Completion
 
-#### <span><img src='./icons/quora.png' style='height:2em;'/></span> Ask in Your Language 
+#### <span><img src='./icons/code-square.png' style='height:2em;'/></span> Write Program Code
 
 GPT-3 will generate program code and example output according to the text entered. Specify the purpose of the program, its function, the language and technology to be used, etc.
 
