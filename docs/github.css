@@ -277,4 +277,8 @@ pre {
 
 h1 {display: none;}
 h2 {margin-bottom: 0.5em;}
-label, textarea, input {font-size: 16px;}
+
+button, label, select, textarea, input {
+  font-family : inherit;
+  font-size   : 100%;
+}
