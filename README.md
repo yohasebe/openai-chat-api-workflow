@@ -6,12 +6,13 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 ## Downloads
 
-**Current version**: **1.3.0**
+**Current version**: **1.4.0**
 
 [Download workflow](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
+- 1.4.0: "OpenAI Textbox" feature added
 - 1.3.0: "Write Program Code" feature added
 - 1.3.0: `pandoc` option added
 - 1.2.0: check-for-update command added
@@ -65,6 +66,11 @@ Type `check-for-update` and run the workflow. If there is a newer version, click
 
 - Keyword (`openai`)
 - Fallback search (`OpenAI Query`)
+
+**Using Textbox in Default Web-browser**
+
+- Keyword (`openai-textbox`)
+- Hotkey
 
 ## General Query
 

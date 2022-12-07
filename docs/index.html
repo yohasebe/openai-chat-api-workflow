@@ -53,7 +53,7 @@
 
     <div style='margin-top:20px;'>
       <label for="temperature">Max Tokens: </label>
-      <input type="number" id="max_tokens" name="max_tokens" min="128" max="4096" step="1" value="512"> 
+      <input type="number" id="max_tokens" name="max_tokens" min="128" max="4096" step="1" value="2048"> 
     </div>
     <div style='margin-top:20px;'>
       <input type = "button" value="Send Prompt to Alfred" onclick = "execute();" />
@@ -88,7 +88,6 @@
         let top_p = encodeURI(document.getElementById("top_p").value);
         let presence_penalty = encodeURI(document.getElementById("presence_penalty").value);
         let frequency_penalty = encodeURI(document.getElementById("frequency_penalty").value);
-
         let code = code_checkbox.checked;
         if(code){
           mode = "write_program_code";
