@@ -72,6 +72,8 @@ Type `check-for-update` and run the workflow. If there is a newer version, click
 - Keyword (`openai-textbox`)
 - Hotkey
 
+<img width="700" alt="SCR-20221207-st2" src="https://user-images.githubusercontent.com/18207/206172474-e4e2f1bd-2c03-4915-8ed0-6a4310127c59.png">
+
 ## General Query
 
 The input text is used as a query to OpenAI text-completion API. The original input text can be prepended or postfixed with instructional text to compose a complex query to be given to the API.
