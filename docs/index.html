@@ -115,7 +115,6 @@
           alert("Textarea is empty");
         } else {
           const url = "alfred://runtrigger/com.yohasebe.openai/openai-text-completion/?argument=" + mode + "%20" + model + "%20" + max_tokens + "%20" + temperature + "%20" + top_p +"%20" + presence_penalty + "%20" + frequency_penalty + "%20" + prompt;
-          console.log(url);
           window.location = url;
         }
       }
