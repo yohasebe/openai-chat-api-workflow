@@ -6,12 +6,13 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 ## Downloads
 
-**Current version**: **1.4.1**
+**Current version**: **1.5.0**
 
 [Download workflow](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
+- 1.5.0: Easy MarkDown Editor enabled
 - 1.4.0: "OpenAI Textbox" feature added
 - 1.3.0: "Write Program Code" feature added
 - 1.3.0: `pandoc` option added
