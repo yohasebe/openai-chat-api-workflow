@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <title>OpenAI Text-Completion Alfred Workflow</title>
     <link rel="stylesheet" href="https://yohasebe.github.io/openai-text-completion-workflow/github.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
+    <style>.CodeMirror{resize: vertical;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
     <![endif]-->
@@ -18,108 +23,103 @@
       <span style="display: inline-block; height: 2em;"><img src='https://yohasebe.github.io/openai-text-completion-workflow/icon.png' style='height:100%;'/></span> <span>OpenAI Text-Completion Alfred Workflow</span>
     </h2>
     <blockquote>This page is part of <a href='https://github.com/yohasebe/openai-text-completion-workflow' style='text-decoration: none;'>OpenAI Text-Completion Alfred Workflow</a>. The submit button will only work if the workflow is properly installed.</blockquote>
-    <div style='margin-top:20px;'>
-      <label for="prompt">Text Prompt</label><br>
-      <textarea id="prompt" name="prompt" rows="5" placeholder="Enter your prompt here" style="width: 100%; padding: 8px; box-sizing: border-box;"></textarea>
+    <div style='margin-top:30px;'>
+      <textarea id="prompt" name="prompt" placeholder="Enter your prompt here"></textarea>
     </div>
 
-    <div style='margin-top:20px;'>
-      <label for="code">Generate program code</label>
-      <input type="checkbox" id="code" name="code" checked>
-    </div>
-
-    <div style='margin-top:20px;'>
+    <div style='margin-top:15px;'>
       <label for="model">Model: </label>
       <input type="text" size="20" id="model" name="model" value="text-davinci-003" pattern="^[a-z]+-[a-z]+-[0-9]+$" required>
+      <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/models/models' style='text-decoration:none;'>[?]</a>
     </div>
 
-    <div id="control" style='margin-top:20px;'>
+    <div id="control" style='margin-top:15px;'>
       <div>
         <input type="range" id="temperature" name="temperature" min="0.0" max="1.0" value="0.3" step="0.1" oninput="this.nextElementSibling.nextElementSibling.value = this.value">
         <label for="temperature">Temperature: </label>
         <output>0.3</output>
+        <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature' style='text-decoration:none;'>[?]</a>
       </div>
       <div>
         <input type="range" id="top_p" name="top_p" min="0.0" max="1.0" value="1.0" step="0.1" oninput="this.nextElementSibling.nextElementSibling.value = this.value">
         <label for="top_p">Top P: </label>
         <output>1.0</output>
+        <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-top_p' style='text-decoration:none;'>[?]</a>
       </div>
       <div>
         <input type="range" id="presence_penalty" name="presence_penalty" min="-2.0" max="2.0" value="0.0" step="0.1" oninput="this.nextElementSibling.nextElementSibling.value = this.value">
         <label for="presence_penalty">Presence Penalty: </label>
         <output>0.0</output>
+        <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-presence_penalty' style='text-decoration:none;'>[?]</a>
       </div>
       <div>
         <input type="range" id="frequency_penalty" name="frequency_penalty" min="-2.0" max="2.0" value="0.0" step="0.1" oninput="this.nextElementSibling.nextElementSibling.value = this.value">
         <label for="frequency_penalty">Frequency Penalty: </label>
         <output>0.0</output>
+        <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty' style='text-decoration:none;'>[?]</a>
       </div>
     </div>
 
-    <div style='margin-top:20px;'>
+    <div style='margin-top:15px;'>
       <label for="temperature">Max Tokens: </label>
       <input type="number" id="max_tokens" name="max_tokens" min="128" max="4096" step="1" value="2048" required> 
+      <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens' style='text-decoration:none;'>[?]</a>
     </div>
-    <div style='margin-top:20px;'>
+
+    <div style='margin-top:15px;'>
+      <label for="timeout">Timeout (seconds): </label>
+      <input type="number" id="timeout" name="timeout" min="60" max="4800" step="1" value="1200" required> 
+    </div>
+
+    <div style='margin-top:15px;'>
+      <label for="echo">Echo back the prompt</label>
+      <input type="checkbox" id="echo" name="echo" >
+    </div>
+
+    <div style='margin-top:15px;'>
       <input type = "button" value="Send Prompt to Alfred" onclick = "execute();" />
     </div>
 
     <script>
-      
-      function toggle_control(code_checked){
-        if(code_checked){
-          document.getElementById("temperature").disabled = true;
-          document.getElementById("top_p").disabled = true;
-          document.getElementById("presence_penalty").disabled = true;
-          document.getElementById("frequency_penalty").disabled = true;
-        } else {
-          document.getElementById("temperature").disabled = false;
-          document.getElementById("top_p").disabled = false;
-          document.getElementById("presence_penalty").disabled = false;
-          document.getElementById("frequency_penalty").disabled = false;
-        }
-      }
-
-      let code_checkbox = document.getElementById('code');
-      toggle_control(code_checkbox.checked);
-      code_checkbox.addEventListener('click', ()=>{
-        toggle_control(code_checkbox.checked);
-      })
+      const editor = new EasyMDE({
+        autofocus: true,
+        element: document.getElementById("prompt"),
+        spellChecker: true,
+        showIcons: ["code"],
+        tabSize: 2,
+        hideIcons: ["heading", "image", "table", "link"],
+        minHeight: "150px",
+      });
 
       function execute() {
         const model_elem = document.getElementById("model")
         const pattern = model_elem.pattern;
         const model = model_elem.value;
         const regex_model = new RegExp(pattern);
+
         if (!regex_model.test(model)) {
           alert('Model name is not valud');
           return;
         }
 
         let mode = "text_input";
-        let prompt = encodeURI(document.getElementById("prompt").value);
+        let prompt = encodeURI(editor.value());
         let max_tokens = encodeURI(document.getElementById("max_tokens").value);
+        let timeout = encodeURI(document.getElementById("timeout").value);
+        let echo = encodeURI(document.getElementById("echo").checked);
         let temperature = encodeURI(document.getElementById("temperature").value);
         let top_p = encodeURI(document.getElementById("top_p").value);
         let presence_penalty = encodeURI(document.getElementById("presence_penalty").value);
         let frequency_penalty = encodeURI(document.getElementById("frequency_penalty").value);
-        let code = code_checkbox.checked;
-        if(code){
-          mode = "write_program_code";
-          temperature = 0.0;
-          top_p = 0.0;
-          presence_penalty = 0.0;
-          frequency_penalty = 0.0;
-        }
         if(prompt === ""){
           alert("Textarea is empty");
         } else {
-          const url = "alfred://runtrigger/com.yohasebe.openai/openai-text-completion/?argument=" + mode + "%20" + model + "%20" + max_tokens + "%20" + temperature + "%20" + top_p +"%20" + presence_penalty + "%20" + frequency_penalty + "%20" + prompt;
+          const url = "alfred://runtrigger/com.yohasebe.openai/openai-text-completion/?argument=" + mode + "%20" + model + "%20" + max_tokens + "%20" + temperature + "%20" + top_p +"%20" + presence_penalty + "%20" + frequency_penalty + "%20" + timeout + "%20" + echo + "%20" + prompt;
           window.location = url;
         }
       }
-      document.getElementById("prompt").focus();
     </script>
   </body>
 </html>
+
 

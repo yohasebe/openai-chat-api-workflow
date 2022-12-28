@@ -282,3 +282,8 @@ button, label, select, textarea, input {
   font-family : inherit;
   font-size   : 100%;
 }
+
+.sourceCode {
+  overflow-x: scroll;
+}
+
