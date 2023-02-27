@@ -6,12 +6,13 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 ## Downloads
 
-**Current version**: **1.5.1**
+**Current version**: **1.5.2**
 
 [Download workflow](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
+- 1.5.2: Verification dialog removed; `speak` option fixed
 - 1.5.1: Easy MarkDown Editor enabled
 - 1.4.0: "OpenAI Textbox" feature added
 - 1.3.0: "Write Program Code" feature added
@@ -181,13 +182,13 @@ You can check how many tokens you have used so far in the current billing period
 ### Settings
 
 | Variable            | Explanation                                                         | Default Value      |
-| -                   | ---                                                                 | -                  |
+| ---                 | ---                                                                 | ---                |
 | `apikey` (required) | Your secret API key for OpenAI                                      |                    |
-| `model`             | The [model](https://beta.openai.com/docs/api-reference/models) which will generate the completion                                | `text-davinci-003` |
+| `model`             | The [model](https://beta.openai.com/docs/api-reference/models) which will generate the completion | `text-davinci-003` |
 | `first_language`    | The primary language (usually your native language)                 | `English`          |
 | `second_language`   | The secondary language (usually the source language of translation) | `Japanese`         |
 | `sound`             | Play sound when result is ready                                     | `true`             |
-| `speak`             | Read aloud the result text using "say" command of MacOS             | `false`            |
+| `speak`             | Read aloud the result text using the system default text-to-speech voice/language | |
 | `max_characters`    | Maximum number of characters that can be included in a query        | `10000`            |
 | `pandoc`            | Path to `pandoc` command                                            |                    |
 | `max_tokens`        | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens)        | `2048`             |
