@@ -197,6 +197,12 @@ You can check how many tokens you have used so far in the current billing period
 | `top_p`             | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-top_p)             | `1.0`              |
 | `presence_penalty`  | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-presence_penalty)  | `0`                |
 
+### Text to Speech
+
+If the `speak` option is enabled, the result text will be read out in the system standard language and voice. To change the language and speech, go to [Accessibility] - [Vision] -[Spoken Content] in the Mac Settings panel.
+
+<img width="600" alt="spoken-content-panel" src="https://user-images.githubusercontent.com/18207/221521819-a942e6ba-0523-4526-93da-52b6167defaf.png">
+
 ## Author
 
 Yoichiro Hasebe (<yohasebe@gmail.com>)
