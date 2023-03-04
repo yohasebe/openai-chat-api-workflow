@@ -92,8 +92,6 @@ After the initial text is entered, the user is prompted for additional text. The
 
 GPT-3 will generate program code and example output according to the text entered. Specify the purpose of the program, its function, the language and technology to be used, etc.
 
-**Note**: It is strongly recommended that you install the `pandoc` command and set its path to the `Path to pandoc` setting. This will allow this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled. 
-
 **Example Input**
 
 > Create a command line program that takes an English sentence and returns syntactically parsed output. Provide program code in Python and an example usage.
@@ -177,9 +175,9 @@ You can check how many tokens you have used so far in the current billing period
 | `first_language`    | The primary language (usually your native language)                 | `English`          |
 | `second_language`   | The secondary language (usually the source language of translation) | `Japanese`         |
 | `sound`             | Play sound when result is ready                                     | `true`             |
-| `speak`             | Read aloud the result text using the system default text-to-speech voice/language | |
+| `speak`             | Read aloud the result text using the system default text-to-speech voice/language | `false`|
 | `max_characters`    | Maximum number of characters that can be included in a query        | `10000`            |
-| `pandoc`            | Path to `pandoc` command                                            |                    |
+| `pandoc`            | If set `true`, the result will be output as HTML                    | `true`             |
 | `max_tokens`        | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens)        | `2048`             |
 | `frequency_penalty` | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty) | `0`                |
 | `temperature`       | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature)       | `0.3`              |
