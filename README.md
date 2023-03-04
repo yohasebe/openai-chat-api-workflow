@@ -2,16 +2,19 @@
 
 <img src='./icons/openai.png' style='height:150px;'/>
 
-An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](https://beta.openai.com/) GPT-3 text-completion API.
+An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](https://beta.openai.com/) GPT-3 text-completion API and chat API.
 
 ## Downloads
 
-**Current version**: **1.5.2**
+**Current version**: **1.6.0**
 
 [Download workflow](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
+- 1.6.0: `GPT-3.5-turbo` model is set to the default
+- 1.6.0: ChatGPT API support
+- 1.6.0: HTML output option (using Pandoc) is enabled by default
 - 1.5.2: Verification dialog removed; `speak` option fixed
 - 1.5.1: Easy MarkDown Editor enabled
 - 1.4.0: "OpenAI Textbox" feature added
@@ -27,35 +30,19 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 - Alfred 5 [Powerpack](https://www.alfredapp.com/shop/)
 - OpenAI [API key](https://openai.com/api/)
-- [Pandoc](https://pandoc.org/) (optional)
+- [Pandoc](https://pandoc.org/)
 
 ## Setting Up
 
 To start using this workflow, you must set the environment variable `apikey`, which you can get by creating an [OpeAI account](https://openai.com/api/). See also [Configuration](#configuration) section below.
 
-It is strongly **recommended** that you install the `pandoc` command and set its path to the `Path to pandoc` setting. This will allow this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled (especially usefull when using this workflow to generate program code).
+It is strongly **recommended** that you install the `pandoc` command. This will allow this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled (especially usefull when using this workflow to generate program code).
 
 Installation using [homebrew](https://brew.sh/):
 
 ```shell
   brew install pandoc
 ```
-
-You can check path to `pandoc` as follows once it has been installed:
-
-```shell
-> which pandoc
-# When installing on Apple Sillicon Model with homebrew 
-#/opt/homebrew/bin/pandoc
-# When installing on Intel Model with homebrew 
-#/usr/local/bin/pandoc
-```
-
-Then set the path in the `path to Pandoc` setting.
-
-## Check for Update
-
-Type `check-for-update` and run the workflow. If there is a newer version, click on the "Download" button. The readme/download page on Github will open.
 
 ## How to Execute This Workflow
 
@@ -116,10 +103,9 @@ GPT-3 will generate program code and example output according to the text entere
 
 These are features mainly based on OpenAI's example usages of its text-completion API. The user-specified values to the following environmental variables are ignored when runing these commands:
 
+- `temperature`       
 - `frequency_penalty` 
 - `presence_penalty`  
-- `temperature`       
-- `top_p`             
 
 ### Langauage-related
 
@@ -184,7 +170,7 @@ You can check how many tokens you have used so far in the current billing period
 | Variable            | Explanation                                                         | Default Value      |
 | ---                 | ---                                                                 | ---                |
 | `apikey` (required) | Your secret API key for OpenAI                                      |                    |
-| `model`             | The [model](https://beta.openai.com/docs/api-reference/models) which will generate the completion | `text-davinci-003` |
+| `model`             | The [model](https://beta.openai.com/docs/api-reference/models) that generates the completion | `gpt-3.5-turbo` |
 | `first_language`    | The primary language (usually your native language)                 | `English`          |
 | `second_language`   | The secondary language (usually the source language of translation) | `Japanese`         |
 | `sound`             | Play sound when result is ready                                     | `true`             |
