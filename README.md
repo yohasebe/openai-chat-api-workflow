@@ -1,8 +1,11 @@
 # OpenAI Text-Completion Workflow for Alfred
 
-<img src='./icons/openai.png' style='height:150px;'/>
+<img src='./icons/openai.png' style='height:120px;'/>
 
 An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](https://beta.openai.com/) GPT-3 text-completion API and chat API.
+
+<img src='https://raw.githubusercontent.com/yohasebe/openai-text-completion-workflow/main/docs/OpenAI-Alfred-Workflow.png' style='width:700px;'/>
+
 
 ## Downloads
 
