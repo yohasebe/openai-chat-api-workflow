@@ -29,7 +29,7 @@
 
     <div style='margin-top:15px;'>
       <label for="model">Model: </label>
-      <input type="text" size="20" id="model" name="model" value="text-davinci-003" pattern="^[a-z]+-[a-z]+-[0-9]+$" required>
+      <input type="text" size="20" id="model" name="model" value="gpt-3.5-turbo" required>
       <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/models/models' style='text-decoration:none;'>[?]</a>
     </div>
 
@@ -93,14 +93,14 @@
 
       function execute() {
         const model_elem = document.getElementById("model")
-        const pattern = model_elem.pattern;
         const model = model_elem.value;
-        const regex_model = new RegExp(pattern);
 
-        if (!regex_model.test(model)) {
-          alert('Model name is not valud');
-          return;
-        }
+        // const regex_model = new RegExp(pattern);
+        // const pattern = model_elem.pattern;
+        // if (!regex_model.test(model)) {
+        //  alert('Model name is not valud');
+        //  return;
+        // }
 
         let mode = "text_input";
         let prompt = encodeURI(editor.value());

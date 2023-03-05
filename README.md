@@ -9,12 +9,13 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 ## Downloads
 
-**Current version**: **1.6.2**
+**Current version**: **1.6.3**
 
 [Download workflow](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
+- 1.6.3: OpenAI Textbox feature updated
 - 1.6.0: `GPT-3.5-turbo` model is set to the default
 - 1.6.0: ChatGPT API support
 - 1.6.0: HTML output option (using Pandoc) is enabled by default
@@ -33,15 +34,15 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 - Alfred 5 [Powerpack](https://www.alfredapp.com/shop/)
 - OpenAI [API key](https://openai.com/api/)
-- [Pandoc](https://pandoc.org/)
+- [Pandoc](https://pandoc.org/): See below for installation instructions
 
 ## Setting Up
 
 To start using this workflow, you must set the environment variable `apikey`, which you can get by creating an [OpeAI account](https://openai.com/api/). See also [Configuration](#configuration) section below.
 
-It is strongly **recommended** that you install the `pandoc` command. This will allow this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled (especially usefull when using this workflow to generate program code).
+You will also need to install the `pandoc` command. This will allow this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled (especially usefull when using this workflow to generate program code).
 
-Installation using [homebrew](https://brew.sh/):
+Installing Pandoc will be just a matter of few clicks once this workflow has been included in the [Alfred Gallery](https://alfred.app/). For now, install Pandoc using [homebrew](https://brew.sh/). Once homebrew is installed, run the following command
 
 ```shell
   brew install pandoc
