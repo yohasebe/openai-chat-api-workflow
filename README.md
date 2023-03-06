@@ -6,29 +6,22 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 <img src='https://raw.githubusercontent.com/yohasebe/openai-text-completion-workflow/main/docs/OpenAI-Alfred-Workflow.png' style='width:700px;'/>
 
-
 ## Downloads
 
-**Current version**: **1.6.3**
+**Current version**: **1.6.4**
 
-[Download workflow](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
+[**Download Workflow**](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
+- 1.6.4: Supress "Please Wait" message feature
 - 1.6.3: OpenAI Textbox feature updated
 - 1.6.0: `GPT-3.5-turbo` model is set to the default
 - 1.6.0: ChatGPT API support
 - 1.6.0: HTML output option (using Pandoc) is enabled by default
-- 1.5.2: Verification dialog removed; `speak` option fixed
-- 1.5.1: Easy MarkDown Editor enabled
-- 1.4.0: "OpenAI Textbox" feature added
-- 1.3.0: "Write Program Code" feature added
-- 1.3.0: `pandoc` option added
-- 1.2.0: check-for-update command added
-- 1.1.3: Include original prompt in the response
-- 1.1.1: `text-davinci-003` model added and made default 
-- 1.1.0: "Ask in Your Language" feature added
-- 1.0.0: Initial release
+- 1.6.0: check-for-update command removed (in preparation for Alfred Gallery incousion)
+
+[Complete Change Log](https://github.com/yohasebe/openai-text-completion-workflow/blob/main/CHANGELOG.md)
 
 ## Requirements
 
@@ -165,29 +158,37 @@ Extract keywords from a block of text. At a lower temperature it picks keywords 
 
 You can check how many tokens you have used so far in the current billing period on OpenAI Usage Page. Type in the keyword `openai-usage`. See also OpenAI's [Pricing](https://openai.com/api/pricing/) page.
 
-## Configuration
+## Configuration 
 
-### Settings
+### Required Settings
 
-| Variable            | Explanation                                                         | Default Value      |
-| ---                 | ---                                                                 | ---                |
-| `apikey` (required) | Your secret API key for OpenAI                                      |                    |
-| `model`             | The [model](https://beta.openai.com/docs/api-reference/models) that generates the completion | `gpt-3.5-turbo` |
-| `first_language`    | The primary language (usually your native language)                 | `English`          |
-| `second_language`   | The secondary language (usually the source language of translation) | `Japanese`         |
-| `sound`             | Play sound when result is ready                                     | `true`             |
-| `speak`             | Read aloud the result text using the system default text-to-speech voice/language | `false`|
-| `max_characters`    | Maximum number of characters that can be included in a query        | `10000`            |
-| `pandoc`            | If set `true`, the result will be output as HTML                    | `true`             |
-| `max_tokens`        | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens)        | `2048`             |
-| `frequency_penalty` | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty) | `0`                |
-| `temperature`       | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature)       | `0.3`              |
-| `top_p`             | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-top_p)             | `1.0`              |
-| `presence_penalty`  | See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-presence_penalty)  | `0`                |
+- **OpenAI API Key**: Set your secret API key for OpenAI. Sign up for OpenAI and get your API key at [https://openai.com/api/](https://openai.com/api/)
+- **Model**: OpenAI's chat/completion [model](https://beta.openai.com/docs/api-reference/models) that generates the completion (dfault: `gpt-3.5-turbo`).
 
-### Text to Speech
+### Text Completion Parameters
 
-If the `speak` option is enabled, the result text will be read out in the system standard language and voice. To change the language and speech, go to [Accessibility] - [Vision] -[Spoken Content] in the Mac Settings panel.
+- Max Tokens**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens) (default: `2048`).
+- **Temperature**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature) (default: `0.3`).
+- **Top P**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-top_p) (default: `1.0`).
+- **Frequency Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty) (default: `0.0`).
+- **Presence Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-presence_penalty) (default: `0.0`).
+
+### Optional Settings
+
+- **Your First Language**: Set your first language (default: `English`)
+- **Your Second Language**: Set your second language (default: `Japanese`). This language is used when using GPT-3 for translation.
+- **Max Characters**: Maximum number of characters that can be included in a query (default: `10000`).
+- **Timeout**: Number of seconds before timeout (default: 180).
+- **"Please Wait" Message**: If disabled, "Please Wait" message is suppressed. (default: `checked`)
+- **Sound**: If checked, a notification sound will play when the response is returned.
+- **Echo**: If enabled, the original prompt is contained in the result text.
+- **Save File Path**: If set, the results will be saved in the specified path as a markdown file
+- **Text to Speech**: If enabled, the results will be read aloud using the system default text-to-speech language and voice
+- **Output HTML Using Pandoc**: Show results in the default web browser if pandoc is installed.
+
+**Text to Speech**
+
+If the `Text to Speech` option is enabled, the result text will be read out in the system standard language and voice. To change the language and speech, go to [Accessibility] - [Vision] -[Spoken Content] in the Mac Settings panel.
 
 <img width="600" alt="spoken-content-panel" src="https://user-images.githubusercontent.com/18207/221521819-a942e6ba-0523-4526-93da-52b6167defaf.png">
 
