@@ -68,7 +68,7 @@
 
     <div style='margin-top:15px;'>
       <label for="timeout">Timeout (seconds): </label>
-      <input type="number" id="timeout" name="timeout" min="60" max="4800" step="1" value="1200" required> 
+      <input type="number" id="timeout" name="timeout" min="60" max="4800" step="1" value="180" required> 
     </div>
 
     <div style='margin-top:15px;'>
@@ -78,6 +78,7 @@
 
     <div style='margin-top:15px;'>
       <input type = "button" value="Send Prompt to Alfred" onclick = "execute();" />
+      <span style="color:gray; font-size: small;"> Click only once. It may take Alfred a few seconds to respond.</span>
     </div>
 
     <script>
