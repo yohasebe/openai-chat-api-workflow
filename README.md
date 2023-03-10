@@ -8,12 +8,13 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 ## Downloads
 
-**Current version**: **1.6.6**
+**Current version**: **1.6.7**
 
 [**Download Workflow**](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
+- 1.6.7: Fixed an error that occurred for some users
 - 1.6.6: Debug mode added that outputs error messages when problems occur
 - 1.6.5: Automatic detection of Pandoc installation
 - 1.6.4: Supress "Please Wait" message feature
