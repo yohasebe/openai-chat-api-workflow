@@ -1,5 +1,15 @@
 # Change Log
 
+- 1.6.9: GPT-4 models (e.g. `gpt-4`) supported
+- 1.6.7: Fixed an error that occurred for some users
+- 1.6.6: Debug mode added that outputs error messages when problems occur
+- 1.6.5: Automatic detection of Pandoc installation
+- 1.6.4: Supress "Please Wait" message feature
+- 1.6.3: OpenAI Textbox feature updated
+- 1.6.0: `GPT-3.5-turbo` model is set to the default
+- 1.6.0: ChatGPT API support
+- 1.6.0: HTML output option (using Pandoc) is enabled by default
+- 1.6.0: check-for-update command removed (in preparation for Alfred Gallery incousion)
 - 1.5.2: Verification dialog removed; `speak` option fixed
 - 1.5.1: Easy MarkDown Editor enabled
 - 1.4.0: "OpenAI Textbox" feature added
@@ -10,4 +20,3 @@
 - 1.1.1: `text-davinci-003` model added and made default 
 - 1.1.0: "Ask in Your Language" feature added
 - 1.0.0: Initial release
-
