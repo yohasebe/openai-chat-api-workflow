@@ -8,12 +8,13 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 ## Downloads
 
-**Current version**: **1.6.8**
+**Current version**: **1.6.9**
 
 [**Download Workflow**](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
+- 1.6.9: GPT-4 models (e.g. `gpt-4`) supported
 - 1.6.7: Fixed an error that occurred for some users
 - 1.6.6: Debug mode added that outputs error messages when problems occur
 - 1.6.5: Automatic detection of Pandoc installation
@@ -169,7 +170,7 @@ You can check how many tokens you have used so far in the current billing period
 ### Required Settings
 
 - **OpenAI API Key**: Set your secret API key for OpenAI. Sign up for OpenAI and get your API key at [https://openai.com/api/](https://openai.com/api/)
-- **Model**: OpenAI's chat/completion [model](https://beta.openai.com/docs/api-reference/models) that generates the completion (dfault: `gpt-3.5-turbo`).
+- **Model**: OpenAI's chat/completion [model](https://beta.openai.com/docs/api-reference/models) that generates the completion (default: `gpt-3.5-turbo`).
 
 ### Text Completion Parameters
 
