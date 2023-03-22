@@ -47,23 +47,23 @@ Installing Pandoc will be just a matter of few clicks once this workflow has bee
 
 ### Using Selected Text ️📋
 
-Select any text on your Mac and send it to the workflow by:
-- Universal Action (`OpenAI Query`) Hotkey
-- Custom Hotkey
+Select any text on your Mac and send it to the workflow:
+- Text selection → universal action hotkey → select `OpenAI Query`
+- Setup custom hotkey
 
 ### Using Alfred Text Box ⌨️
 
-Enter a query text directly to Alfred textbox by:
+Enter a query text directly to Alfred textbox:
 
-- Keyword (`openai`)
-- Fallback search (`OpenAI Query`)
+- Alfred textbox → keyword (`openai`) → tab → query text → enter
+- Alfred textbox → query text → select fallback search (`OpenAI Query`)
 
 ### Using Textbox in Default Web-browser 🌐
 
-Open a web interface (see the figure below) by
+Open a web interface (see the figure below):
 
-- Keyword (`openai-textbox`)
-- Custom Hotkey
+- Alfred textbox → keyword (`openai-textbox`)
+- Setup custom Hotkey
 
 <img width="700" alt="SCR-20221207-st2" src="https://user-images.githubusercontent.com/18207/206172474-e4e2f1bd-2c03-4915-8ed0-6a4310127c59.png">
 
