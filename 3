@@ -19,7 +19,7 @@
     <header id="title-block-header">
       <h1 class="title">OpenAI Text-Completion Alfred Workflow</h1>
     </header>
-    <h2 style="margin: 0px; padding-bottom: 15px;">
+    <h2 style="font-size: 24px; margin: 0px; padding-bottom: 15px;">
       <span style="display: inline-block; height: 2em; vertical-align: middle;"><img src='https://yohasebe.github.io/openai-text-completion-workflow/icon.png' style='height:100%;'/></span> <span>OpenAI Text-Completion Alfred Workflow</span>
     </h2>
     <blockquote>This page is part of <a href='https://github.com/yohasebe/openai-text-completion-workflow' style='text-decoration: none;'>OpenAI Text-Completion Alfred Workflow</a>. The submit button will only work if the <a href='https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow' style='text-decoration: none;'>latest version</a> of the workflow is properly installed.</blockquote>
@@ -36,7 +36,7 @@
         <option value="gpt-4-32k">
         <option value="text-davinci-003">
       </datalist>
-      <button onclick='model_clear();'>clear</button>
+      <button onclick='model_clear();'>Clear</button>
       <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/models/models' style='text-decoration:none;'>[?]</a>
     </div>
     <span style="color:gray; font-size: small;"> You can "clear" the text box and select from a list or enter a model name.</span>
@@ -97,7 +97,7 @@
         showIcons: ["code"],
         tabSize: 2,
         hideIcons: ["heading", "image", "table", "link"],
-        minHeight: "112px",
+        minHeight: "150px",
       });
 
       function model_clear() {
@@ -120,9 +120,7 @@
         let presence_penalty = encodeURI(document.getElementById("presence_penalty").value);
         let frequency_penalty = encodeURI(document.getElementById("frequency_penalty").value);
         if(prompt === ""){
-          alert("Textarea is empty.");
-        } else if (model === "") {
-          alert("Model name is not set.");
+          alert("Textarea is empty");
         } else {
           const url = "alfred://runtrigger/com.yohasebe.openai/openai-text-completion/?argument=" + mode + "%20" + model + "%20" + max_tokens + "%20" + temperature + "%20" + top_p +"%20" + presence_penalty + "%20" + frequency_penalty + "%20" + timeout + "%20" + echo + "%20" + prompt;
           window.location = url;
