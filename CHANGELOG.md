@@ -1,5 +1,6 @@
 # Change Log
 
+- 1.7.0: Improved UI
 - 1.6.9: GPT-4 models (e.g. `gpt-4`) supported
 - 1.6.7: Fixed an error that occurred for some users
 - 1.6.6: Debug mode added that outputs error messages when problems occur
