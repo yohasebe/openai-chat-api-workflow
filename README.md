@@ -8,7 +8,7 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 ## Downloads
 
-**Current version**: **1.6.9**
+**Current version**: **1.7.1**
 
 [**Download Workflow**](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
