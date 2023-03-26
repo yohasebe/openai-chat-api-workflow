@@ -4,7 +4,10 @@
 
 An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](https://beta.openai.com/) GPT-3.5 and GPT-4 via text-completion API and chat API.
 
-<img src='https://raw.githubusercontent.com/yohasebe/openai-text-completion-workflow/main/docs/OpenAI-Alfred-Workflow.png' style='width:700px;'/>
+<img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:700px;'/>
+<img src='./docs/img/sub-commands-1.png' style='width:700px;'/>
+<img src='./docs/img/sub-commands-2.png' style='width:700px;'/>
+<img src='./docs/img/sub-commands-3.png' style='width:700px;'/>
 
 ## Downloads
 
