@@ -93,7 +93,7 @@ After the initial text is entered, the user is prompted for additional text. The
 
 #### <span><img src='./icons/code-square.png' style='height:2em;'/></span> Write Program Code
 
-GPT-3 will generate program code and example output according to the text entered. Specify the purpose of the program, its function, the language and technology to be used, etc.
+GPT will generate program code and example output according to the text entered. Specify the purpose of the program, its function, the language and technology to be used, etc.
 
 **Example Input**
 
@@ -185,7 +185,7 @@ You can check how many tokens you have used in the current billing period on Ope
 ### Optional Settings
 
 - **Your First Language**: Set your first language (default: `English`)
-- **Your Second Language**: Set your second language (default: `Japanese`). This language is used when using GPT-3 for translation.
+- **Your Second Language**: Set your second language (default: `Japanese`). This language is used when using GPT for translation.
 - **Max Characters**: Maximum number of characters that can be included in a query (default: `10000`).
 - **Timeout**: Number of seconds before the timeout (default: `180`).
 - **"Please Wait" Message**: If disabled, the "Please Wait" message is suppressed. (default: `checked`)
