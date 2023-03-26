@@ -8,13 +8,14 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 ## Downloads
 
-**Current version**: **1.7.1**
+**Current version**: **1.7.2**
 
 [**Download Workflow**](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
-- 1.6.9: GPT-4 models (e.g. `gpt-4`) supported
+- 1.7.0: Improved UI
+- 1.6.9: GPT-4 models (e.g., `gpt-4`) supported
 - 1.6.7: Fixed an error that occurred for some users
 - 1.6.6: Debug mode added that outputs error messages when problems occur
 - 1.6.5: Automatic detection of Pandoc installation
@@ -33,11 +34,11 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 - OpenAI [API key](https://openai.com/api/)
 - [Pandoc](https://pandoc.org/): See below for installation instructions
 
-To start using this workflow, you must set the environment variable `apikey`, which you can get by creating an [OpeAI account](https://openai.com/api/). See also [Configuration](#configuration) section below.
+To start using this workflow, you must set the environment variable `apikey`, which you can get by creating an [OpeAI account](https://openai.com/api/). See also the [Configuration](#configuration) section below.
 
-You will also need to install the `pandoc` command. This will allow this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled (especially usefull when using this workflow to generate program code).
+You will also need to install the `pandoc` command. This will allow this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled (especially useful when using this workflow to generate program code).
 
-Installing Pandoc will be just a matter of few clicks once this workflow has been included in the [Alfred Gallery](https://alfred.app/). For now, install Pandoc using [homebrew](https://brew.sh/). Once homebrew is installed, run the following command
+Installing Pandoc will be just a few clicks once this workflow has been included in the [Alfred Gallery](https://alfred.app/). For now, install Pandoc using [homebrew](https://brew.sh/). Once homebrew is installed, run the following command.
 
 ```shell
   brew install pandoc
@@ -47,39 +48,40 @@ Installing Pandoc will be just a matter of few clicks once this workflow has bee
 
 ### Using Selected Text ️📋
 
-Select any text on your Mac and send it to the workflow:
-- Text selection → universal action hotkey → select `OpenAI Query`
-- Setup custom hotkey
+You can select any text on your Mac and send it to the workflow:
+
+- Method 1: select text → universal action hotkey → select `OpenAI Query`
+- Method 2: set up a custom hotkey to `Send selected text to OpenAI`
 
 ### Using Alfred Text Box ⌨️
 
-Enter a query text directly to Alfred textbox:
+You can enter a query text directly into Alfred textbox:
 
-- Alfred textbox → keyword (`openai`) → tab → query text → enter
-- Alfred textbox → query text → select fallback search (`OpenAI Query`)
+- Method 1: Alfred textbox → keyword (`openai`) → tab → input query text
+- Method 2: Alfred textbox → input query text → select fallback search (`OpenAI Query`)
 
 ### Using Textbox in Default Web-browser 🌐
 
-Open a web interface (see the figure below):
+You can open a web interface (see the figure below).
 
-- Alfred textbox → keyword (`openai-textbox`)
-- Setup custom Hotkey
+- Method 1: Alfred textbox → keyword (`openai-textbox`)
+- Method 2: set up a custom hotkey to `Open web interface`
 
 <img width="700" alt="SCR-20221207-st2" src="https://user-images.githubusercontent.com/18207/206172474-e4e2f1bd-2c03-4915-8ed0-6a4310127c59.png">
 
 ## General Query
 
-The input text is used as a query to OpenAI text-completion API. The original input text can be prepended or postfixed with instructional text to compose a complex query to be given to the API.
+The input text is used as a prompt to the OpenAI text-completion API. The original input text can be prepended or postfixed with instructional text to compose a complex query to be given to the API.
 
 #### <span><img src='./icons/patch-question.png' style='height:2em;'/></span> Direct Query
 
-Input text string is directly input as a query to OpenAI text-completion API.
+The input text is directly sent as a prompt to the OpenAI text-completion API.
 
 <img src='https://user-images.githubusercontent.com/18207/199722607-e7d0dd82-30ec-482a-b9d6-5609561fc359.gif' style='width:700px;'/>
 
 #### <span><img src='./icons/arrow-bar-down.png' style='height:2em;'/></span> Prepend Text + Query
 
-After the initial text is entered, the user is prompted for additional text. The additional text is added *before* the initial text and the resulting text is used as the query.
+After the initial text is entered, the user is prompted for additional text. The additional text is added *before* the initial text, and the resulting text is used as the query.
 
 <img src='https://user-images.githubusercontent.com/18207/200111874-d90e17a0-3b82-4edd-a3c5-e58c61e35377.gif' style='width:700px;'/>
 
@@ -87,7 +89,7 @@ After the initial text is entered, the user is prompted for additional text. The
 
 After the initial text is entered, the user is prompted for additional text. The additional text is added *after* the initial text and the resulting text is used as the query.
 
-### Program Code Genaration/Completion
+### Program Code Genaretion/Completion
 
 #### <span><img src='./icons/code-square.png' style='height:2em;'/></span> Write Program Code
 
@@ -95,7 +97,7 @@ GPT-3 will generate program code and example output according to the text entere
 
 **Example Input**
 
-> Create a command line program that takes an English sentence and returns syntactically parsed output. Provide program code in Python and an example usage.
+> Create a command line program that takes an English sentence and returns syntactically parsed output. Provide program code in Python and example usage.
 
 **Example Output**
 
@@ -103,13 +105,13 @@ GPT-3 will generate program code and example output according to the text entere
 
 ## More Specific Commands
 
-These are features mainly based on OpenAI's example usages of its text-completion API. The user-specified values to the following environmental variables are ignored when runing these commands:
+These are features mainly based on OpenAI's example usage of its text-completion API. The user-specified values to the following user settings are ignored when running these commands:
 
 - `temperature`       
 - `frequency_penalty` 
 - `presence_penalty`  
 
-### Langauage-related
+### Language-related
 
 #### <span><img src='./icons/quora.png' style='height:2em;'/></span> Ask in Your Language 
 
@@ -119,7 +121,7 @@ You can ask questions in the language set to the variable `first_language`.
 
 #### <span><img src='./icons/translate.png' style='height:2em;'/></span> Translate L1 to L2 
 
-Translate text in the language specified in the variable `first_language` to the language specified in the variable `second_language`.
+Translate text in the language specified in the variable `first_language` to the language specified in the `second_language`.
 
 #### <span><img src='./icons/translate.png' style='height:2em;'/></span> Translate L2 to L1 
 
@@ -127,7 +129,7 @@ Translate text in the language specified in the variable `second_language` to th
 
 #### <span><img src='./icons/pencil.png' style='height:2em;'/></span> Grammar Correction
 
-Corrects sentences into standard English. See OpenAI's [description](https://beta.openai.com/examples/default-grammar).
+Correct sentences into standard English. See OpenAI's [description](https://beta.openai.com/examples/default-grammar).
 
 ### Idea-related
 
@@ -155,15 +157,15 @@ Summarize text by adding a 'tl;dr:' to the end of a text passage. See OpenAI's [
 
 #### <span><img src='./icons/emoji-smile.png' style='height:2em;'/></span> Summarize for a 2nd Grader 
 
-Translates difficult text into simpler concepts. See OpenAI's [description](https://beta.openai.com/examples/default-summarize) for this example.
+Translates complex text into more straightforward concepts. See OpenAI's [description](https://beta.openai.com/examples/default-summarize) for this example.
 
 #### <span><img src='./icons/key.png' style='height:2em;'/></span> Keywords
 
-Extract keywords from a block of text. At a lower temperature it picks keywords from the text. See OpenAI's [description](https://beta.openai.com/examples/default-keywords) for this example.
+Extract keywords from a block of text. See OpenAI's [description](https://beta.openai.com/examples/default-keywords) for this example.
 
 ## Check API Usage
 
-You can check how many tokens you have used so far in the current billing period on OpenAI Usage Page. Type in the keyword `openai-usage`. See also OpenAI's [Pricing](https://openai.com/api/pricing/) page.
+You can check how many tokens you have used in the current billing period on OpenAI Usage Page--type in the keyword `openai-usage`. See also OpenAI's [Pricing](https://openai.com/api/pricing/) page.
 
 ## Configuration 
 
@@ -174,7 +176,7 @@ You can check how many tokens you have used so far in the current billing period
 
 ### Text Completion Parameters
 
-- Max Tokens**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens) (default: `2048`).
+- **Max Tokens**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens) (default: `2048`).
 - **Temperature**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature) (default: `0.3`).
 - **Top P**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-top_p) (default: `1.0`).
 - **Frequency Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty) (default: `0.0`).
@@ -185,17 +187,17 @@ You can check how many tokens you have used so far in the current billing period
 - **Your First Language**: Set your first language (default: `English`)
 - **Your Second Language**: Set your second language (default: `Japanese`). This language is used when using GPT-3 for translation.
 - **Max Characters**: Maximum number of characters that can be included in a query (default: `10000`).
-- **Timeout**: Number of seconds before timeout (default: 180).
-- **"Please Wait" Message**: If disabled, "Please Wait" message is suppressed. (default: `checked`)
+- **Timeout**: Number of seconds before the timeout (default: `180`).
+- **"Please Wait" Message**: If disabled, the "Please Wait" message is suppressed. (default: `checked`)
 - **Sound**: If checked, a notification sound will play when the response is returned.
 - **Echo**: If enabled, the original prompt is contained in the result text.
-- **Save File Path**: If set, the results will be saved in the specified path as a markdown file
-- **Text to Speech**: If enabled, the results will be read aloud using the system default text-to-speech language and voice
+- **Save File Path**: If set, the results will be saved in the specified path as a markdown file.
+- **Text to Speech**: If enabled, the results will be read aloud using the system's default text-to-speech language and voice
 - **Output HTML Using Pandoc**: Show results in the default web browser if pandoc is installed.
 
 **Text to Speech**
 
-If the `Text to Speech` option is enabled, the result text will be read out in the system standard language and voice. To change the language and speech, go to [Accessibility] - [Vision] -[Spoken Content] in the Mac Settings panel.
+If the `Text to Speech` option is enabled, the result text will be read aloud in the system's standard language and voice. To change the language and speech, go to [Accessibility] - [Vision] -[Spoken Content] in the Mac Settings panel.
 
 <img width="600" alt="spoken-content-panel" src="https://user-images.githubusercontent.com/18207/221521819-a942e6ba-0523-4526-93da-52b6167defaf.png">
 
