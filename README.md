@@ -67,7 +67,7 @@ You can open a web interface (see the figure below).
 - Method 1: Alfred textbox → keyword (`openai-textbox`)
 - Method 2: set up a custom hotkey to `Open web interface`
 
-<img width="700" alt="SCR-20221207-st2" src="https://user-images.githubusercontent.com/18207/206172474-e4e2f1bd-2c03-4915-8ed0-6a4310127c59.png">
+    <kbd><img width="700" alt="SCR-20221207-st2" src="./docs/img/web-interface.png"></kbd>
 
 ## General Query
 
@@ -77,13 +77,13 @@ The input text is used as a prompt to the OpenAI text-completion API. The origin
 
 The input text is directly sent as a prompt to the OpenAI text-completion API.
 
-<img src='https://user-images.githubusercontent.com/18207/199722607-e7d0dd82-30ec-482a-b9d6-5609561fc359.gif' style='width:700px;'/>
+<img src='./docs/img/direct-query.gif' style='width:700px;'/>
 
 #### <span><img src='./icons/arrow-bar-down.png' style='height:2em;'/></span> Prepend Text + Query
 
 After the initial text is entered, the user is prompted for additional text. The additional text is added *before* the initial text, and the resulting text is used as the query.
 
-<img src='https://user-images.githubusercontent.com/18207/200111874-d90e17a0-3b82-4edd-a3c5-e58c61e35377.gif' style='width:700px;'/>
+<img src='./docs/img/prepend.gif' style='width:700px;'/>
 
 #### <span><img src='./icons/arrow-bar-up.png' style='height:2em;'/></span> Append Text + Query
 
@@ -101,7 +101,7 @@ GPT-3 will generate program code and example output according to the text entere
 
 **Example Output**
 
-<img width="700" alt="SCR-20221205-oby" src="https://user-images.githubusercontent.com/18207/205590260-00f6a698-f0a7-42e8-8ab8-99653a46959f.png">
+<kbd><img width="700" src="./docs/img/code.png"></kbd>
 
 ## More Specific Commands
 
