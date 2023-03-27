@@ -56,7 +56,7 @@ You can select any text on your Mac and send it to the workflow:
 - Method 1: select text → universal action hotkey → select `OpenAI Query`
 - Method 2: set up a custom hotkey to `Send selected text to OpenAI`
 
-### ⌨️ Using Alfred Text Box
+### ⌨️ Using Alfred Textbox
 
 You can enter a query text directly into Alfred textbox:
 
@@ -187,7 +187,7 @@ You can check how many tokens you have used in the current billing period on Ope
 
 ### Optional Settings
 
-- **Your First Language**: Set your first language (default: `English`)
+- **Your First Language**: Set your first language (default: `English`). This language is used when using GPT for translation.
 - **Your Second Language**: Set your second language (default: `Japanese`). This language is used when using GPT for translation.
 - **Max Characters**: Maximum number of characters that can be included in a query (default: `10000`).
 - **Timeout**: Number of seconds before the timeout (default: `180`).
@@ -196,7 +196,7 @@ You can check how many tokens you have used in the current billing period on Ope
 - **Echo**: If enabled, the original prompt is contained in the result text.
 - **Save File Path**: If set, the results will be saved in the specified path as a markdown file.
 - **Text to Speech**: If enabled, the results will be read aloud using the system's default text-to-speech language and voice
-- **Output HTML Using Pandoc**: Show results in the default web browser if pandoc is installed.
+- **Output HTML Using Pandoc**: Show results in the default web browser if pandoc is installed. If unchecked (or Pandoc is not installed), Alfred's "Large Type" feature is used to display the result.
 
 **Text to Speech**
 
