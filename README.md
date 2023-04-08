@@ -27,7 +27,7 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 - 1.6.0: `GPT-3.5-turbo` model is set to the default
 - 1.6.0: ChatGPT API support
 - 1.6.0: HTML output option (using Pandoc) is enabled by default
-- 1.6.0: check-for-update command removed (in preparation for Alfred Gallery incousion)
+- 1.6.0: check-for-update command removed (in preparation for Alfred Gallery inclusion)
 
 [Complete Change Log](https://github.com/yohasebe/openai-text-completion-workflow/blob/main/CHANGELOG.md)
 
@@ -37,7 +37,7 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 - OpenAI [API key](https://openai.com/api/)
 - [Pandoc](https://pandoc.org/): See below for installation instructions
 
-To start using this workflow, you must set the environment variable `apikey`, which you can get by creating an [OpeAI account](https://openai.com/api/). See also the [Configuration](#configuration) section below.
+To start using this workflow, you must set the environment variable `apikey`, which you can get by creating an [OpenAI account](https://openai.com/api/). See also the [Configuration](#configuration) section below.
 
 You will also need to install the `pandoc` command. This will allow this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled (especially useful when using this workflow to generate program code).
 
@@ -92,7 +92,7 @@ After the initial text is entered, the user is prompted for additional text. The
 
 After the initial text is entered, the user is prompted for additional text. The additional text is added *after* the initial text and the resulting text is used as the query.
 
-### Program Code Genaretion/Completion
+### Program Code Generation/Completion
 
 #### <span><img src='./icons/code-square.png' style='height:2em;'/></span> Write Program Code
 
