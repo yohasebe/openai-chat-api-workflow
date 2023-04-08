@@ -34,10 +34,10 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 ## Dependencies
 
 - Alfred 5 [Powerpack](https://www.alfredapp.com/shop/)
-- OpenAI [API key](https://openai.com/api/)
+- OpenAI [API key](https://platform.openai.com/account/api-keys)
 - [Pandoc](https://pandoc.org/): See below for installation instructions
 
-To start using this workflow, you must set the environment variable `apikey`, which you can get by creating an [OpenAI account](https://openai.com/api/). See also the [Configuration](#configuration) section below.
+To start using this workflow, you must set the environment variable `apikey`, which you can get by creating a new [OpenAI account](https://platform.openai.com/account/api-keys). See also the [Configuration](#configuration) section below.
 
 You will also need to install the `pandoc` command. This will allow this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled (especially useful when using this workflow to generate program code).
 
@@ -110,9 +110,9 @@ GPT will generate program code and example output according to the text entered.
 
 These are features mainly based on OpenAI's example usage of its text-completion API. The user-specified values to the following user settings are ignored when running these commands:
 
-- `temperature`       
-- `frequency_penalty` 
-- `presence_penalty`  
+- `temperature`
+- `frequency_penalty`
+- `presence_penalty`
 
 ### Language-related
 
@@ -168,13 +168,13 @@ Extract keywords from a block of text. See OpenAI's [description](https://beta.o
 
 ## Check API Usage
 
-You can check how many tokens you have used in the current billing period on OpenAI Usage Page--type in the keyword `openai-usage`. See also OpenAI's [Pricing](https://openai.com/api/pricing/) page.
+You can check how many tokens you have used in the current billing period on OpenAI Usage Page--type in the keyword `openai-usage`. See also OpenAI's [Billing](https://platform.openai.com/account/billing/overview) page.
 
 ## Configuration 
 
 ### Required Settings
 
-- **OpenAI API Key**: Set your secret API key for OpenAI. Sign up for OpenAI and get your API key at [https://openai.com/api/](https://openai.com/api/)
+- **OpenAI API Key**: Set your secret API key for OpenAI. Sign up for OpenAI and get your API key at [https://platform.openai.com/account/api-keys/](https://platform.openai.com/account/api-keys)
 - **Model**: OpenAI's chat/completion [model](https://beta.openai.com/docs/api-reference/models) that generates the completion (default: `gpt-3.5-turbo`).
 
 ### Text Completion Parameters
