@@ -27,17 +27,17 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 - 1.6.0: `GPT-3.5-turbo` model is set to the default
 - 1.6.0: ChatGPT API support
 - 1.6.0: HTML output option (using Pandoc) is enabled by default
-- 1.6.0: check-for-update command removed (in preparation for Alfred Gallery incousion)
+- 1.6.0: check-for-update command removed (in preparation for Alfred Gallery inclusion)
 
 [Complete Change Log](https://github.com/yohasebe/openai-text-completion-workflow/blob/main/CHANGELOG.md)
 
 ## Dependencies
 
 - Alfred 5 [Powerpack](https://www.alfredapp.com/shop/)
-- OpenAI [API key](https://openai.com/api/)
+- OpenAI [API key](https://platform.openai.com/account/api-keys)
 - [Pandoc](https://pandoc.org/): See below for installation instructions
 
-To start using this workflow, you must set the environment variable `apikey`, which you can get by creating an [OpeAI account](https://openai.com/api/). See also the [Configuration](#configuration) section below.
+To start using this workflow, you must set the environment variable `apikey`, which you can get by creating a new [OpenAI account](https://platform.openai.com/account/api-keys). See also the [Configuration](#configuration) section below.
 
 You will also need to install the `pandoc` command. This will allow this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled (especially useful when using this workflow to generate program code).
 
@@ -92,7 +92,7 @@ After the initial text is entered, the user is prompted for additional text. The
 
 After the initial text is entered, the user is prompted for additional text. The additional text is added *after* the initial text and the resulting text is used as the query.
 
-### Program Code Genaretion/Completion
+### Program Code Generation/Completion
 
 #### <span><img src='./icons/code-square.png' style='height:2em;'/></span> Write Program Code
 
@@ -110,9 +110,9 @@ GPT will generate program code and example output according to the text entered.
 
 These are features mainly based on OpenAI's example usage of its text-completion API. The user-specified values to the following user settings are ignored when running these commands:
 
-- `temperature`       
-- `frequency_penalty` 
-- `presence_penalty`  
+- `temperature`
+- `frequency_penalty`
+- `presence_penalty`
 
 ### Language-related
 
@@ -168,13 +168,13 @@ Extract keywords from a block of text. See OpenAI's [description](https://beta.o
 
 ## Check API Usage
 
-You can check how many tokens you have used in the current billing period on OpenAI Usage Page--type in the keyword `openai-usage`. See also OpenAI's [Pricing](https://openai.com/api/pricing/) page.
+You can check how many tokens you have used in the current billing period on OpenAI Usage Page--type in the keyword `openai-usage`. See also OpenAI's [Billing](https://platform.openai.com/account/billing/overview) page.
 
 ## Configuration 
 
 ### Required Settings
 
-- **OpenAI API Key**: Set your secret API key for OpenAI. Sign up for OpenAI and get your API key at [https://openai.com/api/](https://openai.com/api/)
+- **OpenAI API Key**: Set your secret API key for OpenAI. Sign up for OpenAI and get your API key at [https://platform.openai.com/account/api-keys/](https://platform.openai.com/account/api-keys)
 - **Model**: OpenAI's chat/completion [model](https://beta.openai.com/docs/api-reference/models) that generates the completion (default: `gpt-3.5-turbo`).
 
 ### Text Completion Parameters
