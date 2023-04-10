@@ -198,7 +198,7 @@ You can check how many tokens you have used in the current billing period on Ope
 - **Text to Speech**: If enabled, the results will be read aloud using the system's default text-to-speech language and voice
 - **Output HTML Using Pandoc**: Show results in the default web browser if pandoc is installed. If unchecked (or Pandoc is not installed), Alfred's "Large Type" feature is used to display the result.
 
-**Text to Speech**
+#### Text to Speech
 
 If the `Text to Speech` option is enabled, the result text will be read aloud in the system's standard language and voice. To change the language and speech, go to [Accessibility] - [Vision] -[Spoken Content] in the Mac Settings panel.
 
