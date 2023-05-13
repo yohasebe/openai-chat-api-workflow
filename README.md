@@ -17,6 +17,7 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 **Change Log**
 
+- 1.8.0: Custom CSS feature added
 - 1.7.0: Improved UI
 - 1.6.9: GPT-4 models (e.g., `gpt-4`) supported
 - 1.6.7: Fixed an error that occurred for some users
@@ -197,12 +198,17 @@ You can check how many tokens you have used in the current billing period on Ope
 - **Save File Path**: If set, the results will be saved in the specified path as a markdown file.
 - **Text to Speech**: If enabled, the results will be read aloud using the system's default text-to-speech language and voice
 - **Output HTML Using Pandoc**: Show results in the default web browser if pandoc is installed. If unchecked (or Pandoc is not installed), Alfred's "Large Type" feature is used to display the result.
+- **Custom CSS**: You can specify CSS for the query results HTML.  
 
 #### Text to Speech
 
 If the `Text to Speech` option is enabled, the result text will be read aloud in the system's standard language and voice. To change the language and speech, go to [Accessibility] - [Vision] -[Spoken Content] in the Mac Settings panel.
 
 <img width="600" alt="spoken-content-panel" src="https://user-images.githubusercontent.com/18207/221521819-a942e6ba-0523-4526-93da-52b6167defaf.png">
+
+#### Custom CSS
+
+You can define the CSS for the HTML that will be displayed as a result of the query. For example, you can freely change the maximum text width, font size and type, background color, etc.
 
 ## Author
 
