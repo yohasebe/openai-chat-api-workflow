@@ -210,6 +210,8 @@ If the `Text to Speech` option is enabled, the result text will be read aloud in
 
 You can define the CSS for the HTML that will be displayed as a result of the query. For example, you can freely change the maximum text width, font size and type, background color, etc.
 
+<img width="396" alt="2023-05-13_20-53-34" src="https://github.com/yohasebe/openai-text-completion-workflow/assets/18207/cddedd73-66b3-443b-b1fe-170498717f97">
+
 ## Author
 
 Yoichiro Hasebe (<yohasebe@gmail.com>)
