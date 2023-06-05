@@ -11,12 +11,13 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 ## Downloads
 
-**Current version**: **1.8.0**
+**Current version**: **1.8.1**
 
 [**Download Workflow**](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
+- 1.8.1: Added option to change base URL of the OpenAI API
 - 1.8.0: Custom CSS feature added
 - 1.7.0: Improved UI
 - 1.6.9: GPT-4 models (e.g., `gpt-4`) supported
@@ -177,6 +178,7 @@ You can check how many tokens you have used in the current billing period on Ope
 
 - **OpenAI API Key**: Set your secret API key for OpenAI. Sign up for OpenAI and get your API key at [https://platform.openai.com/account/api-keys/](https://platform.openai.com/account/api-keys)
 - **Model**: OpenAI's chat/completion [model](https://beta.openai.com/docs/api-reference/models) that generates the completion (default: `gpt-3.5-turbo`).
+- ** Base URL**: The base URL of the OpenAI chat/completion API (default: `https://api.openai.com/v1`)
 
 ### Text Completion Parameters
 
