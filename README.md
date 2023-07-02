@@ -17,7 +17,7 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 **Change Log**
 
-- 1.8.2: New models (gpt-3.5-turbo-0613, gpt-3.5-turbo-16k-0613, gpt-4-0613 [requires appliation]) supported
+- 1.8.2: New models (`gpt-3.5-turbo-0613`, `gpt-3.5-turbo-16k-0613`, `gpt-4-0613` [requires appliation]) supported
 - 1.8.1: Added option to change base URL of the OpenAI API
 - 1.8.0: Custom CSS feature added
 - 1.7.0: Improved UI
