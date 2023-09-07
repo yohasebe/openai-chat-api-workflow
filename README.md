@@ -7,7 +7,6 @@
 <img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:700px;'/>
 <img src='./docs/img/sub-commands-1.png' style='width:700px;'/>
 <img src='./docs/img/sub-commands-2.png' style='width:700px;'/>
-<img src='./docs/img/sub-commands-3.png' style='width:700px;'/>
 
 ## Downloads
 
@@ -74,7 +73,7 @@ You can open a web interface (see the figure below).
 - Method 1: Alfred textbox → keyword (`openai-textbox`)
 - Method 2: set up a custom hotkey to `Open web interface`
 
-    <kbd><img width="700" alt="SCR-20221207-st2" src="./docs/img/web-interface.png"></kbd>
+<img width="700" alt="SCR-20221207-st2" src="./docs/img/web-interface.png">
 
 ## General Query
 
@@ -99,6 +98,8 @@ After the initial text is entered, the user is prompted for additional text. The
 #### <span><img src='./icons/picture.png' style='height:2em;'/></span> Generate Image
 
 The DALL-E API is used to generate images according to the prompts entered. In general, the more detailed the prompt, the closer the content and quality of the output image will be to what is desired. 
+
+<kbd><img width="700" src="./docs/img/image-examples.png"></kbd>
 
 #### <span><img src='./icons/code-square.png' style='height:2em;'/></span> Write Program Code
 
