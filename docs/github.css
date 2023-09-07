@@ -175,7 +175,9 @@ table {
       margin-bottom: 0; }
 
 img {
-  max-width: 100%; }
+  max-width: 100%;
+  margin-right: 15px;
+  margin-bottom: 15px; }
 
 span.frame {
   display: block;

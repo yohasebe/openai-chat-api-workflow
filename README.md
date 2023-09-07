@@ -2,7 +2,7 @@
 
 <img src='./icons/openai.png' style='height:120px;'/>
 
-An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](https://beta.openai.com/) GPT-3.5 and GPT-4 via text-completion API and chat API.
+[Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) GPT-3.5 and GPT-4 with Text Completion/Chat API. It also allows image generation using the DALL-E API.
 
 <img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:700px;'/>
 <img src='./docs/img/sub-commands-1.png' style='width:700px;'/>
@@ -11,13 +11,14 @@ An [Alfred workflow](https://www.alfredapp.com/workflows/) to help use [OpenAI](
 
 ## Downloads
 
-**Current version**: **1.8.2**
+**Current version**: **1.9.0**
 
 [**Download Workflow**](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
-- 1.8.2: New models (`gpt-3.5-turbo-0613`, `gpt-3.5-turbo-16k-0613`, `gpt-4-0613` [requires appliation]) supported
+- 1.9.0: Image generation using DALL·E API supported
+- 1.8.2: New models (`gpt-3.5-turbo-0613`, `gpt-3.5-turbo-16k-0613`, `gpt-4-0613`) supported
 - 1.8.1: Added option to change base URL of the OpenAI API
 - 1.8.0: Custom CSS feature added
 - 1.7.0: Improved UI
@@ -66,7 +67,7 @@ You can enter a query text directly into Alfred textbox:
 - Method 1: Alfred textbox → keyword (`openai`) → tab → input query text
 - Method 2: Alfred textbox → input query text → select fallback search (`OpenAI Query`)
 
-### 🌐 Using Textbox in Default Web-browser
+### 🌐 Using Text Box in Default Web-browser
 
 You can open a web interface (see the figure below).
 
@@ -95,7 +96,9 @@ After the initial text is entered, the user is prompted for additional text. The
 
 After the initial text is entered, the user is prompted for additional text. The additional text is added *after* the initial text and the resulting text is used as the query.
 
-### Program Code Generation/Completion
+#### <span><img src='./icons/picture.png' style='height:2em;'/></span> Generate Image
+
+The DALL-E API is used to generate images according to the prompts entered. In general, the more detailed the prompt, the closer the content and quality of the output image will be to what is desired. 
 
 #### <span><img src='./icons/code-square.png' style='height:2em;'/></span> Write Program Code
 
@@ -177,31 +180,36 @@ You can check how many tokens you have used in the current billing period on Ope
 
 ### Required Settings
 
-- **OpenAI API Key**: Set your secret API key for OpenAI. Sign up for OpenAI and get your API key at [https://platform.openai.com/account/api-keys/](https://platform.openai.com/account/api-keys)
-- **Model**: OpenAI's chat/completion [model](https://beta.openai.com/docs/api-reference/models) that generates the completion (default: `gpt-3.5-turbo`).
-- ** Base URL**: The base URL of the OpenAI chat/completion API (default: `https://api.openai.com/v1`)
+- **OpenAI API Key**: Set your secret API key for OpenAI. Sign up for OpenAI and get your API key at [https://platform.openai.com/account/api-keys/](https://platform.openai.com/account/api-keys).
+- **Model**: OpenAI's chat/completion [model](https://beta.openai.com/docs/api-reference/models) that generates the completion. (default: `gpt-3.5-turbo`)
+- **Base URL**: The base URL of the OpenAI chat/completion API. (default: `https://api.openai.com/v1`)
 
-### Text Completion Parameters
+### Text Query Parameters
 
-- **Max Tokens**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens) (default: `2048`).
-- **Temperature**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature) (default: `0.3`).
-- **Top P**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-top_p) (default: `1.0`).
-- **Frequency Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty) (default: `0.0`).
-- **Presence Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-presence_penalty) (default: `0.0`).
+- **Max Tokens**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens). (default: `2048`)
+- **Temperature**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature). (default: `0.3`)
+- **Top P**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-top_p). (default: `1.0`)
+- **Frequency Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty). (default: `0.0`)
+- **Presence Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-presence_penalty). (default: `0.0`)
+
+### Image Generation Parameters
+
+- **Number of Images**: Set the number of images to generate in image generation mode from `1` to `10`. (default: `1`)
+- **Image Size**: Set the size of images to generate from `256x256`, `512x512`, `1024x1024`. (default: ` 512x512`)
 
 ### Optional Settings
 
-- **Your First Language**: Set your first language (default: `English`). This language is used when using GPT for translation.
-- **Your Second Language**: Set your second language (default: `Japanese`). This language is used when using GPT for translation.
+- **Your First Language**: Set your first language. This language is used when using GPT for translation. (default: `English`)
+- **Your Second Language**: Set your second language. This language is used when using GPT for translation.(default: `Japanese`)
 - **Max Characters**: Maximum number of characters that can be included in a query (default: `10000`).
 - **Timeout**: Number of seconds before the timeout (default: `180`).
-- **"Please Wait" Message**: If disabled, the "Please Wait" message is suppressed. (default: `checked`)
-- **Sound**: If checked, a notification sound will play when the response is returned.
-- **Echo**: If enabled, the original prompt is contained in the result text.
-- **Save File Path**: If set, the results will be saved in the specified path as a markdown file.
-- **Text to Speech**: If enabled, the results will be read aloud using the system's default text-to-speech language and voice
-- **Output HTML Using Pandoc**: Show results in the default web browser if pandoc is installed. If unchecked (or Pandoc is not installed), Alfred's "Large Type" feature is used to display the result.
-- **Custom CSS**: You can specify CSS for the query results HTML.  
+- **"Please Wait" Message**: If disabled, the "Please Wait" message is suppressed. (default: `enabled`)
+- **Sound**: If checked, a notification sound will play when the response is returned. (default: `disabled`)
+- **Echo**: If enabled, the original prompt is contained in the result text. (default: `enabled`)
+- **Save File Path**: If set, the results will be saved in the specified path as a markdown file. (default: `not set`)
+- **Text to Speech**: If enabled, the results will be read aloud using the system's default text-to-speech language and voice. (default: `disabled`)
+- **Output HTML Using Pandoc**: Show results in the default web browser if pandoc is installed. If unchecked (or Pandoc is not installed), Alfred's "Large Type" feature is used to display the result. (default: `enabled`)
+- **Custom CSS**: You can specify CSS for the query results HTML. (default: `not set`)
 
 #### Text to Speech
 

@@ -13,6 +13,7 @@
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
     <![endif]-->
+
     <link rel='icon' href='https://yohasebe.github.io/openai-text-completion-workflow/icon.png' />
   </head>
   <body>
@@ -22,72 +23,95 @@
     <h2 style="margin: 0px; padding-bottom: 15px;">
       <span style="display: inline-block; height: 2em; vertical-align: middle;"><img src='https://yohasebe.github.io/openai-text-completion-workflow/icon.png' style='height:100%;'/></span> <span>OpenAI Text-Completion Alfred Workflow</span>
     </h2>
-    <blockquote>This page is part of <a href='https://github.com/yohasebe/openai-text-completion-workflow' style='text-decoration: none;'>OpenAI Text-Completion Alfred Workflow</a>. The submit button will only work if the <a href='https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow' style='text-decoration: none;'>latest version</a> of the workflow is properly installed.</blockquote>
+    <blockquote>This page is part of <a href='https://github.com/yohasebe/openai-text-completion-workflow' style='text-decoration: none;'>OpenAI Text-Completion Alfred Workflow</a>. The submit button will only work properly if the <a href='https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow' style='text-decoration: none;'><b>latest version</b></a> of the workflow is properly installed.</blockquote>
     <div style='margin-top:30px;'>
-      <textarea id="prompt" name="prompt" placeholder="Enter your prompt here"></textarea>
+      <textarea id="prompt" name="prompt" autocomplete="off" placeholder="Enter your prompt here"></textarea>
     </div>
 
-    <div style='margin-top:15px;'>
-      <label for="model">Model: </label>
-      <input type="text" id="model" name="model" value="gpt-3.5-turbo" list="models" autocomplete="on" required>
-      <datalist id="models">
-        <option value="gpt-3.5-turbo">
-        <option value="gpt-3.5-turbo-0613">
-        <option value="gpt-3.5-turbo-16k-0613">
-        <option value="gpt-4">
-        <option value="gpt-4-0613">
-      </datalist>
-      <button onclick='model_clear();'>clear</button>
-      <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/models/models' style='text-decoration:none;'>[?]</a>
-    </div>
-    <span style="color:gray; font-size: small;"> You can "clear" the text box and select from a list or enter a model name.</span>
-
-    <div id="control" style='margin-top:15px;'>
+    <div style="border-bottom: solid 1px #ccc; padding-bottom: 15px;">
       <div>
-        <input type="range" id="temperature" name="temperature" min="0.0" max="1.0" value="0.3" step="0.1" oninput="this.nextElementSibling.nextElementSibling.value = this.value">
-        <label for="temperature">Temperature: </label>
-        <output>0.3</output>
-        <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature' style='text-decoration:none;'>[?]</a>
+        <label for="text" id="label_for_text" style="color: #3273f6;"><b>Text Query Mode</b></label>
+        <input type="checkbox" id="text" name="text" checked>
       </div>
-      <div>
-        <input type="range" id="top_p" name="top_p" min="0.0" max="1.0" value="1.0" step="0.1" oninput="this.nextElementSibling.nextElementSibling.value = this.value">
-        <label for="top_p">Top P: </label>
-        <output>1.0</output>
-        <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-top_p' style='text-decoration:none;'>[?]</a>
+
+      <div style='margin-top:15px;'>
+        <label for="model">Model: </label>
+        <input type="text" id="model" name="model" value="gpt-3.5-turbo" list="models" autocomplete="on" required>
+        <datalist id="models">
+          <option value="gpt-3.5-turbo">
+          <option value="gpt-3.5-turbo-0613">
+          <option value="gpt-3.5-turbo-16k-0613">
+          <option value="gpt-4">
+          <option value="gpt-4-0613">
+        </datalist>
+        <button onclick='model_clear();' id='clear_button'>clear</button>
+        <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/models/models' style='text-decoration:none;'>[?]</a>
+        <span style='display: inline-block; width: 1em;'></span>
+        <label for="temperature">Max Tokens: </label>
+        <input type="number" id="max_tokens" name="max_tokens" min="128" max="4096" step="1" value="2048" required> 
+        <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens' style='text-decoration:none;'>[?]</a>
       </div>
-      <div>
-        <input type="range" id="presence_penalty" name="presence_penalty" min="-2.0" max="2.0" value="0.0" step="0.1" oninput="this.nextElementSibling.nextElementSibling.value = this.value">
-        <label for="presence_penalty">Presence Penalty: </label>
-        <output>0.0</output>
-        <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-presence_penalty' style='text-decoration:none;'>[?]</a>
-      </div>
-      <div>
-        <input type="range" id="frequency_penalty" name="frequency_penalty" min="-2.0" max="2.0" value="0.0" step="0.1" oninput="this.nextElementSibling.nextElementSibling.value = this.value">
-        <label for="frequency_penalty">Frequency Penalty: </label>
-        <output>0.0</output>
-        <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty' style='text-decoration:none;'>[?]</a>
+      <span style="color:gray; font-size: small;"> You can "clear" the text box and select from a list or enter a model name.</span>
+
+      <div id="control" style='margin-top:15px;'>
+        <div>
+          <input type="range" id="temperature" name="temperature" min="0.0" max="1.0" value="0.3" step="0.1" oninput="this.nextElementSibling.nextElementSibling.value = this.value">
+          <label for="temperature">Temperature: </label>
+          <output>0.3</output>
+          <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature' style='text-decoration:none;'>[?]</a>
+          <span style='display: inline-block; width: 1em;'></span>
+          <input type="range" id="top_p" name="top_p" min="0.0" max="1.0" value="1.0" step="0.1" oninput="this.nextElementSibling.nextElementSibling.value = this.value">
+          <label for="top_p">Top P: </label>
+          <output>1.0</output>
+          <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-top_p' style='text-decoration:none;'>[?]</a>
+        </div>
+        <div>
+          <input type="range" id="presence_penalty" name="presence_penalty" min="-2.0" max="2.0" value="0.0" step="0.1" oninput="this.nextElementSibling.nextElementSibling.value = this.value">
+          <label for="presence_penalty">Presence Penalty: </label>
+          <output>0.0</output>
+          <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-presence_penalty' style='text-decoration:none;'>[?]</a>
+          <span style='display: inline-block; width: 1em;'></span>
+          <input type="range" id="frequency_penalty" name="frequency_penalty" min="-2.0" max="2.0" value="0.0" step="0.1" oninput="this.nextElementSibling.nextElementSibling.value = this.value">
+          <label for="frequency_penalty">Frequency Penalty: </label>
+          <output>0.0</output>
+          <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty' style='text-decoration:none;'>[?]</a>
+        </div>
       </div>
     </div>
 
-    <div style='margin-top:15px;'>
-      <label for="temperature">Max Tokens: </label>
-      <input type="number" id="max_tokens" name="max_tokens" min="128" max="4096" step="1" value="2048" required> 
-      <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens' style='text-decoration:none;'>[?]</a>
+    <div style="border-bottom: solid 1px #ccc; padding-bottom: 15px;">
+      <div style='margin-top:15px;'>
+        <label for="image" id="label_for_image" style="color: #999;"><b>Image Generation Mode</b></label>
+        <input type="checkbox" id="image" name="image" >
+      </div>
+
+      <div style='margin-top:15px;'>
+        <label for="num_images">Num Images: </label>
+        <input type="number" id="num_images" name="num_images" min="1" max="10" step="1" value="1" required> 
+        <span style='display: inline-block; width: 1em;'></span>
+        <label for="image_size">Image Size: </label>
+        <select id="image_size" name="image_size">
+          <option value="256">256x256</option>
+          <option value="512" selected>512x512</option>
+          <option value="1024">1024x1024</option>
+        </select>
+      </div>
     </div>
 
-    <div style='margin-top:15px;'>
-      <label for="timeout">Timeout (seconds): </label>
-      <input type="number" id="timeout" name="timeout" min="60" max="4800" step="1" value="180" required> 
+    <div style="border-bottom: solid 1px #ccc; padding-bottom: 15px;">
+      <div style='margin-top:15px;'>
+        <label for="timeout">Timeout (seconds): </label>
+        <input type="number" id="timeout" name="timeout" min="60" max="4800" step="1" value="180" required> 
+        <span style='display: inline-block; width: 1em;'></span>
+        <label for="echo">Echo Back Prompt</label>
+        <input type="checkbox" id="echo" name="echo" checked >
+      </div>
     </div>
 
-    <div style='margin-top:15px;'>
-      <label for="echo">Echo back the prompt</label>
-      <input type="checkbox" id="echo" name="echo" >
+    <div style='margin-top:20px;'>
+      <button onclick = "execute();" id="execute_button"><span style="color: #3273f6;">▶</span> Send Prompt to Alfred</button>
     </div>
 
-    <div style='margin-top:15px;'>
-      <input type = "button" value="▷ Send Prompt to Alfred" onclick = "execute();" />
-    </div>
     <span style="color:gray; font-size: small;"> Click only once. It may take Alfred a few seconds to respond.</span>
 
     <script>
@@ -101,6 +125,54 @@
         minHeight: "112px",
       });
 
+      function setToImageMode(){
+        document.getElementById("label_for_image").style.color = "#3273f6";
+        document.getElementById("label_for_text").style.color = "#999";
+        document.getElementById("model").disabled = true;
+        document.getElementById("temperature").disabled = true;
+        document.getElementById("top_p").disabled = true;
+        document.getElementById("presence_penalty").disabled = true;
+        document.getElementById("frequency_penalty").disabled = true;
+        document.getElementById("clear_button").disabled = true; 
+        document.getElementById("max_tokens").disabled = true;
+        document.getElementById("image_size").disabled = false;
+        document.getElementById("num_images").disabled = false; 
+      }
+
+      function setToTextMode(){
+        document.getElementById("label_for_text").style.color = "#3273f6";
+        document.getElementById("label_for_image").style.color = "#999";
+        document.getElementById("model").disabled = false;
+        document.getElementById("temperature").disabled = false;
+        document.getElementById("top_p").disabled = false;
+        document.getElementById("presence_penalty").disabled = false;
+        document.getElementById("frequency_penalty").disabled = false;
+        document.getElementById("clear_button").disabled = false; 
+        document.getElementById("max_tokens").disabled = false;
+        document.getElementById("image_size").disabled = true;
+        document.getElementById("num_images").disabled = true; 
+      }
+
+      document.getElementById("image").addEventListener("change", function() {
+        if(this.checked) {
+          document.getElementById("text").checked = false;
+          setToImageMode();
+        } else {
+          document.getElementById("text").checked = true;
+          setToTextMode();
+        }
+      });
+
+      document.getElementById("text").addEventListener("change", function() {
+        if(this.checked) {
+          document.getElementById("image").checked = false;
+          setToTextMode();
+        } else {
+          document.getElementById("image").checked = true;
+          setToImageMode();
+        }
+      });
+
       function model_clear() {
         document.getElementById("model").value = "";
         document.getElementById("model").focus();
@@ -108,10 +180,16 @@
 
       function execute() {
         const model_elem = document.getElementById("model")
-        const model = model_elem.value;
+        let model = model_elem.value;
         document.cookie = 'model=' + model;
 
-        let mode = "text_input";
+        let mode;
+        if(encodeURI(document.getElementById("image").checked) === "true"){
+          mode = "image";
+        } else {
+          mode = "text_input";
+        }
+
         let prompt = encodeURI(editor.value());
         let max_tokens = encodeURI(document.getElementById("max_tokens").value);
         let timeout = encodeURI(document.getElementById("timeout").value);
@@ -120,12 +198,22 @@
         let top_p = encodeURI(document.getElementById("top_p").value);
         let presence_penalty = encodeURI(document.getElementById("presence_penalty").value);
         let frequency_penalty = encodeURI(document.getElementById("frequency_penalty").value);
+        let num_images = encodeURI(document.getElementById("num_images").value);
+        let image_size = encodeURI(document.getElementById("image_size").value);
+
+        let url;
+
         if(prompt === ""){
           alert("Textarea is empty.");
         } else if (model === "") {
           alert("Model name is not set.");
         } else {
-          const url = "alfred://runtrigger/com.yohasebe.openai/openai-text-completion/?argument=" + mode + "%20" + model + "%20" + max_tokens + "%20" + temperature + "%20" + top_p +"%20" + presence_penalty + "%20" + frequency_penalty + "%20" + timeout + "%20" + echo + "%20" + prompt;
+          if (mode === "image"){
+            model = "dall-e";
+            url = "alfred://runtrigger/com.yohasebe.openai/openai-text-completion/?argument=" + mode + "%20" + model + "%20" + num_images + "%20" + image_size + "%20" + timeout + "%20" + echo + "%20"+ prompt;
+          } else {
+            url = "alfred://runtrigger/com.yohasebe.openai/openai-text-completion/?argument=" + mode + "%20" + model + "%20" + max_tokens + "%20" + temperature + "%20" + top_p +"%20" + presence_penalty + "%20" + frequency_penalty + "%20" + timeout + "%20" + echo + "%20" + prompt;
+          }
           window.location = url;
         }
       }
