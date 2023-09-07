@@ -1,5 +1,9 @@
 # Change Log
 
+- 1.9.0: Image generation using DALL·E API supported
+- 1.8.2: New models (`gpt-3.5-turbo-0613`, `gpt-3.5-turbo-16k-0613`, `gpt-4-0613` [requires appliation]) supported
+- 1.8.1: Added option to change base URL of the OpenAI API
+- 1.8.0: Custom CSS feature added
 - 1.7.0: Improved UI
 - 1.6.9: GPT-4 models (e.g. `gpt-4`) supported
 - 1.6.7: Fixed an error that occurred for some users
