@@ -1,5 +1,6 @@
 # Change Log
 
+- 1.10.0: `Enhance Prompt` option for image generation mode added
 - 1.9.1: 1024x1024 image generation issue fixed
 - 1.9.0: Image generation using DALL·E API supported
 - 1.8.2: New models (`gpt-3.5-turbo-0613`, `gpt-3.5-turbo-16k-0613`, `gpt-4-0613` [requires appliation]) supported

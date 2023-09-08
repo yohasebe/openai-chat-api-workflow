@@ -23,7 +23,7 @@
     <h2 style="margin: 0px; padding-bottom: 15px;">
       <span style="display: inline-block; height: 2em; vertical-align: middle;"><img src='https://yohasebe.github.io/openai-text-completion-workflow/icon.png' style='height:100%;'/></span> <span>OpenAI Text-Completion Alfred Workflow</span>
     </h2>
-    <blockquote>This page is part of <a href='https://github.com/yohasebe/openai-text-completion-workflow' style='text-decoration: none;'>OpenAI Text-Completion Alfred Workflow</a>. The submit button will only work properly if the <a href='https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow' style='text-decoration: none;'><b>latest version</b></a> of the workflow is properly installed.</blockquote>
+    <p style="color:gray; font-size: small;">This page is part of <a href='https://github.com/yohasebe/openai-text-completion-workflow' style='text-decoration: none;'>OpenAI Text-Completion Alfred Workflow</a>. The submit button will only work properly if the <b>latest version</b> (<a href='https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow' style='text-decoration: none;'>📥 download</a>) of the workflow is installed.</p>
     <div style='margin-top:30px;'>
       <textarea id="prompt" name="prompt" autocomplete="off" placeholder="Enter your prompt here"></textarea>
     </div>
@@ -45,11 +45,11 @@
           <option value="gpt-4-0613">
         </datalist>
         <button onclick='model_clear();' id='clear_button'>clear</button>
-        <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/models/models' style='text-decoration:none;'>[?]</a>
+        <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/models/models' style='text-decoration:none;'><span style="font-size: small">[?]</span></a>
         <span style='display: inline-block; width: 1em;'></span>
         <label for="temperature">Max Tokens: </label>
         <input type="number" id="max_tokens" name="max_tokens" min="128" max="4096" step="1" value="2048" required> 
-        <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens' style='text-decoration:none;'>[?]</a>
+        <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens' style='text-decoration:none;'><span style="font-size: small">[?]</span></a>
       </div>
       <span style="color:gray; font-size: small;"> You can "clear" the text box and select from a list or enter a model name.</span>
 
@@ -58,23 +58,23 @@
           <input type="range" id="temperature" name="temperature" min="0.0" max="1.0" value="0.3" step="0.1" oninput="this.nextElementSibling.nextElementSibling.value = this.value">
           <label for="temperature">Temperature: </label>
           <output>0.3</output>
-          <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature' style='text-decoration:none;'>[?]</a>
+          <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature' style='text-decoration:none;'><span style="font-size: small">[?]</span></a>
           <span style='display: inline-block; width: 1em;'></span>
           <input type="range" id="top_p" name="top_p" min="0.0" max="1.0" value="1.0" step="0.1" oninput="this.nextElementSibling.nextElementSibling.value = this.value">
           <label for="top_p">Top P: </label>
           <output>1.0</output>
-          <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-top_p' style='text-decoration:none;'>[?]</a>
+          <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-top_p' style='text-decoration:none;'><span style="font-size: small">[?]</span></a>
         </div>
         <div>
           <input type="range" id="presence_penalty" name="presence_penalty" min="-2.0" max="2.0" value="0.0" step="0.1" oninput="this.nextElementSibling.nextElementSibling.value = this.value">
           <label for="presence_penalty">Presence Penalty: </label>
           <output>0.0</output>
-          <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-presence_penalty' style='text-decoration:none;'>[?]</a>
+          <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-presence_penalty' style='text-decoration:none;'><span style="font-size: small">[?]</span></a>
           <span style='display: inline-block; width: 1em;'></span>
           <input type="range" id="frequency_penalty" name="frequency_penalty" min="-2.0" max="2.0" value="0.0" step="0.1" oninput="this.nextElementSibling.nextElementSibling.value = this.value">
           <label for="frequency_penalty">Frequency Penalty: </label>
           <output>0.0</output>
-          <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty' style='text-decoration:none;'>[?]</a>
+          <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty' style='text-decoration:none;'><span style="font-size: small">[?]</span></a>
         </div>
       </div>
     </div>
@@ -95,6 +95,10 @@
           <option value="512" selected>512x512</option>
           <option value="1024">1024x1024</option>
         </select>
+        <span style='display: inline-block; width: 1em;'></span>
+        <label for="enhance">Enhance Prompt: </label>
+        <input type="checkbox" id="enhance" name="enhance" > <br />
+        <span style="color:gray; font-size: small;"> "Enhance Prompt" option is only available when "Model" is set to one of the <b>gpt-4</b> series in the Workflow settings.</span>
       </div>
     </div>
 
@@ -137,6 +141,7 @@
         document.getElementById("max_tokens").disabled = true;
         document.getElementById("image_size").disabled = false;
         document.getElementById("num_images").disabled = false; 
+        document.getElementById("enhance").disabled = false; 
       }
 
       function setToTextMode(){
@@ -151,7 +156,12 @@
         document.getElementById("max_tokens").disabled = false;
         document.getElementById("image_size").disabled = true;
         document.getElementById("num_images").disabled = true; 
+        document.getElementById("enhance").disabled = true; 
       }
+
+      document.getElementById("image_size").disabled = true;
+      document.getElementById("num_images").disabled = true; 
+      document.getElementById("enhance").disabled = true; 
 
       document.getElementById("image").addEventListener("change", function() {
         if(this.checked) {
@@ -186,6 +196,10 @@
         let mode;
         if(encodeURI(document.getElementById("image").checked) === "true"){
           mode = "image";
+          // if `enhance` is true, change mode to "image_enhance"
+          if(encodeURI(document.getElementById("enhance").checked) === "true"){
+            mode = "enhanced_image";
+          }
         } else {
           mode = "text_input";
         }
@@ -208,11 +222,11 @@
         } else if (model === "") {
           alert("Model name is not set.");
         } else {
-          if (mode === "image"){
+          if (mode === "text_input"){
+            url = "alfred://runtrigger/com.yohasebe.openai/openai-text-completion/?argument=" + mode + "%20" + model + "%20" + max_tokens + "%20" + temperature + "%20" + top_p +"%20" + presence_penalty + "%20" + frequency_penalty + "%20" + timeout + "%20" + echo + "%20" + prompt;
+          } else {
             model = "dall-e";
             url = "alfred://runtrigger/com.yohasebe.openai/openai-text-completion/?argument=" + mode + "%20" + model + "%20" + num_images + "%20" + image_size + "%20" + timeout + "%20" + echo + "%20"+ prompt;
-          } else {
-            url = "alfred://runtrigger/com.yohasebe.openai/openai-text-completion/?argument=" + mode + "%20" + model + "%20" + max_tokens + "%20" + temperature + "%20" + top_p +"%20" + presence_penalty + "%20" + frequency_penalty + "%20" + timeout + "%20" + echo + "%20" + prompt;
           }
           window.location = url;
         }

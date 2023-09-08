@@ -10,12 +10,13 @@
 
 ## Downloads
 
-**Current version**: **1.9.1**
+**Current version**: **1.10.0**
 
 [**Download Workflow**](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
+- 1.10.0: `Enhance Prompt` option for image generation mode added
 - 1.9.1: 1024x1024 image generation issue fixed
 - 1.9.0: Image generation using DALL·E API supported
 - 1.8.2: New models (`gpt-3.5-turbo-0613`, `gpt-3.5-turbo-16k-0613`, `gpt-4-0613`) supported
@@ -101,6 +102,12 @@ After the initial text is entered, the user is prompted for additional text. The
 The DALL-E API is used to generate images according to the prompts entered. In general, the more detailed the prompt, the closer the content and quality of the output image will be to what is desired. 
 
 <kbd><img width="700" src="./docs/img/image-examples.png"></kbd>
+
+The `Enhance Prompt` option is available if one of the models in the `gpt-4` family is set to `Model` in the settings. With this option enabled, for example,  the following short prompt will be enhanced by the GPT-4 into a more elaborated text and it will then be used to generate images. 
+
+> View of downtown Austin from across the river
+
+<kbd><img width="700" src="./docs/img/prompt-enhancement.png"></kbd>
 
 #### <span><img src='./icons/code-square.png' style='height:2em;'/></span> Write Program Code
 
@@ -198,6 +205,7 @@ You can check how many tokens you have used in the current billing period on Ope
 
 - **Number of Images**: Set the number of images to generate in image generation mode from `1` to `10`. (default: `1`)
 - **Image Size**: Set the size of images to generate from `256x256`, `512x512`, `1024x1024`. (default: ` 512x512`)
+- **Enhance Prompt**: When enabled, the prompt to the image generation API is automatically enhanced using a GPT-4 model specified in the configuration. This variable is only enabled when the `model` is set to one of the "gpt-4" series. 
 
 ### Optional Settings
 
@@ -217,13 +225,13 @@ You can check how many tokens you have used in the current billing period on Ope
 
 If the `Text to Speech` option is enabled, the result text will be read aloud in the system's standard language and voice. To change the language and speech, go to [Accessibility] - [Vision] -[Spoken Content] in the Mac Settings panel.
 
-<img width="600" alt="spoken-content-panel" src="https://user-images.githubusercontent.com/18207/221521819-a942e6ba-0523-4526-93da-52b6167defaf.png">
+<kbd><img width="600" alt="spoken-content-panel" src="https://user-images.githubusercontent.com/18207/221521819-a942e6ba-0523-4526-93da-52b6167defaf.png"></kbd>
 
 #### Custom CSS
 
 You can define the CSS for the HTML that will be displayed as a result of the query. For example, you can freely change the maximum text width, font size and type, background color, etc.
 
-<img width="396" alt="2023-05-13_20-53-34" src="https://github.com/yohasebe/openai-text-completion-workflow/assets/18207/cddedd73-66b3-443b-b1fe-170498717f97">
+<kbd><img width="396" alt="2023-05-13_20-53-34" src="https://github.com/yohasebe/openai-text-completion-workflow/assets/18207/cddedd73-66b3-443b-b1fe-170498717f97"></kbd>
 
 ## Author
 
