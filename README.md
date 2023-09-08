@@ -10,12 +10,13 @@
 
 ## Downloads
 
-**Current version**: **1.9.0**
+**Current version**: **1.9.1**
 
 [**Download Workflow**](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
+- 1.9.1: 1024x1024 image generation issue fixed
 - 1.9.0: Image generation using DALL·E API supported
 - 1.8.2: New models (`gpt-3.5-turbo-0613`, `gpt-3.5-turbo-16k-0613`, `gpt-4-0613`) supported
 - 1.8.1: Added option to change base URL of the OpenAI API
