@@ -51,7 +51,7 @@
         <input type="number" id="max_tokens" name="max_tokens" min="128" max="4096" step="1" value="2048" required> 
         <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens' style='text-decoration:none;'><span style="font-size: small">[?]</span></a>
       </div>
-      <span style="color:gray; font-size: small;"> You can "clear" the text box and select from a list or enter a model name.</span>
+      <span style="color:gray; font-size: small;"> You can "clear" the text box and select from a list or enter a model name directly.</span>
 
       <div id="control" style='margin-top:15px;'>
         <div>
@@ -98,7 +98,7 @@
         <span style='display: inline-block; width: 1em;'></span>
         <label for="enhance">Enhance Prompt: </label>
         <input type="checkbox" id="enhance" name="enhance" > <br />
-        <span style="color:gray; font-size: small;"> "Enhance Prompt" option is only available when "Model" is set to one of the <b>gpt-4</b> series in the Workflow settings.</span>
+        <span style="color:gray; font-size: small;"> The "Enhanced Prompt" option uses the GPT model specified in the workflow settings.</span>
       </div>
     </div>
 
@@ -219,7 +219,7 @@
 
         if(prompt === ""){
           alert("Textarea is empty.");
-        } else if (model === "") {
+        } else if (mode === "text_input" && model === "") {
           alert("Model name is not set.");
         } else {
           if (mode === "text_input"){
