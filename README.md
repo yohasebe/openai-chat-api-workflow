@@ -10,12 +10,13 @@
 
 ## Downloads
 
-**Current version**: **1.10.0**
+**Current version**: **1.10.1**
 
 [**Download Workflow**](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
+- 1.10.1: `Enhance Prompt` supports both `gpt-4` and `gpt-3.5-turbo`.
 - 1.10.0: `Enhance Prompt` option for image generation mode added
 - 1.9.1: 1024x1024 image generation issue fixed
 - 1.9.0: Image generation using DALL·E API supported
@@ -103,7 +104,7 @@ The DALL-E API is used to generate images according to the prompts entered. In g
 
 <kbd><img width="700" src="./docs/img/image-examples.png"></kbd>
 
-The `Enhance Prompt` option is available if one of the models in the `gpt-4` family is set to `Model` in the settings. With this option enabled, for example,  the following short prompt will be enhanced by the GPT-4 into a more elaborated text and it will then be used to generate images. 
+When this option is enabled, a short prompt, for example the following, is expanded by GPT into more detailed text, which is then used to generate images.
 
 > View of downtown Austin from across the river
 
