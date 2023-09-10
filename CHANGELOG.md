@@ -1,6 +1,6 @@
 # Change Log
 
-- 1.10.1: `Enhance Prompt` supports both `gpt-4` and `gpt-3.5-turbo`.
+- 1.10.2: `Enhance Prompt` supports both `gpt-4` and `gpt-3.5-turbo`.
 - 1.10.0: `Enhance Prompt` option for image generation mode added
 - 1.9.1: 1024x1024 image generation issue fixed
 - 1.9.0: Image generation using DALL·E API supported
