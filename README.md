@@ -10,7 +10,7 @@
 
 ## Downloads
 
-**Current version**: **1.10.2**
+**Current version**: **1.10.3**
 
 [**Download Workflow**](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
