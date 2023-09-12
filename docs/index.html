@@ -47,7 +47,7 @@
         <button onclick='model_clear();' id='clear_button'>clear</button>
         <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/models/models' style='text-decoration:none;'><span style="font-size: small">[?]</span></a>
         <span style='display: inline-block; width: 1em;'></span>
-        <label for="temperature">Max Tokens: </label>
+        <label for="max_tokens">Max Tokens: </label>
         <input type="number" id="max_tokens" name="max_tokens" min="128" max="4096" step="1" value="2048" required> 
         <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens' style='text-decoration:none;'><span style="font-size: small">[?]</span></a>
       </div>
@@ -64,8 +64,7 @@
           <label for="top_p">Top P: </label>
           <output>1.0</output>
           <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-top_p' style='text-decoration:none;'><span style="font-size: small">[?]</span></a>
-        </div>
-        <div>
+          <span style='display: inline-block; width: 1em;'></span>
           <input type="range" id="presence_penalty" name="presence_penalty" min="-2.0" max="2.0" value="0.0" step="0.1" oninput="this.nextElementSibling.nextElementSibling.value = this.value">
           <label for="presence_penalty">Presence Penalty: </label>
           <output>0.0</output>

@@ -102,9 +102,11 @@ After the initial text is entered, the user is prompted for additional text. The
 
 The DALL-E API is used to generate images according to the prompts entered. In general, the more detailed the prompt, the closer the content and quality of the output image will be to what is desired. 
 
+> Rugby players are playing in a match using a huge watermelon as a ball
+
 <kbd><img width="700" src="./docs/img/image-examples.png"></kbd>
 
-When this option is enabled, a short prompt, for example the following, is expanded by GPT into more detailed text, which is then used to generate images.
+When the `Enhance Prompt` option is enabled, a short prompt, for example the following, is expanded by GPT into more detailed text, which is then used to generate images.
 
 > View of downtown Austin from across the river
 
