@@ -2,7 +2,9 @@
 
 <img src='./icons/openai.png' style='height:120px;'/>
 
-[Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) GPT-3.5 and GPT-4 with Text Completion/Chat API. It also allows image generation using the DALL-E API.
+[Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) GPT-3.5 and GPT-4 with Text Completion/Chat API.
+
+It also allows image generation using the DALL-E API and speech-to-text conversion using the Whisper API (from microphone input or existing audio files)
 
 <img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:700px;'/>
 <img src='./docs/img/sub-commands-1.png' style='width:700px;'/>
@@ -10,12 +12,13 @@
 
 ## Downloads
 
-**Current version**: **1.10.3**
+**Current version**: **1.11.0**
 
 [**Download Workflow**](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
 
 **Change Log**
 
+- 1.11.0: Speech-to-text using Whisper API added
 - 1.10.2: `Enhance Prompt` supports both `gpt-4` and `gpt-3.5-turbo`.
 - 1.10.0: `Enhance Prompt` option for image generation mode added
 - 1.9.1: 1024x1024 image generation issue fixed
@@ -42,15 +45,16 @@
 - Alfred 5 [Powerpack](https://www.alfredapp.com/shop/)
 - OpenAI [API key](https://platform.openai.com/account/api-keys)
 - [Pandoc](https://pandoc.org/): See below for installation instructions
+- [Sox](https://sox.sourceforge.net/sox.html): See below for installation instructions
 
 To start using this workflow, you must set the environment variable `apikey`, which you can get by creating a new [OpenAI account](https://platform.openai.com/account/api-keys). See also the [Configuration](#configuration) section below.
 
-You will also need to install the `pandoc` command. This will allow this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled (especially useful when using this workflow to generate program code).
+You will also need to install the `pandoc` and `sox` programs. Pandoc will allow this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled (especially useful when using this workflow to generate program code). Sox will allow you to record voice audio to convert to text using Whisper speech-to-text API.
 
-Installing Pandoc will be just a few clicks once this workflow has been included in the [Alfred Gallery](https://alfred.app/). For now, install Pandoc using [homebrew](https://brew.sh/). Once homebrew is installed, run the following command.
+Installing Pandoc and Sox will be just a few clicks once this workflow has been included in the [Alfred Gallery](https://alfred.app/). For now, install these programs using [homebrew](https://brew.sh/). Once homebrew is installed, run the following command.
 
 ```shell
-  brew install pandoc
+  brew install pandoc sox
 ```
 
 ## How to Execute This Workflow
@@ -184,6 +188,39 @@ Translates complex text into more straightforward concepts. See OpenAI's [descri
 
 Extract keywords from a block of text. See OpenAI's [description](https://beta.openai.com/examples/default-keywords) for this example.
 
+## Speech to Text
+
+The Whisper API can convert speech into text in a variety of languages. Please refer to the [Whisper API FAQ](https://help.openai.com/en/articles/7031512-whisper-api-faq) for available languages and other limitations.
+
+### Audio File to Text
+
+You can select an audio file in `mp3`, `mp4`, `flac`, `webm`, `wav`, or `m4a` format (under 25MB) and send it to the workflow:
+
+Select the file → universal actioin hotkey select → `OpenAI Speech-to-Text`
+
+### Record Voice Audio and Transcribe
+
+Alternatively you can record voice audio and send it to the Workflow for transcription using the Whisper API. The recording must be no longer than 30 minutes and will automatically stop after this time. Recording time is limited to 30 minutes and stops automatically after this limit.
+
+<kbd><img width="360" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
+
+- Alfred textbox → keyword (`openai-speech`) → Terminal window opens and recording starts
+- Speak to internal or external microphone → Press Enter to finish recording
+- Choose processes to apply to the recorded audio
+
+  - transcribe (+ delete recording)
+  - transcribe (+ save recording to desktop)
+  - transcribe and query (+ delete recording)
+  - transcribe and query (+ save recording to desktop)
+  - exit (+ delete recording)
+  - exit (+ save recording to desktop)
+
+You can choose the format of the transribed text from `text`, `srt` or `vtt` in the workflow's settings. Below are examples in the `text` and `srt` formats:
+
+<kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-text.png"></kbd>
+
+<kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
+
 ## Check API Usage
 
 You can check how many tokens you have used in the current billing period on OpenAI Usage Page--type in the keyword `openai-usage`. See also OpenAI's [Billing](https://platform.openai.com/account/billing/overview) page.
@@ -209,6 +246,18 @@ You can check how many tokens you have used in the current billing period on Ope
 - **Number of Images**: Set the number of images to generate in image generation mode from `1` to `10`. (default: `1`)
 - **Image Size**: Set the size of images to generate from `256x256`, `512x512`, `1024x1024`. (default: ` 512x512`)
 - **Enhance Prompt**: When enabled, the prompt to the image generation API is automatically enhanced using a GPT-4 model specified in the configuration. This variable is only enabled when the `model` is set to one of the "gpt-4" series. 
+
+### Speech-to-Text Parameters
+
+- **Transcription Format**: Set the format of the text transcribed from the microphone input or audio files from `text`, `srt`, or `vtt`. (default: `text`)
+- **Processes after Recording** Set the default choice of what processes follow after audio recording finishes (default: `transcribe [recording will be deleted]`).
+ 
+  - Transcribe [+ delete recording]
+  - Transcribe [+ save recording to desktop]
+  - Transcribe and query [+ delete recording]
+  - Transcribe and query [+ save recording desktop]
+
+- **Audio to English**: When enabled, Whisper API will transcribe the input audio and output text translated into English. (default: `disabled`)
 
 ### Optional Settings
 
