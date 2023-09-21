@@ -200,7 +200,7 @@ Select the file → universal actioin hotkey select → `OpenAI Speech-to-Text`
 
 Alternatively you can record voice audio and send it to the Workflow for transcription using the Whisper API. The recording must be no longer than 30 minutes and will automatically stop after this time. Recording time is limited to 30 minutes and stops automatically after this limit.
 
-<kbd><img width="480" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
+<kbd><img width="512" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
 
 - Alfred textbox → keyword (`openai-speech`) → Terminal window opens and recording starts
 - Speak to internal or external microphone → Press Enter to finish recording
