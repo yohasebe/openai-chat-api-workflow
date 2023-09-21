@@ -2,9 +2,7 @@
 
 <img src='./icons/openai.png' style='height:120px;'/>
 
-[Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) GPT-3.5 and GPT-4 with Text Completion/Chat API.
-
-It also allows image generation using the DALL-E API and speech-to-text conversion using the Whisper API (from microphone input or existing audio files)
+[Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) GPT-3.5 and GPT-4 with Text Completion/Chat API. It also allows image generation using the DALL-E API and speech-to-text conversion using the Whisper API (from microphone input or existing audio files)
 
 <img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:700px;'/>
 <img src='./docs/img/sub-commands-1.png' style='width:700px;'/>
