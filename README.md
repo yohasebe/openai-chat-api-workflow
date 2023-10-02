@@ -16,7 +16,7 @@
 
 **Recent Change Log**
 
-- 1.11.2: New keyword (`gpt`) for stream-lined simple query added
+- 1.11.2: New keyword (`gpt`) added for simple query
 - 1.11.0: Speech-to-text using Whisper API added
 - 1.10.2: `Enhance Prompt` supports both `gpt-4` and `gpt-3.5-turbo`.
 - 1.10.0: `Enhance Prompt` option for image generation mode added
@@ -48,7 +48,7 @@ Installing Pandoc and Sox will be just a few clicks once this workflow has been 
 
 If you simply want to ask something with GPT and get a response:
 
-- Method 1: Type keyword `gpt` → space/tab → input query text (e.g. "gpt what is a large language model?")
+- Method 1: Type keyword `gpt` → space/tab → input query text (e.g. "**gpt** what is a large language model?")
 - Method 2: set up a custom hotkey to `OpenAI Direct Query`
 
 ### 📋 Using Selected Text
