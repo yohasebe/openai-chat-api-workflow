@@ -44,7 +44,7 @@ Installing Pandoc and Sox will be just a few clicks once this workflow has been 
 
 ## How to Execute This Workflow
 
-### 🙋 Stream-lined Direct Query
+### ⚡️ Stream-lined Simple Query
 
 If you simply want to ask something with GPT and get a response:
 
