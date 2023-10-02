@@ -4,9 +4,9 @@
 
 🎩 [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) GPT-3.5 and GPT-4 🤖 with Text Completion/Chat API 📝 It also allows image generation using DALL-E API 🖼️ and speech-to-text conversion using Whisper API 💬
 
-<img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:700px;'/>
-<img src='./docs/img/sub-commands-1.png' style='width:700px;'/>
-<img src='./docs/img/sub-commands-2.png' style='width:700px;'/>
+<img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:650px;'/>
+<img src='./docs/img/sub-commands-1.png' style='width:650px;'/>
+<img src='./docs/img/sub-commands-2.png' style='width:650px;'/>
 
 ## Downloads
 
@@ -50,6 +50,8 @@ If you simply want to ask something with GPT and get a response:
 
 - Method 1: Type keyword `gpt` → space/tab → input query text (e.g. "**gpt** what is a large language model?")
 - Method 2: set up a custom hotkey to `OpenAI Direct Query`
+
+<img src='./docs/img/direct-query.png' style='width:650px;'/>
 
 ### 📋 Using Selected Text
 
@@ -194,7 +196,7 @@ Select the file → universal actioin hotkey select → `OpenAI Speech-to-Text`
 
 Alternatively you can record voice audio and send it to the Workflow for transcription using the Whisper API. The recording must be no longer than 30 minutes and will automatically stop after this time. Recording time is limited to 30 minutes and stops automatically after this limit.
 
-<kbd><img width="512" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
+<kbd><img width="600" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
 
 - Alfred textbox → keyword (`openai-speech`) → Terminal window opens and recording starts
 - Speak to internal or external microphone → Press Enter to finish recording
@@ -275,7 +277,7 @@ If the `Text to Speech` option is enabled, the result text will be read aloud in
 
 You can define the CSS for the HTML that will be displayed as a result of the query. For example, you can freely change the maximum text width, font size and type, background color, etc.
 
-<kbd><img width="396" alt="2023-05-13_20-53-34" src="https://github.com/yohasebe/openai-text-completion-workflow/assets/18207/cddedd73-66b3-443b-b1fe-170498717f97"></kbd>
+<kbd><img width="500" alt="2023-05-13_20-53-34" src="https://github.com/yohasebe/openai-text-completion-workflow/assets/18207/cddedd73-66b3-443b-b1fe-170498717f97"></kbd>
 
 ## Author
 
