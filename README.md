@@ -42,9 +42,8 @@ Installing Pandoc and Sox will be just a few clicks once this workflow has been 
   brew install pandoc sox
 ```
 
-## How to Execute This Workflow
+## ⚡️ Simple Direct Query
 
-### ⚡️ Stream-lined Simple Query
 
 If you simply want to ask something with GPT and get a response:
 
@@ -53,19 +52,21 @@ If you simply want to ask something with GPT and get a response:
 
 <img src='./docs/img/direct-query.png' style='width:450px;'/>
 
+## ⚙️ Other Ways to Execute a Query
+
+### ⌨️ Using Alfred Textbox
+
+You can enter a query text directly into Alfred textbox:
+
+- Method 1: Alfred textbox → keyword (`openai`) → space/tab → input query text → select a command (see below)
+- Method 2: Alfred textbox → input query text → select fallback search (`OpenAI Query`)
+
 ### 📋 Using Selected Text
 
 You can select any text on your Mac and send it to the workflow:
 
 - Method 1: select text → universal action hotkey → select `OpenAI Query`
 - Method 2: set up a custom hotkey to `Send selected text to OpenAI`
-
-### ⌨️ Using Alfred Textbox
-
-You can enter a query text directly into Alfred textbox:
-
-- Method 1: Alfred textbox → keyword (`openai`) → space/tab → input query text
-- Method 2: Alfred textbox → input query text → select fallback search (`OpenAI Query`)
 
 ### 🌐 Using Text Box in Default Web-browser
 
@@ -76,7 +77,7 @@ You can open a web interface (see the figure below).
 
 <img width="700" alt="SCR-20221207-st2" src="./docs/img/web-interface.png">
 
-## General Query
+## Basic Commands
 
 The input text is used as a prompt to the OpenAI text-completion API. The original input text can be prepended or postfixed with instructional text to compose a complex query to be given to the API.
 
