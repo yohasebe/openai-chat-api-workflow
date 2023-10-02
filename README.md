@@ -51,7 +51,7 @@ If you simply want to ask something with GPT and get a response:
 - Method 1: Type keyword `gpt` → space/tab → input query text (e.g. "**gpt** what is a large language model?")
 - Method 2: set up a custom hotkey to `OpenAI Direct Query`
 
-<img src='./docs/img/direct-query.png' style='width:650px;'/>
+<img src='./docs/img/direct-query.png' style='width:500px;'/>
 
 ### 📋 Using Selected Text
 
