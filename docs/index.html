@@ -36,22 +36,20 @@
 
       <div style='margin-top:15px;'>
         <label for="model">Model: </label>
-        <input type="text" id="model" name="model" value="gpt-3.5-turbo" list="models" autocomplete="on" required>
-        <datalist id="models">
-          <option value="gpt-3.5-turbo">
-          <option value="gpt-3.5-turbo-0613">
-          <option value="gpt-3.5-turbo-16k-0613">
-          <option value="gpt-4">
-          <option value="gpt-4-0613">
-        </datalist>
-        <button onclick='model_clear();' id='clear_button'>clear</button>
+        <select id="model" name="model" value="gpt-3.5-turbo">
+          <option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
+          <option value="gpt-3.5-turbo-0613">gpt-3.5-turbo-0613</option>
+          <option value="gpt-3.5-turbo-16k-0613">gpt-3.5-turbo-16k-0613</option>
+          <option value="gpt-3.5-turbo-instruct">gpt-3.5-turbo-instruct</option>
+          <option value="gpt-4">gpt-4</option>
+          <option value="gpt-4-0613">gpt-4-0613</option>
+        </select>
         <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/models/models' style='text-decoration:none;'><span style="font-size: small">[?]</span></a>
         <span style='display: inline-block; width: 1em;'></span>
         <label for="max_tokens">Max Tokens: </label>
         <input type="number" id="max_tokens" name="max_tokens" min="128" max="4096" step="1" value="2048" required> 
         <a target="_blank" rel="noopener noreferrer" href='https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens' style='text-decoration:none;'><span style="font-size: small">[?]</span></a>
       </div>
-      <span style="color:gray; font-size: small;"> You can "clear" the text box and select from a list or enter a model name directly.</span>
 
       <div id="control" style='margin-top:15px;'>
         <div>
@@ -136,7 +134,6 @@
         document.getElementById("top_p").disabled = true;
         document.getElementById("presence_penalty").disabled = true;
         document.getElementById("frequency_penalty").disabled = true;
-        document.getElementById("clear_button").disabled = true; 
         document.getElementById("max_tokens").disabled = true;
         document.getElementById("image_size").disabled = false;
         document.getElementById("num_images").disabled = false; 
@@ -151,7 +148,6 @@
         document.getElementById("top_p").disabled = false;
         document.getElementById("presence_penalty").disabled = false;
         document.getElementById("frequency_penalty").disabled = false;
-        document.getElementById("clear_button").disabled = false; 
         document.getElementById("max_tokens").disabled = false;
         document.getElementById("image_size").disabled = true;
         document.getElementById("num_images").disabled = true; 
@@ -181,11 +177,6 @@
           setToImageMode();
         }
       });
-
-      function model_clear() {
-        document.getElementById("model").value = "";
-        document.getElementById("model").focus();
-      }
 
       function execute() {
         const model_elem = document.getElementById("model")
