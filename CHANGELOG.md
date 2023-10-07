@@ -1,5 +1,6 @@
 # Change Log
 
+- 1.12.0: Popup model selector is introduced
 - 1.11.3: Speech-to-text file action issue fixed
 - 1.11.2: New keyword (`gpt`) added for simple query
 - 1.11.0: Speech-to-text using Whisper API added
