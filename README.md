@@ -10,13 +10,13 @@
 
 ## Downloads
 
-**Current version**: **2.0.0**
+**Current version**: **2.0.1**
 
 [**Download Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
 
 **Recent Change Log**
 
-- **2.0.0: Support for interactive chat 💬 with GPT ❗️**
+- **2.0.1: Support for interactive chat 💬 with GPT ❗️**
 - 1.12.0: Popup model selector is introduced
 - 1.11.3: Speech-to-text file action issue fixed
 - 1.11.2: New keyword (`gpt`) added for simple query
