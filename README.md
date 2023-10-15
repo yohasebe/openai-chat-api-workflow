@@ -2,7 +2,7 @@
 
 <img src='./icons/openai.png' style='height:120px;'/>
 
-🎩 [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) Chat API to have a chat with GPT-3.5 or GPT-4 🤖 It also allows image generation using DALL-E API 🖼️ and speech-to-text conversion using Whisper API 🎤
+🎩 [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) Chat API to interact with GPT-3.5/GPT-4 🤖 It also allows image generation using DALL-E API 🖼️ and speech-to-text conversion using Whisper API 🎤
 
 <img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:600px;'/>
 
