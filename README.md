@@ -244,15 +244,15 @@ You can check how many tokens you have used in the current billing period on Ope
 - **Frequency Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-frequency_penalty). (default: `0.0`)
 - **Presence Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-presence_penalty). (default: `0.0`)
 
-- **Memory Span**: Set the number of past utterances sent to the API as a context. Setting 4 to this parameter means 2  conversation turns (user + assistant) will be sent as a context for a new query. The larger the value, more tokens will be consumed.
+- **Memory Span**: Set the number of past utterances sent to the API as a context. Setting 4 to this parameter means 2  conversation turns (user + assistant) will be sent as a context for a new query. The larger the value, more tokens will be consumed. (default: `4`)
 - **System Content**: Text to sent with every query sent to API as a general information about the specification of the chat. The default value is as follows:
 
-| You are a friendly but professional consultant who answers various questions, write computer program code, make decent suggestions, give helpful advice in response to a prompt from the user. Your response must be consise, suggestive, and accurate. Add an emoji that expresses the topic or the feelings of the conversation.
+> You are a friendly but professional consultant who answers various questions, write computer program code, make decent suggestions, give helpful advice in response to a prompt from the user. Your response must be consise, suggestive, and accurate. Add an emoji that expresses the topic or the feelings of the conversation.
 
 ### Image Generation Parameters
 
 - **Number of Images**: Set the number of images to generate in image generation mode from `1` to `10`. (default: `1`)
-- **Image Size**: Set the size of images to generate from `256x256`, `512x512`, `1024x1024`. (default: ` 512x512`)
+- **Image Size**: Set the size of images to generate from `256x256`, `512x512`, `1024x1024`. (default: `512x512`)
 - **Enhance Prompt**: When enabled, the prompt to the image generation API is automatically enhanced using a GPT-4 model specified in the configuration. This variable is only enabled when the `model` is set to one of the "gpt-4" series. 
 
 ### Speech-to-Text Parameters
