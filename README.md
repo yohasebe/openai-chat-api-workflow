@@ -1,4 +1,4 @@
-# OpenAI API Workflow for Alfred
+# OpenAI Chat API Workflow for Alfred
 
 <img src='./icons/openai.png' style='height:120px;'/>
 
