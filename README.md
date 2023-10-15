@@ -1,21 +1,22 @@
-# OpenAI Text-Completion Workflow for Alfred
+# OpenAI API Workflow for Alfred
 
 <img src='./icons/openai.png' style='height:120px;'/>
 
-🎩 [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) GPT-3.5 and GPT-4 🤖 with Text Completion/Chat API 📝 It also allows image generation using DALL-E API 🖼️ and speech-to-text conversion using Whisper API 💬
+🎩 [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) Chat API to have a chat with GPT-3.5 or GPT-4 🤖 It also allows image generation using DALL-E API 🖼️ and speech-to-text conversion using Whisper API 🎤
 
-<img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:650px;'/>
-<img src='./docs/img/sub-commands-1.png' style='width:650px;'/>
-<img src='./docs/img/sub-commands-2.png' style='width:650px;'/>
+<img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:600px;'/>
+
+<kbd><img src='./docs/img/chat.png' style='width:800px;'/></kbd>
 
 ## Downloads
 
-**Current version**: **1.12.0**
+**Current version**: **2.0.0**
 
-[**Download Workflow**](https://github.com/yohasebe/openai-text-completion-workflow/raw/main/openai-text-completion-workflow.alfredworkflow)
+[**Download Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
 
 **Recent Change Log**
 
+- **2.0.0: Support for interactive chat 💬 with GPT ❗️**
 - 1.12.0: Popup model selector is introduced
 - 1.11.3: Speech-to-text file action issue fixed
 - 1.11.2: New keyword (`gpt`) added for simple query
@@ -25,14 +26,16 @@
 - 1.9.1: 1024x1024 image generation issue fixed
 - 1.9.0: Image generation using DALL·E API supported
 
-[Complete Change Log](https://github.com/yohasebe/openai-text-completion-workflow/blob/main/CHANGELOG.md)
+[Complete Change Log](https://github.com/yohasebe/openai-chat-api-workflow/blob/main/CHANGELOG.md)
 
 ## Dependencies
 
 - Alfred 5 [Powerpack](https://www.alfredapp.com/shop/)
 - OpenAI [API key](https://platform.openai.com/account/api-keys)
-- [Pandoc](https://pandoc.org/): See below for installation instructions
-- [Sox](https://sox.sourceforge.net/sox.html): See below for installation instructions
+- [Pandoc](https://pandoc.org/): Needed to convert Markdown to HTML
+- [Sox](https://sox.sourceforge.net/sox.html): Needed for audio recording
+- [jq](https://jqlang.github.io/jq/): Needed to handle chat history in JSON
+- [duti](https://github.com/moretension/duti): Needed to use Google Chrome to open chat window (optional)
 
 To start using this workflow, you must set the environment variable `apikey`, which you can get by creating a new [OpenAI account](https://platform.openai.com/account/api-keys). See also the [Configuration](#configuration) section below.
 
@@ -41,13 +44,12 @@ You will also need to install the `pandoc` and `sox` programs. Pandoc will allow
 Installing Pandoc and Sox will be just a few clicks once this workflow has been included in the [Alfred Gallery](https://alfred.app/). For now, install these programs using [homebrew](https://brew.sh/). Once homebrew is installed, run the following command.
 
 ```shell
-  brew install pandoc sox
+  brew install pandoc sox jq duti
 ```
 
-## ⚡️ Simple Direct Query
+## ⚡️ Simple Direct Query/Chat
 
-
-If you simply want to ask something with GPT and get a response:
+If you simply want to ask something with GPT in a chat:
 
 - Method 1: Type keyword `gpt` → space/tab → input query text (e.g. "**gpt** what is a large language model?")
 - Method 2: set up a custom hotkey to `OpenAI Direct Query`
@@ -70,30 +72,34 @@ You can select any text on your Mac and send it to the workflow:
 - Method 1: select text → universal action hotkey → select `OpenAI Query`
 - Method 2: set up a custom hotkey to `Send selected text to OpenAI`
 
-### 🌐 Using Text Box in Default Web-browser
+### 🌐 Using Text Box in Safari or Google Chrome
 
-You can open a web interface (see the figure below).
+You can open a web interface
 
 - Method 1: Alfred textbox → keyword (`openai-textbox`)
 - Method 2: set up a custom hotkey to `Open web interface`
 
-<img width="700" alt="SCR-20221207-st2" src="./docs/img/web-interface.png">
+** Using Google Chrome**
+
+If your default browser is Google Chrome and "duti" command is installed to the system, the web interface will be opened by Google Chrome. Otherwise, Safari will be used.
+
+<kbd><img width="800" alt="SCR-20221207-st2" src="./docs/img/web-interface.png"></kbd>
 
 ## Basic Commands
 
-The input text is used as a prompt to the OpenAI text-completion API. The original input text can be prepended or postfixed with instructional text to compose a complex query to be given to the API.
+The input text is used as a prompt to the OpenAI Chat API. The original input text can be prepended or postfixed with instructional text to compose a complex query to be given to the API.
 
 #### <span><img src='./icons/patch-question.png' style='height:2em;'/></span> Direct Query
 
-The input text is directly sent as a prompt to the OpenAI text-completion API.
+The input text is directly sent as a prompt to the OpenAI Chat API.
 
-<img src='./docs/img/direct-query.gif' style='width:700px;'/>
+<kbd><img src='./docs/img/direct-query.gif' style='width:600px;'/></kbd>
 
 #### <span><img src='./icons/arrow-bar-down.png' style='height:2em;'/></span> Prepend Text + Query
 
 After the initial text is entered, the user is prompted for additional text. The additional text is added *before* the initial text, and the resulting text is used as the query.
 
-<img src='./docs/img/prepend.gif' style='width:700px;'/>
+<kbd><img src='./docs/img/prepend.gif' style='width:600px;'/></kbd>
 
 #### <span><img src='./icons/arrow-bar-up.png' style='height:2em;'/></span> Append Text + Query
 
@@ -105,13 +111,13 @@ The DALL-E API is used to generate images according to the prompts entered. In g
 
 > Rugby players are playing in a match using a huge watermelon as a ball
 
-<kbd><img width="700" src="./docs/img/image-examples.png"></kbd>
+<kbd><img width="600" src="./docs/img/image-examples.png"></kbd>
 
 When the `Enhance Prompt` option is enabled, a short prompt, for example the following, is expanded by GPT into more detailed text, which is then used to generate images.
 
 > View of downtown Austin from across the river
 
-<kbd><img width="700" src="./docs/img/prompt-enhancement.png"></kbd>
+<kbd><img width="600" src="./docs/img/prompt-enhancement.png"></kbd>
 
 #### <span><img src='./icons/code-square.png' style='height:2em;'/></span> Write Program Code
 
@@ -123,11 +129,11 @@ GPT will generate program code and example output according to the text entered.
 
 **Example Output**
 
-<kbd><img width="700" src="./docs/img/code.png"></kbd>
+<kbd><img width="800" src="./docs/img/code.png"></kbd>
 
 ## More Specific Commands
 
-These are features mainly based on OpenAI's example usage of its text-completion API. The user-specified values to the following user settings are ignored when running these commands:
+These are features mainly based on OpenAI's example usage of its Chat API. The user-specified values to the following user settings are ignored when running these commands:
 
 - `temperature`
 - `frequency_penalty`
@@ -227,16 +233,21 @@ You can check how many tokens you have used in the current billing period on Ope
 ### Required Settings
 
 - **OpenAI API Key**: Set your secret API key for OpenAI. Sign up for OpenAI and get your API key at [https://platform.openai.com/account/api-keys/](https://platform.openai.com/account/api-keys).
-- **Model**: OpenAI's chat/completion [model](https://beta.openai.com/docs/api-reference/models) that generates the completion. (default: `gpt-3.5-turbo`)
-- **Base URL**: The base URL of the OpenAI chat/completion API. (default: `https://api.openai.com/v1`)
+- **Model**: OpenAI's chat [model](https://beta.openai.com/docs/api-reference/models) used for the workflow. (default: `gpt-3.5-turbo`)
+- **Base URL**: The base URL of the OpenAI Chat API. (default: `https://api.openai.com/v1`)
 
-### Text Query Parameters
+### Chat Parameters
 
-- **Max Tokens**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens). (default: `2048`)
-- **Temperature**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature). (default: `0.3`)
-- **Top P**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-top_p). (default: `1.0`)
-- **Frequency Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty). (default: `0.0`)
-- **Presence Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/completions/create#completions/create-presence_penalty). (default: `0.0`)
+- **Max Tokens**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-max_tokens). (default: `2048`)
+- **Temperature**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-temperature). (default: `0.3`)
+- **Top P**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-top_p). (default: `1.0`)
+- **Frequency Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-frequency_penalty). (default: `0.0`)
+- **Presence Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-presence_penalty). (default: `0.0`)
+
+- **Memory Span**: Set the number of past utterances sent to the API as a context. Setting 4 to this parameter means 2  conversation turns (user + assistant) will be sent as a context for a new query. The larger the value, more tokens will be consumed.
+- **System Content**: Text to sent with every query sent to API as a general information about the specification of the chat. The default value is as follows:
+
+| You are a friendly but professional consultant who answers various questions, write computer program code, make decent suggestions, give helpful advice in response to a prompt from the user. Your response must be consise, suggestive, and accurate. Add an emoji that expresses the topic or the feelings of the conversation.
 
 ### Image Generation Parameters
 
@@ -280,7 +291,7 @@ If the `Text to Speech` option is enabled, the result text will be read aloud in
 
 You can define the CSS for the HTML that will be displayed as a result of the query. For example, you can freely change the maximum text width, font size and type, background color, etc.
 
-<kbd><img width="500" alt="2023-05-13_20-53-34" src="https://github.com/yohasebe/openai-text-completion-workflow/assets/18207/cddedd73-66b3-443b-b1fe-170498717f97"></kbd>
+<kbd><img width="500" alt="2023-05-13_20-53-34" src="./docs/img/css.png"></kbd>
 
 ## Author
 
