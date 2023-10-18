@@ -10,7 +10,7 @@
 
 ## Downloads
 
-**Current version**: **2.0.3**
+**Current version**: **2.1.0**
 
 [**Download Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
 
