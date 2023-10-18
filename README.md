@@ -2,7 +2,7 @@
 
 <img src='./icons/openai.png' style='height:120px;'/>
 
-🎩 [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) Chat API to interact with GPT-3.5/GPT-4 🤖 It also allows image generation using DALL-E API 🖼️ and speech-to-text conversion using Whisper API 🎤
+🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) Chat API to interact with GPT-3.5/GPT-4 🤖 It also allows image generation using DALL-E API 🖼️ and speech-to-text conversion using Whisper API 🎤
 
 <img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:600px;'/>
 
@@ -16,8 +16,8 @@
 
 **Recent Change Log**
 
-- 2.0.3: CSS load issue on Safari addressed
-- **2.0.0: Support for interactive chat 💬 with GPT ❗️**
+- 2.0.3: Addressed a CSS loading issue on Safari.
+- **2.0.0**: Introduced support for interactive chat 💬 with GPT.
 - 1.12.0: Popup model selector is introduced
 - 1.11.3: Speech-to-text file action issue fixed
 - 1.11.2: New keyword (`gpt`) added for simple query
@@ -50,16 +50,16 @@ Installing dependencies (`pandoc`, `sox`, `jq`, and `duti`) is just a few clicks
 
 ## ⚡️ Simple Direct Query/Chat
 
-If you simply want to ask something with GPT in a chat:
+To quickly chat with GPT:
 
 - Method 1: Type keyword `gpt` → space/tab → input query text (e.g. "**gpt** what is a large language model?")
 - Method 2: set up a custom hotkey to `OpenAI Direct Query`
 
 <img src='./docs/img/direct-query.png' style='width:450px;'/>
 
-## ⚙️ Other Ways to Execute a Query
+## ⚙️ Additional Query Methods
 
-### ⌨️ Using Alfred Textbox
+### ⌨️ Via Alfred's Textbox
 
 You can enter a query text directly into Alfred textbox:
 
@@ -73,7 +73,7 @@ You can select any text on your Mac and send it to the workflow:
 - Method 1: select text → universal action hotkey → select `OpenAI Query`
 - Method 2: set up a custom hotkey to `Send selected text to OpenAI`
 
-### 🌐 Using Text Box in Safari or Google Chrome
+### 🌐 Via Web Interface
 
 You can open a web interface
 
@@ -86,7 +86,7 @@ If your default browser is Google Chrome and "duti" command is installed to the 
 
 <kbd><img width="800" alt="SCR-20221207-st2" src="./docs/img/web-interface.png"></kbd>
 
-## Basic Commands
+## Commands
 
 The input text is used as a prompt to the OpenAI Chat API. The original input text can be prepended or postfixed with instructional text to compose a complex query to be given to the API.
 
@@ -132,9 +132,9 @@ GPT will generate program code and example output according to the text entered.
 
 <kbd><img width="800" src="./docs/img/code.png"></kbd>
 
-## More Specific Commands
+## Specialized Commands
 
-These are features mainly based on OpenAI's example usage of its Chat API. The user-specified values to the following user settings are ignored when running these commands:
+These commands primarily utilize OpenAI's recommended uses for the Chat API. Note: User-specified values for the following settings are disregarded when executing these commands:
 
 - `temperature`
 - `frequency_penalty`
@@ -192,7 +192,7 @@ Translates complex text into more straightforward concepts. See OpenAI's [descri
 
 Extract keywords from a block of text. See OpenAI's [description](https://beta.openai.com/examples/default-keywords) for this example.
 
-## Speech to Text
+## Speech-to-Text Conversion 
 
 The Whisper API can convert speech into text in a variety of languages. Please refer to the [Whisper API FAQ](https://help.openai.com/en/articles/7031512-whisper-api-faq) for available languages and other limitations.
 
@@ -225,9 +225,9 @@ You can choose the format of the transribed text from `text`, `srt` or `vtt` in 
 
 <kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
 
-## Check API Usage
+## Monitoring API Usage 
 
-You can check how many tokens you have used in the current billing period on OpenAI Usage Page--type in the keyword `openai-usage`. See also OpenAI's [Billing](https://platform.openai.com/account/billing/overview) page.
+To review your token usage for the current billing cycle on the OpenAI Usage Page, type the keyword `openai-usage`. For more details on billing, visit OpenAI's [Billing Overview](https://platform.openai.com/account/billing/overview).
 
 ## Configuration 
 
@@ -304,4 +304,4 @@ The MIT License
 
 ## Disclaimer
 
-The author of this software takes no responsibility for any damage that may result from using it. 
+The author assumes no responsibility for any potential damages arising from the use of this software.
