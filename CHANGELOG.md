@@ -1,14 +1,15 @@
 # Change Log
 
-- 2.0.3: CSS load issue on Safari addressed
-- 2.0.2: Support for interactive chat with GPT
-- 1.12.0: Popup model selector is introduced
-- 1.11.3: Speech-to-text file action issue fixed
-- 1.11.2: New keyword (`gpt`) added for simple query
-- 1.11.0: Speech-to-text using Whisper API added
-- 1.10.2: `Enhance Prompt` supports both `gpt-4` and `gpt-3.5-turbo`.
-- 1.10.0: `Enhance Prompt` option for image generation mode added
-- 1.9.1: 1024x1024 image generation issue fixed
+- 2.1.0: Added the ability to stream text responses from GPT while chatting 🤖💬
+- 2.0.3: Resolved a CSS loading issue on Safari.
+- 2.0.0: Introduced support for interactive chat with GPT.
+- 1.12.0: Introduced a popup model selector.
+- 1.11.3: Fixed an issue with the speech-to-text file action.
+- 1.11.2: Added a new keyword (gpt) for simple queries.
+- 1.11.0: Added support for speech-to-text using the Whisper API.
+- 1.10.2: The Enhance Prompt feature now supports both gpt-4 and gpt-3.5-turbo.
+- 1.10.0: Added the Enhance Prompt option for image generation mode.
+- 1.9.1: Fixed an issue with 1024x1024 image generation.
 - 1.9.0: Image generation using DALL·E API supported
 - 1.8.2: New models (`gpt-3.5-turbo-0613`, `gpt-3.5-turbo-16k-0613`, `gpt-4-0613` [requires appliation]) supported
 - 1.8.1: Added option to change base URL of the OpenAI API
