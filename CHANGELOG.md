@@ -1,5 +1,6 @@
 # Change Log
 
+- 2.0.3: CSS load issue on Safari addressed
 - 2.0.2: Support for interactive chat with GPT
 - 1.12.0: Popup model selector is introduced
 - 1.11.3: Speech-to-text file action issue fixed
