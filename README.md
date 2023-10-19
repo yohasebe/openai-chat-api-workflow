@@ -55,7 +55,7 @@ To quickly chat with GPT:
 - Method 1: Type keyword `gpt` → space/tab → input query text (e.g. "**gpt** what is a large language model?")
 - Method 2: set up a custom hotkey to `OpenAI Direct Query`
 
-<img src='./docs/img/direct-query.png' style='width:450px;'/>
+<img src='./docs/img/direct-query.png' style='width:700px;'/>
 
 ## ⚙️ Additional Query Methods
 
@@ -94,13 +94,13 @@ The input text is used as a prompt to the OpenAI Chat API. The original input te
 
 The input text is directly sent as a prompt to the OpenAI Chat API.
 
-<kbd><img src='./docs/img/direct-query.gif' style='width:600px;'/></kbd>
+<kbd><img src='./docs/img/direct-query.gif' style='width:700px;'/></kbd>
 
 #### <span><img src='./icons/arrow-bar-down.png' style='height:2em;'/></span> Prepend Text + Query
 
 After the initial text is entered, the user is prompted for additional text. The additional text is added *before* the initial text, and the resulting text is used as the query.
 
-<kbd><img src='./docs/img/prepend.gif' style='width:600px;'/></kbd>
+<kbd><img src='./docs/img/prepend.gif' style='width:700px;'/></kbd>
 
 #### <span><img src='./icons/arrow-bar-up.png' style='height:2em;'/></span> Append Text + Query
 
@@ -114,13 +114,13 @@ The DALL-E API is used to generate images according to the prompts entered. In g
 
 > Rugby players are playing in a match using a huge watermelon as a ball
 
-<kbd><img width="600" src="./docs/img/image-examples.png"></kbd>
+<kbd><img width="700" src="./docs/img/image-examples.png"></kbd>
 
 When the `Enhance Prompt` option is enabled, a short prompt, for example the following, is expanded by GPT into more detailed text, which is then used to generate images.
 
 > View of downtown Austin from across the river
 
-<kbd><img width="600" src="./docs/img/prompt-enhancement.png"></kbd>
+<kbd><img width="700" src="./docs/img/prompt-enhancement.png"></kbd>
 
 #### <span><img src='./icons/code-square.png' style='height:2em;'/></span> Write Program Code
 
