@@ -6,7 +6,7 @@
 
 <img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:600px;'/>
 
-<kbd><img src='./docs/img/chat.png' style='width:800px;'/></kbd>
+<kbd><img src='./docs/img/openai-chat-api-workflow.gif' style='width:700px;'/></kbd>
 
 ## Downloads
 
@@ -84,7 +84,7 @@ You can open a web interface
 
 If your default browser is Google Chrome and "duti" command is installed to the system, the web interface will be opened by Google Chrome. Otherwise, Safari will be used.
 
-<kbd><img width="800" alt="SCR-20221207-st2" src="./docs/img/web-interface.png"></kbd>
+<kbd><img width="700" alt="SCR-20221207-st2" src="./docs/img/web-interface.png"></kbd>
 
 ## Commands
 
@@ -108,6 +108,8 @@ After the initial text is entered, the user is prompted for additional text. The
 
 #### <span><img src='./icons/picture.png' style='height:2em;'/></span> Generate Image
 
+<kbd><img src='./docs/img/enhance-prompt-image.gif' style='width:700px;'/></kbd>
+
 The DALL-E API is used to generate images according to the prompts entered. In general, the more detailed the prompt, the closer the content and quality of the output image will be to what is desired. 
 
 > Rugby players are playing in a match using a huge watermelon as a ball
@@ -130,7 +132,7 @@ GPT will generate program code and example output according to the text entered.
 
 **Example Output**
 
-<kbd><img width="800" src="./docs/img/code.png"></kbd>
+<kbd><img width="700" src="./docs/img/code.png"></kbd>
 
 ## Specialized Commands
 
@@ -193,6 +195,8 @@ Translates complex text into more straightforward concepts. See OpenAI's [descri
 Extract keywords from a block of text. See OpenAI's [description](https://beta.openai.com/examples/default-keywords) for this example.
 
 ## Speech-to-Text Conversion 
+
+<kbd><img src='./docs/img/audio-to-query.gif' style='width:700px;'/></kbd>
 
 The Whisper API can convert speech into text in a variety of languages. Please refer to the [Whisper API FAQ](https://help.openai.com/en/articles/7031512-whisper-api-faq) for available languages and other limitations.
 
