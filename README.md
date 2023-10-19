@@ -210,7 +210,7 @@ Select the file → universal actioin hotkey select → `OpenAI Speech-to-Text`
 
 Alternatively you can record voice audio and send it to the Workflow for transcription using the Whisper API. The recording must be no longer than 30 minutes and will automatically stop after this time. Recording time is limited to 30 minutes and stops automatically after this limit.
 
-<kbd><img width="600" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
+<kbd><img width="700" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
 
 - Alfred textbox → keyword (`openai-speech`) → Terminal window opens and recording starts
 - Speak to internal or external microphone → Press Enter to finish recording
@@ -299,7 +299,7 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 
 If the `Text to Speech` option is enabled, the result text will be read aloud in the system's standard language and voice. To change the language and speech, go to [Accessibility] - [Vision] -[Spoken Content] in the Mac Settings panel.
 
-<kbd><img width="600" alt="spoken-content-panel" src="https://user-images.githubusercontent.com/18207/221521819-a942e6ba-0523-4526-93da-52b6167defaf.png"></kbd>
+<kbd><img width="700" alt="spoken-content-panel" src="https://user-images.githubusercontent.com/18207/221521819-a942e6ba-0523-4526-93da-52b6167defaf.png"></kbd>
 
 #### Custom CSS
 
