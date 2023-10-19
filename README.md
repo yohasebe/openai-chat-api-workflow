@@ -305,7 +305,7 @@ If the `Text to Speech` option is enabled, the result text will be read aloud in
 
 You can define the CSS for the HTML that will be displayed as a result of the query. For example, you can freely change the maximum text width, font size and type, background color, etc.
 
-<kbd><img width="500" alt="2023-05-13_20-53-34" src="./docs/img/css.png"></kbd>
+<kbd><img width="300" alt="2023-05-13_20-53-34" src="./docs/img/css.png"></kbd>
 
 ## Author
 
