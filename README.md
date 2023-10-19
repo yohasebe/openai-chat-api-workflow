@@ -6,7 +6,7 @@
 
 <img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:600px;'/>
 
-<kbd><img src='./docs/img/openai-chat-api-workflow.gif' style='width:700px;'/></kbd>
+<kbd><img src='./docs/img/openai-chat-api-workflow.gif' style='width:600px;'/></kbd>
 
 ## Downloads
 
@@ -55,7 +55,7 @@ To quickly chat with GPT:
 - Method 1: Type keyword `gpt` → space/tab → input query text (e.g. "**gpt** what is a large language model?")
 - Method 2: set up a custom hotkey to `OpenAI Direct Query`
 
-<img src='./docs/img/direct-query.png' style='width:700px;'/>
+<img src='./docs/img/direct-query.png' style='width:600px;'/>
 
 ## ⚙️ Additional Query Methods
 
@@ -84,7 +84,7 @@ You can open a web interface
 
 If your default browser is Google Chrome and "duti" command is installed to the system, the web interface will be opened by Google Chrome. Otherwise, Safari will be used.
 
-<kbd><img width="700" alt="SCR-20221207-st2" src="./docs/img/web-interface.png"></kbd>
+<kbd><img width="600" alt="SCR-20221207-st2" src="./docs/img/web-interface.png"></kbd>
 
 ## Commands
 
@@ -94,13 +94,13 @@ The input text is used as a prompt to the OpenAI Chat API. The original input te
 
 The input text is directly sent as a prompt to the OpenAI Chat API.
 
-<kbd><img src='./docs/img/direct-query.gif' style='width:700px;'/></kbd>
+<kbd><img src='./docs/img/direct-query.gif' style='width:600px;'/></kbd>
 
 #### <span><img src='./icons/arrow-bar-down.png' style='height:2em;'/></span> Prepend Text + Query
 
 After the initial text is entered, the user is prompted for additional text. The additional text is added *before* the initial text, and the resulting text is used as the query.
 
-<kbd><img src='./docs/img/prepend.gif' style='width:700px;'/></kbd>
+<kbd><img src='./docs/img/prepend.gif' style='width:600px;'/></kbd>
 
 #### <span><img src='./icons/arrow-bar-up.png' style='height:2em;'/></span> Append Text + Query
 
@@ -108,19 +108,19 @@ After the initial text is entered, the user is prompted for additional text. The
 
 #### <span><img src='./icons/picture.png' style='height:2em;'/></span> Generate Image
 
-<kbd><img src='./docs/img/enhance-prompt-image.gif' style='width:700px;'/></kbd>
+<kbd><img src='./docs/img/enhance-prompt-image.gif' style='width:600px;'/></kbd>
 
 The DALL-E API is used to generate images according to the prompts entered. In general, the more detailed the prompt, the closer the content and quality of the output image will be to what is desired. 
 
 > Rugby players are playing in a match using a huge watermelon as a ball
 
-<kbd><img width="700" src="./docs/img/image-examples.png"></kbd>
+<kbd><img width="600" src="./docs/img/image-examples.png"></kbd>
 
 When the `Enhance Prompt` option is enabled, a short prompt, for example the following, is expanded by GPT into more detailed text, which is then used to generate images.
 
 > View of downtown Austin from across the river
 
-<kbd><img width="700" src="./docs/img/prompt-enhancement.png"></kbd>
+<kbd><img width="600" src="./docs/img/prompt-enhancement.png"></kbd>
 
 #### <span><img src='./icons/code-square.png' style='height:2em;'/></span> Write Program Code
 
@@ -132,7 +132,7 @@ GPT will generate program code and example output according to the text entered.
 
 **Example Output**
 
-<kbd><img width="700" src="./docs/img/code.png"></kbd>
+<kbd><img width="600" src="./docs/img/code.png"></kbd>
 
 ## Specialized Commands
 
@@ -196,7 +196,7 @@ Extract keywords from a block of text. See OpenAI's [description](https://beta.o
 
 ## Speech-to-Text Conversion 
 
-<kbd><img src='./docs/img/audio-to-query.gif' style='width:700px;'/></kbd>
+<kbd><img src='./docs/img/audio-to-query.gif' style='width:600px;'/></kbd>
 
 The Whisper API can convert speech into text in a variety of languages. Please refer to the [Whisper API FAQ](https://help.openai.com/en/articles/7031512-whisper-api-faq) for available languages and other limitations.
 
@@ -210,7 +210,7 @@ Select the file → universal actioin hotkey select → `OpenAI Speech-to-Text`
 
 Alternatively you can record voice audio and send it to the Workflow for transcription using the Whisper API. The recording must be no longer than 30 minutes and will automatically stop after this time. Recording time is limited to 30 minutes and stops automatically after this limit.
 
-<kbd><img width="700" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
+<kbd><img width="600" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
 
 - Alfred textbox → keyword (`openai-speech`) → Terminal window opens and recording starts
 - Speak to internal or external microphone → Press Enter to finish recording
@@ -225,9 +225,9 @@ Alternatively you can record voice audio and send it to the Workflow for transcr
 
 You can choose the format of the transribed text from `text`, `srt` or `vtt` in the workflow's settings. Below are examples in the `text` and `srt` formats:
 
-<kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-text.png"></kbd>
+<kbd><img width="600" alt="transcript-srt" src="./docs/img/transcript-text.png"></kbd>
 
-<kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
+<kbd><img width="600" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
 
 ## Monitoring API Usage 
 
@@ -299,7 +299,7 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 
 If the `Text to Speech` option is enabled, the result text will be read aloud in the system's standard language and voice. To change the language and speech, go to [Accessibility] - [Vision] -[Spoken Content] in the Mac Settings panel.
 
-<kbd><img width="700" alt="spoken-content-panel" src="https://user-images.githubusercontent.com/18207/221521819-a942e6ba-0523-4526-93da-52b6167defaf.png"></kbd>
+<kbd><img width="600" alt="spoken-content-panel" src="https://user-images.githubusercontent.com/18207/221521819-a942e6ba-0523-4526-93da-52b6167defaf.png"></kbd>
 
 #### Custom CSS
 
