@@ -10,13 +10,14 @@
 
 ## Downloads
 
-**Current version**: **2.1.2**
+**Current version**: **2.2.0**
 
 [**Download Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
 
 **Recent Change Log**
 
-- 2.1.2: Added the ability to stream text responses from GPT while chatting 🤖💬
+- 2.2.0: Added the ability to export/import chat history 💾
+- 2.1.2: Added the ability to stream text responses from GPT 🤖💬
 - 2.0.3: Resolved a CSS loading issue on Safari.
 - 2.0.0: Introduced support for interactive chat with GPT.
 - 1.12.0: Introduced a popup model selector.
