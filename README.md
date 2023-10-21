@@ -16,7 +16,7 @@
 
 **Recent Change Log**
 
-- 2.2.0: Added the ability to export/import chat history 💾
+- 2.2.0: Added the ability to export/import chat history 💾 ↕️
 - 2.1.2: Added the ability to stream text responses from GPT 🤖💬
 - 2.0.3: Resolved a CSS loading issue on Safari.
 - 2.0.0: Introduced support for interactive chat with GPT.
