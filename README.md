@@ -10,13 +10,13 @@
 
 ## Downloads
 
-**Current version**: **2.2.0**
+**Current version**: **2.2.1**
 
 [**Download Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
 
 **Recent Change Log**
 
-- 2.2.0: Added the ability to export/import chat history 💾 ↕️
+- 2.2.1: Added the ability to export/import chat history 💾 ↕️
 - 2.1.2: Added the ability to stream text responses from GPT 🤖💬
 - 2.0.3: Resolved a CSS loading issue on Safari.
 - 2.0.0: Introduced support for interactive chat with GPT.
@@ -37,7 +37,7 @@
 - [Pandoc](https://pandoc.org/): Needed to convert Markdown to HTML
 - [Sox](https://sox.sourceforge.net/sox.html): Needed for audio recording
 - [jq](https://jqlang.github.io/jq/): Needed to handle chat history in JSON
-- [duti](https://github.com/moretension/duti): Needed to use Google Chrome to open chat window (optional)
+- [duti](https://github.com/moretension/duti): Needed to use Google Chrome or Microsoft Edge to open chat window (optional)
 
 To start using this workflow, you must set the environment variable `apikey`, which you can get by creating a new [OpenAI account](https://platform.openai.com/account/api-keys). See also the [Configuration](#configuration) section below.
 
