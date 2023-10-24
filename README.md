@@ -18,8 +18,6 @@
 2. Run the following command in a terminal: `brew install pandoc sox jq duti`
 3. Download and run the [workflow]((https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
 
-```
-
 **Recent Change Log**
 
 - 2.2.4 Added the ability to export/import chat history ↔️💾 
