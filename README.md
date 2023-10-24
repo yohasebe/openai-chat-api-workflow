@@ -2,7 +2,7 @@
 
 <img src='./icons/openai.png' style='height:120px;'/>
 
-🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) Chat API to interact with GPT-3.5/GPT-4 🤖 It also allows image generation using DALL-E API 🖼️ and speech-to-text conversion using Whisper API 🎤
+🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) Chat API to interact with GPT-3.5/GPT-4 🤖💬 It also allows image generation using DALL-E API 🖼️ and speech-to-text conversion using Whisper API 🎤
 
 <img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:600px;'/>
 
@@ -10,13 +10,19 @@
 
 ## Downloads
 
-**Current version**: **2.2.1**
-
 [**Download Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
+
+**Installation**
+
+1. Install [Homebrew](https://brew.sh/)
+2. Run the following command in a terminal: `brew install pandoc sox jq duti`
+3. Download and run the [workflow]((https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
+
+```
 
 **Recent Change Log**
 
-- 2.2.2: Added the ability to export/import chat history 💾 ↕️
+- 2.2.3: Added the ability to export/import chat history ↔️💾 
 - 2.1.2: Added the ability to stream text responses from GPT 🤖💬
 - 2.0.3: Resolved a CSS loading issue on Safari.
 - 2.0.0: Introduced support for interactive chat with GPT.
