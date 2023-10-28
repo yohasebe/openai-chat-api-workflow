@@ -1,5 +1,6 @@
 # Change Log
 
+- 2.3.0 Dark mode web UI added 🎃
 - 2.2.5 Check-for-update feature added
 - 2.2.4: Added the ability to export/import chat history 💾
 - 2.1.2: Added the ability to stream text responses from GPT 🤖💬
