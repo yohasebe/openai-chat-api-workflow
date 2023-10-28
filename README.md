@@ -20,7 +20,7 @@
 
 **Recent Change Log**
 
-- 2.3.1 Dark mode web UI added 🎃
+- 2.3.2 UI mode option (light/dark/auto) added 🎃
 - 2.2.5 Check-for-update feature added
 - 2.2.4 Added the ability to export/import chat history 💾 
 - 2.1.2: Added the ability to stream text responses from GPT 🤖💬
@@ -91,9 +91,9 @@ You can open a web interface
 
 If your default browser is Google Chrome and "duti" command is installed to the system, the web interface will be opened by Google Chrome. Otherwise, Safari will be used.
 
-**Light/Dark Modes**
+**Web UI Modes**
 
-Switch modes with `Dark Mode UI` checkbox in the settings.
+Switch modes (light/dark/auto) with `Web UI Mode` selector in the settings.
 
 <kbd><img width="600" src="./docs/img/web-interface.png"></kbd>
 
@@ -307,7 +307,7 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 - **Text to Speech**: If enabled, the results will be read aloud using the system's default text-to-speech language and voice. (default: `disabled`)
 - **Output HTML Using Pandoc**: Show results in the default web browser if pandoc is installed. If unchecked (or Pandoc is not installed), Alfred's "Large Type" feature is used to display the result. (default: `enabled`)
 - **Custom CSS**: You can specify CSS for the query results HTML. (default: `not set`)
-- **Dark Mode UI**: If set, dark mode is enabled in the web user interface
+- Web UI Mode**: Set your preferred UI mode (light/dark/auto). (default: `auto`)
 
 #### Text to Speech
 
