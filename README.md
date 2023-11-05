@@ -20,19 +20,17 @@
 
 **Recent Change Log**
 
+- **2.4.0 Many improvements in stability and UI ⤴️**
+    - Improved API calls and websocket connections
+    - Improved handling of invalid characters
+    - TTS play/stop from web interface
+    - Edit button added to last message
+    - Checkbox for adding Emoji to responses
+    - Auto-resize textarea
 - 2.3.5 UI mode option (light/dark/auto) added 🎃
 - 2.2.5 Check-for-update feature added
 - 2.2.4 Added the ability to export/import chat history 💾 
 - 2.1.2: Added the ability to stream text responses from GPT 🤖💬
-- 2.0.3: Resolved a CSS loading issue on Safari.
-- 2.0.0: Introduced support for interactive chat with GPT.
-- 1.12.0: Introduced a popup model selector.
-- 1.11.3: Fixed an issue with the speech-to-text file action.
-- 1.11.2: Added a new keyword (gpt) for simple queries.
-- 1.11.0: Added support for speech-to-text using the Whisper API.
-- 1.10.2: The Enhance Prompt feature now supports both gpt-4 and gpt-3.5-turbo.
-- 1.10.0: Added the Enhance Prompt option for image generation mode.
-- 1.9.1: Fixed an issue with 1024x1024 image generation.
 
 [Complete Change Log](https://github.com/yohasebe/openai-chat-api-workflow/blob/main/CHANGELOG.md)
 

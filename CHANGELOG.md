@@ -1,5 +1,12 @@
 # Change Log
 
+- 2.4.0 Many improvements in stability and UI
+    - Improved API calls and websocket connections
+    - Improved handling of invalid characters
+    - TTS play/stop from web interface
+    - Edit button added to last message
+    - Checkbox for adding Emoji to responses
+    - Auto-resize textarea
 - 2.3.5 UI mode option (light/dark/auto) added 🎃
 - 2.2.5 Check-for-update feature added
 - 2.2.4: Added the ability to export/import chat history 💾
