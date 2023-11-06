@@ -22,7 +22,12 @@
 
 **Recent Change Log**
 
-- **2.4.1 Many improvements in stability and UI ⤴️**
+
+- **2.5.0 OpenAI's 2023-1106 new models supported**
+    - gpt-4-1106-preview
+    - gpt-3.5-turbo-1106
+    - dall-e-3
+- 2.4.0 Many improvements in stability and UI ⤴️
     - Improved API calls and websocket connections
     - Improved handling of invalid characters
     - Cancel button in web interface
@@ -124,7 +129,7 @@ After the initial text is entered, the user is prompted for additional text. The
 
 <kbd><img src='./docs/img/enhance-prompt-image.gif' style='width:600px;'/></kbd>
 
-The DALL-E API is used to generate images according to the prompts entered. In general, the more detailed the prompt, the closer the content and quality of the output image will be to what is desired. 
+The DALL-E API (`dall-e-3`) is used to generate images according to the prompts entered. In general, the more detailed the prompt, the closer the content and quality of the output image will be to what is desired. 
 
 > Rugby players are playing in a match using a huge watermelon as a ball
 
@@ -257,14 +262,13 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 
 ### Chat Parameters
 
-- **Model**: OpenAI's chat [model](https://beta.openai.com/docs/api-reference/models) used for the workflow (default: `gpt-3.5-turbo-0613`). Here are the models currently available:
+- **Model**: OpenAI's chat [model](https://beta.openai.com/docs/api-reference/models) used for the workflow (default: `gpt-3.5-turbo`). Here are the models currently available:
 
+  - `gpt-3.5-turbo-1106`
   - `gpt-3.5-turbo`
-  - `gpt-3.5-turbo-0613`
+  - `gpt-3.5-turbo-16k`
+  - `gpt-4-1106-preview`
   - `gpt-4`
-  - `gpt-4-0613`
-  - `gpt-4-32k`
-  - `gpt-4-32k-0613`
 
 - **Max Tokens**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-max_tokens). (default: `2048`)
 - **Temperature**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-temperature). (default: `0.3`)

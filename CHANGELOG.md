@@ -1,6 +1,10 @@
 # Change Log
 
-- 2.4.1 Many improvements in stability and UI
+- 2.5.0 OpenAI's 2023-1106 new models supported
+    - gpt-4-1106-preview
+    - gpt-3.5-turbo-1106
+    - dall-e-3
+- 2.4.0 Many improvements in stability and UI
     - Improved API calls and websocket connections
     - Improved handling of invalid characters
     - Cancel button in web interface
