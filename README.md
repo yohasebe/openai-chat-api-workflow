@@ -8,6 +8,8 @@
 
 <kbd><img src='./docs/img/openai-chat-api-workflow.gif' style='width:600px;'/></kbd>
 
+**Note**: The HTML web interface is built locally within the workflow. The API call is made directly between the workflow and OpenAI, so you don't need to worry about your chat messages being inadvertently shared online with anyone other than OpenAI.
+
 ## Downloads
 
 [**Download Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
