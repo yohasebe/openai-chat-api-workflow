@@ -20,12 +20,13 @@
 
 **Recent Change Log**
 
-- **2.4.0 Many improvements in stability and UI ⤴️**
+- **2.4.1 Many improvements in stability and UI ⤴️**
     - Improved API calls and websocket connections
     - Improved handling of invalid characters
+    - Cancel button in web interface
     - TTS play/stop from web interface
     - Edit button added to last message
-    - Checkbox for adding Emoji to responses
+    - Checkbox for adding Emoji to response from GPT
     - Auto-resize textarea
 - 2.3.5 UI mode option (light/dark/auto) added 🎃
 - 2.2.5 Check-for-update feature added
@@ -268,9 +269,10 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 - **Top P**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-top_p). (default: `1.0`)
 - **Frequency Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-frequency_penalty). (default: `0.0`)
 - **Presence Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-presence_penalty). (default: `0.0`)
-
 - **Memory Span**: Set the number of past utterances sent to the API as a context. Setting 4 to this parameter means 2  conversation turns (user + assistant) will be sent as a context for a new query. The larger the value, more tokens will be consumed. (default: `4`)
+- ** Add Emoji**: If enabled, the response text from GPT will contain emoji characters appropriate for the content. (default: `enabled`)
 - **System Content**: Text to sent with every query sent to API as a general information about the specification of the chat. The default value is as follows:
+
 
   >You are a friendly but professional consultant who answers various questions, write computer program code, make decent suggestions, give helpful advice in response to a prompt from the user. Your response must be consise, suggestive, and accurate. 
 
@@ -297,7 +299,7 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 - **Your First Language**: Set your first language. This language is used when using GPT for translation. (default: `English`)
 - **Your Second Language**: Set your second language. This language is used when using GPT for translation.(default: `Japanese`)
 - **Max Characters**: Maximum number of characters that can be included in a query (default: `10000`).
-- **Timeout**: Number of seconds before the timeout (default: `180`).
+- **Timeout**: The number of seconds (default: `5`) to wait before opening the socket and connecting to the API. If the connection fails, reconnection (up to 20 times) will be attempted after 1 second.
 - **"Please Wait" Message**: If disabled, the "Please Wait" message is suppressed. (default: `enabled`)
 - **Sound**: If checked, a notification sound will play when the response is returned. (default: `disabled`)
 - **Echo**: If enabled, the original prompt is contained in the result text. (default: `enabled`)
