@@ -270,11 +270,9 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 - **Frequency Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-frequency_penalty). (default: `0.0`)
 - **Presence Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-presence_penalty). (default: `0.0`)
 - **Memory Span**: Set the number of past utterances sent to the API as a context. Setting 4 to this parameter means 2  conversation turns (user + assistant) will be sent as a context for a new query. The larger the value, more tokens will be consumed. (default: `4`)
-- ** Add Emoji**: If enabled, the response text from GPT will contain emoji characters appropriate for the content. (default: `enabled`)
-- **System Content**: Text to sent with every query sent to API as a general information about the specification of the chat. The default value is as follows:
+- **Add Emoji**: If enabled, the response text from GPT will contain emoji characters appropriate for the content. This is realized by adding the following sentence at the end of the system content. (default: `enabled`)
 
-
-  >You are a friendly but professional consultant who answers various questions, write computer program code, make decent suggestions, give helpful advice in response to a prompt from the user. Your response must be consise, suggestive, and accurate. 
+> Add emojis that are appropriate to the content of the response.
 
 ### Image Generation Parameters
 
@@ -308,6 +306,10 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 - **Output HTML Using Pandoc**: Show results in the default web browser if pandoc is installed. If unchecked (or Pandoc is not installed), Alfred's "Large Type" feature is used to display the result. (default: `enabled`)
 - **Custom CSS**: You can specify CSS for the query results HTML. (default: `not set`)
 - Web UI Mode**: Set your preferred UI mode (light/dark/auto). (default: `auto`)
+- **System Content**: Text to sent with every query sent to API as a general information about the specification of the chat. The default value is as follows:
+
+
+> You are a friendly but professional consultant who answers various questions, write computer program code, make decent suggestions, give helpful advice in response to a prompt from the user. Your response must be consise, suggestive, and accurate. 
 
 #### Text to Speech
 
