@@ -1,11 +1,12 @@
 # Change Log
 
-- 2.4.0 Many improvements in stability and UI
+- 2.4.1 Many improvements in stability and UI
     - Improved API calls and websocket connections
     - Improved handling of invalid characters
+    - Cancel button in web interface
     - TTS play/stop from web interface
     - Edit button added to last message
-    - Checkbox for adding Emoji to responses
+    - Checkbox for adding Emoji to response from GPT
     - Auto-resize textarea
 - 2.3.5 UI mode option (light/dark/auto) added 🎃
 - 2.2.5 Check-for-update feature added
