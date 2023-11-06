@@ -8,7 +8,7 @@
 
 <kbd><img src='./docs/img/openai-chat-api-workflow.gif' style='width:600px;'/></kbd>
 
-**Note**: The HTML web interface is built by the workflow and run locally within your MacOS. The API call is made directly between the workflow and OpenAI, so you don't need to worry about your chat messages being shared online with anyone other than OpenAI.
+**Note**: The web interface is built by the workflow and run locally within your MacOS. The API call is made directly between the workflow and OpenAI, so you don't need to worry about your chat messages being shared online with anyone other than OpenAI.
 
 ## Downloads
 
