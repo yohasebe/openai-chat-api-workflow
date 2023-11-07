@@ -128,7 +128,7 @@ After the initial text is entered, the user is prompted for additional text. The
 
 <kbd><img src='./docs/img/enhance-prompt-image.gif' style='width:600px;'/></kbd>
 
-The DALL-E API (`dall-e-3`) is used to generate images according to the prompts entered. In general, the more detailed the prompt, the closer the content and quality of the output image will be to what is desired. 
+The DALL-E API (`dall-e-2`) is used to generate images according to the prompts entered. In general, the more detailed the prompt, the closer the content and quality of the output image will be to what is desired. 
 
 > Rugby players are playing in a match using a huge watermelon as a ball
 
