@@ -23,10 +23,9 @@
 **Recent Change Log**
 
 
-- **2.5.0 OpenAI's 2023-1106 new models supported**
+- **2.5.1 OpenAI's 2023-1106 new models supported**
     - gpt-4-1106-preview
     - gpt-3.5-turbo-1106
-    - dall-e-3
 - 2.4.0 Many improvements in stability and UI ⤴️
     - Improved API calls and websocket connections
     - Improved handling of invalid characters
@@ -282,9 +281,9 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 
 ### Image Generation Parameters
 
-- **Number of Images**: Set the number of images to generate in image generation mode from `1` to `10`. (default: `1`)
-- **Image Size**: Set the size of images to generate from `256x256`, `512x512`, `1024x1024`. (default: `512x512`)
+- **Image Size**: Set the size of images to generate from `1024x1024`, `1024x1792`, `1792x1024`. (default: `1024x1024`)
 - **Enhance Prompt**: When enabled, the prompt to the image generation API is automatically enhanced using a GPT-4 model specified in the configuration. This variable is only enabled when the `model` is set to one of the "gpt-4" series. 
+- **Number of Images** : Set the number of images to generate in image generation mode from `1` to `10`. (default: `1`)
 
 ### Speech-to-Text Parameters
 
