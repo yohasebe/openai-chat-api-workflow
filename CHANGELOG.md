@@ -1,9 +1,15 @@
 # Change Log
 
-- 2.5.0 OpenAI's 2023-1106 new models supported
-    - gpt-4-1106-preview
-    - gpt-3.5-turbo-1106
-- 2.4.0 Many improvements in stability and UI
+- **2.6.0: OpenAI's 2023-1106 new models supported**
+    - chat/completion
+        - gpt-4-1106-preview
+        - gpt-3.5-turbo-1106
+    - image generation
+        - dall-e-3
+    - text-to-speech
+        - tts-1
+        - tts-1-hd
+- 2.4.0: Many improvements in stability and UI
     - Improved API calls and websocket connections
     - Improved handling of invalid characters
     - Cancel button in web interface
@@ -11,8 +17,8 @@
     - Edit button added to last message
     - Checkbox for adding Emoji to response from GPT
     - Auto-resize textarea
-- 2.3.5 UI mode option (light/dark/auto) added 🎃
-- 2.2.5 Check-for-update feature added
+- 2.3.5: UI mode option (light/dark/auto) added 🎃
+- 2.2.5: Check-for-update feature added
 - 2.2.4: Added the ability to export/import chat history 💾
 - 2.1.2: Added the ability to stream text responses from GPT 🤖💬
 - 2.0.3: Resolved a CSS loading issue on Safari.
