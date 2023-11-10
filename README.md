@@ -22,7 +22,7 @@
 
 **Recent Change Log**
 
-- **2.6.0: OpenAI's 2023-1106 models supported 🎉**
+- **2.6.1: OpenAI's 2023-1106 models supported 🎉**
     - **Chat/Completion**
         - gpt-4-1106-preview
         - gpt-3.5-turbo-1106
@@ -95,7 +95,7 @@ You can select any text on your Mac and send it to the workflow:
 
 You can open a web interface
 
-- Method 1: Alfred textbox → keyword (`openai-textbox`)
+- Method 1: Alfred textbox → keyword (`openai-webui`)
 - Method 2: set up a custom hotkey to `Open web interface`
 
 **Using Google Chrome**
