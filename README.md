@@ -2,13 +2,13 @@
 
 <img src='./icons/openai.png' style='height:120px;'/>
 
-🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) Chat API to interact with GPT-3.5/GPT-4 🤖💬 It also allows image generation using DALL-E API 🖼️ and speech-to-text conversion using Whisper API 🎤
+🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) Chat API to interact with GPT-3.5/GPT-4 🤖💬 It also allows image generation 🖼️, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈
 
 <img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:600px;'/>
 
 <kbd><img src='./docs/img/openai-chat-api-workflow.gif' style='width:600px;'/></kbd>
 
-**Note**: The web interface is built by the workflow and run locally within your Mac. The API call is made directly between the workflow and OpenAI, so you don't need to worry about your chat messages being shared online with anyone other than OpenAI.
+**Note**: The web interface is built by the workflow and run locally within your Mac. The API call is made directly between the workflow and OpenAI, so you don't need to worry about your chat messages being shared online with anyone other than OpenAI. Additionally, OpenAI does not use the data from the API Platform for [training](https://openai.com/enterprise-privacy).
 
 ## Downloads
 
@@ -22,11 +22,16 @@
 
 **Recent Change Log**
 
-
-- **2.5.1 OpenAI's 2023-1106 new models supported**
-    - gpt-4-1106-preview
-    - gpt-3.5-turbo-1106
-- 2.4.0 Many improvements in stability and UI ⤴️
+- **2.6.0: OpenAI's 2023-1106 new models supported 🎉**
+    - **Chat**
+        - gpt-4-1106-preview
+        - gpt-3.5-turbo-1106
+    - **Image Generation**
+        - dall-e-3
+    - **Text-to-Speech**
+        - tts-1
+        - tts-1-hd
+- 2.4.0: Many improvements in stability and UI ⤴️
     - Improved API calls and websocket connections
     - Improved handling of invalid characters
     - Cancel button in web interface
@@ -34,9 +39,9 @@
     - Edit button added to last message
     - Checkbox for adding Emoji to response from GPT
     - Auto-resize textarea
-- 2.3.5 UI mode option (light/dark/auto) added 🎃
-- 2.2.5 Check-for-update feature added
-- 2.2.4 Added the ability to export/import chat history 💾 
+- 2.3.5: UI mode option (light/dark/auto) added 🎃
+- 2.2.5: Check-for-update feature added
+- 2.2.4: Added the ability to export/import chat history 💾 
 - 2.1.2: Added the ability to stream text responses from GPT 🤖💬
 
 [Complete Change Log](https://github.com/yohasebe/openai-chat-api-workflow/blob/main/CHANGELOG.md)
@@ -48,6 +53,7 @@
 - [Pandoc](https://pandoc.org/): Needed to convert Markdown to HTML
 - [Sox](https://sox.sourceforge.net/sox.html): Needed for audio recording
 - [jq](https://jqlang.github.io/jq/): Needed to handle chat history in JSON
+
 - [duti](https://github.com/moretension/duti): Needed to use Google Chrome or Microsoft Edge to open chat window (optional)
 
 To start using this workflow, you must set the environment variable `apikey`, which you can get by creating a new [OpenAI account](https://platform.openai.com/account/api-keys). See also the [Configuration](#configuration) section below.
@@ -128,17 +134,11 @@ After the initial text is entered, the user is prompted for additional text. The
 
 <kbd><img src='./docs/img/enhance-prompt-image.gif' style='width:600px;'/></kbd>
 
-The DALL-E API (`dall-e-2`) is used to generate images according to the prompts entered. In general, the more detailed the prompt, the closer the content and quality of the output image will be to what is desired. 
+The DALL-E API (`dall-e-3` or `dall-e-2`) is used to generate images according to the prompts entered. In general, the more detailed the prompt, the closer the content and quality of the output image will be to what is desired. 
 
-> Rugby players are playing in a match using a huge watermelon as a ball
+> Rugby players are playing in a match using a watermelon as a ball
 
 <kbd><img width="600" src="./docs/img/image-examples.png"></kbd>
-
-When the `Enhance Prompt` option is enabled, a short prompt, for example the following, is expanded by GPT into more detailed text, which is then used to generate images.
-
-> View of downtown Austin from across the river
-
-<kbd><img width="600" src="./docs/img/prompt-enhancement.png"></kbd>
 
 #### <span><img src='./icons/code-square.png' style='height:2em;'/></span> Write Program Code
 
@@ -212,6 +212,11 @@ Translates complex text into more straightforward concepts. See OpenAI's [descri
 
 Extract keywords from a block of text. See OpenAI's [description](https://beta.openai.com/examples/default-keywords) for this example.
 
+
+## Text-to-Speech Synthesis
+
+Text entered or response text from GPT can be read out in a natural voice using OpenAI's text-to-speech API.
+
 ## Speech-to-Text Conversion 
 
 <kbd><img src='./docs/img/audio-to-query.gif' style='width:600px;'/></kbd>
@@ -259,6 +264,8 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 
 - **Base URL**: The base URL of the OpenAI Chat API. (default: `https://api.openai.com/v1`)
 
+- **Streaming**: Show results in the default web browser. If unchecked (or Pandoc is not installed), Alfred's "Large Type" feature is used to display the result. (default: `enabled`)
+
 ### Chat Parameters
 
 - **Model**: OpenAI's chat [model](https://beta.openai.com/docs/api-reference/models) used for the workflow (default: `gpt-3.5-turbo`). Here are the models currently available:
@@ -281,9 +288,18 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 
 ### Image Generation Parameters
 
-- **Image Size**: Set the size of images to generate from `1024x1024`, `1024x1792`, `1792x1024`. (default: `1024x1024`)
-- **Enhance Prompt**: When enabled, the prompt to the image generation API is automatically enhanced using a GPT-4 model specified in the configuration. This variable is only enabled when the `model` is set to one of the "gpt-4" series. 
-- **Number of Images** : Set the number of images to generate in image generation mode from `1` to `10`. (default: `1`)
+- **Image Generation Model**: `dall-e-3` and `dall-e-2` are available. (default `dall-e-3`)
+- **Image Size** (`for dall-e-3`): Set the size of images to generate from `1024x1024`, `1024x1792`, `1792x1024`. (default: `1024x1024`)
+- **Quality** (`for dall-e-3`): Choose the quality of image from `standard` and `hd`. (default: `standard`)
+- **Style** (`for dall-e-3`): Choose the style of image from `vivid` and `natural`. (default: `vivid`)
+- **Number of Images** (for `dall-e-2`) : Set the number of images to generate in image generation mode from `1` to `10`. (default: `1`)
+- **Image Size** (for `dall-e-2`): Set the size of images to generate from `256x256`, `512x512`, `1024x1024`. (default: `256x256`)
+
+### Text-to-Speech Parameters
+
+- **Text-to-Speech Model**: One of the available TTS models: `tts-1` or `tts-1-hd`. (default: `tts-1`)
+- **Text-to-Speech Voice**: The voice to use when generating the audio. Supported voices are: `alloy`, `echo`, `fable`, `onyx`, `nova`, and `shimmer`. (default: `alloy`)
+- **Text-to-Speech Speed**: The speed of the generated audio. Select a value from 0.25 to 4.0. (default: 1.0)
 
 ### Speech-to-Text Parameters
 
@@ -301,32 +317,18 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 
 - **Your First Language**: Set your first language. This language is used when using GPT for translation. (default: `English`)
 - **Your Second Language**: Set your second language. This language is used when using GPT for translation.(default: `Japanese`)
-- **Max Characters**: Maximum number of characters that can be included in a query (default: `10000`).
+- **Max Characters**: Maximum number of characters that can be included in a query (default: `20000`).
 - **Timeout**: The number of seconds (default: `5`) to wait before opening the socket and connecting to the API. If the connection fails, reconnection (up to 20 times) will be attempted after 1 second.
 - **"Please Wait" Message**: If disabled, the "Please Wait" message is suppressed. (default: `enabled`)
 - **Sound**: If checked, a notification sound will play when the response is returned. (default: `disabled`)
 - **Echo**: If enabled, the original prompt is contained in the result text. (default: `enabled`)
 - **Save File Path**: If set, the results will be saved in the specified path as a markdown file. (default: `not set`)
 - **Text to Speech**: If enabled, the results will be read aloud using the system's default text-to-speech language and voice. (default: `disabled`)
-- **Output HTML Using Pandoc**: Show results in the default web browser if pandoc is installed. If unchecked (or Pandoc is not installed), Alfred's "Large Type" feature is used to display the result. (default: `enabled`)
 - **Custom CSS**: You can specify CSS for the query results HTML. (default: `not set`)
-- Web UI Mode**: Set your preferred UI mode (light/dark/auto). (default: `auto`)
+- **Web UI Mode**: Set your preferred UI mode (`light`/`dark`/`auto`). (default: `auto`)
 - **System Content**: Text to sent with every query sent to API as a general information about the specification of the chat. The default value is as follows:
 
-
 > You are a friendly but professional consultant who answers various questions, write computer program code, make decent suggestions, give helpful advice in response to a prompt from the user. Your response must be consise, suggestive, and accurate. 
-
-#### Text to Speech
-
-If the `Text to Speech` option is enabled, the result text will be read aloud in the system's standard language and voice. To change the language and speech, go to [Accessibility] - [Vision] -[Spoken Content] in the Mac Settings panel.
-
-<kbd><img width="600" alt="spoken-content-panel" src="https://user-images.githubusercontent.com/18207/221521819-a942e6ba-0523-4526-93da-52b6167defaf.png"></kbd>
-
-#### Custom CSS
-
-You can define the CSS for the HTML that will be displayed as a result of the query. For example, you can freely change the maximum text width, font size and type, background color, etc.
-
-<kbd><img width="450" alt="2023-05-13_20-53-34" src="./docs/img/css.png"></kbd>
 
 ## Author
 
