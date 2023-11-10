@@ -23,7 +23,7 @@
 **Recent Change Log**
 
 - **2.6.0: OpenAI's 2023-1106 new models supported 🎉**
-    - **Chat**
+    - **Chat/Completion**
         - gpt-4-1106-preview
         - gpt-3.5-turbo-1106
     - **Image Generation**
