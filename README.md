@@ -22,7 +22,11 @@
 
 **Recent Change Log**
 
-- **2.6.2: OpenAI's 2023-1106 models supported 🎉**
+- 2.6.3: Usability improvements 
+    - Streaming TTS playback for Chrome and Edge browsers
+    - "Edit Prompt" button for generated image
+    - Web UI focus status indicator added
+- 2.6.2: OpenAI's 2023-1106 models supported 🎉
     - **Chat/Completion**
         - gpt-4-1106-preview
         - gpt-3.5-turbo-1106
@@ -50,11 +54,10 @@
 
 - Alfred 5 [Powerpack](https://www.alfredapp.com/shop/)
 - OpenAI [API key](https://platform.openai.com/account/api-keys)
-- [Pandoc](https://pandoc.org/): Needed to convert Markdown to HTML
-- [Sox](https://sox.sourceforge.net/sox.html): Needed for audio recording
-- [jq](https://jqlang.github.io/jq/): Needed to handle chat history in JSON
-
-- [duti](https://github.com/moretension/duti): Needed to use Google Chrome or Microsoft Edge to open chat window (optional)
+- [Pandoc](https://pandoc.org/): to convert Markdown to HTML
+- [Sox](https://sox.sourceforge.net/sox.html): for audio recording
+- [jq](https://jqlang.github.io/jq/): to handle chat history in JSON
+- [duti](https://github.com/moretension/duti): to use Google Chrome or Microsoft Edge to open web interface
 
 To start using this workflow, you must set the environment variable `apikey`, which you can get by creating a new [OpenAI account](https://platform.openai.com/account/api-keys). See also the [Configuration](#configuration) section below.
 
@@ -318,17 +321,15 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 - **Your First Language**: Set your first language. This language is used when using GPT for translation. (default: `English`)
 - **Your Second Language**: Set your second language. This language is used when using GPT for translation.(default: `Japanese`)
 - **Max Characters**: Maximum number of characters that can be included in a query (default: `20000`).
-- **Timeout**: The number of seconds (default: `5`) to wait before opening the socket and connecting to the API. If the connection fails, reconnection (up to 20 times) will be attempted after 1 second.
-- **"Please Wait" Message**: If disabled, the "Please Wait" message is suppressed. (default: `enabled`)
+- **Timeout**: The number of seconds (default: `10`) to wait before opening the socket and connecting to the API. If the connection fails, reconnection (up to 20 times) will be attempted after 1 second.
 - **Sound**: If checked, a notification sound will play when the response is returned. (default: `disabled`)
-- **Echo**: If enabled, the original prompt is contained in the result text. (default: `enabled`)
 - **Save File Path**: If set, the results will be saved in the specified path as a markdown file. (default: `not set`)
 - **Text to Speech**: If enabled, the results will be read aloud using the system's default text-to-speech language and voice. (default: `disabled`)
 - **Custom CSS**: You can specify CSS for the query results HTML. (default: `not set`)
 - **Web UI Mode**: Set your preferred UI mode (`light`/`dark`/`auto`). (default: `auto`)
 - **System Content**: Text to sent with every query sent to API as a general information about the specification of the chat. The default value is as follows:
 
-> You are a friendly but professional consultant who answers various questions, write computer program code, make decent suggestions, give helpful advice in response to a prompt from the user. Your response must be consise, suggestive, and accurate. 
+> You are a friendly but professional consultant who answers various questions, make decent suggestions, and give helpful advice in response to a prompt from the user. Your response must be consise, suggestive, and accurate. 
 
 ## Author
 

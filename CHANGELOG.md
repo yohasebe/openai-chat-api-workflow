@@ -1,6 +1,10 @@
 # Change Log
 
-- **2.6.2: OpenAI's 2023-1106 models supported**
+- 2.6.3: Usability improvements 
+    - Streaming TTS playback for Chrome and Edge browsers
+    - "Edit Prompt" button for generated image
+    - Web UI focus status indicator added
+- 2.6.2: OpenAI's 2023-1106 models supported
     - chat/completion
         - gpt-4-1106-preview
         - gpt-3.5-turbo-1106
