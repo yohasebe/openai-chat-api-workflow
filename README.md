@@ -35,18 +35,6 @@
     - **Text-to-Speech**
         - tts-1
         - tts-1-hd
-- 2.4.0: Many improvements in stability and UI ⤴️
-    - Improved API calls and websocket connections
-    - Improved handling of invalid characters
-    - Cancel button in web interface
-    - TTS play/stop from web interface
-    - Edit button added to last message
-    - Checkbox for adding Emoji to response from GPT
-    - Auto-resize textarea
-- 2.3.5: UI mode option (light/dark/auto) added 🎃
-- 2.2.5: Check-for-update feature added
-- 2.2.4: Added the ability to export/import chat history 💾 
-- 2.1.2: Added the ability to stream text responses from GPT 🤖💬
 
 [Complete Change Log](https://github.com/yohasebe/openai-chat-api-workflow/blob/main/CHANGELOG.md)
 
@@ -302,7 +290,7 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 
 - **Text-to-Speech Model**: One of the available TTS models: `tts-1` or `tts-1-hd`. (default: `tts-1`)
 - **Text-to-Speech Voice**: The voice to use when generating the audio. Supported voices are: `alloy`, `echo`, `fable`, `onyx`, `nova`, and `shimmer`. (default: `alloy`)
-- **Text-to-Speech Speed**: The speed of the generated audio. Select a value from 0.25 to 4.0. (default: 1.0)
+- **Text-to-Speech Speed**: The speed of the generated audio. Select a value from 0.25 to 4.0. (default: `1.0`)
 
 ### Speech-to-Text Parameters
 
