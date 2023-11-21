@@ -1,5 +1,10 @@
 # Change Log
 
+- 2.7.0: Improved streaming TTS playback
+    - Requires `brew install mpv`
+    - Works on Chrome, Edge, and Safari
+    - "Set Voice" button added
+    - "Auto Play" button added
 - 2.6.3: Usability improvements 
     - Streaming TTS playback for Chrome and Edge browsers
     - "Edit Prompt" button for generated image
