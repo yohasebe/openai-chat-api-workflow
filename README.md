@@ -14,14 +14,21 @@
 
 [**Download Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
 
+In `2.7.0`, MPV-based text-to-speech stream playback was introduced; MPV can be installed with `brew install mpv`.
+
 **Installation**
 
 1. Install [Homebrew](https://brew.sh/)
-2. Run the following command in a terminal: `brew install pandoc sox jq duti`
+2. Run the following command in a terminal: `brew install pandoc mpv sox jq duti`
 3. Download and run the [workflow](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
 
 **Recent Change Log**
 
+- 2.7.0: Improved streaming TTS playback
+    - Requires `brew install mpv`
+    - Works on Chrome, Edge, and Safari
+    - "Set Voice" button added
+    - "Auto Play" button added
 - 2.6.3: Usability improvements 
     - Streaming TTS playback for Chrome and Edge browsers
     - "Edit Prompt" button for generated image
@@ -43,7 +50,8 @@
 - Alfred 5 [Powerpack](https://www.alfredapp.com/shop/)
 - OpenAI [API key](https://platform.openai.com/account/api-keys)
 - [Pandoc](https://pandoc.org/): to convert Markdown to HTML
-- [Sox](https://sox.sourceforge.net/sox.html): for audio recording
+- [MPV](https://mpv.io/): to play text-to-speech audio stream
+- [Sox](https://sox.sourceforge.net/sox.html): to record voice input
 - [jq](https://jqlang.github.io/jq/): to handle chat history in JSON
 - [duti](https://github.com/moretension/duti): to use Google Chrome or Microsoft Edge to open web interface
 
@@ -51,10 +59,10 @@ To start using this workflow, you must set the environment variable `apikey`, wh
 
 You will also need to install the `pandoc` and `sox` programs. Pandoc will allow this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled (especially useful when using this workflow to generate program code). Sox will allow you to record voice audio to convert to text using Whisper speech-to-text API.
 
-Installing dependencies (`pandoc`, `sox`, `jq`, and `duti`) is just a few clicks once this workflow has been included in the [Alfred Gallery](https://alfred.app/). For now, install these programs using [homebrew](https://brew.sh/). Once homebrew is installed, run the following command.
+Installing dependencies (`pandoc`, `mpv`, `sox`, `jq`, and `duti`) is just a few clicks once this workflow has been included in the [Alfred Gallery](https://alfred.app/). For now, install these programs using [homebrew](https://brew.sh/). Once homebrew is installed, run the following command.
 
 ```shell
-  brew install pandoc sox jq duti
+  brew install pandoc mpv sox jq duti
 ```
 
 ## ⚡️ Simple Direct Query/Chat
