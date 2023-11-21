@@ -12,7 +12,7 @@
 
 ## ⬇️ Downloads
 
-[**Download Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
+📦 [**Download Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
 
 In `2.7.0`, MPV-based text-to-speech stream playback was introduced; MPV can be installed with `brew install mpv`.
 
@@ -45,7 +45,7 @@ In `2.7.0`, MPV-based text-to-speech stream playback was introduced; MPV can be 
 
 [Complete Change Log](https://github.com/yohasebe/openai-chat-api-workflow/blob/main/CHANGELOG.md)
 
-## 📦 Dependencies
+## 🔁 Dependencies
 
 - Alfred 5 [Powerpack](https://www.alfredapp.com/shop/)
 - OpenAI [API key](https://platform.openai.com/account/api-keys)
