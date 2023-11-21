@@ -10,7 +10,7 @@
 
 **Note**: The web interface is built by the workflow and run locally within your Mac. The API call is made directly between the workflow and OpenAI, so you don't need to worry about your chat messages being shared online with anyone other than OpenAI. Additionally, OpenAI does not use the data from the API Platform for [training](https://openai.com/enterprise-privacy).
 
-## Downloads
+## ⬇️ Downloads
 
 [**Download Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
 
@@ -45,7 +45,7 @@ In `2.7.0`, MPV-based text-to-speech stream playback was introduced; MPV can be 
 
 [Complete Change Log](https://github.com/yohasebe/openai-chat-api-workflow/blob/main/CHANGELOG.md)
 
-## Dependencies
+## 📦 Dependencies
 
 - Alfred 5 [Powerpack](https://www.alfredapp.com/shop/)
 - OpenAI [API key](https://platform.openai.com/account/api-keys)
