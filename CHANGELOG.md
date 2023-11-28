@@ -1,6 +1,6 @@
 # Change Log
 
-- 2.7.1: Improved streaming TTS playback
+- 2.7.2: Improved streaming TTS playback
     - Requires `brew install mpv`
     - Works on Chrome, Edge, and Safari
     - "Set Voice" button added

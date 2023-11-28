@@ -24,7 +24,7 @@ In `2.7.1`, MPV-based text-to-speech stream playback was introduced; MPV can be 
 
 **Recent Change Log**
 
-- 2.7.1: Improved streaming TTS playback
+- 2.7.2: Improved streaming TTS playback
     - Requires `brew install mpv`
     - Works on Chrome, Edge, and Safari
     - "Set Voice" button added
