@@ -24,6 +24,8 @@ In `2.7`, MPV-based text-to-speech stream playback was introduced; MPV can be in
 
 **Recent Change Log**
 
+- 2.8.1: Loopback address for web UI can be chosen
+    - 127.0.0.1 or localhost
 - 2.8.0: Web UI hosted by a server running within workflow
     - Several usability improvements
     - Bug fixes in the automatic speech-to-speech feature
@@ -32,19 +34,6 @@ In `2.7`, MPV-based text-to-speech stream playback was introduced; MPV can be in
     - Works on Chrome, Edge, and Safari
     - "Set Voice" button added
     - "Auto Play" button added
-- 2.6.3: Usability improvements 
-    - Streaming TTS playback for Chrome and Edge browsers
-    - "Edit Prompt" button for generated image
-    - Web UI focus status indicator added
-- 2.6.2: OpenAI's 2023-1106 models supported 🎉
-    - Chat/Completion
-        - gpt-4-1106-preview
-        - gpt-3.5-turbo-1106
-    - Image Generation
-        - dall-e-3
-    - Text-to-Speech
-        - tts-1
-        - tts-1-hd
 
 [Complete Change Log](https://github.com/yohasebe/openai-chat-api-workflow/blob/main/CHANGELOG.md)
 

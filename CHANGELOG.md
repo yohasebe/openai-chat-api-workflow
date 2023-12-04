@@ -1,5 +1,7 @@
 # Change Log
 
+- 2.8.1: Loopback address for web UI can be chosen
+    - 127.0.0.1 or localhost
 - 2.8.0: Web UI hosted by a server running within workflow
     - Several usability improvements
     - Bug fixes in the automatic speech-to-speech feature
