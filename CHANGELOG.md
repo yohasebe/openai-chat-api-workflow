@@ -1,5 +1,8 @@
 # Change Log
 
+- 2.8.0: Web UI hosted by a server running within workflow
+    - Several usability improvements
+    - Bug fixes in the automatic speech-to-speech feature
 - 2.7.2: Improved streaming TTS playback
     - Requires `brew install mpv`
     - Works on Chrome, Edge, and Safari
