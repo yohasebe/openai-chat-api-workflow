@@ -14,7 +14,7 @@
 
 📦 [**Download Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
 
-In `2.7.1`, MPV-based text-to-speech stream playback was introduced; MPV can be installed with `brew install mpv`.
+In `2.7`, MPV-based text-to-speech stream playback was introduced; MPV can be installed with `brew install mpv`.
 
 **Installation**
 
@@ -24,6 +24,9 @@ In `2.7.1`, MPV-based text-to-speech stream playback was introduced; MPV can be 
 
 **Recent Change Log**
 
+- 2.8.0: Web UI hosted by a server running within workflow
+    - Several usability improvements
+    - Bug fixes in the automatic speech-to-speech feature
 - 2.7.2: Improved streaming TTS playback
     - Requires `brew install mpv`
     - Works on Chrome, Edge, and Safari
@@ -263,7 +266,7 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 
 - **Base URL**: The base URL of the OpenAI Chat API. (default: `https://api.openai.com/v1`)
 
-- **Streaming**: Show results in the default web browser. If unchecked (or Pandoc is not installed), Alfred's "Large Type" feature is used to display the result. (default: `enabled`)
+- **Streaming**: Show results in the default web browser. If unchecked, Alfred's "Large Type" feature is used to display the result. (default: `enabled`)
 
 ### Chat Parameters
 
