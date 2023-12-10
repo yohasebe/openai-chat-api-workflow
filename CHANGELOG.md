@@ -1,6 +1,6 @@
 # Change Log
 
-- 2.8.4: Improved support for Safari
+- 2.8.5: Improved support for Safari
 - 2.8.3: Loopback address for web UI can be chosen from `127.0.0.1` or `localhost`
 - 2.8.0: Web UI hosted by a server running within workflow
     - Several usability improvements
