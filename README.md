@@ -132,7 +132,7 @@ Switch modes (`light`/`dark`/`auto`) with `Web UI Mode` selector in the settings
 Using `Direct Query`, the input text is sent as a prompt to the OpenAI Chat API as is. When using other commands, a query with some text either prepended or appended to the input text is sent as a prompt to the API.
 
 <details>
-<summary><span><img src='./icons/patch-question.png' style='height:1.0em;'/></span> <b>Direct Query</b></summary>
+<summary><span><img src='./icons/patch-question.png' style='height:1em;'/></span> <b>Direct Query</b></summary>
 
 The input text is directly sent as a prompt to the OpenAI Chat API.
 
