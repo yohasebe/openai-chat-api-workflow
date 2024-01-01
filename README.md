@@ -10,11 +10,16 @@ You can execute all the above features using:
 - Selected text 📝
 - A dedicated web UI 🌐
 
-The web UI is constructed by the workflow and runs locally on your Mac 💻. The API call is made directly between the workflow and OpenAI, ensuring your chat messages are not shared online with anyone other than OpenAI 🔒. Furthermore, OpenAI does not use the data from the API Platform for training 🚫.
+The web UI is constructed by the workflow and runs locally on your Mac 💻 The API call is made directly between the workflow and OpenAI, ensuring your chat messages are not shared online with anyone other than OpenAI 🔒 Furthermore, OpenAI does not use the data from the API Platform for training 🚫
+
+You can export the chat data to a simple JSON format external file 📄, and it is possible to continue the chat by importing it later 🔄
 
 <img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:600px;'/>
 
+
 <kbd><img src='./docs/img/openai-chat-api-workflow.gif' style='width:600px;'/></kbd>
+
+<kbd><img src="./docs/img/web-interface.png" width="600"></kbd>
 
 ## Setting Up
 
@@ -72,19 +77,10 @@ Recent Change Log
 
 ## Methods of Execution
 
-<details>
-<summary><b>Simple Direct Query/Chat</b></summary>
-
-To quickly chat with GPT:
-
-- Method 1: Type keyword `gpt` → space/tab → input query text (e.g. "**gpt** what is a large language model?")
-- Method 2: set up a custom hotkey to `OpenAI Direct Query`
-
-<img src='./docs/img/direct-query.png' style='width:600px;'/>
-</details>
+here are three methods to run the workflow: 1) Using commands within the Alfred UI, 2) Passing selected text to the workflow, 3) Utilizing the Web UI. Additionally, there’s a convenient method for making brief inquiries to GPT
 
 <details>
-<summary><b>Via Alfred's Textbox</b></summary>
+<summary><b>Commands within the Alfred UIx</b></summary>
 
 You can enter a query text directly into Alfred textbox:
 
@@ -94,7 +90,7 @@ You can enter a query text directly into Alfred textbox:
 </details>
 
 <details>
-<summary><b>Using Selected Text</b></summary>
+<summary><b>Passing Selected Text</b></summary>
 
 You can select any text on your Mac and send it to the workflow:
 
@@ -104,7 +100,7 @@ You can select any text on your Mac and send it to the workflow:
 </details>
 
 <details>
-<summary><b>Via Web Interface</b></summary>
+<summary><b>Using Web Interface</b></summary>
 
 You can open a web interface
 
@@ -122,15 +118,25 @@ If your default browser is set to one of the following and the duti command is i
 
 Switch modes (`light`/`dark`/`auto`) with `Web UI Mode` selector in the settings.
 
-<kbd><img width="600" src="./docs/img/web-interface.png"></kbd>
-
 <kbd><img width="600" src="./docs/img/web-interface-dark.png"></kbd>
 
 </details>
 
-## Commands
+<details>
+<summary><b>Simple Direct Query/Chat</b></summary>
 
-Using `Direct Query`, the input text is sent as a prompt to the OpenAI Chat API as is. When using other commands, a query with some text either prepended or appended to the input text is sent as a prompt to the API.
+To quickly chat with GPT:
+
+- Method 1: Type keyword `gpt` → space/tab → input query text (e.g. "**gpt** what is a large language model?")
+- Method 2: set up a custom hotkey to `OpenAI Direct Query`
+
+<img src='./docs/img/direct-query.png' style='width:600px;'/>
+</details>
+
+## Basic Commands
+
+With `Direct Query`, the input text is sent directly to the OpenAI Chat API as a prompt. You can also create a query by prepending or appending text to the input text.
+
 
 <details>
 <summary><span><img src='./icons/patch-question.png' style='height:1em;'/></span> <b>Direct Query</b></summary>
@@ -156,16 +162,9 @@ After the initial text is entered, the user is prompted for additional text. The
 
 </details>
 
-<details>
-<summary><span><img src='./icons/picture.png' style='height:1em;'/></span> <b>Generate Image</b></summary>
+## Commands for Specific Purposes
 
-The DALL-E API (`dall-e-3` or `dall-e-2`) is used to generate images according to the prompts entered. In general, the more detailed the prompt, the closer the content and quality of the output image will be to what is desired.
-
-> Rugby players are playing in a match using a watermelon as a ball
-
-<kbd><img width="600" src="./docs/img/image-examples.png"></kbd>
-
-</details>
+Some of the examples shown on [OpenAI's Examples page](https://platform.openai.com/examples) are incorporated into this Workflow as commands. Functions not prepared as commands can be realized by giving appropriate prompts to the above [Basic Commands](#basic-commands).
 
 <details>
 <summary><span><img src='./icons/code-square.png' style='height:1em;'/></span> <b>Write Program Code</b></summary>
@@ -263,7 +262,24 @@ GPT extracts keywords from a block of text. See OpenAI's [description](https://b
 
 </details>
 
-## Other Features
+## Image Generation
+
+The image generation can be executed through the following command, and it is also possible to use a web UI. By using the web UI, you can gradually change the prompt to get closer to the desired image.
+
+<details>
+<summary><span><img src='./icons/picture.png' style='height:1em;'/></span> <b>Generate Image</b></summary>
+
+The DALL-E API (`dall-e-3` or `dall-e-2`) is used to generate images according to the prompts entered. In general, the more detailed the prompt, the closer the content and quality of the output image will be to what is desired.
+
+> Rugby players are playing in a match using a watermelon as a ball
+
+<kbd><img width="600" src="./docs/img/image-examples.png"></kbd>
+
+</details>
+
+## Speech Synthesis and Speech Recognition
+
+Most text-to-speech and speech-to-text features are available on the web UI. However, there are certain specific features that are provided as commands, such as audio file to text conversion and transcription with timestamps.
 
 <details>
 <summary><b>Text-to-Speech Synthesis</b></summary>
@@ -320,13 +336,26 @@ You can choose the format of the transribed text from `text`, `srt` or `vtt` in 
 
 </details>
 
+
+## Other Features
+
+<details>
+<summary><b>Import/Export</b></summary>
+
+You can export your chat data to a straightforward JSON format file, and resume your conversation later by importing it back in.
+
+To export data, simply click on `Show Entire Chat` in the chat window to navigate to the chat history page, then select `Export Data`. To import data, just hit `Import Data` on either the home page or the chat history page.
+</details>
+
 <details>
 <summary><b>Monitor API Usage</b></summary>
 
 To review your token usage for the current billing cycle on the OpenAI Usage Page, type the keyword `openai-usage`. For more details on billing, visit OpenAI's [Billing Overview](https://platform.openai.com/account/billing/overview).
 </details>
 
-## Configuration
+## Configurable Parameters
+
+You can set various parameters in the settings panel of this Workflow. Some of the parameters set here are used as default values but you can make temporary changes to the values on the web UI. You can also access the settings panel by clicking `Open Config` from the web UI.
 
 <details>
 <summary><b>Required Settings</b></summary>
@@ -364,9 +393,16 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 - **Frequency Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-frequency_penalty). (default: `0.0`)
 - **Presence Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-presence_penalty). (default: `0.0`)
 - **Memory Span**: Set the number of past utterances sent to the API as a context. Setting 4 to this parameter means 2  conversation turns (user + assistant) will be sent as a context for a new query. The larger the value, more tokens will be consumed. (default: `4`)
+- **Max Characters**: Maximum number of characters that can be included in a query (default: `20000`).
+- **Timeout**: The number of seconds (default: `10`) to wait before opening the socket and connecting to the API. If the connection fails, reconnection (up to 20 times) will be attempted after 1 second.
 - **Add Emoji**: If enabled, the response text from GPT will contain emoji characters appropriate for the content. This is realized by adding the following sentence at the end of the system content. (default: `enabled`)
 
   > Add emojis that are appropriate to the content of the response.
+
+- **System Content**: Text to sent with every query sent to API as a general information about the specification of the chat. The default value is as follows:
+
+  > You are a friendly but professional consultant who answers various questions, make decent suggestions, and give helpful advice in response to a prompt from the user. Your response must be consise, suggestive, and accurate.
+
 </details>
 
 <details>
@@ -405,21 +441,15 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 </details>
 
 <details>
-<summary><b>Optional Settings</b></summary>
+<summary><b>Other Settings</b></summary>
 
 - **Your First Language**: Set your first language. This language is used when using GPT for translation. (default: `English`)
 - **Your Second Language**: Set your second language. This language is used when using GPT for translation.(default: `Japanese`)
-- **Max Characters**: Maximum number of characters that can be included in a query (default: `20000`).
-- **Timeout**: The number of seconds (default: `10`) to wait before opening the socket and connecting to the API. If the connection fails, reconnection (up to 20 times) will be attempted after 1 second.
 - **Sound**: If checked, a notification sound will play when the response is returned. (default: `disabled`)
 - **Save File Path**: If set, the results will be saved in the specified path as a markdown file. (default: `not set`)
 - **Text to Speech**: If enabled, the results will be read aloud using the system's default text-to-speech language and voice. (default: `disabled`)
 - **Custom CSS**: You can specify CSS for the query results HTML. (default: `not set`)
 - **Web UI Mode**: Set your preferred UI mode (`light`/`dark`/`auto`). (default: `auto`)
-- **System Content**: Text to sent with every query sent to API as a general information about the specification of the chat. The default value is as follows:
-
-  > You are a friendly but professional consultant who answers various questions, make decent suggestions, and give helpful advice in response to a prompt from the user. Your response must be consise, suggestive, and accurate.
-
 </details>
 
 ## Author
