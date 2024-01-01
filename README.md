@@ -334,6 +334,7 @@ To review your token usage for the current billing cycle on the OpenAI Usage Pag
 - **OpenAI API Key**: Set your secret API key for OpenAI. Sign up for OpenAI and get your API key at [https://platform.openai.com/account/api-keys/](https://platform.openai.com/account/api-keys).
 
 - **Base URL**: The base URL of the OpenAI Chat API. (default: `https://api.openai.com/v1`)
+</details>
 
 <details>
 <summary><b>Web UI Parameters</b></summary>
