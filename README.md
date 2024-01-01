@@ -52,6 +52,7 @@ Installing dependencies (`pandoc`, `mpv`, `sox`, `jq`, and `duti`) is just a few
 
 Recent Change Log
 
+- 2.8.7: Dark mode UI issue fixed
 - 2.8.6: Added option to hide speech buttons
 - 2.8.5: Improved support for Safari
 - 2.8.3: Loopback address for web UI can be chosen from `127.0.0.1` or `localhost`
