@@ -164,7 +164,7 @@ After the initial text is entered, the user is prompted for additional text. The
 <details>
 <summary><span><img src='./icons/picture.png' style='height:1em;'/></span> <b>Generate Image</b></summary>
 
-The DALL-E API (`dall-e-3` or `dall-e-2`) is used to generate images according to the prompts entered.
+The DALL-E API (`dall-e-3` or `dall-e-2`) is used to generate images according to the prompts entered. See [Image Generation](#image-generation) below.
 
 </details>
 
@@ -273,6 +273,8 @@ GPT extracts keywords from a block of text. See OpenAI's [description](https://b
 The image generation can be executed through the following command, and it is also possible to use a web UI. By using the web UI, you can gradually change the prompt to get closer to the desired image.
 
 <kbd><img width="600" src="./docs/img/image-generation-1.png"></kbd>
+
+When the image generation mode is set to `dall-e-3`, the user's prompt is automatically expanded to a more detailed and specific prompt. You can also edit the expanded prompt and regenerate the image.
 
 <kbd><img width="600" src="./docs/img/image-generation-2.png"></kbd>
 
