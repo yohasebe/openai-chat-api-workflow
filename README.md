@@ -137,7 +137,6 @@ To quickly chat with GPT:
 
 With `Direct Query`, the input text is sent directly to the OpenAI Chat API as a prompt. You can also create a query by prepending or appending text to the input text.
 
-
 <details>
 <summary><span><img src='./icons/patch-question.png' style='height:1em;'/></span> <b>Direct Query</b></summary>
 
@@ -159,6 +158,13 @@ After the initial text is entered, the user is prompted for additional text. The
 <summary><span><img src='./icons/arrow-bar-up.png' style='height:1em;'/></span> <b>Append Text + Query</b></summary>
 
 After the initial text is entered, the user is prompted for additional text. The additional text is added *after* the initial text and the resulting text is used as the query.
+
+</details>
+
+<details>
+<summary><span><img src='./icons/picture.png' style='height:1em;'/></span> <b>Generate Image</b></summary>
+
+The DALL-E API (`dall-e-3` or `dall-e-2`) is used to generate images according to the prompts entered.
 
 </details>
 
@@ -266,20 +272,19 @@ GPT extracts keywords from a block of text. See OpenAI's [description](https://b
 
 The image generation can be executed through the following command, and it is also possible to use a web UI. By using the web UI, you can gradually change the prompt to get closer to the desired image.
 
-<details>
-<summary><span><img src='./icons/picture.png' style='height:1em;'/></span> <b>Generate Image</b></summary>
+<kbd><img width="600" src="./docs/img/image-generation-1.png"></kbd>
 
-The DALL-E API (`dall-e-3` or `dall-e-2`) is used to generate images according to the prompts entered. In general, the more detailed the prompt, the closer the content and quality of the output image will be to what is desired.
+<kbd><img width="600" src="./docs/img/image-generation-2.png"></kbd>
 
-> Rugby players are playing in a match using a watermelon as a ball
-
-<kbd><img width="600" src="./docs/img/image-examples.png"></kbd>
+<kbd><img width="600" src="./docs/img/image-generation-3.png"></kbd>
 
 </details>
 
 ## Speech Synthesis and Speech Recognition
 
 Most text-to-speech and speech-to-text features are available on the web UI. However, there are certain specific features that are provided as commands, such as audio file to text conversion and transcription with timestamps.
+
+<kbd><img width="600" src="./docs/img/speech-to-text-web.png"></kbd>
 
 <details>
 <summary><b>Text-to-Speech Synthesis</b></summary>
