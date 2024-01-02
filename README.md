@@ -35,21 +35,21 @@ You can export the chat data to a simple JSON format external file 📄, and it 
 
 You can set up hotkeys in the settings screen of the workflow. To set up hotkeys, double-click on the light purple workflow elements.
 
-Open Web UI (Recommended)
+**Open Web UI** (Recommended)
 
-<kbd><img width="150" src="./docs/img/hotkey-direct-query.png"></kbd>
+<kbd><img width="100" src="./docs/img/hotkey-direct-query.png"></kbd>
 
-Direct Query
+**Direct Query**
 
-<kbd><img width="150" src="./docs/img/hotkey-open-webui.png"></kbd>
+<kbd><img width="100" src="./docs/img/hotkey-open-webui.png"></kbd>
 
-Send Selected Text
+**Send Selected Text**
 
-<kbd><img width="150" src="./docs/img/hotkey-send-selected-text.png"></kbd>
+<kbd><img width="100" src="./docs/img/hotkey-send-selected-text.png"></kbd>
 
-Speech to Text
+**Speech to Text**
 
-<kbd><img width="150" src="./docs/img/hotkey-speech-to-text.png"></kbd>
+<kbd><img width="100" src="./docs/img/hotkey-speech-to-text.png"></kbd>
 
 </details>
 
