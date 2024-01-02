@@ -14,7 +14,7 @@ The web UI is constructed by the workflow and runs locally on your Mac 💻 The 
 
 You can export the chat data to a simple JSON format external file 📄, and it is possible to continue the chat by importing it later 🔄
 
-<img src="./docs/img/OpenAI-Alfred-Workflow.png" width="600" />
+<img src="./docs/img/OpenAI-Alfred-Workflow.png" width="650" />
 
 <kbd><img src="./docs/img/openai-chat-api-workflow.gif" width="700" /></kbd>
 
