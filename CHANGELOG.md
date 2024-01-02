@@ -1,5 +1,6 @@
 # Change Log
 
+- 2.8.8: Whisper error handling improved
 - 2.8.7: Dark mode UI issue fixed
 - 2.8.6: Added option to hide speech buttons
 - 2.8.5: Improved support for Safari

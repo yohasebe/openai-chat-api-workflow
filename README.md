@@ -43,6 +43,8 @@ You can set up hotkeys in the settings screen of the workflow. To set up hotkeys
 <img width="100" src="./docs/img/hotkey-speech-to-text.png">
 </kbd>
 
+<br />
+
 - Open Web UI (Recommended)
 - Direct Query
 - Send Selected Text
@@ -76,6 +78,7 @@ Installing dependencies (`pandoc`, `mpv`, `sox`, `jq`, and `duti`) is just a few
 
 Recent Change Log
 
+- 2.8.8: Whisper error handling improved
 - 2.8.7: Dark mode UI issue fixed
 - 2.8.6: Added option to hide speech buttons
 - 2.8.5: Improved support for Safari
