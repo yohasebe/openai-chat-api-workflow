@@ -35,6 +35,8 @@ You can export the chat data to a simple JSON format external file 📄, and it 
 
 You can set up hotkeys in the settings screen of the workflow. To set up hotkeys, double-click on the light purple workflow elements.
 
+<kbd><img width="600" src="./docs/img/openai-workflow-overview.png"></kbd>
+
 **Open Web UI** (Recommended)
 
 <kbd><img width="100" src="./docs/img/hotkey-direct-query.png"></kbd>
