@@ -18,7 +18,7 @@ You can export the chat data to a simple JSON format external file 📄, and it 
 
 <kbd><img src='./docs/img/openai-chat-api-workflow.gif' style='width:700px;'/></kbd>
 
-<kbd><img src="./docs/img/web-interface.png" width="600"></kbd>
+<kbd><img src="./docs/img/web-interface.png" width="700"></kbd>
 
 ## Installation
 
@@ -34,7 +34,7 @@ You can export the chat data to a simple JSON format external file 📄, and it 
 
 You can set up hotkeys in the settings screen of the workflow. To set up hotkeys, double-click on the light purple workflow elements.
 
-<kbd><img width="600" src="./docs/img/openai-workflow-overview.png"></kbd>
+<kbd><img width="700" src="./docs/img/openai-workflow-overview.png"></kbd>
 
 <kbd>
 <img width="100" src="./docs/img/hotkey-open-webui.png">
@@ -139,7 +139,7 @@ If your default browser is set to one of the following and the duti command is i
 
 Switch modes (`light`/`dark`/`auto`) with `Web UI Mode` selector in the settings.
 
-<kbd><img width="600" src="./docs/img/web-interface-dark.png"></kbd>
+<kbd><img width="700" src="./docs/img/web-interface-dark.png"></kbd>
 
 </details>
 
@@ -204,7 +204,7 @@ GPT generates program code and example output according to the text entered. You
 
 **Example Output**
 
-<kbd><img width="600" src="./docs/img/code.png"></kbd>
+<kbd><img width="700" src="./docs/img/code.png"></kbd>
 
 </details>
 
@@ -293,13 +293,13 @@ GPT extracts keywords from a block of text. See OpenAI's [description](https://b
 
 The image generation can be executed through the following command, and it is also possible to use a web UI. By using the web UI, you can gradually change the prompt to get closer to the desired image.
 
-<kbd><img width="600" src="./docs/img/image-generation-1.png"></kbd>
+<kbd><img width="700" src="./docs/img/image-generation-1.png"></kbd>
 
 When the image generation mode is set to `dall-e-3`, the user's prompt is automatically expanded to a more detailed and specific prompt. You can also edit the expanded prompt and regenerate the image.
 
-<kbd><img width="600" src="./docs/img/image-generation-2.png"></kbd>
+<kbd><img width="700" src="./docs/img/image-generation-2.png"></kbd>
 
-<kbd><img width="600" src="./docs/img/image-generation-3.png"></kbd>
+<kbd><img width="700" src="./docs/img/image-generation-3.png"></kbd>
 
 </details>
 
@@ -307,7 +307,7 @@ When the image generation mode is set to `dall-e-3`, the user's prompt is automa
 
 Most text-to-speech and speech-to-text features are available on the web UI. However, there are certain specific features that are provided as commands, such as audio file to text conversion and transcription with timestamps.
 
-<kbd><img width="600" src="./docs/img/speech-to-text-web.png"></kbd>
+<kbd><img width="700" src="./docs/img/speech-to-text-web.png"></kbd>
 
 <details>
 <summary><b>Text-to-Speech Synthesis</b></summary>
@@ -343,7 +343,7 @@ You can select an audio file in `mp3`, `mp4`, `flac`, `webm`, `wav`, or `m4a` fo
 
 You can record voice audio and send it to the Workflow for transcription using the Whisper API. The recording must be no longer than 30 minutes and will automatically stop after this time. Recording time is limited to 30 minutes and stops automatically after this limit.
 
-<kbd><img width="600" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
+<kbd><img width="700" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
 
 - Alfred textbox → keyword (`openai-speech`) → Terminal window opens and recording starts
 - Speak to internal or external microphone → Press Enter to finish recording
@@ -358,9 +358,9 @@ You can record voice audio and send it to the Workflow for transcription using t
 
 You can choose the format of the transribed text from `text`, `srt` or `vtt` in the workflow's settings. Below are examples in the `text` and `srt` formats:
 
-<kbd><img width="600" alt="transcript-srt" src="./docs/img/transcript-text.png"></kbd>
+<kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-text.png"></kbd>
 
-<kbd><img width="600" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
+<kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
 
 </details>
 
