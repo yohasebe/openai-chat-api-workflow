@@ -14,9 +14,9 @@ The web UI is constructed by the workflow and runs locally on your Mac 💻 The 
 
 You can export the chat data to a simple JSON format external file 📄, and it is possible to continue the chat by importing it later 🔄
 
-<img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:600px;'/>
+<img src='./docs/img/OpenAI-Alfred-Workflow.png' style='width:700px;'/>
 
-<kbd><img src='./docs/img/openai-chat-api-workflow.gif' style='width:600px;'/></kbd>
+<kbd><img src='./docs/img/openai-chat-api-workflow.gif' style='width:700px;'/></kbd>
 
 <kbd><img src="./docs/img/web-interface.png" width="600"></kbd>
 
@@ -151,7 +151,7 @@ To quickly chat with GPT:
 - Method 1: Type keyword `gpt` → space/tab → input query text (e.g. "**gpt** what is a large language model?")
 - Method 2: set up a custom hotkey to `OpenAI Direct Query`
 
-<img src='./docs/img/direct-query.png' style='width:600px;'/>
+<img src='./docs/img/direct-query.png' style='width:700px;'/>
 </details>
 
 ## Basic Commands
@@ -163,7 +163,7 @@ With `Direct Query`, the input text is sent directly to the OpenAI Chat API as a
 
 The input text is directly sent as a prompt to the OpenAI Chat API.
 
-<kbd><img src='./docs/img/direct-query.gif' style='width:600px;'/></kbd>
+<kbd><img src='./docs/img/direct-query.gif' style='width:700px;'/></kbd>
 </details>
 
 <details>
@@ -171,7 +171,7 @@ The input text is directly sent as a prompt to the OpenAI Chat API.
 
 After the initial text is entered, the user is prompted for additional text. The additional text is added *before* the initial text, and the resulting text is used as the query.
 
-<kbd><img src='./docs/img/prepend.gif' style='width:600px;'/></kbd>
+<kbd><img src='./docs/img/prepend.gif' style='width:700px;'/></kbd>
 
 </details>
 
