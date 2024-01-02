@@ -21,7 +21,7 @@ You can export the chat data to a simple JSON format external file 📄, and it 
 
 <kbd><img src="./docs/img/web-interface.png" width="600"></kbd>
 
-## Setting Up
+## Installation
 
 📦 [**Download Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
 
@@ -29,6 +29,29 @@ You can export the chat data to a simple JSON format external file 📄, and it 
 2. Run the following command in a terminal: `brew install pandoc mpv sox jq duti`
 3. Download and run the [workflow](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
 4. Set your [OpenAI API key](https://platform.openai.com/account/api-keys)
+
+<details>
+<summary><b>Setup Hotkeys</b></summary>
+
+You can set up hotkeys in the settings screen of the workflow. To set up hotkeys, double-click on the light purple workflow elements.
+
+Open Web UI (Recommended)
+
+<kbd><img width="150" src="./docs/img/hotkey-direct-query.png"></kbd>
+
+Direct Query
+
+<kbd><img width="150" src="./docs/img/hotkey-open-webui.png"></kbd>
+
+Send Selected Text
+
+<kbd><img width="150" src="./docs/img/hotkey-send-selected-text.png"></kbd>
+
+Speech to Text
+
+<kbd><img width="150" src="./docs/img/hotkey-speech-to-text.png"></kbd>
+
+</details>
 
 <details>
 <summary><b>Dependencies</b></summary>
@@ -313,7 +336,7 @@ The Whisper API can convert speech into text in a variety of languages. Please r
 
 You can select an audio file in `mp3`, `mp4`, `flac`, `webm`, `wav`, or `m4a` format (under 25MB) and send it to the workflow:
 
-Select the file → universal actioin hotkey select → `OpenAI Speech-to-Text`
+- Select the file → universal actioin hotkey select → `OpenAI Speech-to-Text`
 
 </details>
 
@@ -360,7 +383,7 @@ To export data, simply click on `Show Entire Chat` in the chat window to navigat
 To review your token usage for the current billing cycle on the OpenAI Usage Page, type the keyword `openai-usage`. For more details on billing, visit OpenAI's [Billing Overview](https://platform.openai.com/account/billing/overview).
 </details>
 
-## Configurable Parameters
+## Configuration Parameters
 
 You can set various parameters in the settings panel of this Workflow. Some of the parameters set here are used as default values but you can make temporary changes to the values on the web UI. You can also access the settings panel by clicking `Open Config` from the web UI.
 
@@ -375,12 +398,10 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 <details>
 <summary><b>Web UI Parameters</b></summary>
 
-- **Loopback Address**: Either `localhost`` or `127.0.0.1`` can be used as the loopback address of the UI server. If the web UI does not work as expected, try the other. (default: `localhost`)
-
+- **Loopback Address**: Either `localhost` or `127.0.0.1` can be used as the loopback address of the UI server. If the web UI does not work as expected, try the other. (default: `127.0.0.1`)
 - **Stream Output**: Show results in the default web browser. If unchecked, Alfred's "Large Type" feature is used to display the result. (default: `enabled`)
-
 - **Hide Speech Buttons**: When enabled, the buttons for TTS playback and voice input are hidden on the web UI.
-
+- **Web UI Mode**: Set your preferred UI mode (`light`/`dark`/`auto`). (default: `auto`)
 </details>
 
 <details>
@@ -429,6 +450,7 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 - **Text-to-Speech Model**: One of the available TTS models: `tts-1` or `tts-1-hd`. (default: `tts-1`)
 - **Text-to-Speech Voice**: The voice to use when generating the audio. Supported voices are: `alloy`, `echo`, `fable`, `onyx`, `nova`, and `shimmer`. (default: `alloy`)
 - **Text-to-Speech Speed**: The speed of the generated audio. Select a value from 0.25 to 4.0. (default: `1.0`)
+- **Automatic Text to Speech**: If enabled, the results will be read aloud using the system's default text-to-speech language and voice. (default: `disabled`)
 
 </details>
 
@@ -454,9 +476,17 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 - **Your Second Language**: Set your second language. This language is used when using GPT for translation.(default: `Japanese`)
 - **Sound**: If checked, a notification sound will play when the response is returned. (default: `disabled`)
 - **Save File Path**: If set, the results will be saved in the specified path as a markdown file. (default: `not set`)
-- **Text to Speech**: If enabled, the results will be read aloud using the system's default text-to-speech language and voice. (default: `disabled`)
-- **Custom CSS**: You can specify CSS for the query results HTML. (default: `not set`)
-- **Web UI Mode**: Set your preferred UI mode (`light`/`dark`/`auto`). (default: `auto`)
+</details>
+
+<details>
+<summary><b>Environment Variables</b></summary>
+
+Environment variables can be accessed by clicking the `[x]` button located at the top right of the workflow settings screen. Normally, there is no need to change the values of the environment variables.
+
+- `http_keep_alive`: This workflow starts an HTTP server when the web UI is first displayed. After that, if the web UI is not used for the time (in seconds) set by this environment variable, the server will stop. (default: `1800`)
+- `http_port`: Specifies the port number for the web UI. (default: `80`)
+- `http_server_wait`: Specifies the wait time from when the HTTP server is started until the page is displayed in the browser. (default: `2.5`)
+- `websocket_port`: Specifies the port number for websocket communication used to display responses in streaming on the web UI. (default: `8080`)
 </details>
 
 ## Author
