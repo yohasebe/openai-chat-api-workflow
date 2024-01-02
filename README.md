@@ -43,7 +43,6 @@ You can set up hotkeys in the settings screen of the workflow. To set up hotkeys
 <img width="100" src="./docs/img/hotkey-speech-to-text.png">
 </kbd>
 
-<br />
 
 - Open Web UI (Recommended)
 - Direct Query
@@ -419,7 +418,7 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 - **Top P**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-top_p). (default: `1.0`)
 - **Frequency Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-frequency_penalty). (default: `0.0`)
 - **Presence Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-presence_penalty). (default: `0.0`)
-- **Memory Span**: Set the number of past utterances sent to the API as a context. Setting 4 to this parameter means 2  conversation turns (user + assistant) will be sent as a context for a new query. The larger the value, more tokens will be consumed. (default: `4`)
+- **Memory Span**: Set the number of past utterances sent to the API as a context. Setting 4 to this parameter means 2 conversation turns (user → assistant → user → assistant) will be sent as a context for a new query. The larger the value, more tokens will be consumed. (default: `4`)
 - **Max Characters**: Maximum number of characters that can be included in a query (default: `20000`).
 - **Timeout**: The number of seconds (default: `10`) to wait before opening the socket and connecting to the API. If the connection fails, reconnection (up to 20 times) will be attempted after 1 second.
 - **Add Emoji**: If enabled, the response text from GPT will contain emoji characters appropriate for the content. This is realized by adding the following sentence at the end of the system content. (default: `enabled`)
