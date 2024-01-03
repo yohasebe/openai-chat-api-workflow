@@ -44,10 +44,12 @@ You can set up hotkeys in the settings screen of the workflow. To set up hotkeys
 </kbd>
 
 
-- Open Web UI (Recommended)
-- Direct Query
-- Send Selected Text
-- Speech to Text
+
+1. Open Web UI (Recommended)
+2. Direct Query
+3. Send Selected Text
+4. Speech to Text
+
 </details>
 
 <details>
