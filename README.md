@@ -2,7 +2,7 @@
 
 <img src='./icons/openai.png' style='height:120px;'/>
 
-🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) Chat API to interact with GPT-3.5/GPT-4 🤖💬 It also allows image generation 🖼️, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈
+🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) Chat API to interact with GPT-3.5/GPT-4 🤖💬 It also allows image generation 🖼️, image understanding 🧠, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈
 
 You can execute all the above features using:
 
@@ -20,6 +20,8 @@ You can export the chat data to a simple JSON format external file 📄, and it 
 
 <kbd><img src="./docs/img/web-interface.png" width="700"></kbd>
 
+<kbd><img src="./docs/img/openai-workflow-vision.gif" width="700"></kbd>
+
 ## Installation
 
 📦 [**Download Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
@@ -36,19 +38,11 @@ You can set up hotkeys in the settings screen of the workflow. To set up hotkeys
 
 <kbd><img width="700" src="./docs/img/openai-workflow-overview.png"></kbd>
 
-<kbd>
-<img width="100" src="./docs/img/hotkey-open-webui.png">
-<img width="100" src="./docs/img/hotkey-direct-query.png">
-<img width="100" src="./docs/img/hotkey-send-selected-text.png">
-<img width="100" src="./docs/img/hotkey-speech-to-text.png">
-</kbd>
-
-
-
 1. Open Web UI (Recommended)
 2. Direct Query
 3. Send Selected Text
-4. Speech to Text
+4. Screen Capture for Image Understanding
+5. Speech to Text
 
 </details>
 
@@ -79,6 +73,7 @@ Installing dependencies (`pandoc`, `mpv`, `sox`, `jq`, and `duti`) is just a few
 
 Recent Change Log
 
+- 2.9.0: Image understanding (using specified files or screen captures)
 - 2.8.8: Whisper error handling improved
 - 2.8.7: Dark mode UI issue fixed
 - 2.8.6: Added option to hide speech buttons
@@ -293,7 +288,7 @@ GPT extracts keywords from a block of text. See OpenAI's [description](https://b
 
 ## Image Generation
 
-The image generation can be executed through the following command, and it is also possible to use a web UI. By using the web UI, you can gradually change the prompt to get closer to the desired image.
+The image generation can be executed through one of the above commands. It is also possible to use the web UI. By using the web UI, you can interactively change the prompt to get closer to the desired image.
 
 <kbd><img width="700" src="./docs/img/image-generation-1.png"></kbd>
 
@@ -304,6 +299,10 @@ When the image generation mode is set to `dall-e-3`, the user's prompt is automa
 <kbd><img width="700" src="./docs/img/image-generation-3.png"></kbd>
 
 </details>
+
+## Image Understanding
+
+The image understanding can be executed through the `openai-vision` command. It starts a capture mode and lets you specify a part of the screen to be analyzed. Alternatively, you can specify an image file (jpg, jpeg, png, gif) using "OpenAI Vision" file action.
 
 ## Speech Synthesis and Speech Recognition
 
@@ -424,12 +423,21 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 - **Max Characters**: Maximum number of characters that can be included in a query (default: `20000`).
 - **Timeout**: The number of seconds (default: `10`) to wait before opening the socket and connecting to the API. If the connection fails, reconnection (up to 20 times) will be attempted after 1 second.
 - **Add Emoji**: If enabled, the response text from GPT will contain emoji characters appropriate for the content. This is realized by adding the following sentence at the end of the system content. (default: `enabled`)
+- **
 
   > Add emojis that are appropriate to the content of the response.
 
 - **System Content**: Text to sent with every query sent to API as a general information about the specification of the chat. The default value is as follows:
 
   > You are a friendly but professional consultant who answers various questions, make decent suggestions, and give helpful advice in response to a prompt from the user. Your response must be consise, suggestive, and accurate.
+
+</details>
+
+<details>
+<summary><b>Image Understading Parameters</b></summary>
+
+- **Max Size for Image Understanding**: The maximum pixel value (`512` to `2000`) of the large side of the image data sent to the image understanding API. Larger images will be resized accordingly. (Default: `512`)
+
 
 </details>
 
