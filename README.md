@@ -73,6 +73,7 @@ Installing dependencies (`pandoc`, `mpv`, `sox`, `jq`, and `duti`) is just a few
 
 Recent Change Log
 
+- 2.9.1: Default model set to `gpt-4`; New model (`gpt-4-0125-preview`) supported
 - 2.9.0: Image understanding (using specified files or screen captures)
 - 2.8.8: Whisper error handling improved
 - 2.8.7: Dark mode UI issue fixed
