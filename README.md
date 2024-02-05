@@ -73,21 +73,9 @@ Installing dependencies (`pandoc`, `mpv`, `sox`, `jq`, and `duti`) is just a few
 
 Recent Change Log
 
+- 2.9.4: Copy code snippet button; fix dark mode issue
 - 2.9.2: Default model set to `gpt-3.5-turbo-1106`; New model (`gpt-4-0125-preview`) supported
 - 2.9.0: Image understanding (using specified files or screen captures)
-- 2.8.8: Whisper error handling improved
-- 2.8.7: Dark mode UI issue fixed
-- 2.8.6: Added option to hide speech buttons
-- 2.8.5: Improved support for Safari
-- 2.8.3: Loopback address for web UI can be chosen from `127.0.0.1` or `localhost`
-- 2.8.0: Web UI hosted by a server running within workflow
-    - Several usability improvements
-    - Bug fixes in the automatic speech-to-speech feature
-- 2.7.2: Improved streaming TTS playback
-    - Requires `brew install mpv`
-    - Works on Chrome, Edge, and Safari
-    - "Set Voice" button added
-    - "Auto Play" button added
 
 [Complete Change Log](https://github.com/yohasebe/openai-chat-api-workflow/blob/main/CHANGELOG.md)
 </details>

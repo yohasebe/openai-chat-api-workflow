@@ -1,5 +1,6 @@
 # Change Log
 
+- 2.9.4: Copy code snippet button; fix dark mode issue
 - 2.9.2: Default model set to `gpt-3.5-turbo-1106`; New model (`gpt-4-0125-preview`) supported
 - 2.9.0: Image understanding (using specified files or screen captures)
 - 2.8.8: Whisper error handling improved
