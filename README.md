@@ -26,7 +26,7 @@ You can export the chat data to a simple JSON format external file 📄, and it 
 
 ## Installation
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version 2.9.5)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version 2.9.6)
 
 1. Install [Homebrew](https://brew.sh/)
 2. Run the following command in a terminal: `brew install pandoc mpv sox jq duti`
@@ -75,6 +75,7 @@ Installing dependencies (`pandoc`, `mpv`, `sox`, `jq`, and `duti`) is just a few
 
 Recent Change Log
 
+- 2.9.6: System prompt modifiable in the web UI
 - 2.9.5: `gpt-3.5-turbo-0125` supported (default model)
 - 2.9.4: Copy code snippet button; fix dark mode issue
 - 2.9.2: Default model set to `gpt-3.5-turbo-1106`; New model (`gpt-4-0125-preview`) supported
