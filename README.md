@@ -4,6 +4,8 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) Chat API to interact with GPT-3.5/GPT-4 🤖💬 It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈
 
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version 2.9.7)
+
 You can execute all the above features using:
 
 - Alfred UI 🖥️
@@ -26,11 +28,9 @@ You can export the chat data to a simple JSON format external file 📄, and it 
 
 ## Installation
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version 2.9.6)
-
 1. Install [Homebrew](https://brew.sh/)
 2. Run the following command in a terminal: `brew install pandoc mpv sox jq duti`
-3. Download and run the [workflow](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
+3. Download and run [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) 
 4. Set your [OpenAI API key](https://platform.openai.com/account/api-keys)
 
 <details>
@@ -75,6 +75,7 @@ Installing dependencies (`pandoc`, `mpv`, `sox`, `jq`, and `duti`) is just a few
 
 Recent Change Log
 
+- 2.9.7: Stability improvements; Brave browser supported
 - 2.9.6: System prompt modifiable in the web UI
 - 2.9.5: `gpt-3.5-turbo-0125` supported (default model)
 - 2.9.4: Copy code snippet button; fix dark mode issue
@@ -124,6 +125,9 @@ If your default browser is set to one of the following and the duti command is i
 
 - Google Chrome (Stable, Beta, Dev, etc.)
 - Microsoft Edge (Stable, Beta, Dev, etc.)
+- Brave Browser
+
+Restert OpenAI Workflow server by executing `openai-restart-server` in case the web UI does not work as expected after changing the default browser.
 
 **Web UI Modes**
 
