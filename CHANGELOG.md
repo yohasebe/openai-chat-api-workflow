@@ -1,5 +1,6 @@
 # Change Log
 
+- 2.9.8: JSON export and cancel button behavior improved;
 - 2.9.7: Stability improvements; Brave browser supported
 - 2.9.6: System prompt modifiable in the web UI
 - 2.9.5: `gpt-3.5-turbo-0125` supported (default model)
