@@ -1,5 +1,6 @@
 # Change Log
 
+- 2.9.9.1: `gpt-4-turbo` supported; system prompt modifiable in the web UI
 - 2.9.9: Issue concerning chat containing images fixed
 - 2.9.8: JSON export and cancel button behavior improved
 - 2.9.7: Stability improvements; Brave browser supported
