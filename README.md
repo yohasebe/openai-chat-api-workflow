@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) Chat API to interact with GPT-3.5/GPT-4 🤖💬 It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `2.9.9.2`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `2.9.9.3`)
 
 You can execute all the above features using:
 
@@ -71,6 +71,7 @@ To set up dependencies (`pandoc`, `mpv`, `sox`, `jq`, and `duti`), first install
 
 Recent Change Log
 
+- 2.9.9.3: Smoother response text streaming; `max_tokens` can be set to `0` (set to `null`);
 - 2.9.9.2: `gpt-4-turbo-2024-04-09` supported;
 - 2.9.9.1: System prompt modifiable in the web UI
 - 2.9.9: Issue concerning chat containing images fixed
@@ -350,13 +351,13 @@ You can set various parameters in the settings panel of this Workflow. Some of t
   - `gpt-4-turbo` (latest and greatest)
   - `gpt-4`
 
-- **Max Tokens**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-max_tokens). (default: `2048`)
+- **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `2048`). If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified). See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-max_tokens).
 - **Temperature**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-temperature). (default: `0.3`)
 - **Top P**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-top_p). (default: `1.0`)
 - **Frequency Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-frequency_penalty). (default: `0.0`)
 - **Presence Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-presence_penalty). (default: `0.0`)
 - **Memory Span**: Set the number of past utterances sent to the API as a context. Setting 4 to this parameter means 2 conversation turns (user → assistant → user → assistant) will be sent as a context for a new query. The larger the value, more tokens will be consumed. (default: `4`)
-- **Max Characters**: Maximum number of characters that can be included in a query (default: `20000`).
+- **Max Characters**: Maximum number of characters that can be included in a query (default: `50000`).
 - **Timeout**: The number of seconds (default: `10`) to wait before opening the socket and connecting to the API. If the connection fails, reconnection (up to 20 times) will be attempted after 1 second.
 - **Add Emoji**: If enabled, the response text from GPT will contain emoji characters appropriate for the content. This is realized by adding the following sentence at the end of the system content. (default: `enabled`)
 

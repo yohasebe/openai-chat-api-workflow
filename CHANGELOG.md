@@ -1,5 +1,6 @@
 # Change Log
 
+- 2.9.9.3: Smoother response text streaming; `max_tokens` can be set to `0` (set to `null`);
 - 2.9.9.2: `gpt-4-turbo-2024-04-09` supported;
 - 2.9.9.1: system prompt modifiable in the web UI
 - 2.9.9: Issue concerning chat containing images fixed
