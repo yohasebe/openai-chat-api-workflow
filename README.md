@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) Chat API to interact with GPT-3.5/GPT-4 🤖💬 It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `2.9.9.3`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `2.9.9.4`)
 
 You can execute all the above features using:
 
@@ -71,7 +71,7 @@ To set up dependencies (`pandoc`, `mpv`, `sox`, `jq`, and `duti`), first install
 
 Recent Change Log
 
-- 2.9.9.3: Smoother response text streaming; `max_tokens` can be set to `0` (set to `null`);
+- 2.9.9.4: Smoother response text streaming; `max_tokens` can be set to `0` (set to `null`);
 - 2.9.9.2: `gpt-4-turbo-2024-04-09` supported;
 - 2.9.9.1: System prompt modifiable in the web UI
 - 2.9.9: Issue concerning chat containing images fixed
