@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) Chat API to interact with GPT-3.5/GPT-4 🤖💬 It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `2.9.9.5`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.0.0`)
 
 You can execute all the above features using:
 
@@ -71,6 +71,7 @@ To set up dependencies (`pandoc`, `mpv`, `sox`, `jq`, and `duti`), first install
 
 Recent Change Log
 
+- 3.0.0: `gpt-4o` supported;
 - 2.9.9.5: Access to cancel button in web UI improved
 - 2.9.9.4: Smoother response text streaming; `max_tokens` can be set to `0` (set to `null`);
 - 2.9.9.2: `gpt-4-turbo-2024-04-09` supported;
@@ -256,7 +257,7 @@ When the image generation mode is set to `dall-e-3`, the user's prompt is automa
 
 ## Image Understanding
 
-The image understanding can be executed through the `openai-vision` command. It starts a capture mode and lets you specify a part of the screen to be analyzed. Alternatively, you can specify an image file (jpg, jpeg, png, gif) using "OpenAI Vision" file action. This mode uses `gpt-4-turbo` model for image understanding irrespective of the model set in the settings.
+The image understanding can be executed through the `openai-vision` command. It starts a capture mode and lets you specify a part of the screen to be analyzed. Alternatively, you can specify an image file (jpg, jpeg, png, gif) using "OpenAI Vision" file action. This mode uses `gpt-4o` model for image understanding irrespective of the model set in the settings.
 
 ## Speech Synthesis and Speech Recognition
 
@@ -343,14 +344,12 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 
 <b>Chat Parameters</b>
 
-- **Model**: OpenAI's chat [model](https://beta.openai.com/docs/api-reference/models) used for the workflow (default: `gpt-3.5-turbo`). If you want to use the latest and greatest model, set it to `gpt-4-turbo`. Here are the models currently available:
+- **Model**: OpenAI's chat [model](https://beta.openai.com/docs/api-reference/models) used for the workflow (default: `gpt-3.5-turbo`). If you want to use the latest and greatest model, set it to `gpt-4o`. Here are some of the models currently available:
 
-  - `gpt-3.5-turbo-0125`
-  - `gpt-3.5-turbo-1106`
-  - `gpt-3.5-turbo-16k`
-  - `gpt-3.5-turbo` (default)
-  - `gpt-4-turbo` (latest and greatest)
+  - `gpt-4o`
+  - `gpt-4-turbo`
   - `gpt-4`
+  - `gpt-3.5-turbo`
 
 - **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `2048`). If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified). See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-max_tokens).
 - **Temperature**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-temperature). (default: `0.3`)
