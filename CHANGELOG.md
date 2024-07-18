@@ -1,5 +1,7 @@
 # Change Log
 
+- 3.1.2: `gpt-4o-mini` supported;
+- 3.0.1: Default for `Memory Span` set to `10`
 - 3.0.0: `gpt-4o` supported;
 - 2.9.9.5: Access to cancel button in web UI improved
 - 2.9.9.4: Smoother response text streaming; `max_tokens` can be set to `0` (set to `null`);

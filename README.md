@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using [OpenAI](https://beta.openai.com/) Chat API to interact with GPT-3.5/GPT-4 🤖💬 It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.0.0`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.0.1`)
 
 You can execute all the above features using:
 
@@ -71,6 +71,8 @@ To set up dependencies (`pandoc`, `mpv`, `sox`, `jq`, and `duti`), first install
 
 Recent Change Log
 
+- 3.1.2: `gpt-4o-mini` supported;
+- 3.0.1: Default for `Memory Span` set to `10`
 - 3.0.0: `gpt-4o` supported;
 - 2.9.9.5: Access to cancel button in web UI improved
 - 2.9.9.4: Smoother response text streaming; `max_tokens` can be set to `0` (set to `null`);
@@ -346,6 +348,7 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 
 - **Model**: OpenAI's chat [model](https://beta.openai.com/docs/api-reference/models) used for the workflow (default: `gpt-3.5-turbo`). If you want to use the latest and greatest model, set it to `gpt-4o`. Here are some of the models currently available:
 
+  - `gpt-4o-mini`
   - `gpt-4o`
   - `gpt-4-turbo`
   - `gpt-4`
@@ -356,7 +359,7 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 - **Top P**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-top_p). (default: `1.0`)
 - **Frequency Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-frequency_penalty). (default: `0.0`)
 - **Presence Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-presence_penalty). (default: `0.0`)
-- **Memory Span**: Set the number of past utterances sent to the API as a context. Setting 4 to this parameter means 2 conversation turns (user → assistant → user → assistant) will be sent as a context for a new query. The larger the value, more tokens will be consumed. (default: `4`)
+- **Memory Span**: Set the number of past utterances sent to the API as a context. Setting `4` to this parameter means 2 conversation turns (user → assistant → user → assistant) will be sent as the context for a new query. The larger the value, more tokens will be consumed. (default: `10`)
 - **Max Characters**: Maximum number of characters that can be included in a query (default: `50000`).
 - **Timeout**: The number of seconds (default: `10`) to wait before opening the socket and connecting to the API. If the connection fails, reconnection (up to 20 times) will be attempted after 1 second.
 - **Add Emoji**: If enabled, the response text from GPT will contain emoji characters appropriate for the content. This is realized by adding the following sentence at the end of the system content. (default: `enabled`)
