@@ -1,5 +1,6 @@
 # Change Log
 
+- 3.1.3: `gpt-4o-2024-08-06` supported; `gpt-3.5` series models unsupported;
 - 3.1.2: `gpt-4o-mini` supported;
 - 3.0.1: Default for `Memory Span` set to `10`
 - 3.0.0: `gpt-4o` supported;
