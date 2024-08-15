@@ -71,6 +71,7 @@ To set up dependencies (`pandoc`, `mpv`, `sox`, `jq`, and `duti`), first install
 
 Recent Change Log
 
+- 3.1.4: `chatgpt-4o-latest` supported
 - 3.1.3: `gpt-4o-2024-08-06` supported; `gpt-3.5` series models unsupported;
 - 3.1.2: `gpt-4o-mini` supported;
 - 3.0.1: Default for `Memory Span` set to `10`
@@ -335,9 +336,10 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 
 <b>Chat Parameters</b>
 
-- **Model**: OpenAI's chat [model](https://beta.openai.com/docs/api-reference/models) used for the workflow (default: `gpt-4o-mini`). If you want to use the latest and greatest model, set it to `gpt-4o-2024-08-06`. Here are some of the models currently available:
+- **Model**: OpenAI's chat [model](https://beta.openai.com/docs/api-reference/models) used for the workflow (default: `gpt-4o-mini`). If you want to use the latest and greatest model, set it to `chatgpt-4o-latest`. Here are some of the models currently available:
 
   - `gpt-4o-mini`
+  - `chatgpt-4o-latest`
   - `gpt-4o-2024-08-06`
   - `gpt-4o`
 
