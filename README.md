@@ -71,11 +71,7 @@ To set up dependencies (`pandoc`, `mpv`, `sox`, `jq`, and `duti`), first install
 
 Recent Change Log
 
-- 3.1.4: `chatgpt-4o-latest` supported
-- 3.1.3: `gpt-4o-2024-08-06` supported; `gpt-3.5` series models unsupported;
-- 3.1.2: `gpt-4o-mini` supported;
-- 3.0.1: Default for `Memory Span` set to `10`
-- 3.0.0: `gpt-4o` supported;
+- 3.2.0: Beta models (`o1-preview`, `o1-mini`) supported
 
 [Complete Change Log](https://github.com/yohasebe/openai-chat-api-workflow/blob/main/CHANGELOG.md)
 
@@ -336,12 +332,17 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 
 <b>Chat Parameters</b>
 
-- **Model**: OpenAI's chat [model](https://beta.openai.com/docs/api-reference/models) used for the workflow (default: `gpt-4o-mini`). If you want to use the latest and greatest model, set it to `chatgpt-4o-latest`. Here are some of the models currently available:
+- **Model**: OpenAI's chat [model](https://beta.openai.com/docs/api-reference/models) used for the workflow (default: `gpt-4o-mini`). Here are some of the models currently available:
 
   - `gpt-4o-mini`
   - `chatgpt-4o-latest`
   - `gpt-4o-2024-08-06`
   - `gpt-4o`
+
+You may or may not use the following beta models. System prompt and parameter settings are not available for these models. Also, streaming is not supported for these model and the response time is longer than the other models.
+
+  - `o1-preview`
+  - `o1-mini`
 
 - **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `2048`). If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified). See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-max_tokens).
 - **Temperature**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-temperature). (default: `0.3`)
