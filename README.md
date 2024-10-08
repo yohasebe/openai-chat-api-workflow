@@ -32,6 +32,9 @@ You can export the chat data to a simple JSON format external file 📄, and it 
 2. Run the following command in a terminal: `brew install pandoc mpv sox jq duti`
 3. Download and run [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) 
 4. Set your [OpenAI API key](https://platform.openai.com/account/api-keys)
+5. Turn on the accessibility settings for Alfred in `System Preferences` → `Security & Privacy` → `Privacy` → `Accessibility`
+
+<kbd><img src="./docs/img/accessibility.png" width="600"></kbd>
 
 **Setup Hotkeys**
 
@@ -44,7 +47,6 @@ You can set up hotkeys in the settings screen of the workflow. To set up hotkeys
 3. Send Selected Text
 4. Screen Capture for Image Understanding
 5. Speech to Text
-
 
 <b>Dependencies</b>
 
