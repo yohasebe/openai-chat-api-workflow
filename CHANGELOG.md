@@ -1,5 +1,6 @@
 # Change Log
 
+- 3.3.0: Import image feature is added to the web UI
 - 3.2.3: Added support for `gpt-4o-2024-11-20` model
 - 3.2.2: Streaming support for `o1` series models
 - 3.2.1: URI encoding issue when re-editing prompt fixed
