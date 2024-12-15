@@ -18,13 +18,11 @@ You can export the chat data to a simple JSON format external file 📄, and it 
 
 <img src="./docs/img/OpenAI-Alfred-Workflow.png" width="600" />
 
-<kbd><img src="./docs/img/openai-chat-api-workflow.gif" width="600" /></kbd>
+<kbd><img src="./docs/img/openai-chat-api-workflow.gif" width="700" /></kbd>
 
-<kbd><img src="./docs/img/web-interface.png" width="600"></kbd>
+<kbd><img src="./docs/img/web-interface.png" width="700"></kbd>
 
-<kbd><img src="./docs/img/code-snippets.png" width="600"></kbd>
-
-<kbd><img src="./docs/img/openai-workflow-vision.gif" width="600"></kbd>
+<kbd><img src="./docs/img/code-snippets.png" width="700"></kbd>
 
 ## Installation
 
@@ -40,7 +38,7 @@ You can export the chat data to a simple JSON format external file 📄, and it 
 
 You can set up hotkeys in the settings screen of the workflow. To set up hotkeys, double-click on the light purple workflow elements.
 
-<kbd><img width="600" src="./docs/img/openai-workflow-overview.png"></kbd>
+<kbd><img width="700" src="./docs/img/openai-workflow-overview.png"></kbd>
 
 1. Open Web UI (Recommended)
 2. Direct Query
@@ -119,7 +117,7 @@ Restart the OpenAI Workflow server by executing `openai-restart-server` in case 
 
 Switch modes (`light`/`dark`/`auto`) with the `Web UI Mode` selector in the settings.
 
-<kbd><img width="600" src="./docs/img/web-interface-dark.png"></kbd>
+<kbd><img width="700" src="./docs/img/web-interface-dark.png"></kbd>
 
 **Simple Direct Query/Chat**
 
@@ -168,7 +166,7 @@ GPT generates program code and example output based on the entered text. You can
 
 **Example Output**
 
-<kbd><img width="600" src="./docs/img/code.png"></kbd>
+<kbd><img width="700" src="./docs/img/code.png"></kbd>
 
 <span><img src='./icons/quora.png' style='height:1em;'/></span> **Ask in Your Language**
 
@@ -220,23 +218,30 @@ GPT extracts keywords from a block of text. See OpenAI's [description](https://b
 
 Image generation can be executed through one of the above commands. It is also possible to use the web UI. By using the web UI, you can interactively change the prompt to get closer to the desired image.
 
-<kbd><img width="600" src="./docs/img/image-generation-1.png"></kbd>
+<kbd><img width="700" src="./docs/img/image-generation-1.png"></kbd>
 
 When the image generation mode is set to `dall-e-3`, the user's prompt is automatically expanded to a more detailed and specific prompt. You can also edit the expanded prompt and regenerate the image.
 
-<kbd><img width="600" src="./docs/img/image-generation-2.png"></kbd>
+<kbd><img width="700" src="./docs/img/image-generation-2.png"></kbd>
 
-<kbd><img width="600" src="./docs/img/image-generation-3.png"></kbd>
+<kbd><img width="700" src="./docs/img/image-generation-3.png"></kbd>
 
 ## Image Understanding
 
 Image understanding can be executed through the `openai-vision` command. It starts capture mode and lets you specify a part of the screen to be analyzed. Alternatively, you can specify an image file (jpg, jpeg, png, gif) using the "OpenAI Vision" file action. This mode requires the `gpt-4o` or `gpt-4o-mini` model to be set in the workflow settings.
 
+<kbd><img src="./docs/img/openai-workflow-vision.gif" width="700"></kbd>
+
+Alternatively, you can use the web UI to upload an image file for analysis. The image file is sent to the OpenAI Vision API, and the result is displayed in the web UI.
+
+<kbd><img src="./docs/img/openai-vision-web-ui.png" width="700"></kbd>
+
+
 ## Speech Synthesis and Speech Recognition
 
 Most text-to-speech and speech-to-text features are available on the web UI. However, there are certain specific features provided as commands, such as audio file to text conversion and transcription with timestamps.
 
-<kbd><img width="600" src="./docs/img/speech-to-text-web.png"></kbd>
+<kbd><img width="700" src="./docs/img/speech-to-text-web.png"></kbd>
 
 **Text-to-Speech Synthesis**
 
@@ -262,7 +267,7 @@ You can select an audio file in `mp3`, `mp4`, `flac`, `webm`, `wav`, or `m4a` fo
 
 You can record voice audio and send it to the Workflow for transcription using the Whisper API. Recording time is limited to 30 minutes and will automatically stop after this duration.
 
-<kbd><img width="600" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
+<kbd><img width="700" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
 
 - Alfred textbox → keyword (`openai-speech`) → Terminal window opens and recording starts
 - Speak into the internal or external microphone → Press Enter to finish recording
@@ -277,9 +282,9 @@ You can record voice audio and send it to the Workflow for transcription using t
 
 You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in the workflow's settings. Below are examples in the `text` and `srt` formats:
 
-<kbd><img width="600" alt="transcript-text" src="./docs/img/transcript-text.png"></kbd>
+<kbd><img width="700" alt="transcript-text" src="./docs/img/transcript-text.png"></kbd>
 
-<kbd><img width="600" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
+<kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
 
 ## Other Features
 
