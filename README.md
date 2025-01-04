@@ -18,9 +18,9 @@ You can export the chat data to a simple JSON format external file 📄, and it 
 
 <img src="./docs/img/OpenAI-Alfred-Workflow.png" width="600" />
 
-<kbd><img src="./docs/img/openai-chat-api-workflow.gif" width="700" /></kbd>
-
 <kbd><img src="./docs/img/web-interface.png" width="700"></kbd>
+
+<kbd><img src="./docs/img/openai-chat-api-workflow.gif" width="700" /></kbd>
 
 ## Installation
 
