@@ -269,7 +269,7 @@ You can select an audio file in `mp3`, `mp4`, `flac`, `webm`, `wav`, or `m4a` fo
 
 You can record voice audio and send it to the Workflow for transcription using the Whisper API. Recording time is limited to 30 minutes and will automatically stop after this duration.
 
-<kbd><img width="700" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
+<kbd><img width="600" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
 
 - Alfred textbox → keyword (`openai-speech`) → Terminal window opens and recording starts
 - Speak into the internal or external microphone → Press Enter to finish recording
