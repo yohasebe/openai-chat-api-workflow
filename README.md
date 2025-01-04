@@ -2,7 +2,7 @@
 
 <img src='./icons/openai.png' style='height:120px;'/>
 
-🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://beta.openai.com/) Chat API to interact with GPT-4 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
+🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://beta.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
 📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.3.0`)
 
@@ -70,6 +70,10 @@ brew install pandoc mpv sox jq duti
 
 **Recent Change Log**
 
+- 3.4.0: 
+  - New TTS voices added (`ash`, `coral`, and `sage`)
+  - Old models before `gpt-4o` are removed
+  - UI improvements
 - 3.3.0: Import image feature is added to the web UI
 - 3.2.3: Added support for `gpt-4o-2024-11-20` model
 - 3.2.2: Streaming support for `o1` series models
@@ -358,7 +362,7 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 **Text-to-Speech Parameters**
 
 - **Text-to-Speech Model**: One of the available TTS models: `tts-1` or `tts-1-hd`. (default: `tts-1`)
-- **Text-to-Speech Voice**: The voice to use when generating the audio. Supported voices are: `alloy`, `echo`, `fable`, `onyx`, `nova`, and `shimmer`. (default: `alloy`)
+- **Text-to-Speech Voice**: The voice to use when generating the audio. Supported voices are: `alloy`, `ash`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, and `shimmer`. (default: `alloy`)
 - **Text-to-Speech Speed**: The speed of the generated audio. Select a value from 0.25 to 4.0. (default: `1.0`)
 - **Automatic Text to Speech**: If enabled, the results will be read aloud using the system's default text-to-speech language and voice. (default: `disabled`)
 
