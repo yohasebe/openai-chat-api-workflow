@@ -22,8 +22,6 @@ You can export the chat data to a simple JSON format external file 📄, and it 
 
 <kbd><img src="./docs/img/web-interface.png" width="700"></kbd>
 
-<kbd><img src="./docs/img/code-snippets.png" width="700"></kbd>
-
 ## Installation
 
 1. Install [Homebrew](https://brew.sh/)
