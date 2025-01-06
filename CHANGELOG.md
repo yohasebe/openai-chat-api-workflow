@@ -1,9 +1,10 @@
 # Change Log
 
-- 3.4.0: 
+- 3.4.1: 
   - New TTS voices added (`ash`, `coral`, and `sage`)
   - Old models before `gpt-4o` are removed
   - UI improvements
+  - Image upload from the web UI improved
 - 3.3.0: Import image feature is added to the web UI
 - 3.2.3: Added support for `gpt-4o-2024-11-20` model
 - 3.2.2: Streaming support for `o1` series models
