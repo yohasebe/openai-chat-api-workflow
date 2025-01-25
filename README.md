@@ -68,6 +68,8 @@ brew install pandoc mpv sox jq duti
 
 **Recent Change Log**
 
+- 3.4.2: 
+  - `o1` series models supported
 - 3.4.1: 
   - New TTS voices added (`ash`, `coral`, and `sage`)
   - Old models before `gpt-4o` are removed
@@ -324,10 +326,8 @@ You can set various parameters in the settings panel of this Workflow. Some of t
   - `chatgpt-4o-latest`
   - `gpt-4o-2024-08-06`
   - `gpt-4o`
-  
-  You may or may not use the following beta models. System prompt and parameter settings are not available for these models.
-  - `o1-preview`
   - `o1-mini`
+  - `o1` (currently non-streaming)
   
 - **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `2048`). If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified). See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-max_tokens).
 - **Temperature**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-temperature). (default: `0.3`)
