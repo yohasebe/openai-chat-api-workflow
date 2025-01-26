@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://beta.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.4.2`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.4.3`)
 
 You can execute all the above features using:
 
@@ -68,8 +68,9 @@ brew install pandoc mpv sox jq duti
 
 **Recent Change Log**
 
-- 3.4.2: 
+- 3.4.3: 
   - `o1` series models supported
+  - Command-line recording for speech-to-text fixed (Thank you Victor)
 - 3.4.1: 
   - New TTS voices added (`ash`, `coral`, and `sage`)
   - Old models before `gpt-4o` are removed
