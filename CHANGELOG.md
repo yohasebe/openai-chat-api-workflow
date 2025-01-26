@@ -1,7 +1,8 @@
 # Change Log
 
-- 3.4.2: 
+- 3.4.3: 
   - `o1` series models supported
+  - Command-line recording for speech-to-text fixed (Thank you Victor)
 - 3.4.1:
   - New TTS voices added (`ash`, `coral`, and `sage`)
   - Old models before `gpt-4o` are removed
