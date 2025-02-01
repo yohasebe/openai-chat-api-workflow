@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://beta.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.4.3`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.4.4`)
 
 You can execute all the above features using:
 
@@ -68,8 +68,11 @@ brew install pandoc mpv sox jq duti
 
 **Recent Change Log**
 
+- 3.4.4: 
+  - `o3-mini` model supported
+  - Image upload from the web UI improved
 - 3.4.3: 
-  - `o1` series models supported
+  - `o1` model supported
   - Command-line recording for speech-to-text fixed (Thank you Victor)
 - 3.4.1: 
   - New TTS voices added (`ash`, `coral`, and `sage`)
@@ -325,10 +328,10 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 - **Model**: OpenAI's chat [model](https://beta.openai.com/docs/api-reference/models) used for the workflow (default: `gpt-4o-mini`). Here are some of the models currently available:
   - `gpt-4o-mini`
   - `chatgpt-4o-latest`
-  - `gpt-4o-2024-08-06`
   - `gpt-4o`
   - `o1-mini`
   - `o1` (currently non-streaming)
+  - `o3-mini`
   
 - **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `2048`). If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified). See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-max_tokens).
 - **Temperature**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-temperature). (default: `0.3`)
