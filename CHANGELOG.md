@@ -1,5 +1,8 @@
 # Change Log
 
+- 3.4.4: 
+  - `o3-mini` model supported
+  - Image upload from the web UI improved
 - 3.4.3: 
   - `o1` series models supported
   - Command-line recording for speech-to-text fixed (Thank you Victor)
@@ -7,7 +10,6 @@
   - New TTS voices added (`ash`, `coral`, and `sage`)
   - Old models before `gpt-4o` are removed
   - UI improvements
-  - Image upload from the web UI improved
 - 3.3.0: Import image feature is added to the web UI
 - 3.2.3: Added support for `gpt-4o-2024-11-20` model
 - 3.2.2: Streaming support for `o1` series models
@@ -78,7 +80,7 @@
 - 1.10.0: Added the Enhance Prompt option for image generation mode.
 - 1.9.1: Fixed an issue with 1024x1024 image generation.
 - 1.9.0: Image generation using DALL·E API supported
-- 1.8.2: New models (`gpt-3.5-turbo-0613`, `gpt-3.5-turbo-16k-0613`, `gpt-4-0613` [requires appliation]) supported
+- 1.8.2: New models (`gpt-3.5-turbo-0613`, `gpt-3.5-turbo-16k-0613`, `gpt-4-0613`) supported
 - 1.8.1: Added option to change base URL of the OpenAI API
 - 1.8.0: Custom CSS feature added
 - 1.7.0: Improved UI
@@ -86,7 +88,7 @@
 - 1.6.7: Fixed an error that occurred for some users
 - 1.6.6: Debug mode added that outputs error messages when problems occur
 - 1.6.5: Automatic detection of Pandoc installation
-- 1.6.4: Supress "Please Wait" message feature
+- 1.6.4: Suppress "Please Wait" message feature
 - 1.6.3: OpenAI Textbox feature updated
 - 1.6.0: `GPT-3.5-turbo` model is set to the default
 - 1.6.0: ChatGPT API support
