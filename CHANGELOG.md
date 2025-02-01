@@ -1,10 +1,10 @@
 # Change Log
 
-- 3.4.4: 
-  - `o3-mini` model supported
+- 3.4.5: 
+  - The `reasoning_effort` parameter is added for reasoning models (`o1` and `o3-mini`)
+  - `o3-mini` model supported (streaming)
+  - `o1` model supported (non-streaming only)
   - Image upload from the web UI improved
-- 3.4.3: 
-  - `o1` series models supported
   - Command-line recording for speech-to-text fixed (Thank you Victor)
 - 3.4.1:
   - New TTS voices added (`ash`, `coral`, and `sage`)
