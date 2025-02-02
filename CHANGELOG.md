@@ -1,6 +1,6 @@
 # Change Log
 
-- 3.4.6: 
+- 3.4.7: 
   - The `reasoning_effort` parameter is added for reasoning models (`o1` and `o3-mini`)
   - `o3-mini` model supported (streaming)
   - `o1` model supported (non-streaming only)
