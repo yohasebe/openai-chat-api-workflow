@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://beta.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.5.1`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.5.2`)
 
 You can execute all the above features using:
 
@@ -66,11 +66,12 @@ brew install pandoc mpv sox jq duti
 
 **Recent Change Log**
 
-- 3.5.1:
+- 3.5.2:
   - Text-to-speech replacement CSV support added
   - Reasoning effort parameter added for `o1` and `o3-mini` models
   - `o1` model streaming supported
   - Web UI better reflects the parameters set in the workflow settings
+  - Image recognition issue fixed
 - 3.4.7: 
   - The `reasoning_effort` parameter is added for reasoning models (`o1` and `o3-mini`)
   - `o3-mini` model supported (streaming)
@@ -239,6 +240,8 @@ When the image generation mode is set to `dall-e-3`, the user's prompt is automa
 <kbd><img width="700" src="./docs/img/image-generation-3.png"></kbd>
 
 ## Image Understanding
+
+?> Currently image understanding is supported for the `gpt-4o`, `gpt-4o-mini`, and `o1` models. If a `o3-mini` model is selected and an image is sent for understanding, the workflow will automatically switch to the `gpt-4o` model for that query.
 
 Image understanding can be executed through the `openai-vision` command. It starts capture mode and lets you specify a part of the screen to be analyzed. Alternatively, you can specify an image file (jpg, jpeg, png, gif) using the "OpenAI Vision" file action. This mode requires the `gpt-4o` or `gpt-4o-mini` model to be set in the workflow settings.
 

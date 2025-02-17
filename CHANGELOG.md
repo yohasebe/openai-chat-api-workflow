@@ -1,6 +1,6 @@
 # Change Log
 
-- 3.5.1:
+- 3.5.2:
   - Text-to-speech replacement CSV support added
   - Reasoning effort parameter added for `o1` and `o3-mini` models
   - `o1` model streaming supported
