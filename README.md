@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://beta.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.4.7`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.5.1`)
 
 You can execute all the above features using:
 
@@ -66,6 +66,11 @@ brew install pandoc mpv sox jq duti
 
 **Recent Change Log**
 
+- 3.5.1:
+  - Text-to-speech replacement CSV support added
+  - Reasoning effort parameter added for `o1` and `o3-mini` models
+  - `o1` model streaming supported
+  - Web UI better reflects the parameters set in the workflow settings
 - 3.4.7: 
   - The `reasoning_effort` parameter is added for reasoning models (`o1` and `o3-mini`)
   - `o3-mini` model supported (streaming)
@@ -328,7 +333,7 @@ You can set various parameters in the settings panel of this Workflow. Some of t
   - `chatgpt-4o-latest`
   - `gpt-4o`
   - `o1-mini`
-  - `o1` (currently non-streaming)
+  - `o1`
   - `o3-mini`
   
 - **Reasoning Effort** Set the reasoning effort to `low`, `medium`, or `high`. (default: `medium`). It gives reasoning models (`o1` and `o3-mini`) a guidance on how many reasoning tokens it should generate before creating a response to the prompt. See OpenAI's [documentation](https://platform.openai.com/docs/guides/reasoning#reasoning-effort).
@@ -379,6 +384,7 @@ You can set various parameters in the settings panel of this Workflow. Some of t
   - Transcribe and query [+ save recording to desktop]
   
 - **Audio to English**: When enabled, the Whisper API will transcribe the input audio and output text translated into English. (default: `disabled`)
+- **Text-to-Speech Replacement CSV Path**: Set the path to the CSV file containing text-to-speech replacement pairs in the format `original_text, replacement_text`.
 
 **Other Settings**
 
