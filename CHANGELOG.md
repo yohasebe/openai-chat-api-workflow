@@ -1,5 +1,10 @@
 # Change Log
 
+- 3.5.1:
+  - Text-to-speech replacement CSV support added
+  - Reasoning effort parameter added for `o1` and `o3-mini` models
+  - `o1` model streaming supported
+  - Web UI better reflects the parameters set in the workflow settings
 - 3.4.7: 
   - The `reasoning_effort` parameter is added for reasoning models (`o1` and `o3-mini`)
   - `o3-mini` model supported (streaming)
