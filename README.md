@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://beta.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.5.2`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.5.3`)
 
 You can execute all the above features using:
 
@@ -66,7 +66,8 @@ brew install pandoc mpv sox jq duti
 
 **Recent Change Log**
 
-- 3.5.2:
+- 3.5.3:
+  - `gpt-4.5-preview` model supported
   - Text-to-speech replacement CSV support added
   - Reasoning effort parameter added for `o1` and `o3-mini` models
   - `o1` model streaming supported
@@ -241,9 +242,9 @@ When the image generation mode is set to `dall-e-3`, the user's prompt is automa
 
 ## Image Understanding
 
-?> Currently image understanding is supported for the `gpt-4o`, `gpt-4o-mini`, and `o1` models. If a `o3-mini` model is selected and an image is sent for understanding, the workflow will automatically switch to the `gpt-4o` model for that query.
+?> Currently image understanding is not supported for the `o3-mini` model. If a `o3-mini` model is selected and an image is sent for understanding, the workflow will automatically switch to the `gpt-4o` model for that query.
 
-Image understanding can be executed through the `openai-vision` command. It starts capture mode and lets you specify a part of the screen to be analyzed. Alternatively, you can specify an image file (jpg, jpeg, png, gif) using the "OpenAI Vision" file action. This mode requires the `gpt-4o` or `gpt-4o-mini` model to be set in the workflow settings.
+Image understanding can be executed through the `openai-vision` command. It starts capture mode and lets you specify a part of the screen to be analyzed. Alternatively, you can specify an image file (jpg, jpeg, png, gif) using the "OpenAI Vision" file action.
 
 <kbd><img src="./docs/img/openai-workflow-vision.gif" width="700"></kbd>
 
@@ -335,6 +336,7 @@ You can set various parameters in the settings panel of this Workflow. Some of t
   - `gpt-4o-mini`
   - `chatgpt-4o-latest`
   - `gpt-4o`
+  - `gpt-4.5-preview`
   - `o1-mini`
   - `o1`
   - `o3-mini`

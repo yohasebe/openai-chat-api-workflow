@@ -1,6 +1,7 @@
 # Change Log
 
-- 3.5.2:
+- 3.5.3:
+  - `gpt-4.5-preview` model supported
   - Text-to-speech replacement CSV support added
   - Reasoning effort parameter added for `o1` and `o3-mini` models
   - `o1` model streaming supported
