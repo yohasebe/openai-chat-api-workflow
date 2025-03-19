@@ -1,8 +1,10 @@
 # Change Log
 
-- 3.5.3:
+- 3.6.1:
+  - Universal action image understanding feature supports PDF files
   - `gpt-4.5-preview` model supported
   - Text-to-speech replacement CSV support added
+- 3.5.3:
   - Reasoning effort parameter added for `o1` and `o3-mini` models
   - `o1` model streaming supported
   - Web UI better reflects the parameters set in the workflow settings

@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://beta.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.5.3`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.6.1`)
 
 You can execute all the above features using:
 
@@ -66,9 +66,11 @@ brew install pandoc mpv sox jq duti
 
 **Recent Change Log**
 
-- 3.5.3:
+- 3.6.1:
+  - Universal action image understanding feature supports PDF files
   - `gpt-4.5-preview` model supported
   - Text-to-speech replacement CSV support added
+- 3.5.3:
   - Reasoning effort parameter added for `o1` and `o3-mini` models
   - `o1` model streaming supported
   - Web UI better reflects the parameters set in the workflow settings
@@ -240,7 +242,7 @@ When the image generation mode is set to `dall-e-3`, the user's prompt is automa
 
 <kbd><img width="700" src="./docs/img/image-generation-3.png"></kbd>
 
-## Image Understanding
+## Image/PDF Understanding
 
 ?> Currently image understanding is not supported for the `o3-mini` model. If a `o3-mini` model is selected and an image is sent for understanding, the workflow will automatically switch to the `gpt-4o` model for that query.
 
@@ -252,6 +254,7 @@ Alternatively, you can use the web UI to upload an image file for analysis. The 
 
 <kbd><img src="./docs/img/openai-vision-web-ui.png" width="700"></kbd>
 
+You can also use specify an image file using the universal action hotkey on the file in Finder. With this method you can not only analyze image files (jpg, jpeg, png, gif) but also PDF files.
 
 ## Speech Synthesis and Speech Recognition
 
