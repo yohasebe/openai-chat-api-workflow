@@ -91,3 +91,9 @@ Gemfile.lock
 # .rubocop-https?--*
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,ruby
+
+### Media Files (mp3, mp4, wav, webm)
+*.mp3
+*.mp4
+*.wav
+*.webm
