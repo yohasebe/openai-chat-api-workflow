@@ -14,7 +14,7 @@ You can execute all the above features using:
 
 The web UI is constructed by the workflow and runs locally on your Mac 💻. The API call is made directly between the workflow and OpenAI, ensuring your chat messages are not shared online with anyone other than OpenAI 🔒. Furthermore, OpenAI does not use the data from the API Platform for training 🚫.
 
-You can export the chat data to a simple JSON format external file 📄, and it is possible to continue the chat by importing it later 🔄.
+You can export the chat data to an external file in simple JSON format 📄, and it is possible to continue the chat by importing it later 🔄.
 
 <img src="./docs/img/OpenAI-Alfred-Workflow.png" width="600" />
 
@@ -127,7 +127,7 @@ If your default browser is set to one of the following and the duti command is i
 - Microsoft Edge (Stable, Beta, Dev, etc.)
 - Brave Browser
 
-Restart the OpenAI Workflow server by executing `openai-restart-server` in case the web UI does not work as expected after changing the default browser.
+Restart the OpenAI Workflow server by executing `openai-restart-server` if the web UI does not work as expected after changing the default browser.
 
 **Web UI Modes**
 
@@ -254,7 +254,7 @@ Alternatively, you can use the web UI to upload an image file for analysis. The 
 
 <kbd><img src="./docs/img/openai-vision-web-ui.png" width="700"></kbd>
 
-You can also use specify an image file using the universal action hotkey on the file in Finder. With this method you can not only analyze image files (jpg, jpeg, png, gif) but also PDF files.
+You can also specify an image file using the universal action hotkey on the file in Finder. With this method you can not only analyze image files (jpg, jpeg, png, gif) but also PDF files.
 
 ## Speech Synthesis and Speech Recognition
 
