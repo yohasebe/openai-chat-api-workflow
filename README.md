@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://beta.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.6.1`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.6.4`)
 
 You can execute all the above features using:
 
@@ -64,9 +64,15 @@ To set up dependencies (`pandoc`, `mpv`, `sox`, `jq`, and `duti`), first install
 brew install pandoc mpv sox jq duti
 ```
 
-**Recent Change Log**
+**Recent Changelog**
 
-- 3.6.1:
+- 3.6.4:
+  - New speech-to-text models `gpt-4o-mini-transcribe` (default) and `gpt-4o-transcribe` supported
+  - New text-to-speech model `gpt-4o-mini-tts` supported (default)
+  - Added "TTS instruction" feature for character and speaking style control
+  - Added web search capability (triggered by "search" at the beginning of prompt)
+  - New TTS voice `ballad` added
+- 3.6.3:
   - Universal action image understanding feature supports PDF files
   - `gpt-4.5-preview` model supported
   - Text-to-speech replacement CSV support added
@@ -81,22 +87,12 @@ brew install pandoc mpv sox jq duti
   - `o1` model supported (non-streaming only)
   - Image upload from the web UI improved
   - Command-line recording for speech-to-text fixed (Thank you Victor)
-- 3.4.1: 
-  - New TTS voices added (`ash`, `coral`, and `sage`)
-  - Old models before `gpt-4o` are removed
-  - UI improvements
-  - Image upload from the web UI improved
-- 3.3.0: Import image feature is added to the web UI
-- 3.2.3: Added support for `gpt-4o-2024-11-20` model
-- 3.2.2: Streaming support for `o1` series models
-- 3.2.1: Fixed URI encoding issue when re-editing prompt
-- 3.2.0: Added support for Beta models (`o1-preview`, `o1-mini`)
 
 [Complete Change Log](https://github.com/yohasebe/openai-chat-api-workflow/blob/main/CHANGELOG.md)
 
 ## Methods of Execution
 
-Here are three methods to run the workflow: 1) Using commands within the Alfred UI, 2) Passing selected text to the workflow, 3) Utilizing the Web UI. Additionally, there’s a convenient method for making brief inquiries to GPT.
+Here are three methods to run the workflow: 1) Using commands within the Alfred UI, 2) Passing selected text to the workflow, 3) Utilizing the Web UI. Additionally, there's a convenient method for making brief inquiries to GPT.
 
 **Commands within the Alfred UI**
 
@@ -305,45 +301,55 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
 
 <kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
 
-## Other Features
+## Speech Synthesis and Speech Recognition
 
-**Import/Export**
+Most text-to-speech and speech-to-text features are available on the web UI. However, there are certain specific features provided as commands, such as audio file to text conversion and transcription with timestamps.
 
-You can export your chat data to a straightforward JSON format file and resume your conversation later by importing it back in.
+<kbd><img width="700" src="./docs/img/speech-to-text-web.png"></kbd>
 
-To export data, simply click on `Show Entire Chat` in the chat window to navigate to the chat history page, then select `Export Data`. To import data, just click `Import Data` on either the home page or the chat history page.
+**Text-to-Speech Synthesis**
 
-**Monitor API Usage**
+Text entered or response text from GPT can be read out in a natural voice using OpenAI's text-to-speech API.
 
-To review your token usage for the current billing cycle on the OpenAI Usage Page, type the keyword `openai-usage`. For more details on billing, visit OpenAI's [Billing Overview](https://platform.openai.com/account/billing/overview).
+- Method 1: Press the `Play TTS` button on the web UI
+- Method 2: Select text → universal action hotkey → select `OpenAI Text-to-Speech`
 
-## Configuration Parameters
+**Speech-to-Text Conversion**
 
-You can set various parameters in the settings panel of this Workflow. Some of the parameters set here are used as default values, but you can make temporary changes to the values on the web UI. You can also access the settings panel by clicking `Open Config` from the web UI.
+The Whisper API can convert speech into text in a variety of languages. Please refer to the [Whisper API FAQ](https://help.openai.com/en/articles/7031512-whisper-api-faq) for available languages and other limitations.
 
-**Required Settings**
+- Method 1: Press the `Voice Input` button on the web UI
+- Method 2: Alfred textbox → keyword (`openai-speech`)
 
-- **OpenAI API Key**: Set your secret API key for OpenAI. Sign up for OpenAI and get your API key at [https://platform.openai.com/account/api-keys/](https://platform.openai.com/account/api-keys).
-- **Base URL**: The base URL of the OpenAI Chat API. (default: `https://api.openai.com/v1`)
+**Audio File to Text**
 
-**Web UI Parameters**
+You can select an audio file in `mp3`, `mp4`, `flac`, `webm`, `wav`, or `m4a` format (under 25MB) and send it to the workflow:
 
-- **Loopback Address**: Either `localhost` or `127.0.0.1` can be used as the loopback address of the UI server. If the web UI does not work as expected, try the other. (default: `127.0.0.1`)
-- **Stream Output**: Show results in the default web browser. If unchecked, Alfred's "Large Type" feature is used to display the result. (default: `enabled`)
-- **Hide Speech Buttons**: When enabled, the buttons for TTS playback and voice input are hidden on the web UI.
-- **Web UI Mode**: Set your preferred UI mode (`light`/`dark`/`auto`). (default: `auto`)
+- Select the file → universal action hotkey → select `OpenAI Speech-to-Text`
 
-**Chat Parameters**
+**Record Voice Audio and Transcribe**
 
-- **Model**: OpenAI's chat [model](https://beta.openai.com/docs/api-reference/models) used for the workflow (default: `gpt-4o-mini`). Here are some of the models currently available:
-  - `gpt-4o-mini`
-  - `chatgpt-4o-latest`
-  - `gpt-4o`
-  - `gpt-4.5-preview`
-  - `o1-mini`
-  - `o1`
-  - `o3-mini`
-  
+You can record voice audio and send it to the Workflow for transcription using the Whisper API. Recording time is limited to 30 minutes and will automatically stop after this duration.
+
+<kbd><img width="600" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
+
+- Alfred textbox → keyword (`openai-speech`) → Terminal window opens and recording starts
+- Speak into the internal or external microphone → Press Enter to finish recording
+- Choose processes to apply to the recorded audio:
+
+  - Transcribe (+ delete recording)
+  - Transcribe (+ save recording to desktop)
+  - Transcribe and query (+ delete recording)
+  - Transcribe and query (+ save recording to desktop)
+  - Exit (+ delete recording)
+  - Exit (+ save recording to desktop)
+
+You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in the workflow's settings. Below are examples in the `text` and `srt` formats:
+
+<kbd><img width="700" alt="transcript-text" src="./docs/img/transcript-text.png"></kbd>
+
+<kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
+
 - **Reasoning Effort**: Set the reasoning effort to `low`, `medium`, or `high`. (default: `medium`). It gives reasoning models (`o1` and `o3-mini`) a guidance on how many reasoning tokens it should generate before creating a response to the prompt. See OpenAI's [documentation](https://platform.openai.com/docs/guides/reasoning#reasoning-effort).
 - **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `2048`). If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified). See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-max_tokens).
 - **Temperature**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-temperature). (default: `0.3`)
@@ -361,6 +367,17 @@ You can set various parameters in the settings panel of this Workflow. Some of t
   
   > You are a friendly but professional consultant who answers various questions, makes decent suggestions, and gives helpful advice in response to a prompt from the user. Your response must be concise, suggestive, and accurate.
 
+**Web Search Parameters**
+
+- **Web Search Model**: One of the available web search models: `gpt-4o-mini-search-preview` or `gpt-4o-search-preview`. (default: `gpt-4o-mini-search-preview`)
+
+Note: Web search is triggered when the prompt begins with the word "search" (case-insensitive). You can use various formats:
+- `Search what is quantum computing`
+- `search: latest developments in AI`
+- `[search] climate change effects`
+
+When such formats are detected, the web search model will be automatically used instead of the standard chat model.
+
 **Image Understanding Parameters**
 
 - **Max Size for Image Understanding**: The maximum pixel value (`512` to `2000`) of the larger side of the image data sent to the image understanding API. Larger images will be resized accordingly. (Default: `512`)
@@ -374,15 +391,9 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 - **Number of Images** (for `dall-e-2`): Set the number of images to generate in image generation mode from `1` to `10`. (default: `1`)
 - **Image Size** (for `dall-e-2`): Set the size of images to generate to `256x256`, `512x512`, or `1024x1024`. (default: `256x256`)
 
-**Text-to-Speech Parameters**
-
-- **Text-to-Speech Model**: One of the available TTS models: `tts-1` or `tts-1-hd`. (default: `tts-1`)
-- **Text-to-Speech Voice**: The voice to use when generating the audio. Supported voices are: `alloy`, `ash`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, and `shimmer`. (default: `alloy`)
-- **Text-to-Speech Speed**: The speed of the generated audio. Select a value from 0.25 to 4.0. (default: `1.0`)
-- **Automatic Text to Speech**: If enabled, the results will be read aloud using the system's default text-to-speech language and voice. (default: `disabled`)
-
 **Speech-to-Text Parameters**
 
+- **Transcription Model**: One of the available transcription models: `whisper-1`, `gpt-4o-mini-transcribe`, or `gpt-4o-transcribe`. (default: `gpt-4o-mini-transcribe`)
 - **Transcription Format**: Set the format of the text transcribed from the microphone input or audio files to `text`, `srt`, or `vtt`. (default: `text`)
 - **Processes after Recording**: Set the default choice of what processes follow after audio recording finishes. (default: `Transcribe [+ delete recording]`).
   
@@ -392,6 +403,14 @@ You can set various parameters in the settings panel of this Workflow. Some of t
   - Transcribe and query [+ save recording to desktop]
   
 - **Audio to English**: When enabled, the Whisper API will transcribe the input audio and output text translated into English. (default: `disabled`)
+
+**Text-to-Speech Parameters**
+
+- **Text-to-Speech Model**: One of the available TTS models: `tts-1`, `tts-1-hd`, or `gpt-4o-mini-tts`. (default: `gpt-4o-mini-tts`)
+- **Text-to-Speech Voice**: The voice to use when generating the audio. Supported voices are: `alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, and `shimmer`. (default: `alloy`)
+- **Text-to-Speech Speed**: The speed of the generated audio. Select a value from 0.25 to 4.0. (default: `1.0`)
+- **TTS Instruction**: Specify character or speaking style instructions for text-to-speech synthesis.
+- **Automatic Text to Speech**: If enabled, the results will be read aloud using the system's default text-to-speech language and voice. (default: `disabled`)
 - **Text-to-Speech Replacement CSV Path**: Set the path to the CSV file containing text-to-speech replacement pairs in the format `original_text, replacement_text`.
 
 **Other Settings**
