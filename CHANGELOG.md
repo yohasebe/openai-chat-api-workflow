@@ -1,6 +1,12 @@
 # Change Log
 
-- 3.6.1:
+- 3.6.4:
+  - New speech-to-text models `gpt-4o-mini-transcribe` (default) and `gpt-4o-transcribe` supported
+  - New text-to-speech model `gpt-4o-mini-tts` supported (default)
+  - Added "TTS instruction" feature for character and speaking style control
+  - Added web search capability (triggered by "search" at the beginning of prompt)
+  - New TTS voice `ballad` added
+- 3.6.3:
   - Universal action image understanding feature supports PDF files
   - `gpt-4.5-preview` model supported
   - Text-to-speech replacement CSV support added
