@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://beta.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.6.5`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.6.6`)
 
 You can execute all the above features using:
 
@@ -56,7 +56,7 @@ You can set up hotkeys in the settings screen of the workflow. To set up hotkeys
 
 To start using this workflow, you must set the environment variable `apikey`, which you can obtain by creating a new [OpenAI account](https://platform.openai.com/account/api-keys). See also the [Configuration](#configuration) section below.
 
-You will also need to install the `pandoc` and `sox` programs. Pandoc allows this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled (especially useful when using this workflow to generate program code). Sox allows you to record voice audio to convert to text using the Whisper speech-to-text API.
+You will also need to install the `pandoc` and `sox` programs. Pandoc allows this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled (especially useful when using this workflow to generate program code). Sox allows you to record voice audio to convert to text using the speech-to-text API.
 
 To set up dependencies (`pandoc`, `mpv`, `sox`, `jq`, and `duti`), first install [Homebrew](https://brew.sh/) and run the following command:
 
@@ -66,7 +66,7 @@ brew install pandoc mpv sox jq duti
 
 **Recent Changelog**
 
-- 3.6.5:
+- 3.6.6:
   - `gpt-4.1` series models supported
 - 3.6.4:
   - New speech-to-text models `gpt-4o-mini-transcribe` (default) and `gpt-4o-transcribe` supported
@@ -83,12 +83,6 @@ brew install pandoc mpv sox jq duti
   - `o1` model streaming supported
   - Web UI better reflects the parameters set in the workflow settings
   - Image recognition issue fixed
-- 3.4.7: 
-  - The `reasoning_effort` parameter is added for reasoning models (`o1` and `o3-mini`)
-  - `o3-mini` model supported (streaming)
-  - `o1` model supported (non-streaming only)
-  - Image upload from the web UI improved
-  - Command-line recording for speech-to-text fixed (Thank you Victor)
 
 [Complete Change Log](https://github.com/yohasebe/openai-chat-api-workflow/blob/main/CHANGELOG.md)
 
@@ -242,7 +236,7 @@ When the image generation mode is set to `dall-e-3`, the user's prompt is automa
 
 ## Image/PDF Understanding
 
-?> Currently image understanding is not supported for the `o3-mini` model. If a `o3-mini` model is selected and an image is sent for understanding, the workflow will automatically switch to the `gpt-4o` model for that query.
+?> Currently image understanding is not supported for the `o3-mini` model. If a `o3-mini` model is selected and an image is sent for understanding, the workflow will automatically switch to the `gpt-4.1` model for that query.
 
 Image understanding can be executed through the `openai-vision` command. It starts capture mode and lets you specify a part of the screen to be analyzed. Alternatively, you can specify an image file (jpg, jpeg, png, gif) using the "OpenAI Vision" file action.
 
@@ -269,8 +263,6 @@ Text entered or response text from GPT can be read out in a natural voice using 
 
 **Speech-to-Text Conversion**
 
-The Whisper API can convert speech into text in a variety of languages. Please refer to the [Whisper API FAQ](https://help.openai.com/en/articles/7031512-whisper-api-faq) for available languages and other limitations.
-
 - Method 1: Press the `Voice Input` button on the web UI
 - Method 2: Alfred textbox → keyword (`openai-speech`)
 
@@ -282,7 +274,7 @@ You can select an audio file in `mp3`, `mp4`, `flac`, `webm`, `wav`, or `m4a` fo
 
 **Record Voice Audio and Transcribe**
 
-You can record voice audio and send it to the Workflow for transcription using the Whisper API. Recording time is limited to 30 minutes and will automatically stop after this duration.
+You can record voice audio and send it to the Workflow for transcription using the speech-to-text API. Recording time is limited to 30 minutes and will automatically stop after this duration.
 
 <kbd><img width="600" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
 
@@ -318,8 +310,6 @@ Text entered or response text from GPT can be read out in a natural voice using 
 
 **Speech-to-Text Conversion**
 
-The Whisper API can convert speech into text in a variety of languages. Please refer to the [Whisper API FAQ](https://help.openai.com/en/articles/7031512-whisper-api-faq) for available languages and other limitations.
-
 - Method 1: Press the `Voice Input` button on the web UI
 - Method 2: Alfred textbox → keyword (`openai-speech`)
 
@@ -331,7 +321,7 @@ You can select an audio file in `mp3`, `mp4`, `flac`, `webm`, `wav`, or `m4a` fo
 
 **Record Voice Audio and Transcribe**
 
-You can record voice audio and send it to the Workflow for transcription using the Whisper API. Recording time is limited to 30 minutes and will automatically stop after this duration.
+You can record voice audio and send it to the Workflow for transcription using the speech-to-text API. Recording time is limited to 30 minutes and will automatically stop after this duration.
 
 <kbd><img width="600" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
 
@@ -396,7 +386,7 @@ When such formats are detected, the web search model will be automatically used 
 **Speech-to-Text Parameters**
 
 - **Transcription Model**: One of the available transcription models: `whisper-1`, `gpt-4o-mini-transcribe`, or `gpt-4o-transcribe`. (default: `gpt-4o-mini-transcribe`)
-- **Transcription Format**: Set the format of the text transcribed from the microphone input or audio files to `text`, `srt`, or `vtt`. (default: `text`)
+- **Transcription Format**: Set the format of the text transcribed from the microphone input or audio files to `text`, `srt`, or `vtt` (default: `text`). Since `srt` and `vtt` formats are supported by `whisper-1` only, the workflow will automatically switch to `whisper-1` when these formats are selected.
 - **Processes after Recording**: Set the default choice of what processes follow after audio recording finishes. (default: `Transcribe [+ delete recording]`).
   
   - Transcribe [+ delete recording]
@@ -404,7 +394,7 @@ When such formats are detected, the web search model will be automatically used 
   - Transcribe and query [+ delete recording]
   - Transcribe and query [+ save recording to desktop]
   
-- **Audio to English**: When enabled, the Whisper API will transcribe the input audio and output text translated into English. (default: `disabled`)
+- **Audio to English**: When enabled, the speech-to-text (STT) API will transcribe the input audio and output text translated into English. (default: `disabled`)
 
 **Text-to-Speech Parameters**
 
