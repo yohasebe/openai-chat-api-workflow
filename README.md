@@ -67,7 +67,7 @@ brew install pandoc mpv sox jq duti
 **Recent Changelog**
 
 - 3.6.6:
-  - `gpt-4.1` series models supported
+  - `gpt-4.1` series models supported and `gpt-4.1-mini` set as default
 - 3.6.4:
   - New speech-to-text models `gpt-4o-mini-transcribe` (default) and `gpt-4o-transcribe` supported
   - New text-to-speech model `gpt-4o-mini-tts` supported (default)
