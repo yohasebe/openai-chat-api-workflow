@@ -1,7 +1,9 @@
 # Change Log
 
-- 3.6.7:
+- 3.6.8:
+  - `o4-mini` and `o3` models supported
   - `gpt-4.1` series models supported and `gpt-4.1-mini` set as default
+  - Image recognition and understanding features from web UI improved
 - 3.6.4:
   - New speech-to-text models `gpt-4o-mini-transcribe` (default) and `gpt-4o-transcribe` supported
   - New text-to-speech model `gpt-4o-mini-tts` supported (default)
