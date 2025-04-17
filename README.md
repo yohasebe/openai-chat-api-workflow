@@ -67,6 +67,7 @@ brew install pandoc mpv sox jq duti
 **Recent Changelog**
 
 - 3.6.8:
+  - Web UI color scheme improved
   - `o4-mini` and `o3` models supported
   - `gpt-4.1` series models supported and `gpt-4.1-mini` set as default
   - Image recognition and understanding features from web UI improved
