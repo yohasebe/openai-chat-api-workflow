@@ -239,8 +239,6 @@ When the image generation mode is set to `dall-e-3`, the user's prompt is automa
 
 ## Image/PDF Understanding
 
-?> Currently image understanding is not supported for the `o3-mini` model. If a `o3-mini` model is selected and an image is sent for understanding, the workflow will automatically switch to the `gpt-4.1` model for that query.
-
 Image understanding can be executed through the `openai-vision` command. It starts capture mode and lets you specify a part of the screen to be analyzed. Alternatively, you can specify an image file (jpg, jpeg, png, gif) using the "OpenAI Vision" file action.
 
 <kbd><img src="./docs/img/openai-workflow-vision.gif" width="700"></kbd>
