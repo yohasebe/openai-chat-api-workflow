@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://beta.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.6.8`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.6.9`)
 
 You can execute all the above features using:
 
@@ -66,7 +66,9 @@ brew install pandoc mpv sox jq duti
 
 **Recent Changelog**
 
-- 3.6.8:
+- 3.6.9:
+  - Image generation model `gpt-image-1` supported
+  - Icon image is hosted inside the workflow
   - Web UI color scheme improved
   - `o4-mini` and `o3` models supported
   - `gpt-4.1` series models supported and `gpt-4.1-mini` set as default
@@ -77,15 +79,6 @@ brew install pandoc mpv sox jq duti
   - Added "TTS instruction" feature for character and speaking style control
   - Added web search capability (triggered by "search" at the beginning of prompt)
   - New TTS voice `ballad` added
-- 3.6.3:
-  - Universal action image understanding feature supports PDF files
-  - `gpt-4.5-preview` model supported
-  - Text-to-speech replacement CSV support added
-- 3.5.3:
-  - Reasoning effort parameter added for `o1` and `o3-mini` models
-  - `o1` model streaming supported
-  - Web UI better reflects the parameters set in the workflow settings
-  - Image recognition issue fixed
 
 [Complete Change Log](https://github.com/yohasebe/openai-chat-api-workflow/blob/main/CHANGELOG.md)
 
@@ -161,7 +154,7 @@ After entering the initial text, you are prompted for additional text. The addit
 
 <span><img src='./icons/picture.png' style='height:1em;'/></span> **Generate Image**
 
-The DALL-E API (`dall-e-3` or `dall-e-2`) is used to generate images based on the entered prompts. See [Image Generation](#image-generation) below.
+The DALL-E API (`gpt-image-1`, dall-e-3`, or `dall-e-2`) is used to generate images based on the entered prompts. See [Image Generation](#image-generation) below.
 
 ## Commands for Specific Purposes
 
@@ -231,7 +224,7 @@ Image generation can be executed through one of the above commands. It is also p
 
 <kbd><img width="700" src="./docs/img/image-generation-1.png"></kbd>
 
-When the image generation mode is set to `dall-e-3`, the user's prompt is automatically expanded to a more detailed and specific prompt. You can also edit the expanded prompt and regenerate the image.
+To use the image generation mode with the `gpt-image-1` model, you may need to complete the <a href="https://help.openai.com/en/articles/10910291-api-organization-verification">API Organization Verification</a> from your <a href="https://platform.openai.com/settings/organization/general">developer console</a>.
 
 <kbd><img width="700" src="./docs/img/image-generation-2.png"></kbd>
 

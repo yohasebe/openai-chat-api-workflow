@@ -1,6 +1,8 @@
 # Change Log
 
-- 3.6.8:
+- 3.6.9:
+  - Image generation model `gpt-image-1` supported
+  - Icon image is hosted inside the workflow
   - Web UI color scheme improved
   - `o4-mini` and `o3` models supported
   - `gpt-4.1` series models supported and `gpt-4.1-mini` set as default
