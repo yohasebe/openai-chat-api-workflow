@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://beta.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.6.9`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.7.0`)
 
 You can execute all the above features using:
 
@@ -41,8 +41,10 @@ You can set up hotkeys in the settings screen of the workflow. To set up hotkeys
 1. Open Web UI (Recommended)
 2. Direct Query
 3. Send Selected Text
-4. Screen Capture for Image Understanding
-5. Speech to Text
+4. Screen Capture for Image Editing 
+5. Screen Capture for Image Understanding
+6. Speech to Text
+7. Text to Speech (Selected text)
 
 **Dependencies**
 
@@ -66,7 +68,8 @@ brew install pandoc mpv sox jq duti
 
 **Recent Changelog**
 
-- 3.6.9:
+- 3.7.0:
+  - Image editing capability added
   - Image generation model `gpt-image-1` supported
   - Icon image is hosted inside the workflow
   - Web UI color scheme improved
@@ -229,6 +232,14 @@ To use the image generation mode with the `gpt-image-1` model, you may need to c
 <kbd><img width="700" src="./docs/img/image-generation-2.png"></kbd>
 
 <kbd><img width="700" src="./docs/img/image-generation-3.png"></kbd>
+
+
+## Image Editing
+
+There is a command to edit images using the `gpt-image-1` model. There is an Universal Action command `OpenAI Image Edit`. You can also use the web UI to upload an image file for editing. The image file is sent to the OpenAI Image Editing API, and the result is displayed after a while (at the maximum of 2 minutes).
+
+<kbd><img width="700" src="./docs/img/image-editing-1.png"></kbd>
+<kbd><img width="700" src="./docs/img/image-editing-2.png"></kbd>
 
 ## Image/PDF Understanding
 
