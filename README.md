@@ -379,14 +379,17 @@ When such formats are detected, the web search model will be automatically used 
 
 - **Max Size for Image Understanding**: The maximum pixel value (`512` to `2000`) of the larger side of the image data sent to the image understanding API. Larger images will be resized accordingly. (Default: `512`)
 
-**Image Generation Parameters**
+**Image Generation/Editing Parameters**
 
-- **Image Generation Model**: `dall-e-3` and `dall-e-2` are available. (default: `dall-e-3`)
-- **Image Size** (for `dall-e-3`): Set the size of images to generate to `1024x1024`, `1024x1792`, or `1792x1024`. (default: `1024x1024`)
-- **Quality** (for `dall-e-3`): Choose the quality of the image from `standard` and `hd`. (default: `standard`)
+Image editing feature is available only for the `gpt-image-1` model.
+
+- **Image Generation Model**: `gpt-image-1`, `dall-e-3`, and `dall-e-2` are available. (default: `dall-e-3`)
 - **Style** (for `dall-e-3`): Choose the style of the image from `vivid` and `natural`. (default: `vivid`)
-- **Number of Images** (for `dall-e-2`): Set the number of images to generate in image generation mode from `1` to `10`. (default: `1`)
-- **Image Size** (for `dall-e-2`): Set the size of images to generate to `256x256`, `512x512`, or `1024x1024`. (default: `256x256`)
+- **Number of Images** (for `dall-e-2` image generation): Set the number of images to generate in image generation mode from `1` to `10`. (default: `1`)
+- **Image Size** (for image generation/editing): Set the size of images to generate
+- **Quality** (for image generation/editing): Choose the quality of the image
+- **Content Moderation** (for `gpt-image-1` image generation): `auto` or `low` (default: `auto`)
+- **Background** (for `gpt-image-1` image generation/editing): `auto`, `transparent`, or `opaque` (default: `auto`)
 
 **Speech-to-Text Parameters**
 
