@@ -1,6 +1,7 @@
 # Change Log
 
-- 3.6.9:
+- 3.7.0:
+  - Image editing capability added
   - Image generation model `gpt-image-1` supported
   - Icon image is hosted inside the workflow
   - Web UI color scheme improved
