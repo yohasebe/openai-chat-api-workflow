@@ -46,6 +46,8 @@ You can set up hotkeys in the settings screen of the workflow. To set up hotkeys
 6. Speech to Text
 7. Text to Speech (Selected text)
 
+There is also a "Stop text-to-speech playback" command to stop the playback of the text-to-speech audio stream. Current it needs to be assigned a hotkey different from that of the "Text to Speech" command.
+
 **Dependencies**
 
 - Alfred 5 [Powerpack](https://www.alfredapp.com/shop/)
@@ -68,6 +70,9 @@ brew install pandoc mpv sox jq duti
 
 **Recent Changelog**
 
+- 3.8.0:
+  - Model selection and listing changed to use full-release models only
+  - New reasoning model `o3-pro` supported
 - 3.7.0:
   - Image editing capability added
   - Image generation model `gpt-image-1` supported
@@ -76,12 +81,6 @@ brew install pandoc mpv sox jq duti
   - `o4-mini` and `o3` models supported
   - `gpt-4.1` series models supported and `gpt-4.1-mini` set as default
   - Image recognition and understanding features from web UI improved
-- 3.6.4:
-  - New speech-to-text models `gpt-4o-mini-transcribe` (default) and `gpt-4o-transcribe` supported
-  - New text-to-speech model `gpt-4o-mini-tts` supported (default)
-  - Added "TTS instruction" feature for character and speaking style control
-  - Added web search capability (triggered by "search" at the beginning of prompt)
-  - New TTS voice `ballad` added
 
 [Complete Change Log](https://github.com/yohasebe/openai-chat-api-workflow/blob/main/CHANGELOG.md)
 
