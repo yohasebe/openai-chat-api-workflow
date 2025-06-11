@@ -1,5 +1,9 @@
 # Change Log
 
+- 3.8.0:
+  - Many internal improvements
+  - Model selection and listing changed to use full-release models only
+  - New reasoning model `o3-pro` supported
 - 3.7.0:
   - Image editing capability added
   - Image generation model `gpt-image-1` supported
