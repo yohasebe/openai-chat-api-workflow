@@ -1,5 +1,9 @@
 # Change Log
 
+- 3.9.0:
+  - GPT-5 series models supported (`gpt-5`, `gpt-5-mini`, `gpt-5-nano`)
+  - All GPT-5 models support both reasoning and image understanding capabilities
+  - Bug fixes: typo corrections, streaming read_timeout fix, WebSocket retry counter fix
 - 3.8.1:
   - Many internal improvements
   - Model selection and listing changed to use full-release models only
