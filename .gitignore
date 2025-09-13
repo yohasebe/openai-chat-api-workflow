@@ -98,4 +98,11 @@ Gemfile.lock
 *.wav
 *.webm
 
-/source
+# Project-specific ignores
+/source/
+/sourcecode/
+*.zip
+/IMPLEMENTATION_PLAN.md
+/scripts/
+/docs_dev/
+AGENTS.md

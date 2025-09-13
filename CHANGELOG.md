@@ -1,5 +1,15 @@
 # Change Log
 
+- 4.0.0:
+  - GPT-5 series models (`gpt-5`, `gpt-5-mini`, `gpt-5-nano`) now supported with Responses API
+  - GPT-5 models feature reasoning capabilities with configurable reasoning_effort (minimal/low/medium/high)
+  - Note: Only `gpt-5` supports `minimal`; `gpt-5-mini`, `gpt-5-nano`, and other reasoning-capable models do not.
+  - Default model changed to `gpt-5-mini`
+  - Web UI HTTP default port changed to `8787` and bound to `127.0.0.1`
+  - Startup bind errors now show macOS notification and are logged with rotation
+  - Removed support for o1, o3, o4 series reasoning models
+  - GPT-4.1 and earlier models continue to use Chat Completion API
+  - Full support for PDF and image understanding across all GPT-5 models
 - 3.9.0:
   - GPT-5 series models supported (`gpt-5`, `gpt-5-mini`, `gpt-5-nano`)
   - All GPT-5 models support both reasoning and image understanding capabilities
