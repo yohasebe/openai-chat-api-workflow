@@ -2,9 +2,9 @@
 
 <img src='./icons/openai.png' style='height:120px;'/>
 
-🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://beta.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
+🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://platform.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `3.9.0`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `4.0.0`)
 
 You can execute all the above features using:
 
@@ -70,6 +70,14 @@ brew install pandoc mpv sox jq duti
 
 **Recent Changelog**
 
+- 4.0.0:
+  - GPT-5 series models (`gpt-5`, `gpt-5-mini`, `gpt-5-nano`) now supported with Responses API
+  - GPT-5 models feature reasoning capabilities with configurable reasoning_effort (minimal/low/medium/high)
+  - Note: Only `gpt-5` supports `minimal` reasoning_effort. `gpt-5-mini`, `gpt-5-nano`, and other reasoning-capable models do not support `minimal`.
+  - Default model changed to `gpt-5-mini`
+  - Removed support for o1, o3, o4 series reasoning models
+  - GPT-4.1 and earlier models continue to use Chat Completion API
+  - Full support for PDF and image understanding across all GPT-5 models
 - 3.9.0:
   - GPT-5 series models supported (`gpt-5`, `gpt-5-mini`, `gpt-5-nano`)
   - All GPT-5 models support both reasoning and image understanding capabilities
@@ -78,14 +86,6 @@ brew install pandoc mpv sox jq duti
   - Many internal improvements
   - Model selection and listing changed to use full-release models only
   - `o3-pro` is not supported at the moment (it needs to be used with the response API)
-- 3.7.0:
-  - Image editing capability added
-  - Image generation model `gpt-image-1` supported
-  - Icon image is hosted inside the workflow
-  - Web UI color scheme improved
-  - `o4-mini` and `o3` models supported
-  - `gpt-4.1` series models supported and `gpt-4.1-mini` set as default
-  - Image recognition and understanding features from web UI improved
 
 [Complete Change Log](https://github.com/yohasebe/openai-chat-api-workflow/blob/main/CHANGELOG.md)
 
@@ -195,7 +195,7 @@ GPT translates text from the language specified in the variable `second_language
 
 <span><img src='./icons/pencil.png' style='height:1em;'/></span> **Grammar Correction**
 
-GPT corrects sentences that may contain grammatical errors. See OpenAI's [description](https://beta.openai.com/examples/default-grammar).
+GPT corrects sentences that may contain grammatical errors. See OpenAI's [examples](https://platform.openai.com/examples).
 
 <span><img src='./icons/lightbulb.png' style='height:1em;'/></span> **Brainstorm**
 
@@ -203,27 +203,27 @@ GPT assists you in brainstorming innovative ideas based on any given text.
 
 <span><img src='./icons/book.png' style='height:1em;'/></span> **Create Study Notes**
 
-GPT provides study notes on a given topic. See OpenAI's [description](https://beta.openai.com/examples/default-study-notes) for this example.
+GPT provides study notes on a given topic. See OpenAI's [examples](https://platform.openai.com/examples).
 
 <span><img src='./icons/arrow-left-right.png' style='height:1em;'/></span> **Analogy Maker**
 
-GPT creates analogies. See OpenAI's [description](https://beta.openai.com/examples/default-analogy-maker) for this example.
+GPT creates analogies. See OpenAI's [examples](https://platform.openai.com/examples).
 
 <span><img src='./icons/list-ul.png' style='height:1em;'/></span> **Essay Outline**
 
-GPT generates an outline for a research topic. See OpenAI's [description](https://beta.openai.com/examples/default-essay-outline) for this example.
+GPT generates an outline for a research topic. See OpenAI's [examples](https://platform.openai.com/examples).
 
 <span><img src='./icons/chat-left-quote.png' style='height:1em;'/></span> **TL;DR Summarization**
 
-GPT summarizes a given text. See OpenAI's [description](https://beta.openai.com/examples/default-tldr-summary) for this example.
+GPT summarizes a given text. See OpenAI's [examples](https://platform.openai.com/examples).
 
 <span><img src='./icons/emoji-smile.png' style='height:1em;'/></span> **Summarize for a 2nd Grader**
 
-GPT translates complex text into more straightforward concepts. See OpenAI's [description](https://beta.openai.com/examples/default-summarize) for this example.
+GPT translates complex text into more straightforward concepts. See OpenAI's [examples](https://platform.openai.com/examples).
 
 <span><img src='./icons/key.png' style='height:1em;'/></span> **Keywords**
 
-GPT extracts keywords from a block of text. See OpenAI's [description](https://beta.openai.com/examples/default-keywords) for this example.
+GPT extracts keywords from a block of text. See OpenAI's [examples](https://platform.openai.com/examples).
 
 ## Image Generation
 
@@ -351,12 +351,12 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
 
 <kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
 
-- **Reasoning Effort**: Set the reasoning effort to `low`, `medium`, or `high`. (default: `medium`). It gives reasoning models (`o1` and `o3-mini`) a guidance on how many reasoning tokens it should generate before creating a response to the prompt. See OpenAI's [documentation](https://platform.openai.com/docs/guides/reasoning#reasoning-effort).
-- **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `2048`). If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified). See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-max_tokens).
-- **Temperature**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-temperature). (default: `0.3`)
-- **Top P**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-top_p). (default: `1.0`)
-- **Frequency Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-frequency_penalty). (default: `0.0`)
-- **Presence Penalty**: See OpenAI's [documentation](https://beta.openai.com/docs/api-reference/chats/create#chats/create-presence_penalty). (default: `0.0`)
+- **Reasoning Effort**: For GPT-5 series models, set the reasoning effort to `minimal`, `low`, `medium`, or `high` (default: `medium`). Note: Only `gpt-5` supports `minimal`; `gpt-5-mini`, `gpt-5-nano`, and other reasoning-capable models do not. This parameter controls how many reasoning tokens the model generates before creating a response. See OpenAI's [documentation](https://platform.openai.com/docs/guides/reasoning#reasoning-effort).
+- **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `2048`). If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified). See OpenAI's [Chat API documentation](https://platform.openai.com/docs/api-reference/chat).
+- **Temperature**: See OpenAI's [Chat API documentation](https://platform.openai.com/docs/api-reference/chat). (default: `0.3`)
+- **Top P**: See OpenAI's [Chat API documentation](https://platform.openai.com/docs/api-reference/chat). (default: `1.0`)
+- **Frequency Penalty**: See OpenAI's [Chat API documentation](https://platform.openai.com/docs/api-reference/chat). (default: `0.0`)
+- **Presence Penalty**: See OpenAI's [Chat API documentation](https://platform.openai.com/docs/api-reference/chat). (default: `0.0`)
 - **Memory Span**: Set the number of past utterances sent to the API as context. Setting `4` for this parameter means 2 conversation turns (user → assistant → user → assistant) will be sent as context for a new query. The larger the value, the more tokens will be consumed. (default: `10`)
 - **Max Characters**: Maximum number of characters that can be included in a query (default: `50000`).
 - **Timeout**: The number of seconds (default: `10`) to wait before opening the socket and connecting to the API. If the connection fails, reconnection (up to 20 times) will be attempted after 1 second.
@@ -367,17 +367,6 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
 - **System Content**: Text to send with every query sent to the API as general information about the specification of the chat. The default value is as follows:
   
   > You are a friendly but professional consultant who answers various questions, makes decent suggestions, and gives helpful advice in response to a prompt from the user. Your response must be concise, suggestive, and accurate.
-
-**Web Search Parameters**
-
-- **Web Search Model**: One of the available web search models: `gpt-4o-mini-search-preview` or `gpt-4o-search-preview`. (default: `gpt-4o-mini-search-preview`)
-
-Note: Web search is triggered when the prompt begins with the word "search" (case-insensitive). You can use various formats:
-- `Search what is quantum computing`
-- `search: latest developments in AI`
-- `[search] climate change effects`
-
-When such formats are detected, the web search model will be automatically used instead of the standard chat model.
 
 **Image Understanding Parameters**
 
@@ -429,9 +418,21 @@ Image editing feature is available only for the `gpt-image-1` model.
 Environment variables can be accessed by clicking the `[x]` button located at the top right of the workflow settings screen. Normally, there is no need to change the values of the environment variables.
 
 - `http_keep_alive`: This workflow starts an HTTP server when the web UI is first displayed. After that, if the web UI is not used for the time (in seconds) set by this environment variable, the server will stop. (default: `7200` = 2 hours)
-- `http_port`: Specifies the port number for the web UI. (default: `80`)
+- `http_port`: Specifies the port number for the web UI. (default: `8787`)
+  - Note: Default changed to 8787 in v4.0.0 to avoid privileged port conflicts.
 - `http_server_wait`: Specifies the wait time from when the HTTP server is started until the page is displayed in the browser. (default: `2.5`)
 - `websocket_port`: Specifies the port number for websocket communication used to display responses in streaming on the web UI. (default: `8080`)
+
+## Troubleshooting
+
+- Port conflict or permission error
+  - The web UI binds to `127.0.0.1` on `http_port` (default `8787`). If startup fails with a port error, change the environment variable `http_port` to a free non‑privileged port (e.g., `8888`).
+- Logs location and rotation
+  - Logs are written to `$alfred_workflow_cache/workflow.log` with simple rotation (up to ~1MB × 5 files).
+- macOS notification permission
+  - If startup error notifications do not appear, check System Settings → Notifications → allow notifications for Alfred.
+- Missing optional dependencies
+  - If `pandoc`, `mpv`, `sox`, or `duti` are missing, related features are disabled or degraded; core chat continues to work. Install via Homebrew when needed.
 
 ## Author
 
