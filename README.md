@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://platform.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `4.0.0`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `4.1.0`)
 
 You can execute all the above features using:
 
@@ -70,8 +70,17 @@ brew install pandoc mpv sox jq duti
 
 **Recent Changelog**
 
+- 4.1.0:
+  - GPT-5.1 series models now supported (`gpt-5.1`, `gpt-5.1-chat-latest`, `gpt-5.1-codex`, `gpt-5.1-codex-mini`)
+  - `gpt-5.1` replaces `gpt-5` as the flagship model with enhanced reasoning capabilities
+  - `gpt-5.1-chat-latest` replaces `chatgpt-4o-latest` for latest optimizations
+  - New codex variants (`gpt-5.1-codex`, `gpt-5.1-codex-mini`) for code generation tasks
+  - **Model-specific reasoning effort constraints** with dynamic UI adjustment
+  - Removed older models: `gpt-5`, `gpt-4.1` series, `gpt-4o` series, `chatgpt-4o-latest`
+  - Default model remains `gpt-5-mini` for balanced performance
+  - `gpt-5-mini` and `gpt-5-nano` continue to be supported
 - 4.0.0:
-  - GPT-5 series models (`gpt-5`, `gpt-5-mini`, `gpt-5-nano`) now supported with Responses API
+  - GPT-5 series models (`gpt-5`, `gpt-5-mini`, `gpt-5-nano`) supported with Responses API
   - GPT-5 models feature reasoning capabilities with configurable reasoning_effort (minimal/low/medium/high)
   - Note: Only `gpt-5` supports `minimal` reasoning_effort. `gpt-5-mini`, `gpt-5-nano`, and other reasoning-capable models do not support `minimal`.
   - Default model changed to `gpt-5-mini`
@@ -82,10 +91,6 @@ brew install pandoc mpv sox jq duti
   - GPT-5 series models supported (`gpt-5`, `gpt-5-mini`, `gpt-5-nano`)
   - All GPT-5 models support both reasoning and image understanding capabilities
   - Bug fixes: typo corrections, streaming read_timeout fix, WebSocket retry counter fix
-- 3.8.1:
-  - Many internal improvements
-  - Model selection and listing changed to use full-release models only
-  - `o3-pro` is not supported at the moment (it needs to be used with the response API)
 
 [Complete Change Log](https://github.com/yohasebe/openai-chat-api-workflow/blob/main/CHANGELOG.md)
 
@@ -351,7 +356,13 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
 
 <kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
 
-- **Reasoning Effort**: For GPT-5 series models, set the reasoning effort to `minimal`, `low`, `medium`, or `high` (default: `medium`). Note: Only `gpt-5` supports `minimal`; `gpt-5-mini`, `gpt-5-nano`, and other reasoning-capable models do not. This parameter controls how many reasoning tokens the model generates before creating a response. See OpenAI's [documentation](https://platform.openai.com/docs/guides/reasoning#reasoning-effort).
+- **Reasoning Effort**: For GPT-5 series models, set the reasoning effort to control how many reasoning tokens the model generates before creating a response. Available values and defaults vary by model:
+  - **gpt-5.1**: `none`, `low`, `medium`, `high` (default: `none`)
+  - **gpt-5.1-chat-latest**: `medium` only (default: `medium`)
+  - **gpt-5.1-codex, gpt-5.1-codex-mini**: `low`, `medium`, `high` (default: `medium`)
+  - **gpt-5-mini, gpt-5-nano**: `low`, `medium`, `high` (default: `medium`)
+
+  The `none` setting in gpt-5.1 provides lower-latency interactions similar to non-reasoning models. For complex tasks like coding and multi-step planning, use `high` reasoning effort. The web UI automatically adjusts available options based on the selected model. See OpenAI's [documentation](https://platform.openai.com/docs/guides/reasoning#reasoning-effort).
 - **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `2048`). If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified). See OpenAI's [Chat API documentation](https://platform.openai.com/docs/api-reference/chat).
 - **Temperature**: See OpenAI's [Chat API documentation](https://platform.openai.com/docs/api-reference/chat). (default: `0.3`)
 - **Top P**: See OpenAI's [Chat API documentation](https://platform.openai.com/docs/api-reference/chat). (default: `1.0`)

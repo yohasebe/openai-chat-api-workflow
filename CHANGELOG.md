@@ -1,5 +1,21 @@
 # Change Log
 
+- 4.1.0:
+  - GPT-5.1 series models now supported (`gpt-5.1`, `gpt-5.1-chat-latest`, `gpt-5.1-codex`, `gpt-5.1-codex-mini`)
+  - `gpt-5.1` replaces `gpt-5` as the flagship model with enhanced reasoning capabilities
+  - `gpt-5.1-chat-latest` replaces `chatgpt-4o-latest` for latest optimizations
+  - New codex variants (`gpt-5.1-codex`, `gpt-5.1-codex-mini`) for specialized code generation tasks
+  - **Model-specific reasoning effort constraints**:
+    - `gpt-5.1`: `none` / `low` / `medium` / `high` (default: `none`)
+    - `gpt-5.1-chat-latest`: `medium` only (default: `medium`)
+    - `gpt-5.1-codex`, `gpt-5.1-codex-mini`: `low` / `medium` / `high` (default: `medium`)
+    - `gpt-5-mini`, `gpt-5-nano`: `low` / `medium` / `high` (default: `medium`)
+  - Web UI now dynamically adjusts available reasoning effort options based on selected model
+  - The new `none` setting in gpt-5.1 provides lower-latency interactions similar to non-reasoning models
+  - For complex tasks like coding, use `high` reasoning effort
+  - Removed older models: `gpt-5`, `gpt-4.1` series, `gpt-4o` series, `chatgpt-4o-latest`
+  - Default model remains `gpt-5-mini` for balanced performance
+  - `gpt-5-mini` and `gpt-5-nano` continue to be supported
 - 4.0.0:
   - GPT-5 series models (`gpt-5`, `gpt-5-mini`, `gpt-5-nano`) now supported with Responses API
   - GPT-5 models feature reasoning capabilities with configurable reasoning_effort (minimal/low/medium/high)
