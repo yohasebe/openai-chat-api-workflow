@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://platform.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `4.1.0`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `4.2.0`)
 
 You can execute all the above features using:
 
@@ -70,6 +70,12 @@ brew install pandoc mpv sox jq duti
 
 **Recent Changelog**
 
+- 4.2.0:
+  - GPT-5.2 series models now supported (`gpt-5.2`, `gpt-5.2-chat-latest`, `gpt-5.2-pro`)
+  - New `xhigh` reasoning effort level for maximum quality
+  - `gpt-5.2-pro` has very high API pricing ($21/1M input, $168/1M output) - confirmation dialog added
+  - Model-specific reasoning effort constraints for GPT-5.2 series
+  - Web UI updated with new models and pricing warning
 - 4.1.0:
   - GPT-5.1 series models now supported (`gpt-5.1`, `gpt-5.1-chat-latest`, `gpt-5.1-codex`, `gpt-5.1-codex-mini`)
   - `gpt-5.1` replaces `gpt-5` as the flagship model with enhanced reasoning capabilities
@@ -357,12 +363,19 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
 <kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
 
 - **Reasoning Effort**: For GPT-5 series models, set the reasoning effort to control how many reasoning tokens the model generates before creating a response. Available values and defaults vary by model:
+  - **gpt-5.2-pro**: `medium`, `high`, `xhigh` (default: `medium`) ⚠️ Very high pricing
+  - **gpt-5.2**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
+  - **gpt-5.2-chat-latest**: `medium` only (default: `medium`)
   - **gpt-5.1**: `none`, `low`, `medium`, `high` (default: `none`)
   - **gpt-5.1-chat-latest**: `medium` only (default: `medium`)
   - **gpt-5.1-codex, gpt-5.1-codex-mini**: `low`, `medium`, `high` (default: `medium`)
   - **gpt-5-mini, gpt-5-nano**: `low`, `medium`, `high` (default: `medium`)
 
-  The `none` setting in gpt-5.1 provides lower-latency interactions similar to non-reasoning models. For complex tasks like coding and multi-step planning, use `high` reasoning effort. The web UI automatically adjusts available options based on the selected model. See OpenAI's [documentation](https://platform.openai.com/docs/guides/reasoning#reasoning-effort).
+  The `none` setting provides lower-latency interactions similar to non-reasoning models. The `xhigh` setting (available in GPT-5.2 series) provides maximum quality for complex tasks. The web UI automatically adjusts available options based on the selected model.
+
+  **Note**: When using Alfred's Configuration Builder (not the Web UI), all reasoning effort options are shown regardless of the selected model. If an invalid combination is selected (e.g., `none` with `gpt-5.2-pro`), the workflow automatically falls back to the model's default reasoning effort at runtime.
+
+  See OpenAI's [documentation](https://platform.openai.com/docs/guides/reasoning#reasoning-effort).
 - **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `2048`). If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified). See OpenAI's [Chat API documentation](https://platform.openai.com/docs/api-reference/chat).
 - **Temperature**: See OpenAI's [Chat API documentation](https://platform.openai.com/docs/api-reference/chat). (default: `0.3`)
 - **Top P**: See OpenAI's [Chat API documentation](https://platform.openai.com/docs/api-reference/chat). (default: `1.0`)
