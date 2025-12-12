@@ -1,5 +1,17 @@
 # Change Log
 
+- 4.2.0:
+  - GPT-5.2 series models now supported (`gpt-5.2`, `gpt-5.2-chat-latest`, `gpt-5.2-pro`)
+  - New `xhigh` reasoning effort level for maximum quality tasks
+  - **Model-specific reasoning effort constraints**:
+    - `gpt-5.2-pro`: `medium` / `high` / `xhigh` (default: `medium`) - ⚠️ Very high pricing!
+    - `gpt-5.2`: `none` / `low` / `medium` / `high` / `xhigh` (default: `none`)
+    - `gpt-5.2-chat-latest`: `medium` only (default: `medium`)
+  - **Confirmation dialog** for expensive models (`gpt-5.2-pro`: $21/1M input, $168/1M output)
+  - **Auto-validation**: Invalid model + reasoning_effort combinations are automatically corrected to model's default
+  - Alfred Configuration Builder updated with new models and xhigh option
+  - 400K context window and 128K max output tokens for gpt-5.2 and gpt-5.2-pro
+  - Web UI updated with new models, xhigh option, and pricing warning indicator
 - 4.1.0:
   - GPT-5.1 series models now supported (`gpt-5.1`, `gpt-5.1-chat-latest`, `gpt-5.1-codex`, `gpt-5.1-codex-mini`)
   - `gpt-5.1` replaces `gpt-5` as the flagship model with enhanced reasoning capabilities
