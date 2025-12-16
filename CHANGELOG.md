@@ -1,5 +1,11 @@
 # Change Log
 
+- 4.3.0:
+  - New TTS model: `gpt-4o-mini-tts-2025-12-15` (now default)
+  - New STT model: `gpt-4o-mini-transcribe-2025-12-15` (now default)
+  - New snapshots deliver lower error rates, fewer hallucinations, improved instruction following
+  - Enhanced support for Chinese, Japanese, Indonesian, Hindi, Bengali, and Italian
+  - Previous model versions (`gpt-4o-mini-tts`, `gpt-4o-mini-transcribe`) still available
 - 4.2.0:
   - GPT-5.2 series models now supported (`gpt-5.2`, `gpt-5.2-chat-latest`, `gpt-5.2-pro`)
   - New `xhigh` reasoning effort level for maximum quality tasks

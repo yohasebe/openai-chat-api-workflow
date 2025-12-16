@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://platform.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `4.2.0`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `4.3.0`)
 
 You can execute all the above features using:
 
@@ -70,10 +70,15 @@ brew install pandoc mpv sox jq duti
 
 **Recent Changelog**
 
+- 4.3.0:
+  - New TTS model: `gpt-4o-mini-tts-2025-12-15` (now default)
+  - New STT model: `gpt-4o-mini-transcribe-2025-12-15` (now default)
+  - Improved error rates, fewer hallucinations, better instruction following
+  - Enhanced support for Chinese, Japanese, Indonesian, Hindi, Bengali, Italian
 - 4.2.0:
   - GPT-5.2 series models now supported (`gpt-5.2`, `gpt-5.2-chat-latest`, `gpt-5.2-pro`)
   - New `xhigh` reasoning effort level for maximum quality
-  - `gpt-5.2-pro` has very high API pricing ($21/1M input, $168/1M output) - confirmation dialog added
+  - `gpt-5.2-pro` has very high API pricing - confirmation dialog added
   - Model-specific reasoning effort constraints for GPT-5.2 series
   - Web UI updated with new models and pricing warning
 - 4.1.0:
@@ -81,7 +86,7 @@ brew install pandoc mpv sox jq duti
   - `gpt-5.1` replaces `gpt-5` as the flagship model with enhanced reasoning capabilities
   - `gpt-5.1-chat-latest` replaces `chatgpt-4o-latest` for latest optimizations
   - New codex variants (`gpt-5.1-codex`, `gpt-5.1-codex-mini`) for code generation tasks
-  - **Model-specific reasoning effort constraints** with dynamic UI adjustment
+  - Model-specific reasoning effort constraints with dynamic UI adjustment
   - Removed older models: `gpt-5`, `gpt-4.1` series, `gpt-4o` series, `chatgpt-4o-latest`
   - Default model remains `gpt-5-mini` for balanced performance
   - `gpt-5-mini` and `gpt-5-nano` continue to be supported
@@ -93,10 +98,6 @@ brew install pandoc mpv sox jq duti
   - Removed support for o1, o3, o4 series reasoning models
   - GPT-4.1 and earlier models continue to use Chat Completion API
   - Full support for PDF and image understanding across all GPT-5 models
-- 3.9.0:
-  - GPT-5 series models supported (`gpt-5`, `gpt-5-mini`, `gpt-5-nano`)
-  - All GPT-5 models support both reasoning and image understanding capabilities
-  - Bug fixes: typo corrections, streaming read_timeout fix, WebSocket retry counter fix
 
 [Complete Change Log](https://github.com/yohasebe/openai-chat-api-workflow/blob/main/CHANGELOG.md)
 
