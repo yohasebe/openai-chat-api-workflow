@@ -1,5 +1,14 @@
 # Change Log
 
+- 4.4.0:
+  - New image generation model: `gpt-image-1.5` (now default)
+  - Added `gpt-image-1-mini` for cost-effective image generation
+  - GPT Image models (`gpt-image-1.5`, `gpt-image-1`, `gpt-image-1-mini`) offer:
+    - Superior instruction following and text rendering
+    - Detailed editing capabilities
+    - Real-world knowledge integration
+  - DALL·E 2 and DALL·E 3 models removed (deprecated by OpenAI, support ends 05/12/2026)
+  - Web UI updated with new image generation models
 - 4.3.0:
   - New TTS model: `gpt-4o-mini-tts-2025-12-15` (now default)
   - New STT model: `gpt-4o-mini-transcribe-2025-12-15` (now default)

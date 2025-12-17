@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://platform.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `4.3.0`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `4.4.0`)
 
 You can execute all the above features using:
 
@@ -70,6 +70,11 @@ brew install pandoc mpv sox jq duti
 
 **Recent Changelog**
 
+- 4.4.0:
+  - New image generation model: `gpt-image-1.5` (now default)
+  - Added `gpt-image-1-mini` for cost-effective image generation
+  - `gpt-image-1.5` offers best-in-class image quality and instruction following
+  - DALL·E 2 and DALL·E 3 still available but deprecated (support ends 05/12/2026)
 - 4.3.0:
   - New TTS model: `gpt-4o-mini-tts-2025-12-15` (now default)
   - New STT model: `gpt-4o-mini-transcribe-2025-12-15` (now default)
@@ -173,7 +178,7 @@ After entering the initial text, you are prompted for additional text. The addit
 
 <span><img src='./icons/picture.png' style='height:1em;'/></span> **Generate Image**
 
-The DALL-E API (`gpt-image-1`, dall-e-3`, or `dall-e-2`) is used to generate images based on the entered prompts. See [Image Generation](#image-generation) below.
+The GPT Image API (`gpt-image-1.5`, `gpt-image-1`, or `gpt-image-1-mini`) is used to generate images based on the entered prompts. See [Image Generation](#image-generation) below.
 
 ## Commands for Specific Purposes
 
@@ -399,15 +404,13 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
 
 **Image Generation/Editing Parameters**
 
-Image editing feature is available only for the `gpt-image-1` model.
+Image editing feature is available for GPT Image models (`gpt-image-1.5`, `gpt-image-1`, `gpt-image-1-mini`).
 
-- **Image Generation Model**: `gpt-image-1`, `dall-e-3`, and `dall-e-2` are available. (default: `dall-e-3`)
-- **Style** (for `dall-e-3`): Choose the style of the image from `vivid` and `natural`. (default: `vivid`)
-- **Number of Images** (for `dall-e-2` image generation): Set the number of images to generate in image generation mode from `1` to `10`. (default: `1`)
-- **Image Size** (for image generation/editing): Set the size of images to generate
-- **Quality** (for image generation/editing): Choose the quality of the image
-- **Content Moderation** (for `gpt-image-1` image generation): `auto` or `low` (default: `auto`)
-- **Background** (for `gpt-image-1` image generation/editing): `auto`, `transparent`, or `opaque` (default: `auto`)
+- **Image Generation Model**: `gpt-image-1.5`, `gpt-image-1`, and `gpt-image-1-mini` are available. (default: `gpt-image-1.5`)
+- **Image Size**: Set the size of images to generate: `auto`, `1024x1024`, `1536x1024`, or `1024x1536` (default: `auto`)
+- **Quality**: Choose the quality of the image: `auto`, `low`, `medium`, or `high` (default: `auto`)
+- **Content Moderation**: `auto` or `low` (default: `auto`)
+- **Background**: `auto`, `transparent`, or `opaque` (default: `auto`)
 
 **Speech-to-Text Parameters**
 
