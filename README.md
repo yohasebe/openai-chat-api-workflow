@@ -70,11 +70,12 @@ brew install pandoc mpv sox jq duti
 
 **Recent Changelog**
 
+- 4.5.0:
+  - Simplified image models: `gpt-image-1.5` (default) and `chatgpt-image-latest` (lightweight)
+  - Removed deprecated `gpt-image-1` and `gpt-image-1-mini` models
 - 4.4.0:
-  - New image generation model: `gpt-image-1.5` (now default)
-  - Added `gpt-image-1-mini` for cost-effective image generation
-  - `gpt-image-1.5` offers best-in-class image quality and instruction following
-  - DALL·E 2 and DALL·E 3 still available but deprecated (support ends 05/12/2026)
+  - Added `gpt-image-1.5` as default image generation model
+  - Removed DALL·E 2 and DALL·E 3 models (deprecated by OpenAI)
 - 4.3.0:
   - New TTS model: `gpt-4o-mini-tts-2025-12-15` (now default)
   - New STT model: `gpt-4o-mini-transcribe-2025-12-15` (now default)
@@ -178,7 +179,7 @@ After entering the initial text, you are prompted for additional text. The addit
 
 <span><img src='./icons/picture.png' style='height:1em;'/></span> **Generate Image**
 
-The GPT Image API (`gpt-image-1.5`, `gpt-image-1`, or `gpt-image-1-mini`) is used to generate images based on the entered prompts. See [Image Generation](#image-generation) below.
+The GPT Image API (`gpt-image-1.5` or `chatgpt-image-latest`) is used to generate images based on the entered prompts. See [Image Generation](#image-generation) below.
 
 ## Commands for Specific Purposes
 
@@ -248,7 +249,7 @@ Image generation can be executed through one of the above commands. It is also p
 
 <kbd><img width="700" src="./docs/img/image-generation-1.png"></kbd>
 
-To use the image generation mode with the `gpt-image-1` model, you may need to complete the <a href="https://help.openai.com/en/articles/10910291-api-organization-verification">API Organization Verification</a> from your <a href="https://platform.openai.com/settings/organization/general">developer console</a>.
+To use the image generation mode with the `gpt-image-1.5` model, you may need to complete the <a href="https://help.openai.com/en/articles/10910291-api-organization-verification">API Organization Verification</a> from your <a href="https://platform.openai.com/settings/organization/general">developer console</a>.
 
 <kbd><img width="700" src="./docs/img/image-generation-2.png"></kbd>
 
@@ -257,7 +258,7 @@ To use the image generation mode with the `gpt-image-1` model, you may need to c
 
 ## Image Editing
 
-There is a command to edit images using the `gpt-image-1` model. There is an Universal Action command `OpenAI Image Edit`. You can also use the web UI to upload an image file for editing. The image file is sent to the OpenAI Image Editing API, and the result is displayed after a while (at the maximum of 2 minutes).
+There is a command to edit images using `gpt-image-1.5` or `chatgpt-image-latest`. There is an Universal Action command `OpenAI Image Edit`. You can also use the web UI to upload an image file for editing. The image file is sent to the OpenAI Image Editing API, and the result is displayed after a while (at the maximum of 2 minutes).
 
 <kbd><img width="700" src="./docs/img/image-editing-1.png"></kbd>
 <kbd><img width="700" src="./docs/img/image-editing-2.png"></kbd>
@@ -404,9 +405,9 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
 
 **Image Generation/Editing Parameters**
 
-Image editing feature is available for GPT Image models (`gpt-image-1.5`, `gpt-image-1`, `gpt-image-1-mini`).
+Image editing feature is available for GPT Image models (`gpt-image-1.5`, `chatgpt-image-latest`).
 
-- **Image Generation Model**: `gpt-image-1.5`, `gpt-image-1`, and `gpt-image-1-mini` are available. (default: `gpt-image-1.5`)
+- **Image Generation Model**: `gpt-image-1.5` and `chatgpt-image-latest` are available. (default: `gpt-image-1.5`)
 - **Image Size**: Set the size of images to generate: `auto`, `1024x1024`, `1536x1024`, or `1024x1536` (default: `auto`)
 - **Quality**: Choose the quality of the image: `auto`, `low`, `medium`, or `high` (default: `auto`)
 - **Content Moderation**: `auto` or `low` (default: `auto`)
