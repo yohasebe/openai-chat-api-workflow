@@ -1,5 +1,9 @@
 # Change Log
 
+- 4.6.0:
+  - Remove "please wait" Large Type displays to fix parallel firing issue on Alfred 5.7+ / macOS 16
+  - Remove date-suffixed TTS/STT model names; use base names (`gpt-4o-mini-tts`, `gpt-4o-mini-transcribe`) as defaults
+  - Fix typo in JSON validation error message
 - 4.5.0:
   - Simplified image generation models: `gpt-image-1.5` (default) and `chatgpt-image-latest` (lightweight option)
   - Removed deprecated `gpt-image-1` and `gpt-image-1-mini` models

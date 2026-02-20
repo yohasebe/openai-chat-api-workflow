@@ -70,6 +70,10 @@ brew install pandoc mpv sox jq duti
 
 **Recent Changelog**
 
+- 4.6.0:
+  - Fix Large Type parallel firing issue on Alfred 5.7+ / macOS 16
+  - Remove date-suffixed TTS/STT model names; use base names as defaults
+  - Fix typo in JSON validation error message
 - 4.5.0:
   - Simplified image models: `gpt-image-1.5` (default) and `chatgpt-image-latest` (lightweight)
   - Removed deprecated `gpt-image-1` and `gpt-image-1-mini` models
