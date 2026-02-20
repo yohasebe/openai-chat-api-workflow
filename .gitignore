@@ -106,3 +106,5 @@ Gemfile.lock
 /scripts/
 /docs_dev/
 AGENTS.md
+CLAUDE.md
+.claude/
