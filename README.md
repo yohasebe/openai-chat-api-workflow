@@ -433,3 +433,15 @@ The MIT License
 ## Disclaimer
 
 The author assumes no responsibility for any potential damages arising from the use of this software.
+
+
+## Usage
+
+```python
+# Usage examples
+```
+
+
+## Contributing
+
+Contributions are welcome!
