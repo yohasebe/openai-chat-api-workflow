@@ -1,5 +1,10 @@
 # Change Log
 
+- 4.7.0:
+  - New models: `gpt-5.4`, `gpt-5.3-chat-latest`, `gpt-5.3-codex`
+  - Removed deprecated models: `gpt-5.2-pro`, `gpt-5.2`, `gpt-5.2-chat-latest`, `gpt-5.1`, `gpt-5.1-chat-latest`, `gpt-5.1-codex`
+  - Add fallback for invalid model names to prevent API errors
+  - Fix outdated OpenAI documentation URLs
 - 4.6.0:
   - Remove "please wait" Large Type displays to fix parallel firing issue on Alfred 5.7+ / macOS 16
   - Remove date-suffixed TTS/STT model names; use base names (`gpt-4o-mini-tts`, `gpt-4o-mini-transcribe`) as defaults
