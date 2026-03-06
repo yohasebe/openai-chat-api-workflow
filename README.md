@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://platform.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `4.4.0`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `4.7.0`)
 
 You can execute all the above features using:
 
@@ -70,6 +70,10 @@ brew install pandoc mpv sox jq duti
 
 **Recent Changelog**
 
+- 4.7.0:
+  - New models: `gpt-5.4`, `gpt-5.3-chat-latest`, `gpt-5.3-codex`
+  - Removed deprecated models and added invalid model fallback
+  - Fix outdated OpenAI documentation URLs
 - 4.6.0:
   - Fix Large Type parallel firing issue on Alfred 5.7+ / macOS 16
   - Remove date-suffixed TTS/STT model names; use base names as defaults
@@ -326,65 +330,16 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
 
 <kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
 
-## Speech Synthesis and Speech Recognition
-
-Most text-to-speech and speech-to-text features are available on the web UI. However, there are certain specific features provided as commands, such as audio file to text conversion and transcription with timestamps.
-
-<kbd><img width="700" src="./docs/img/speech-to-text-web.png"></kbd>
-
-**Text-to-Speech Synthesis**
-
-Text entered or response text from GPT can be read out in a natural voice using OpenAI's text-to-speech API.
-
-- Method 1: Press the `Play TTS` button on the web UI
-- Method 2: Select text → universal action hotkey → select `OpenAI Text-to-Speech`
-
-**Speech-to-Text Conversion**
-
-- Method 1: Press the `Voice Input` button on the web UI
-- Method 2: Alfred textbox → keyword (`openai-speech`)
-
-**Audio File to Text**
-
-You can select an audio file in `mp3`, `mp4`, `flac`, `webm`, `wav`, or `m4a` format (under 25MB) and send it to the workflow:
-
-- Select the file → universal action hotkey → select `OpenAI Speech-to-Text`
-
-**Record Voice Audio and Transcribe**
-
-You can record voice audio and send it to the Workflow for transcription using the speech-to-text API. Recording time is limited to 30 minutes and will automatically stop after this duration.
-
-<kbd><img width="600" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
-
-- Alfred textbox → keyword (`openai-speech`) → Terminal window opens and recording starts
-- Speak into the internal or external microphone → Press Enter to finish recording
-- Choose processes to apply to the recorded audio:
-
-  - Transcribe (+ delete recording)
-  - Transcribe (+ save recording to desktop)
-  - Transcribe and query (+ delete recording)
-  - Transcribe and query (+ save recording to desktop)
-  - Exit (+ delete recording)
-  - Exit (+ save recording to desktop)
-
-You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in the workflow's settings. Below are examples in the `text` and `srt` formats:
-
-<kbd><img width="700" alt="transcript-text" src="./docs/img/transcript-text.png"></kbd>
-
-<kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
-
 - **Reasoning Effort**: For GPT-5 series models, set the reasoning effort to control how many reasoning tokens the model generates before creating a response. Available values and defaults vary by model:
-  - **gpt-5.2-pro**: `medium`, `high`, `xhigh` (default: `medium`) ⚠️ Very high pricing
-  - **gpt-5.2**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
-  - **gpt-5.2-chat-latest**: `medium` only (default: `medium`)
-  - **gpt-5.1**: `none`, `low`, `medium`, `high` (default: `none`)
-  - **gpt-5.1-chat-latest**: `medium` only (default: `medium`)
-  - **gpt-5.1-codex, gpt-5.1-codex-mini**: `low`, `medium`, `high` (default: `medium`)
+  - **gpt-5.4**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
+  - **gpt-5.3-chat-latest**: reasoning not supported
+  - **gpt-5.3-codex**: `low`, `medium`, `high`, `xhigh` (default: `medium`)
+  - **gpt-5.1-codex-mini**: `low`, `medium`, `high` (default: `medium`)
   - **gpt-5-mini, gpt-5-nano**: `low`, `medium`, `high` (default: `medium`)
 
-  The `none` setting provides lower-latency interactions similar to non-reasoning models. The `xhigh` setting (available in GPT-5.2 series) provides maximum quality for complex tasks. The web UI automatically adjusts available options based on the selected model.
+  The `none` setting provides lower-latency interactions similar to non-reasoning models. The `xhigh` setting provides maximum quality for complex tasks. The web UI automatically adjusts available options based on the selected model.
 
-  **Note**: When using Alfred's Configuration Builder (not the Web UI), all reasoning effort options are shown regardless of the selected model. If an invalid combination is selected (e.g., `none` with `gpt-5.2-pro`), the workflow automatically falls back to the model's default reasoning effort at runtime.
+  **Note**: When using Alfred's Configuration Builder (not the Web UI), all reasoning effort options are shown regardless of the selected model. If an invalid combination is selected (e.g., `none` with `gpt-5.3-codex`), the workflow automatically falls back to the model's default reasoning effort at runtime.
 
   See OpenAI's [documentation](https://platform.openai.com/docs/guides/reasoning#reasoning-effort).
 - **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `2048`). If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified). See OpenAI's [Chat API documentation](https://platform.openai.com/docs/api-reference/chat).
