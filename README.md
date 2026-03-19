@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://platform.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `4.7.0`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `4.8.0`)
 
 You can execute all the above features using:
 
@@ -70,6 +70,9 @@ brew install pandoc mpv sox jq duti
 
 **Recent Changelog**
 
+- 4.8.0:
+  - New models: `gpt-5.4-mini`, `gpt-5.4-nano`
+  - Reasoning effort defaults optimized per model
 - 4.7.0:
   - New models: `gpt-5.4`, `gpt-5.3-chat-latest`, `gpt-5.3-codex`
   - Removed deprecated models and added invalid model fallback
@@ -332,10 +335,13 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
 
 - **Reasoning Effort**: For GPT-5 series models, set the reasoning effort to control how many reasoning tokens the model generates before creating a response. Available values and defaults vary by model:
   - **gpt-5.4**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
-  - **gpt-5.3-chat-latest**: reasoning not supported
-  - **gpt-5.3-codex**: `low`, `medium`, `high`, `xhigh` (default: `medium`)
-  - **gpt-5.1-codex-mini**: `low`, `medium`, `high` (default: `medium`)
-  - **gpt-5-mini, gpt-5-nano**: `low`, `medium`, `high` (default: `medium`)
+  - **gpt-5.4-mini**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
+  - **gpt-5.4-nano**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
+  - **gpt-5.3-chat-latest**: `medium` only (default: `medium`)
+  - **gpt-5.3-codex**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
+  - **gpt-5.1-codex-mini**: `low`, `medium`, `high` (default: `low`)
+  - **gpt-5-mini**: `minimal`, `low`, `medium`, `high` (default: `minimal`)
+  - **gpt-5-nano**: `minimal`, `low`, `medium`, `high` (default: `minimal`)
 
   The `none` setting provides lower-latency interactions similar to non-reasoning models. The `xhigh` setting provides maximum quality for complex tasks. The web UI automatically adjusts available options based on the selected model.
 
