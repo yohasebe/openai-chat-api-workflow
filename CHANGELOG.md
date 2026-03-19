@@ -1,5 +1,9 @@
 # Change Log
 
+- 4.8.0:
+  - New models: `gpt-5.4-mini`, `gpt-5.4-nano`
+  - Reasoning effort defaults set to minimum supported value per model for cost efficiency
+  - All reasoning effort constraints updated to match API-verified values (including `minimal` for gpt-5-mini/nano, `none` for gpt-5.3-codex)
 - 4.7.0:
   - New models: `gpt-5.4`, `gpt-5.3-chat-latest`, `gpt-5.3-codex`
   - Removed deprecated models: `gpt-5.2-pro`, `gpt-5.2`, `gpt-5.2-chat-latest`, `gpt-5.1`, `gpt-5.1-chat-latest`, `gpt-5.1-codex`
