@@ -2,9 +2,9 @@
 
 <img src='./icons/openai.png' style='height:120px;'/>
 
-🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://platform.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows image generation 🖼️, image understanding 👀, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
+🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://platform.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows file understanding 📎 (images, PDFs, Office documents, code, and more), image generation 🖼️, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `4.8.0`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `5.0.0`)
 
 You can execute all the above features using:
 
@@ -14,7 +14,7 @@ You can execute all the above features using:
 
 The web UI is constructed by the workflow and runs locally on your Mac 💻. The API call is made directly between the workflow and OpenAI, ensuring your chat messages are not shared online with anyone other than OpenAI 🔒. Furthermore, OpenAI does not use the data from the API Platform for training 🚫.
 
-You can export the chat data to an external file in simple JSON format 📄, and it is possible to continue the chat by importing it later 🔄.
+All messages in a conversation are displayed on a single scrollable page 📜, making it easy to review the full context. You can export the chat data to an external file in simple JSON format 📄, and it is possible to continue the chat by importing it later 🔄.
 
 <img src="./docs/img/OpenAI-Alfred-Workflow.png" width="600" />
 
@@ -24,11 +24,9 @@ You can export the chat data to an external file in simple JSON format 📄, and
 
 ## Installation
 
-1. Install [Homebrew](https://brew.sh/)
-2. Run the following command in a terminal: `brew install pandoc mpv sox jq duti`
-3. Download and run [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
-4. Set your [OpenAI API key](https://platform.openai.com/account/api-keys)
-5. Enable accessibility settings for Alfred in `System Preferences` → `Security & Privacy` → `Privacy` → `Accessibility`
+1. Download and run [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow)
+2. Set your [OpenAI API key](https://platform.openai.com/account/api-keys)
+3. Enable accessibility settings for Alfred in `System Preferences` → `Security & Privacy` → `Privacy` → `Accessibility`
 
 <kbd><img src="./docs/img/accessibility.png" width="600"></kbd>
 
@@ -52,24 +50,30 @@ There is also a "Stop text-to-speech playback" command to stop the playback of t
 
 - Alfred 5 [Powerpack](https://www.alfredapp.com/shop/)
 - OpenAI [API key](https://platform.openai.com/account/api-keys)
-- [Pandoc](https://pandoc.org/): to convert Markdown to HTML
-- [MPV](https://mpv.io/): to play text-to-speech audio stream
-- [Sox](https://sox.sourceforge.net/sox.html): to record voice input
-- [jq](https://jqlang.github.io/jq/): to handle chat history in JSON
-- [duti](https://github.com/moretension/duti): to detect the default web browser
+
+No external dependencies (Homebrew, etc.) are required. All features work out of the box.
 
 To start using this workflow, you must set the environment variable `apikey`, which you can obtain by creating a new [OpenAI account](https://platform.openai.com/account/api-keys). See also the [Configuration](#configuration) section below.
 
-You will also need to install the `pandoc` and `sox` programs. Pandoc allows this workflow to convert the Markdown response from OpenAI to HTML and display the result in your default web browser with syntax highlighting enabled (especially useful when using this workflow to generate program code). Sox allows you to record voice audio to convert to text using the speech-to-text API.
-
-To set up dependencies (`pandoc`, `mpv`, `sox`, `jq`, and `duti`), first install [Homebrew](https://brew.sh/) and run the following command:
-
-```shell
-brew install pandoc mpv sox jq duti
-```
+> **Note:** Voice input uses the browser's built-in Web Audio API in the Web UI. No external dependencies are required.
 
 **Recent Changelog**
 
+- 5.0.0:
+  - New image generation model `gpt-image-2` (now default); simplified to `gpt-image-2` and `gpt-image-1.5`
+  - File input via OpenAI Files API (`file_id` reference) for images, PDFs, Office documents, text, code, and more
+  - Uploaded files are automatically deleted from OpenAI's storage after each response
+  - Structured error display with Status/Code/Message/Request ID and collapsible debug info
+  - File input via Alfred Universal Action ("OpenAI File Input") for all supported file types
+  - Iterative image editing (Refine Image) with conversation history
+  - Automatic context truncation for long conversations
+  - Simplified command list: removed 12 legacy prompt modes (Write Program Code, Grammar Correction, etc.) — use natural language prompts instead
+  - Removed unused API parameters (Temperature, Top P, Frequency/Presence Penalty, Max Size for Image Understanding) from settings
+  - Unified file upload architecture: both starter and chat UIs now use WEBrick `/upload` endpoint
+  - Improved WebSocket stability for large file uploads
+  - JSON export/import reliability improvements
+  - Cache management: auto-cleanup on server start (7+ days) and manual "Clear Cache" button
+  - No external dependencies required (Homebrew install step removed)
 - 4.8.0:
   - New models: `gpt-5.4-mini`, `gpt-5.4-nano`
   - Reasoning effort defaults optimized per model
@@ -120,7 +124,7 @@ brew install pandoc mpv sox jq duti
 
 ## Methods of Execution
 
-Here are three methods to run the workflow: 1) Using commands within the Alfred UI, 2) Passing selected text to the workflow, 3) Utilizing the Web UI. Additionally, there's a convenient method for making brief inquiries to GPT.
+Here are three methods to run the workflow: 1) Using commands within the Alfred UI, 2) Passing selected text to the workflow, 3) Utilizing the Web UI. Additionally, there's a convenient method for making brief inquiries to GPT. All methods share the same conversation history — messages accumulate on a single scrollable page, regardless of how you send them.
 
 **Commands within the Alfred UI**
 
@@ -145,7 +149,7 @@ You can open the web interface:
 
 **Using the Default Browser**
 
-If your default browser is set to one of the following and the duti command is installed on your system, the web interface will automatically open in your chosen browser. If not, Safari will be used as the default.
+If your default browser is set to one of the following, the web interface will automatically open in your chosen browser. If not, Safari will be used as the default.
 
 - Google Chrome (Stable, Beta, Dev, etc.)
 - Microsoft Edge (Stable, Beta, Dev, etc.)
@@ -190,69 +194,7 @@ After entering the initial text, you are prompted for additional text. The addit
 
 <span><img src='./icons/picture.png' style='height:1em;'/></span> **Generate Image**
 
-The GPT Image API (`gpt-image-1.5` or `chatgpt-image-latest`) is used to generate images based on the entered prompts. See [Image Generation](#image-generation) below.
-
-## Commands for Specific Purposes
-
-Some of the examples shown on [OpenAI's Examples page](https://platform.openai.com/examples) are incorporated into this Workflow as commands. Functions not prepared as commands can be realized by giving appropriate prompts to the above [Basic Commands](#basic-commands).
-
-<span><img src='./icons/code-square.png' style='height:1em;'/></span> **Write Program Code**
-
-GPT generates program code and example output based on the entered text. You can specify the purpose of the program, its function, the language, and the technology to be used, etc.
-
-**Example Input**
-
-> Create a command line program that takes an English sentence and returns syntactically parsed output. Provide program code in Python and example usage.
-
-**Example Output**
-
-<kbd><img width="700" src="./docs/img/code.png"></kbd>
-
-<span><img src='./icons/quora.png' style='height:1em;'/></span> **Ask in Your Language**
-
-You can ask questions in the language set to the variable `first_language`.
-
-**Note**: If the value of `first_language` is not `English` (e.g., `Japanese`), the query may result in a less accurate response.
-
-<span><img src='./icons/translate.png' style='height:1em;'/></span> **Translate L1 to L2**
-
-GPT translates text from the language specified in the variable `first_language` to the language specified in `second_language`.
-
-<span><img src='./icons/translate.png' style='height:1em;'/></span> **Translate L2 to L1**
-
-GPT translates text from the language specified in the variable `second_language` to the language specified in `first_language`.
-
-<span><img src='./icons/pencil.png' style='height:1em;'/></span> **Grammar Correction**
-
-GPT corrects sentences that may contain grammatical errors. See OpenAI's [examples](https://platform.openai.com/examples).
-
-<span><img src='./icons/lightbulb.png' style='height:1em;'/></span> **Brainstorm**
-
-GPT assists you in brainstorming innovative ideas based on any given text.
-
-<span><img src='./icons/book.png' style='height:1em;'/></span> **Create Study Notes**
-
-GPT provides study notes on a given topic. See OpenAI's [examples](https://platform.openai.com/examples).
-
-<span><img src='./icons/arrow-left-right.png' style='height:1em;'/></span> **Analogy Maker**
-
-GPT creates analogies. See OpenAI's [examples](https://platform.openai.com/examples).
-
-<span><img src='./icons/list-ul.png' style='height:1em;'/></span> **Essay Outline**
-
-GPT generates an outline for a research topic. See OpenAI's [examples](https://platform.openai.com/examples).
-
-<span><img src='./icons/chat-left-quote.png' style='height:1em;'/></span> **TL;DR Summarization**
-
-GPT summarizes a given text. See OpenAI's [examples](https://platform.openai.com/examples).
-
-<span><img src='./icons/emoji-smile.png' style='height:1em;'/></span> **Summarize for a 2nd Grader**
-
-GPT translates complex text into more straightforward concepts. See OpenAI's [examples](https://platform.openai.com/examples).
-
-<span><img src='./icons/key.png' style='height:1em;'/></span> **Keywords**
-
-GPT extracts keywords from a block of text. See OpenAI's [examples](https://platform.openai.com/examples).
+The GPT Image API (`gpt-image-2` or `gpt-image-1.5`) is used to generate images based on the entered prompts. See [Image Generation](#image-generation) below.
 
 ## Image Generation
 
@@ -260,7 +202,7 @@ Image generation can be executed through one of the above commands. It is also p
 
 <kbd><img width="700" src="./docs/img/image-generation-1.png"></kbd>
 
-To use the image generation mode with the `gpt-image-1.5` model, you may need to complete the <a href="https://help.openai.com/en/articles/10910291-api-organization-verification">API Organization Verification</a> from your <a href="https://platform.openai.com/settings/organization/general">developer console</a>.
+To use the image generation mode with the `gpt-image-2` or `gpt-image-1.5` model, you may need to complete the <a href="https://help.openai.com/en/articles/10910291-api-organization-verification">API Organization Verification</a> from your <a href="https://platform.openai.com/settings/organization/general">developer console</a>.
 
 <kbd><img width="700" src="./docs/img/image-generation-2.png"></kbd>
 
@@ -269,22 +211,36 @@ To use the image generation mode with the `gpt-image-1.5` model, you may need to
 
 ## Image Editing
 
-There is a command to edit images using `gpt-image-1.5` or `chatgpt-image-latest`. There is an Universal Action command `OpenAI Image Edit`. You can also use the web UI to upload an image file for editing. The image file is sent to the OpenAI Image Editing API, and the result is displayed after a while (at the maximum of 2 minutes).
+There is a command to edit images using `gpt-image-2` or `gpt-image-1.5`. There is an Universal Action command `OpenAI Image Edit`. You can also use the web UI to upload an image file for editing. The image file is sent to the OpenAI Image Editing API, and the result is displayed after a while (at the maximum of 2 minutes).
+
+### Iterative Image Refinement
+
+After an image is generated, a **Refine Image** panel appears below the result. You can type follow-up prompts to iteratively refine the image (e.g., "make the background blue", "zoom out"). The previously generated image is automatically used as the source for the next edit. The full conversation history (all prompts and images) is preserved on screen. Use **Cmd+Enter** or **Ctrl+Enter** to submit.
 
 <kbd><img width="700" src="./docs/img/image-editing-1.png"></kbd>
 <kbd><img width="700" src="./docs/img/image-editing-2.png"></kbd>
 
-## Image/PDF Understanding
+## File Understanding
 
-Image understanding can be executed through the `openai-vision` command. It starts capture mode and lets you specify a part of the screen to be analyzed. Alternatively, you can specify an image file (jpg, jpeg, png, gif) using the "OpenAI Vision" file action.
+You can upload various file types for analysis through the web UI. Supported file types include:
+
+- **Images**: PNG, JPG, JPEG, GIF, WebP
+- **Documents**: PDF, Word (.doc, .docx), ODT, RTF
+- **Spreadsheets**: Excel (.xls, .xlsx), CSV, TSV
+- **Presentations**: PowerPoint (.ppt, .pptx)
+- **Text & Code**: .txt, .md, .json, .html, .xml, .py, .rb, .js, .ts, .java, .c, .cpp, .go, .rs, .swift, .sql, and many more
+
+Maximum file size is 50MB per file. Files are uploaded via OpenAI's Files API for processing and automatically deleted from OpenAI's storage after each response.
+
+Screen capture analysis can be executed through the `openai-vision` command, which starts capture mode and lets you specify a part of the screen to be analyzed. You can also send any supported file to OpenAI using the "OpenAI File Input" universal action in Finder.
 
 <kbd><img src="./docs/img/openai-workflow-vision.gif" width="700"></kbd>
 
-Alternatively, you can use the web UI to upload an image file for analysis. The image file is sent to the OpenAI Vision API, and the result is displayed in the web UI.
+Alternatively, you can use the web UI to upload a file for analysis. The file is sent to the OpenAI API, and the result is displayed in the web UI.
 
 <kbd><img src="./docs/img/openai-vision-web-ui.png" width="700"></kbd>
 
-You can also specify an image file using the universal action hotkey on the file in Finder. With this method you can not only analyze image files (jpg, jpeg, png, gif) but also PDF files.
+You can also specify a file using the universal action hotkey on the file in Finder.
 
 ## Speech Synthesis and Speech Recognition
 
@@ -312,20 +268,10 @@ You can select an audio file in `mp3`, `mp4`, `flac`, `webm`, `wav`, or `m4a` fo
 
 **Record Voice Audio and Transcribe**
 
-You can record voice audio and send it to the Workflow for transcription using the speech-to-text API. Recording time is limited to 30 minutes and will automatically stop after this duration.
+You can record voice audio and send it to the Workflow for transcription using the speech-to-text API.
 
-<kbd><img width="600" alt="transcript-srt" src="./docs/img/speech-to-text.png"></kbd>
-
-- Alfred textbox → keyword (`openai-speech`) → Terminal window opens and recording starts
-- Speak into the internal or external microphone → Press Enter to finish recording
-- Choose processes to apply to the recorded audio:
-
-  - Transcribe (+ delete recording)
-  - Transcribe (+ save recording to desktop)
-  - Transcribe and query (+ delete recording)
-  - Transcribe and query (+ save recording to desktop)
-  - Exit (+ delete recording)
-  - Exit (+ save recording to desktop)
+- **Web UI (Recommended)**: Press the `Voice Input` button on the web UI to record and transcribe directly in the browser using the Web Audio API. No external tools required.
+- **Alfred keyword**: Alfred textbox → keyword (`openai-speech`) → redirects to the Web UI for recording.
 
 You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in the workflow's settings. Below are examples in the `text` and `srt` formats:
 
@@ -348,11 +294,7 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
   **Note**: When using Alfred's Configuration Builder (not the Web UI), all reasoning effort options are shown regardless of the selected model. If an invalid combination is selected (e.g., `none` with `gpt-5.3-codex`), the workflow automatically falls back to the model's default reasoning effort at runtime.
 
   See OpenAI's [documentation](https://platform.openai.com/docs/guides/reasoning#reasoning-effort).
-- **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `2048`). If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified). See OpenAI's [Chat API documentation](https://platform.openai.com/docs/api-reference/chat).
-- **Temperature**: See OpenAI's [Chat API documentation](https://platform.openai.com/docs/api-reference/chat). (default: `0.3`)
-- **Top P**: See OpenAI's [Chat API documentation](https://platform.openai.com/docs/api-reference/chat). (default: `1.0`)
-- **Frequency Penalty**: See OpenAI's [Chat API documentation](https://platform.openai.com/docs/api-reference/chat). (default: `0.0`)
-- **Presence Penalty**: See OpenAI's [Chat API documentation](https://platform.openai.com/docs/api-reference/chat). (default: `0.0`)
+- **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `2048`). If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified).
 - **Memory Span**: Set the number of past utterances sent to the API as context. Setting `4` for this parameter means 2 conversation turns (user → assistant → user → assistant) will be sent as context for a new query. The larger the value, the more tokens will be consumed. (default: `10`)
 - **Max Characters**: Maximum number of characters that can be included in a query (default: `50000`).
 - **Timeout**: The number of seconds (default: `10`) to wait before opening the socket and connecting to the API. If the connection fails, reconnection (up to 20 times) will be attempted after 1 second.
@@ -364,15 +306,11 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
   
   > You are a friendly but professional consultant who answers various questions, makes decent suggestions, and gives helpful advice in response to a prompt from the user. Your response must be concise, suggestive, and accurate.
 
-**Image Understanding Parameters**
-
-- **Max Size for Image Understanding**: The maximum pixel value (`512` to `2000`) of the larger side of the image data sent to the image understanding API. Larger images will be resized accordingly. (Default: `512`)
-
 **Image Generation/Editing Parameters**
 
-Image editing feature is available for GPT Image models (`gpt-image-1.5`, `chatgpt-image-latest`).
+Image editing feature is available for GPT Image models (`gpt-image-2`, `gpt-image-1.5`).
 
-- **Image Generation Model**: `gpt-image-1.5` and `chatgpt-image-latest` are available. (default: `gpt-image-1.5`)
+- **Image Generation Model**: `gpt-image-2` (flagship) and `gpt-image-1.5` are available. (default: `gpt-image-2`)
 - **Image Size**: Set the size of images to generate: `auto`, `1024x1024`, `1536x1024`, or `1024x1536` (default: `auto`)
 - **Quality**: Choose the quality of the image: `auto`, `low`, `medium`, or `high` (default: `auto`)
 - **Content Moderation**: `auto` or `low` (default: `auto`)
@@ -398,12 +336,8 @@ Image editing feature is available for GPT Image models (`gpt-image-1.5`, `chatg
 - **Text-to-Speech Speed**: The speed of the generated audio. Select a value from 0.25 to 4.0. (default: `1.0`)
 - **TTS Instruction**: Specify character or speaking style instructions for text-to-speech synthesis.
 - **Automatic Text to Speech**: If enabled, the results will be read aloud using the system's default text-to-speech language and voice. (default: `disabled`)
-- **Text-to-Speech Replacement CSV Path**: Set the path to the CSV file containing text-to-speech replacement pairs in the format `original_text, replacement_text`.
 
 **Other Settings**
-
-- **Your First Language**: Set your first language. This language is used when using GPT for translation. (default: `English`)
-- **Your Second Language**: Set your second language. This language is used when using GPT for translation. (default: `Japanese`)
 - **Sound**: If checked, a notification sound will play when the response is returned. (default: `disabled`)
 - **Save File Path**: If set, the results will be saved in the specified path as a markdown file. (default: `not set`)
 
@@ -425,8 +359,11 @@ Environment variables can be accessed by clicking the `[x]` button located at th
   - Logs are written to `$alfred_workflow_cache/workflow.log` with simple rotation (up to ~1MB × 5 files).
 - macOS notification permission
   - If startup error notifications do not appear, check System Settings → Notifications → allow notifications for Alfred.
-- Missing optional dependencies
-  - If `pandoc`, `mpv`, `sox`, or `duti` are missing, related features are disabled or degraded; core chat continues to work. Install via Homebrew when needed.
+- Cache management
+  - Uploaded files, TTS audio, and temporary HTML are cached in `$alfred_workflow_cache`. Old files (7+ days) are automatically cleaned up when the server starts.
+  - To manually clear all cached files, use the **Clear Cache** button on the web UI (starter page or chat page). This does not delete your current conversation data.
+- No external dependencies required
+  - All features work out of the box with macOS built-in tools.
 
 ## Author
 
