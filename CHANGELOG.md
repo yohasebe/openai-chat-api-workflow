@@ -1,5 +1,29 @@
 # Change Log
 
+- 5.0.0:
+  - **New image generation model `gpt-image-2`** (now default): OpenAI's state-of-the-art model with improved text rendering and complex scene handling
+  - **Simplified image models**: `gpt-image-2` (flagship) and `gpt-image-1.5`; removed `chatgpt-image-latest`
+  - **File input via OpenAI Files API**: All file types (images, PDFs, documents, code, etc.) are now uploaded via the Files API and referenced by `file_id`, replacing the previous base64 encoding approach
+  - **Auto-cleanup of Files API uploads**: Uploaded files are automatically deleted from OpenAI's storage after each API response to prevent accumulation on the user's account
+  - **Structured error display**: API failures now show Status/Code/Message/Request ID in a styled error box, with collapsible debug information when debug mode is enabled
+  - **Security: `apikey` marked non-exportable**: Added `apikey` to `variablesdontexport` to explicitly mark it as sensitive and prevent accidental inclusion in exported workflow bundles
+  - **Security: CORS tightened**: Web UI endpoints (`/upload`, `/tts`, `/cleanup`) now only accept requests from `localhost` / `127.0.0.1` origins (previously `*`)
+  - **Security: filename sanitization**: Filenames with quotes, backslashes, or CR/LF are now safely escaped before the multipart upload to the Files API
+  - **Removed base64 encoding**: Eliminated `get_base64()`, `get_mime_type()`, `MIME_TYPES`, and related helper functions from the chat/text query path
+  - **Removed `max_dimension` setting**: Image resizing for file understanding is no longer needed (handled server-side by the Files API)
+  - **Responses API for all models**: All current models use the Responses API with `truncation: "auto"` and `store: false`
+  - **WebSocket handshake moved before API call** for reliable streaming connections
+  - **Export via `/export` endpoint**: Direct JSON download replaces HTML round-trip export
+  - **Removed 12 legacy modes**: Only Direct Query, Prepend/Append, and Generate Image remain
+  - **Iterative image editing (Refine Image)**: Follow-up prompts on generated images with conversation history
+  - **Edit Image button** on chat and starter pages for uploaded/captured images
+  - **Removed all external dependencies**: No more `pandoc`, `jq`, `duti`, `sox`, `mpv` — `brew install` completely unnecessary
+  - **Web UI recording**: Web Audio API with save button replaces terminal-based recording
+  - **Cache auto-cleanup**: WEBrick startup deletes files older than 7 days; manual Clear Cache button added
+  - **Loading spinner**: Shown until Markdown rendering completes
+  - **API error display**: Errors shown via WebSocket in the web UI and logged to workflow log
+  - Simplified `openai_chat_functions.rb`
+  - File Action renamed to "OpenAI File Input" with expanded file type support
 - 4.8.0:
   - New models: `gpt-5.4-mini`, `gpt-5.4-nano`
   - Reasoning effort defaults set to minimum supported value per model for cost efficiency
