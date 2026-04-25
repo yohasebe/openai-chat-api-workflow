@@ -1,5 +1,10 @@
 # Change Log
 
+- 5.1.0:
+  - **New model `gpt-5.5`** added as a selectable option (not the default)
+  - **Default chat model changed** from `gpt-5-mini` to `gpt-5.4-mini` for better balance of cost and capability
+  - **Removed `EXPENSIVE_MODELS` mechanism**: pro flagship variants (e.g., `gpt-5.5-pro`) and the `o`-series reasoning models are intentionally not bundled as they do not fit Alfred's quick-turnaround use case; the previous expensive-model confirmation dialog is no longer needed
+  - Documented model selection policy in README (mini-tier defaults, no pro/o-series bundling)
 - 5.0.0:
   - **New image generation model `gpt-image-2`** (now default): OpenAI's state-of-the-art model with improved text rendering and complex scene handling
   - **Simplified image models**: `gpt-image-2` (flagship) and `gpt-image-1.5`; removed `chatgpt-image-latest`
