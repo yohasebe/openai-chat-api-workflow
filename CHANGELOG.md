@@ -1,5 +1,10 @@
 # Change Log
 
+- 5.2.0:
+  - **New GPT-5.6 frontier models**: `gpt-5.6-sol` (flagship for complex professional work), `gpt-5.6-terra` (balances intelligence and cost), `gpt-5.6-luna` (cost-sensitive, high-volume workloads)
+  - All three use the Responses API and support reasoning effort `none`/`low`/`medium`/`high`/`xhigh` (default: `none`, verified against the live API); 1,050,000-token context window, 128,000 max output tokens
+  - **Default chat model remains `gpt-5.4-mini`**: the GPT-5.6 family (input $1.00–$5.00 / output $6.00–$30.00 per 1M tokens) is priced above the mini tier, so per the model selection policy the affordable default is unchanged
+  - **Fix**: `gpt-5.5` was missing from the web UI model dropdown (v5.1.0 sync omission); selecting it as the saved model could break the starter page initialization
 - 5.1.0:
   - **New model `gpt-5.5`** added as a selectable option (not the default)
   - **Default chat model changed** from `gpt-5-mini` to `gpt-5.4-mini` for better balance of cost and capability

@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://platform.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows file understanding 📎 (images, PDFs, Office documents, code, and more), image generation 🖼️, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `5.1.0`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `5.2.0`)
 
 You can execute all the above features using:
 
@@ -59,6 +59,11 @@ To start using this workflow, you must set the environment variable `apikey`, wh
 
 **Recent Changelog**
 
+- 5.2.0:
+  - New GPT-5.6 frontier models added: `gpt-5.6-sol` (flagship), `gpt-5.6-terra` (balanced), `gpt-5.6-luna` (cost-efficient)
+  - All three support reasoning effort `none`/`low`/`medium`/`high`/`xhigh` (default: `none`) and a 1M-token context window
+  - Default chat model remains `gpt-5.4-mini` (the GPT-5.6 family is priced above the mini tier)
+  - Fix: `gpt-5.5` was missing from the web UI model dropdown
 - 5.1.0:
   - New model `gpt-5.5` added as a selectable option (not the default)
   - Default chat model changed from `gpt-5-mini` to `gpt-5.4-mini` for a better balance of cost and capability
@@ -284,6 +289,9 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
 <kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
 
 - **Reasoning Effort**: For GPT-5 series models, set the reasoning effort to control how many reasoning tokens the model generates before creating a response. Available values and defaults vary by model:
+  - **gpt-5.6-sol**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
+  - **gpt-5.6-terra**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
+  - **gpt-5.6-luna**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
   - **gpt-5.5**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
   - **gpt-5.4**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
   - **gpt-5.4-mini**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
@@ -298,7 +306,7 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
 
   **Note**: When using Alfred's Configuration Builder (not the Web UI), all reasoning effort options are shown regardless of the selected model. If an invalid combination is selected (e.g., `none` with `gpt-5.3-codex`), the workflow automatically falls back to the model's default reasoning effort at runtime.
 
-  **Model selection policy**: This workflow targets quick-turnaround Alfred interactions. Flagship `pro` variants (e.g., `gpt-5.5-pro`) and the `o`-series reasoning models are intentionally **not** bundled because their pricing and latency profile do not fit the workflow's typical use case. The default model is a `mini` tier (`gpt-5.4-mini`) so common usage stays affordable; you can switch to a flagship (`gpt-5.5`, `gpt-5.4`) for harder tasks.
+  **Model selection policy**: This workflow targets quick-turnaround Alfred interactions. Flagship `pro` variants (e.g., `gpt-5.5-pro`) and the `o`-series reasoning models are intentionally **not** bundled because their pricing and latency profile do not fit the workflow's typical use case. The default model is a `mini` tier (`gpt-5.4-mini`) so common usage stays affordable; you can switch to a flagship (`gpt-5.6-sol`, `gpt-5.5`, `gpt-5.4`) for harder tasks.
 
   See OpenAI's [documentation](https://platform.openai.com/docs/guides/reasoning#reasoning-effort).
 - **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `2048`). If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified).
