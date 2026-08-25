@@ -1,5 +1,11 @@
 # Change Log
 
+- 5.3.0:
+  - **No CDN dependencies**: `marked` 12.0.1, `highlight.js` 11.9.0, and Font Awesome 5.15.1 now ship inside the workflow and are served from the local server (`/assets`). The Web UI previously fetched them from cdnjs, so Markdown rendering, code highlighting, and icons all degraded without internet access
+  - **Native audio recording**: voice input now uses the browser's own `MediaRecorder` (WebM/Opus in Chrome, MP4/AAC in Safari) instead of the `opus-media-recorder` polyfill. The polyfill was loaded from a CDN at an unpinned `@latest` version, so an upstream change could break recording without any change on this side
+  - **Removed the `check-for-update` keyword** and the Web UI's Check for Update button, along with the `openai-update` trigger. Alfred Gallery requires that workflows never update themselves; new versions are downloaded from the link in the README
+  - Removed dead code in the recording script (unused WAV/MP3 conversion helpers that referenced a library the workflow never loaded, plus unused Base64 helpers)
+  - Transcription: added the `audio/ogg` MIME mapping for `.ogg` / `.oga` files
 - 5.2.0:
   - **New GPT-5.6 frontier models**: `gpt-5.6-sol` (flagship for complex professional work), `gpt-5.6-terra` (balances intelligence and cost), `gpt-5.6-luna` (cost-sensitive, high-volume workloads)
   - All three use the Responses API and support reasoning effort `none`/`low`/`medium`/`high`/`xhigh` (default: `none`, verified against the live API); 1,050,000-token context window, 128,000 max output tokens
