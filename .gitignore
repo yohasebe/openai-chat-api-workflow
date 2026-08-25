@@ -99,8 +99,6 @@ Gemfile.lock
 *.webm
 
 # Project-specific ignores
-/source/
-/sourcecode/
 *.zip
 /IMPLEMENTATION_PLAN.md
 /scripts/
