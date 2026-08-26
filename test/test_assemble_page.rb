@@ -151,16 +151,38 @@ class TestAssemblePage < Minitest::Test
     assert_includes File.read(out2), "<style>.new{}</style>"
   end
 
-  def test_detect_ui_suffix_light
-    assert_equal "", detect_ui_suffix("light")
+  def test_detect_ui_theme_light
+    assert_equal "light", detect_ui_theme("light")
   end
 
-  def test_detect_ui_suffix_dark
-    assert_equal "-dark", detect_ui_suffix("dark")
+  def test_detect_ui_theme_dark
+    assert_equal "dark", detect_ui_theme("dark")
   end
 
-  def test_detect_ui_suffix_auto
-    result = detect_ui_suffix("auto")
-    assert_includes ["", "-dark"], result
+  # "auto" pins nothing so the page keeps following the OS while it is open.
+  def test_detect_ui_theme_auto
+    assert_nil detect_ui_theme("auto")
+  end
+
+  def test_page_stamps_the_pinned_theme
+    out = File.join(@tmpdir, "themed.html")
+    assemble_page(body_content: "b", theme: "dark", output_path: out)
+
+    assert_includes File.read(out), 'data-theme="dark"'
+  end
+
+  def test_page_without_a_theme_is_left_to_the_browser
+    out = File.join(@tmpdir, "unthemed.html")
+    assemble_page(body_content: "b", theme: nil, output_path: out)
+
+    refute_includes File.read(out), "data-theme"
+  end
+
+  # A stray value must not end up in the attribute.
+  def test_unknown_theme_is_ignored
+    out = File.join(@tmpdir, "bogus.html")
+    assemble_page(body_content: "b", theme: "purple", output_path: out)
+
+    refute_includes File.read(out), "data-theme"
   end
 end

@@ -1,5 +1,15 @@
 # Change Log
 
+- 5.4.0:
+  - **One stylesheet for both themes**: the light and dark stylesheets are merged into a single file whose colours come from custom properties. Dark mode now follows the system appearance while a page is open, instead of being fixed when the page was built. The two stylesheets had also drifted apart, which is why `h6` spacing, the `#max_tokens` field, and the spacing under lists looked different in dark mode; all of them are consistent now
+  - **Layout rebuilt with flexbox**: control rows and button rows wrap properly, so button labels no longer break across two lines in a narrow window, and a field never gets separated from its label
+  - **Send with ⌘/Ctrl+Enter** from the prompt box on the starter and chat screens. Plain Enter still inserts a newline
+  - **The wait is explained**: while a reasoning model is silent, the response area now says whether it is waiting or thinking, rather than showing only a blinking caret
+  - **Disabled controls say why**: selecting a reasoning model marks Max Tokens as "Not used by reasoning models" instead of silently greying it out
+  - **The response card keeps its identity**: it no longer changes colour when generation finishes
+  - **Clear Cache no longer breaks the page or the history**: it used to delete `webui.html`, so reloading afterwards produced a server error, and it deleted images the current conversation was still showing. Both are now preserved, the button explains what it removes, and `/openai` degrades gracefully if the cache was emptied by hand
+  - Fix: the Memory Span label pointed at the Max Tokens field
+  - Removed the `base64` library dependency, which is no longer a default gem in Ruby 3.4
 - 5.3.0:
   - **No CDN dependencies**: `marked` 12.0.1, `highlight.js` 11.9.0, and Font Awesome 5.15.1 now ship inside the workflow and are served from the local server (`/assets`). The Web UI previously fetched them from cdnjs, so Markdown rendering, code highlighting, and icons all degraded without internet access
   - **Native audio recording**: voice input now uses the browser's own `MediaRecorder` (WebM/Opus in Chrome, MP4/AAC in Safari) instead of the `opus-media-recorder` polyfill. The polyfill was loaded from a CDN at an unpinned `@latest` version, so an upstream change could break recording without any change on this side

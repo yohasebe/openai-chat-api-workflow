@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://platform.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows file understanding 📎 (images, PDFs, Office documents, code, and more), image generation 🖼️, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `5.3.0`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `5.4.0`)
 
 You can execute all the above features using:
 
@@ -59,6 +59,12 @@ To start using this workflow, you must set the environment variable `apikey`, wh
 
 **Recent Changelog**
 
+- 5.4.0:
+  - Dark mode now follows the system appearance while the page is open, and both themes come from a single stylesheet
+  - Layout rebuilt with flexbox: no more button labels breaking across two lines in a narrow window
+  - Send with `⌘/Ctrl+Enter`; the response area says whether the model is waiting or thinking
+  - Max Tokens explains why it is disabled for reasoning models
+  - Clear Cache keeps the images your conversation still shows, and no longer breaks the page on reload
 - 5.3.0:
   - No more CDN dependencies: Markdown rendering, syntax highlighting, and icons are bundled with the workflow and served locally
   - Voice recording now uses the browser's built-in recorder instead of an external polyfill
@@ -379,8 +385,9 @@ Environment variables can be accessed by clicking the `[x]` button located at th
 - macOS notification permission
   - If startup error notifications do not appear, check System Settings → Notifications → allow notifications for Alfred.
 - Cache management
-  - Uploaded files, TTS audio, and temporary HTML are cached in `$alfred_workflow_cache`. Old files (7+ days) are automatically cleaned up when the server starts.
-  - To manually clear all cached files, use the **Clear Cache** button on the web UI (starter page or chat page). This does not delete your current conversation data.
+  - Uploaded files, TTS audio, generated images, and temporary HTML are cached in `$alfred_workflow_cache`. Old files (7+ days) are automatically cleaned up when the server starts.
+  - The **Clear Cache** button on the web UI (starter page or chat page) clears them on demand. It removes uploaded files, TTS audio, page templates, and generated images that are no longer part of the conversation.
+  - Your conversation is kept, and so are the images it still shows, so clearing the cache never leaves the history with broken pictures. Hover the button to see the same summary before clicking.
 - No external dependencies required
   - All features work out of the box with macOS built-in tools.
 
