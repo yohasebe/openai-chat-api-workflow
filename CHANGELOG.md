@@ -1,5 +1,21 @@
 # Change Log
 
+- 5.5.0:
+  - **Default chat model is now `gpt-5.6-luna`**: OpenAI cut its price by 80% on 2026-07-30, to $0.20/$1.20 per 1M tokens against `gpt-5.4-mini`'s $0.75/$4.50 — a newer generation at roughly a quarter of the cost, with a 1,050,000-token context window instead of 400,000. Reach for `gpt-5.6-terra` instead when feeding in a very large document: Luna is the nano tier and its recall drops sharply past about 256,000 tokens of context
+  - **Removed models that OpenAI has shut down or scheduled for shutdown**: `gpt-5.3-chat-latest` and `gpt-5.1-codex-mini` were already returning "model not found", and `gpt-5-mini`, `gpt-5-nano` and `gpt-image-1.5` have announced end dates. A saved setting pointing at one of them falls back to the default rather than failing
+  - **Reasoning effort `max`** is now offered for `gpt-5.6-sol`, `gpt-5.6-terra` and `gpt-5.6-luna`, which are the only models that accept it. `minimal` is gone, since no bundled model supports it any more. Every model's effort was measured against the live API rather than read from the documentation, which lists one set of levels for all models
+  - **Default reasoning effort is `none`** on a fresh install, matching the cost-first policy the rest of the configuration already followed; it was `medium`
+  - **Speech-to-text now defaults to `gpt-transcribe`**, the current recommended transcription model, in place of the previous-generation `gpt-4o-mini-transcribe` ($0.0045 vs $0.003 per minute of audio). `whisper-1` remains available and is still used automatically for SRT/VTT/verbose output and English translation
+  - **The mode picker is a segmented control**, and only the chosen mode's settings are shown, so the settings area is no longer two stacked blocks of half-relevant fields. Control heights, corner radii and focus rings are consistent across buttons, menus and text fields
+  - **Dark mode: code blocks inside a reply are visible again.** Code blocks, inline code and message cards all shared one background colour, so a code block inside an answer had no visible edge
+  - **Fix: the response card said "Assistant" twice** while waiting for a reply on the chat screen
+  - **Fix: a stalled request now says so.** The three-minute "something went wrong" warning never appeared on the starter screen because of an error in the code that produced it, and on the chat screen it overwrote the message you had just sent. It also now waits as long as the server does (12 minutes) instead of giving up at three, which a reasoning model at high effort can genuinely exceed
+  - **Fix: the progress indicator stayed on screen** after an answer had finished streaming
+  - **Fix: Memory Span described the wrong number.** The note under it was written before your saved setting was loaded, so a span of 20 was described as "the last 2 exchanges"
+  - **Fix: Max Tokens and Memory Span accepted the wrong range.** Memory Span is now 2–100 (default 20) on both the settings screen and the Web UI, which disagreed with each other; Max Tokens no longer caps at 16,385, a limit inherited from a model retired long ago
+  - **Fix: the focus outline** skipped the numeric fields, and Max Tokens drew a different border colour from every other control
+  - The request timeout setting now defaults to 240 seconds rather than 20, which was too short for a reasoning model on a non-streaming request. Its description was also wrong: it is the read timeout, not the connection timeout, and image generation no longer silently multiplies it by twenty
+  - Accessibility: the three documentation links in the settings area had identical labels, and the mode picker had no visible keyboard focus indicator
 - 5.4.0:
   - **One stylesheet for both themes**: the light and dark stylesheets are merged into a single file whose colours come from custom properties. Dark mode now follows the system appearance while a page is open, instead of being fixed when the page was built. The two stylesheets had also drifted apart, which is why `h6` spacing, the `#max_tokens` field, and the spacing under lists looked different in dark mode; all of them are consistent now
   - **Layout rebuilt with flexbox**: control rows and button rows wrap properly, so button labels no longer break across two lines in a narrow window, and a field never gets separated from its label

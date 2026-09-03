@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://platform.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows file understanding 📎 (images, PDFs, Office documents, code, and more), image generation 🖼️, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `5.4.0`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `5.5.0`)
 
 You can execute all the above features using:
 
@@ -59,6 +59,14 @@ To start using this workflow, you must set the environment variable `apikey`, wh
 
 **Recent Changelog**
 
+- 5.5.0:
+  - Default chat model is now `gpt-5.6-luna` — a newer generation at about a quarter of the previous cost, with a 1M-token context window. Use `gpt-5.6-terra` for very large documents
+  - Speech-to-text now defaults to `gpt-transcribe`, the current recommended transcription model
+  - Reasoning effort `max` added for the GPT-5.6 models; the default effort is now `none` on a fresh install
+  - Models that OpenAI has retired or scheduled for retirement were removed from the menus
+  - The mode picker is a segmented control, and only the selected mode's settings are shown
+  - Dark mode: code blocks inside a reply are visible again
+  - Fixes: the response card no longer says "Assistant" twice; a stalled request now reports itself instead of failing silently; the progress indicator disappears when the answer is done; Memory Span no longer describes the wrong number
 - 5.4.0:
   - Dark mode now follows the system appearance while the page is open, and both themes come from a single stylesheet
   - Layout rebuilt with flexbox: no more button labels breaking across two lines in a narrow window
@@ -213,7 +221,7 @@ After entering the initial text, you are prompted for additional text. The addit
 
 <span><img src='./icons/picture.png' style='height:1em;'/></span> **Generate Image**
 
-The GPT Image API (`gpt-image-2` or `gpt-image-1.5`) is used to generate images based on the entered prompts. See [Image Generation](#image-generation) below.
+The GPT Image API (`gpt-image-2`) is used to generate images based on the entered prompts. See [Image Generation](#image-generation) below.
 
 ## Image Generation
 
@@ -221,7 +229,7 @@ Image generation can be executed through one of the above commands. It is also p
 
 <kbd><img width="700" src="./docs/img/image-generation-1.png"></kbd>
 
-To use the image generation mode with the `gpt-image-2` or `gpt-image-1.5` model, you may need to complete the <a href="https://help.openai.com/en/articles/10910291-api-organization-verification">API Organization Verification</a> from your <a href="https://platform.openai.com/settings/organization/general">developer console</a>.
+To use the image generation mode with the `gpt-image-2` model, you may need to complete the <a href="https://help.openai.com/en/articles/10910291-api-organization-verification">API Organization Verification</a> from your <a href="https://platform.openai.com/settings/organization/general">developer console</a>.
 
 <kbd><img width="700" src="./docs/img/image-generation-2.png"></kbd>
 
@@ -230,7 +238,7 @@ To use the image generation mode with the `gpt-image-2` or `gpt-image-1.5` model
 
 ## Image Editing
 
-There is a command to edit images using `gpt-image-2` or `gpt-image-1.5`. There is an Universal Action command `OpenAI Image Edit`. You can also use the web UI to upload an image file for editing. The image file is sent to the OpenAI Image Editing API, and the result is displayed after a while (at the maximum of 2 minutes).
+There is a command to edit images using `gpt-image-2`. There is an Universal Action command `OpenAI Image Edit`. You can also use the web UI to upload an image file for editing. The image file is sent to the OpenAI Image Editing API, and the result is displayed after a while (at the maximum of 2 minutes).
 
 ### Iterative Image Refinement
 
@@ -299,30 +307,26 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
 <kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
 
 - **Reasoning Effort**: For GPT-5 series models, set the reasoning effort to control how many reasoning tokens the model generates before creating a response. Available values and defaults vary by model:
-  - **gpt-5.6-sol**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
-  - **gpt-5.6-terra**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
-  - **gpt-5.6-luna**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
+  - **gpt-5.6-sol**: `none`, `low`, `medium`, `high`, `xhigh`, `max` (default: `none`)
+  - **gpt-5.6-terra**: `none`, `low`, `medium`, `high`, `xhigh`, `max` (default: `none`)
+  - **gpt-5.6-luna**: `none`, `low`, `medium`, `high`, `xhigh`, `max` (default: `none`)
   - **gpt-5.5**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
   - **gpt-5.4**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
   - **gpt-5.4-mini**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
   - **gpt-5.4-nano**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
-  - **gpt-5.3-chat-latest**: `medium` only (default: `medium`)
   - **gpt-5.3-codex**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
-  - **gpt-5.1-codex-mini**: `low`, `medium`, `high` (default: `low`)
-  - **gpt-5-mini**: `minimal`, `low`, `medium`, `high` (default: `minimal`)
-  - **gpt-5-nano**: `minimal`, `low`, `medium`, `high` (default: `minimal`)
 
-  The `none` setting provides lower-latency interactions similar to non-reasoning models. The `xhigh` setting provides maximum quality for complex tasks. The web UI automatically adjusts available options based on the selected model.
+  The `none` setting provides lower-latency interactions similar to non-reasoning models. `xhigh`, and `max` where the model accepts it, provide maximum quality for complex tasks at the cost of a much longer wait. The web UI automatically adjusts available options based on the selected model.
 
-  **Note**: When using Alfred's Configuration Builder (not the Web UI), all reasoning effort options are shown regardless of the selected model. If an invalid combination is selected (e.g., `none` with `gpt-5.3-codex`), the workflow automatically falls back to the model's default reasoning effort at runtime.
+  **Note**: When using Alfred's Configuration Builder (not the Web UI), all reasoning effort options are shown regardless of the selected model. If an invalid combination is selected (e.g., `max` with `gpt-5.4-mini`), the workflow automatically falls back to the model's default reasoning effort at runtime.
 
-  **Model selection policy**: This workflow targets quick-turnaround Alfred interactions. Flagship `pro` variants (e.g., `gpt-5.5-pro`) and the `o`-series reasoning models are intentionally **not** bundled because their pricing and latency profile do not fit the workflow's typical use case. The default model is a `mini` tier (`gpt-5.4-mini`) so common usage stays affordable; you can switch to a flagship (`gpt-5.6-sol`, `gpt-5.5`, `gpt-5.4`) for harder tasks.
+  **Model selection policy**: This workflow targets quick-turnaround Alfred interactions. Flagship `pro` variants (e.g., `gpt-5.5-pro`) and the `o`-series reasoning models are intentionally **not** bundled because their pricing and latency profile do not fit the workflow's typical use case. The default model is `gpt-5.6-luna`, which keeps common usage inexpensive; you can switch to a flagship (`gpt-5.6-sol`, `gpt-5.5`, `gpt-5.4`) for harder tasks. Note that `gpt-5.6-luna` is the nano tier: its recall drops sharply past roughly 256,000 tokens of context, so prefer `gpt-5.6-terra` when working through a very large document.
 
   See OpenAI's [documentation](https://platform.openai.com/docs/guides/reasoning#reasoning-effort).
-- **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `2048`). If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified).
-- **Memory Span**: Set the number of past utterances sent to the API as context. Setting `4` for this parameter means 2 conversation turns (user → assistant → user → assistant) will be sent as context for a new query. The larger the value, the more tokens will be consumed. (default: `10`)
-- **Max Characters**: Maximum number of characters that can be included in a query (default: `50000`).
-- **Timeout**: The number of seconds (default: `10`) to wait before opening the socket and connecting to the API. If the connection fails, reconnection (up to 20 times) will be attempted after 1 second.
+- **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `4000`). Reasoning models ignore this value, and every model currently bundled is a reasoning model, so the field is disabled unless that changes. If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified).
+- **Memory Span**: Set the number of past utterances sent to the API as context. Setting `4` for this parameter means 2 conversation turns (user → assistant → user → assistant) will be sent as context for a new query. The larger the value, the more tokens will be consumed. (default: `20`, range `2`–`100`)
+- **Max Characters**: Maximum number of characters that can be included in a query (default: `100000`).
+- **Timeout**: How many seconds to wait for a reply on a non-streaming request (default: `240`). Streaming is enabled by default and ignores this, using its own 12-minute limit; opening the connection has a separate fixed timeout. Raise it if you turn streaming off and use a reasoning model at high effort, which can think for minutes before answering.
 - **Add Emoji**: If enabled, the response text from GPT will contain emoji characters appropriate for the content. This is realized by adding the following sentence at the end of the system content. (default: `enabled`)
   
   > Add emojis that are appropriate to the content of the response.
@@ -333,9 +337,9 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
 
 **Image Generation/Editing Parameters**
 
-Image editing feature is available for GPT Image models (`gpt-image-2`, `gpt-image-1.5`).
+Image editing feature is available for the GPT Image model (`gpt-image-2`).
 
-- **Image Generation Model**: `gpt-image-2` (flagship) and `gpt-image-1.5` are available. (default: `gpt-image-2`)
+- **Image Generation Model**: `gpt-image-2`. (`gpt-image-1.5` was removed in 5.5.0; OpenAI has scheduled it for shutdown.)
 - **Image Size**: Set the size of images to generate: `auto`, `1024x1024`, `1536x1024`, or `1024x1536` (default: `auto`)
 - **Quality**: Choose the quality of the image: `auto`, `low`, `medium`, or `high` (default: `auto`)
 - **Content Moderation**: `auto` or `low` (default: `auto`)
@@ -343,7 +347,7 @@ Image editing feature is available for GPT Image models (`gpt-image-2`, `gpt-ima
 
 **Speech-to-Text Parameters**
 
-- **Transcription Model**: One of the available transcription models: `whisper-1`, `gpt-4o-mini-transcribe`, or `gpt-4o-transcribe`. (default: `gpt-4o-mini-transcribe`)
+- **Transcription Model**: One of `gpt-transcribe`, `gpt-4o-mini-transcribe`, `gpt-4o-transcribe`, or `whisper-1`. (default: `gpt-transcribe`)
 - **Transcription Format**: Set the format of the text transcribed from the microphone input or audio files to `text`, `srt`, or `vtt` (default: `text`). Since `srt` and `vtt` formats are supported by `whisper-1` only, the workflow will automatically switch to `whisper-1` when these formats are selected.
 - **Processes after Recording**: Set the default choice of what processes follow after audio recording finishes. (default: `Transcribe [+ delete recording]`).
   
