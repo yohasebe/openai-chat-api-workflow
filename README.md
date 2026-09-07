@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://platform.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows file understanding 📎 (images, PDFs, Office documents, code, and more), image generation 🖼️, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `5.5.0`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `5.6.0`)
 
 You can execute all the above features using:
 
@@ -59,6 +59,12 @@ To start using this workflow, you must set the environment variable `apikey`, wh
 
 **Recent Changelog**
 
+- 5.6.0:
+  - New model `gpt-6-astra` available as an option (the default remains `gpt-5.6-luna`, which is far cheaper)
+  - Fix: translating an audio file failed unless the transcription model happened to be `whisper-1`, the only model that supports translation
+  - Fix: passing a sound file from Finder or the Universal Action menu ignored the transcription model chosen in the settings
+  - Fix: the Text-to-Speech and Transcription settings now fall back to a working model if they were left pointing at one that no longer exists
+  - Fix: an image request that kept timing out never gave up
 - 5.5.0:
   - Default chat model is now `gpt-5.6-luna` — a newer generation at about a quarter of the previous cost, with a 1M-token context window. Use `gpt-5.6-terra` for very large documents
   - Speech-to-text now defaults to `gpt-transcribe`, the current recommended transcription model
@@ -307,6 +313,7 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
 <kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
 
 - **Reasoning Effort**: For GPT-5 series models, set the reasoning effort to control how many reasoning tokens the model generates before creating a response. Available values and defaults vary by model:
+  - **gpt-6-astra**: `low`, `medium`, `high`, `xhigh`, `max` (default: `low`)
   - **gpt-5.6-sol**: `none`, `low`, `medium`, `high`, `xhigh`, `max` (default: `none`)
   - **gpt-5.6-terra**: `none`, `low`, `medium`, `high`, `xhigh`, `max` (default: `none`)
   - **gpt-5.6-luna**: `none`, `low`, `medium`, `high`, `xhigh`, `max` (default: `none`)
@@ -320,7 +327,7 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
 
   **Note**: When using Alfred's Configuration Builder (not the Web UI), all reasoning effort options are shown regardless of the selected model. If an invalid combination is selected (e.g., `max` with `gpt-5.4-mini`), the workflow automatically falls back to the model's default reasoning effort at runtime.
 
-  **Model selection policy**: This workflow targets quick-turnaround Alfred interactions. Flagship `pro` variants (e.g., `gpt-5.5-pro`) and the `o`-series reasoning models are intentionally **not** bundled because their pricing and latency profile do not fit the workflow's typical use case. The default model is `gpt-5.6-luna`, which keeps common usage inexpensive; you can switch to a flagship (`gpt-5.6-sol`, `gpt-5.5`, `gpt-5.4`) for harder tasks. Note that `gpt-5.6-luna` is the nano tier: its recall drops sharply past roughly 256,000 tokens of context, so prefer `gpt-5.6-terra` when working through a very large document.
+  **Model selection policy**: This workflow targets quick-turnaround Alfred interactions. Flagship `pro` variants (e.g., `gpt-5.5-pro`) and the `o`-series reasoning models are intentionally **not** bundled because their pricing and latency profile do not fit the workflow's typical use case. The default model is `gpt-5.6-luna`, which keeps common usage inexpensive; you can switch to a flagship (`gpt-6-astra`, `gpt-5.6-sol`, `gpt-5.5`) for harder tasks. `gpt-6-astra` is the most capable model available and is priced accordingly ($10.00 / $50.00 per 1M tokens); it is the one model that does not accept `none` reasoning effort, so selecting it uses `low` instead. Note that `gpt-5.6-luna` is the nano tier: its recall drops sharply past roughly 256,000 tokens of context, so prefer `gpt-5.6-terra` when working through a very large document.
 
   See OpenAI's [documentation](https://platform.openai.com/docs/guides/reasoning#reasoning-effort).
 - **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `4000`). Reasoning models ignore this value, and every model currently bundled is a reasoning model, so the field is disabled unless that changes. If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified).
