@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://platform.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows file understanding 📎 (images, PDFs, Office documents, code, and more), image generation 🖼️, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `5.6.0`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `5.7.0`)
 
 You can execute all the above features using:
 
@@ -12,7 +12,7 @@ You can execute all the above features using:
 - Selected text 📝
 - A dedicated web UI 🌐
 
-The web UI is constructed by the workflow and runs locally on your Mac 💻. The API call is made directly between the workflow and OpenAI, ensuring your chat messages are not shared online with anyone other than OpenAI 🔒. Furthermore, OpenAI does not use the data from the API Platform for training 🚫.
+The web UI is constructed by the workflow and runs locally on your Mac 💻. With the default settings, API calls go directly from the workflow to OpenAI, so your chat messages are not shared online with anyone other than OpenAI 🔒. By default, OpenAI does not use data sent through its API for training 🚫.
 
 All messages in a conversation are displayed on a single scrollable page 📜, making it easy to review the full context. You can export the chat data to an external file in simple JSON format 📄, and it is possible to continue the chat by importing it later 🔄.
 
@@ -44,21 +44,29 @@ You can set up hotkeys in the settings screen of the workflow. To set up hotkeys
 6. Speech to Text
 7. Text to Speech (Selected text)
 
-There is also a "Stop text-to-speech playback" command to stop the playback of the text-to-speech audio stream. Current it needs to be assigned a hotkey different from that of the "Text to Speech" command.
+There is also a "Stop text-to-speech playback" command to stop the playback of the text-to-speech audio stream. Assign it a hotkey different from that of the "Text to Speech" command.
 
 **Dependencies**
 
 - Alfred 5 [Powerpack](https://www.alfredapp.com/shop/)
 - OpenAI [API key](https://platform.openai.com/account/api-keys)
 
-No external dependencies (Homebrew, etc.) are required. All features work out of the box.
+No external tools (Homebrew, etc.) are required for any feature except the terminal voice recorder started by the `openai-speech` keyword, which needs SoX. Voice input in the web UI needs nothing extra.
 
-To start using this workflow, you must set the environment variable `apikey`, which you can obtain by creating a new [OpenAI account](https://platform.openai.com/account/api-keys). See also the [Configuration](#configuration) section below.
+To start using this workflow, you must set the environment variable `apikey`, which you can obtain by creating a new [OpenAI account](https://platform.openai.com/account/api-keys). Once an API key has been saved in the workflow settings, you can also replace it with the keyword `openai-set-key` followed by the new key. See also the [Configuration Parameters](#configuration-parameters) section below.
 
 > **Note:** Voice input uses the browser's built-in Web Audio API in the Web UI. No external dependencies are required.
 
 **Recent Changelog**
 
+- 5.7.0:
+  - New image models `gpt-image-2.5-flare` (now the default) and `gpt-image-2.5-sunburst`, with `xhigh` and `max` quality
+  - Fix: voice input from the Web UI works again (broken since 5.0.0)
+  - Fix: "high" image quality in the Alfred settings, and Edit Image ignoring the selected model
+  - Removed transcription models that OpenAI is shutting down, and with them the `srt` / `vtt` formats. Audio to English now transcribes and then translates, which also works for Japanese
+  - Fix: long conversations lost the system content, and answers could come back empty with a higher reasoning effort or with Stream output turned off
+  - The Save folder setting now keeps copies of generated images too
+  - A request that times out waiting for the response is no longer resent (chat requests used to be resent up to ten times)
 - 5.6.0:
   - New model `gpt-6-astra` available as an option (the default remains `gpt-5.6-luna`, which is far cheaper)
   - Fix: translating an audio file failed unless the transcription model happened to be `whisper-1`, the only model that supports translation
@@ -157,7 +165,7 @@ To start using this workflow, you must set the environment variable `apikey`, wh
 
 ## Methods of Execution
 
-Here are three methods to run the workflow: 1) Using commands within the Alfred UI, 2) Passing selected text to the workflow, 3) Utilizing the Web UI. Additionally, there's a convenient method for making brief inquiries to GPT. All methods share the same conversation history — messages accumulate on a single scrollable page, regardless of how you send them.
+Here are three methods to run the workflow: 1) Using commands within the Alfred UI, 2) Passing selected text to the workflow, 3) Utilizing the Web UI. Additionally, there's a convenient method for making brief inquiries to GPT. To continue a conversation, use the chat screen: its previous messages are sent as context. A direct query, such as one sent with `gpt`, starts a new request without the previous conversation as context.
 
 **Commands within the Alfred UI**
 
@@ -180,6 +188,15 @@ You can open the web interface:
 - Method 1: Alfred textbox → keyword (`openai-webui`)
 - Method 2: Set up a custom hotkey to `Open web interface`
 
+Main buttons on the web UI:
+
+- `Text Query / Chat` and `Image Generation / Editing`: switch between the two modes of the starter screen (this is separate from the light/dark theme)
+- `Send Message` (or ⌘/Ctrl+Enter in the prompt box) sends the prompt; `Cancel` stops waiting for a response, though the API may still complete and bill the request
+- `Clear` empties the prompt box; `Start New Chat` discards the conversation and starts over; `Edit Message` on your last message lets you rewrite it and send it again
+- `Import File` attaches a file; `Voice Input` records and transcribes (after a recording, a `Save Recording` button appears for about 10 seconds to download it; voice input clears an attached file, so attach files after recording); `Play TTS` / `Stop TTS` read text aloud and stop it
+- `Set Voice` and `Set Auto Speech` change text-to-speech settings; `Open Config` opens the workflow settings
+- `Export Data` / `Import Data` / `Import Chat` save and load conversations; `Clear Cache` removes cached files (see Troubleshooting)
+
 **Using the Default Browser**
 
 If your default browser is set to one of the following, the web interface will automatically open in your chosen browser. If not, Safari will be used as the default.
@@ -192,7 +209,7 @@ Restart the OpenAI Workflow server by executing `openai-restart-server` if the w
 
 **Web UI Modes**
 
-Switch modes (`light`/`dark`/`auto`) with the `Web UI Mode` selector in the settings.
+Switch modes (`light`/`dark`/`auto`) with the `Web UI mode` setting.
 
 <kbd><img width="700" src="./docs/img/web-interface-dark.png"></kbd>
 
@@ -227,7 +244,7 @@ After entering the initial text, you are prompted for additional text. The addit
 
 <span><img src='./icons/picture.png' style='height:1em;'/></span> **Generate Image**
 
-The GPT Image API (`gpt-image-2`) is used to generate images based on the entered prompts. See [Image Generation](#image-generation) below.
+The GPT Image API (`gpt-image-2.5-flare` by default) is used to generate images based on the entered prompts. See [Image Generation](#image-generation) below.
 
 ## Image Generation
 
@@ -235,7 +252,7 @@ Image generation can be executed through one of the above commands. It is also p
 
 <kbd><img width="700" src="./docs/img/image-generation-1.png"></kbd>
 
-To use the image generation mode with the `gpt-image-2` model, you may need to complete the <a href="https://help.openai.com/en/articles/10910291-api-organization-verification">API Organization Verification</a> from your <a href="https://platform.openai.com/settings/organization/general">developer console</a>.
+To use the GPT Image models, you may need to complete the <a href="https://help.openai.com/en/articles/10910291-api-organization-verification">API Organization Verification</a> from your <a href="https://platform.openai.com/settings/organization/general">developer console</a>.
 
 <kbd><img width="700" src="./docs/img/image-generation-2.png"></kbd>
 
@@ -244,7 +261,7 @@ To use the image generation mode with the `gpt-image-2` model, you may need to c
 
 ## Image Editing
 
-There is a command to edit images using `gpt-image-2`. There is an Universal Action command `OpenAI Image Edit`. You can also use the web UI to upload an image file for editing. The image file is sent to the OpenAI Image Editing API, and the result is displayed after a while (at the maximum of 2 minutes).
+There is a command to edit images using the selected GPT Image model. There is a Universal Action command `OpenAI Image Edit`. You can also use the web UI to upload an image file for editing. The image file is sent to the OpenAI Image Editing API, and the result is displayed when it is ready. Processing time depends on the model, the quality and the request; `xhigh` and `max` can take over a minute. You can also start an edit from a screen capture with the keyword `openai-capture-edit`.
 
 ### Iterative Image Refinement
 
@@ -263,7 +280,7 @@ You can upload various file types for analysis through the web UI. Supported fil
 - **Presentations**: PowerPoint (.ppt, .pptx)
 - **Text & Code**: .txt, .md, .json, .html, .xml, .py, .rb, .js, .ts, .java, .c, .cpp, .go, .rs, .swift, .sql, and many more
 
-Maximum file size is 50MB per file. Files are uploaded via OpenAI's Files API for processing and automatically deleted from OpenAI's storage after each response.
+Maximum file size is 50MB per file. Files are uploaded via OpenAI's Files API for processing, and the workflow asks OpenAI to delete each one after the response. If that request fails, for example when the network drops, the file may remain in your OpenAI storage.
 
 Screen capture analysis can be executed through the `openai-vision` command, which starts capture mode and lets you specify a part of the screen to be analyzed. You can also send any supported file to OpenAI using the "OpenAI File Input" universal action in Finder.
 
@@ -277,7 +294,7 @@ You can also specify a file using the universal action hotkey on the file in Fin
 
 ## Speech Synthesis and Speech Recognition
 
-Most text-to-speech and speech-to-text features are available on the web UI. However, there are certain specific features provided as commands, such as audio file to text conversion and transcription with timestamps.
+Most text-to-speech and speech-to-text features are available on the web UI. Some features are also available as commands, such as converting an audio file to text. Transcripts are plain text; timestamped subtitles are not available.
 
 <kbd><img width="700" src="./docs/img/speech-to-text-web.png"></kbd>
 
@@ -287,11 +304,12 @@ Text entered or response text from GPT can be read out in a natural voice using 
 
 - Method 1: Press the `Play TTS` button on the web UI
 - Method 2: Select text → universal action hotkey → select `OpenAI Text-to-Speech`
+- Method 3: Alfred textbox → keyword (`openai-tts`) → space/tab → text to read aloud
 
 **Speech-to-Text Conversion**
 
 - Method 1: Press the `Voice Input` button on the web UI
-- Method 2: Alfred textbox → keyword (`openai-speech`)
+- Method 2: Alfred textbox → keyword (`openai-speech`) (terminal recorder; requires SoX)
 
 **Audio File to Text**
 
@@ -303,16 +321,43 @@ You can select an audio file in `mp3`, `mp4`, `flac`, `webm`, `wav`, or `m4a` fo
 
 You can record voice audio and send it to the Workflow for transcription using the speech-to-text API.
 
-- **Web UI (Recommended)**: Press the `Voice Input` button on the web UI to record and transcribe directly in the browser using the Web Audio API. No external tools required.
-- **Alfred keyword**: Alfred textbox → keyword (`openai-speech`) → redirects to the Web UI for recording.
+- **Web UI (Recommended)**: Press the `Voice Input` button on the web UI. The recording is made in the browser and transcribed through the API. No additional tools are required.
+- **Alfred keyword**: Alfred textbox → keyword (`openai-speech`) starts a recorder in Terminal, which requires SoX (`rec`). If SoX is not installed, use Voice Input in the web UI.
 
-You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in the workflow's settings. Below are examples in the `text` and `srt` formats:
+The transcript is returned as plain text:
 
 <kbd><img width="700" alt="transcript-text" src="./docs/img/transcript-text.png"></kbd>
 
-<kbd><img width="700" alt="transcript-srt" src="./docs/img/transcript-srt.png"></kbd>
+## Other Features
 
-- **Reasoning Effort**: For GPT-5 series models, set the reasoning effort to control how many reasoning tokens the model generates before creating a response. Available values and defaults vary by model:
+**Import/Export**
+
+You can save a conversation to a JSON file and continue it later by importing it again. On the chat screen, use `Export Data` and `Import Data`; on the starter screen, use `Import Chat`. The export holds the text of the conversation; attached files and generated images are not included, so keep the originals if you need them. Importing replaces the current chat.
+
+**Monitor API Usage**
+
+Type the keyword `openai-usage` to open OpenAI's [usage page](https://platform.openai.com/usage).
+
+## Configuration Parameters
+
+You can set various parameters in the settings panel of this Workflow. Some of them are used as defaults that you can change temporarily on the web UI. The web UI's `Open Config` button, or the keyword `openai-config`, opens the settings panel.
+
+**Required Settings**
+
+- **OpenAI API Key**: Your secret API key for OpenAI. Get one at [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys).
+- **Base URL**: The base URL of the OpenAI API. Change it only if you use a different endpoint. Chat, image, transcription and translation requests use it; text-to-speech always goes to OpenAI. (default: `https://api.openai.com/v1`)
+
+**Web UI Parameters**
+
+- **Loopback Address**: Either `localhost` or `127.0.0.1` is used as the address of the local server behind the web UI. If the web UI does not work as expected, try the other. The server accepts connections from this Mac only. (default: `127.0.0.1`)
+- **Stream Output**: Show text results in the web browser as they are generated. If disabled, text results are shown with Alfred's Large Type. (default: `enabled`)
+- **Hide Speech Buttons**: Hide the text-to-speech playback and voice input buttons on the web UI. (default: `disabled`)
+- **Web UI Mode**: `light`, `dark`, or `auto`. (default: `auto`)
+
+**Chat Parameters**
+
+- **Model**: The chat model (default: `gpt-5.6-luna`). Available models: `gpt-6-astra`, `gpt-5.6-sol`, `gpt-5.6-terra`, `gpt-5.6-luna`, `gpt-5.5`, `gpt-5.4`, `gpt-5.4-mini`, `gpt-5.4-nano`, and `gpt-5.3-codex`. See the model selection policy under Reasoning Effort below.
+- **Reasoning Effort**: For reasoning models, set the reasoning effort to control how many reasoning tokens the model generates before creating a response. Available values and defaults vary by model:
   - **gpt-6-astra**: `low`, `medium`, `high`, `xhigh`, `max` (default: `low`)
   - **gpt-5.6-sol**: `none`, `low`, `medium`, `high`, `xhigh`, `max` (default: `none`)
   - **gpt-5.6-terra**: `none`, `low`, `medium`, `high`, `xhigh`, `max` (default: `none`)
@@ -323,59 +368,59 @@ You can choose the format of the transcribed text as `text`, `srt`, or `vtt` in 
   - **gpt-5.4-nano**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
   - **gpt-5.3-codex**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
 
-  The `none` setting provides lower-latency interactions similar to non-reasoning models. `xhigh`, and `max` where the model accepts it, provide maximum quality for complex tasks at the cost of a much longer wait. The web UI automatically adjusts available options based on the selected model.
+  The `none` setting provides lower-latency interactions similar to non-reasoning models. `xhigh`, and `max` where the model accepts it, allow more reasoning for complex tasks, usually with a much longer wait. The web UI automatically adjusts available options based on the selected model.
 
   **Note**: When using Alfred's Configuration Builder (not the Web UI), all reasoning effort options are shown regardless of the selected model. If an invalid combination is selected (e.g., `max` with `gpt-5.4-mini`), the workflow automatically falls back to the model's default reasoning effort at runtime.
 
-  **Model selection policy**: This workflow targets quick-turnaround Alfred interactions. Flagship `pro` variants (e.g., `gpt-5.5-pro`) and the `o`-series reasoning models are intentionally **not** bundled because their pricing and latency profile do not fit the workflow's typical use case. The default model is `gpt-5.6-luna`, which keeps common usage inexpensive; you can switch to a flagship (`gpt-6-astra`, `gpt-5.6-sol`, `gpt-5.5`) for harder tasks. `gpt-6-astra` is the most capable model available and is priced accordingly ($10.00 / $50.00 per 1M tokens); it is the one model that does not accept `none` reasoning effort, so selecting it uses `low` instead. Note that `gpt-5.6-luna` is the nano tier: its recall drops sharply past roughly 256,000 tokens of context, so prefer `gpt-5.6-terra` when working through a very large document.
+  **Model selection policy**: This workflow targets quick-turnaround Alfred interactions. Flagship `pro` variants (e.g., `gpt-5.5-pro`) and the `o`-series reasoning models are intentionally **not** bundled. Other models are included regardless of price. The default model is `gpt-5.6-luna`, which keeps common usage inexpensive; you can switch to a flagship (`gpt-6-astra`, `gpt-5.6-sol`, `gpt-5.5`) for harder tasks. `gpt-6-astra` is the most capable model available and is priced accordingly ($10.00 / $50.00 per 1M tokens); it is the one model that does not accept `none` reasoning effort, so selecting it uses `low` instead. Note that `gpt-5.6-luna` is the nano tier: its recall drops sharply past roughly 256,000 tokens of context, so prefer `gpt-5.6-terra` when working through a very large document.
 
   See OpenAI's [documentation](https://platform.openai.com/docs/guides/reasoning#reasoning-effort).
-- **Max Tokens**: Maximum number of tokens to be generated upon completion (default: `4000`). Reasoning models ignore this value, and every model currently bundled is a reasoning model, so the field is disabled unless that changes. If this parameter is set to `0`, `null` is sent to the API as the default value (the maximum number of tokens is not specified).
-- **Memory Span**: Set the number of past utterances sent to the API as context. Setting `4` for this parameter means 2 conversation turns (user → assistant → user → assistant) will be sent as context for a new query. The larger the value, the more tokens will be consumed. (default: `20`, range `2`–`100`)
+- **Max Tokens**: Maximum number of tokens to generate (default: `4000`). Not used by the bundled models: they are all reasoning models, for which the limit would also count the model's reasoning and could leave the answer empty, so the workflow does not send it and the field is disabled. The value has no effect while only reasoning models are bundled.
+- **Memory Span**: The number of most recent messages sent to the API as context, counting your new one. The system content is always sent in addition. The larger the value, the more tokens are consumed. (default: `20`, range `2`–`100`)
 - **Max Characters**: Maximum number of characters that can be included in a query (default: `100000`).
-- **Timeout**: How many seconds to wait for a reply on a non-streaming request (default: `240`). Streaming is enabled by default and ignores this, using its own 12-minute limit; opening the connection has a separate fixed timeout. Raise it if you turn streaming off and use a reasoning model at high effort, which can think for minutes before answering.
-- **Add Emoji**: If enabled, the response text from GPT will contain emoji characters appropriate for the content. This is realized by adding the following sentence at the end of the system content. (default: `enabled`)
+- **Timeout (sec)**: How many seconds to wait for a reply on a non-streaming request (default: `240`). Streaming is enabled by default and ignores this: it uses a separate 720-second read timeout, and the web UI starts a 12-minute timer when a request is sent, which is cleared when the response finishes. Opening the connection has its own fixed timeout. Raise it if you turn streaming off and use a reasoning model at high effort, which can think for minutes before answering.
+- **Add Emoji to Response**: If enabled, the workflow asks the model to include relevant emoji by adding the following sentence to the end of the system content. (default: `enabled`)
   
   > Add emojis that are appropriate to the content of the response.
   
 - **System Content**: Text to send with every query sent to the API as general information about the specification of the chat. The default value is as follows:
   
-  > You are a friendly but professional consultant who answers various questions, makes decent suggestions, and gives helpful advice in response to a prompt from the user. Your response must be concise, suggestive, and accurate.
+  > You are a friendly but professional consultant who answers various questions, make decent suggestions, and give helpful advice in response to a prompt from the user. Your response must be concise, suggestive, and accurate. Ensure to tailor your advice to the user's specific needs, leveraging your expertise to guide them towards the best possible outcomes. Remember to add a touch of personalization to make each interaction memorable and engaging.
 
 **Image Generation/Editing Parameters**
 
-Image editing feature is available for the GPT Image model (`gpt-image-2`).
+Image generation and editing are available for all three GPT Image models.
 
-- **Image Generation Model**: `gpt-image-2`. (`gpt-image-1.5` was removed in 5.5.0; OpenAI has scheduled it for shutdown.)
-- **Image Size**: Set the size of images to generate: `auto`, `1024x1024`, `1536x1024`, or `1024x1536` (default: `auto`)
-- **Quality**: Choose the quality of the image: `auto`, `low`, `medium`, or `high` (default: `auto`)
-- **Content Moderation**: `auto` or `low` (default: `auto`)
-- **Background**: `auto`, `transparent`, or `opaque` (default: `auto`)
+- **Image Generation Model**: `gpt-image-2.5-flare`, `gpt-image-2.5-sunburst`, or `gpt-image-2` (default: `gpt-image-2.5-flare`). Flare is the fastest for everyday images; Sunburst is the most capable, especially for precise edits. Both are billed at the same token rates as `gpt-image-2`.
+- **Image Size for GPT Image**: Set the size of images to generate: `auto`, `1024x1024`, `1536x1024`, or `1024x1536` (default: `auto`)
+- **Image Quality for GPT Image**: `auto`, `low`, `medium`, `high`, and, for the Image 2.5 models only, `xhigh` and `max` (default: `auto`). `xhigh` and `max` use more output tokens and can take over a minute. With `gpt-image-2`, they fall back to `auto`.
+- **Moderation for GPT Image**: `auto` or `low` (default: `auto`)
+- **Background for GPT Image**: `auto`, `transparent`, or `opaque` (default: `auto`)
 
 **Speech-to-Text Parameters**
 
-- **Transcription Model**: One of `gpt-transcribe`, `gpt-4o-mini-transcribe`, `gpt-4o-transcribe`, or `whisper-1`. (default: `gpt-transcribe`)
-- **Transcription Format**: Set the format of the text transcribed from the microphone input or audio files to `text`, `srt`, or `vtt` (default: `text`). Since `srt` and `vtt` formats are supported by `whisper-1` only, the workflow will automatically switch to `whisper-1` when these formats are selected.
-- **Processes after Recording**: Set the default choice of what processes follow after audio recording finishes. (default: `Transcribe [+ delete recording]`).
+- **Transcription Model**: `gpt-transcribe`. The transcript is plain text. (`whisper-1`, `gpt-4o-transcribe` and `gpt-4o-mini-transcribe`, which OpenAI is shutting down, were removed in 5.7.0, and with them the `srt` and `vtt` output formats, which no remaining model provides.)
+- **Processes after Recording**: The default action for the terminal recorder started by `openai-speech` when recording finishes. It does not affect Voice Input in the web UI. (default: `Transcribe [+ delete recording]`)
   
   - Transcribe [+ delete recording]
   - Transcribe [+ save recording to desktop]
   - Transcribe and query [+ delete recording]
   - Transcribe and query [+ save recording to desktop]
   
-- **Audio to English**: When enabled, the speech-to-text (STT) API will transcribe the input audio and output text translated into English. (default: `disabled`)
+- **Audio to English**: When enabled, the audio is transcribed and the transcript is then translated into English with `gpt-5.6-terra`. This adds an additional text-model request. A transcript over 16,000 bytes (about 5,000 Japanese characters) is not translated. If translation fails, the audio is kept, and the workflow tries to save the transcript in the cache and reports where it is or that it could not be saved. (default: `disabled`)
 
 **Text-to-Speech Parameters**
 
 - **Text-to-Speech Model**: One of the available TTS models: `tts-1`, `tts-1-hd`, or `gpt-4o-mini-tts`. (default: `gpt-4o-mini-tts`)
 - **Text-to-Speech Voice**: The voice to use when generating the audio. Supported voices are: `alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, and `shimmer`. (default: `alloy`)
 - **Text-to-Speech Speed**: The speed of the generated audio. Select a value from 0.25 to 4.0. (default: `1.0`)
-- **TTS Instruction**: Specify character or speaking style instructions for text-to-speech synthesis.
-- **Automatic Text to Speech**: If enabled, the results will be read aloud using the system's default text-to-speech language and voice. (default: `disabled`)
+- **TTS Instructions**: Specify character or speaking style instructions for text-to-speech synthesis. Used by `gpt-4o-mini-tts` only; `tts-1` and `tts-1-hd` ignore them.
+- **Automatic Text to Speech**: If enabled, responses are read aloud using OpenAI's text-to-speech API with the configured model and voice. Each reading is an additional API request. (default: `disabled`)
 
 **Other Settings**
-- **Sound**: If checked, a notification sound will play when the response is returned. (default: `disabled`)
-- **Save File Path**: If set, the results will be saved in the specified path as a markdown file. (default: `not set`)
+- **Sound**: If checked, a notification sound plays when a response or an error is returned, and for some text-to-speech actions. (default: `disabled`)
+- **Debug Mode**: If enabled, errors include debug details. (default: `disabled`)
+- **Save Folder**: If set, text results are saved here as Markdown files and generated images are copied here. If not set, results stay only in the workflow's cache, where files older than 7 days are removed the next time the local server starts (the current text conversation and the images it refers to are kept; see Troubleshooting). The folder must already exist. A folder inside the workflow folder or the cache is refused: no copy is written there, and a notification says why. (default: `not set`)
 
 **Environment Variables**
 
@@ -397,10 +442,10 @@ Environment variables can be accessed by clicking the `[x]` button located at th
   - If startup error notifications do not appear, check System Settings → Notifications → allow notifications for Alfred.
 - Cache management
   - Uploaded files, TTS audio, generated images, and temporary HTML are cached in `$alfred_workflow_cache`. Old files (7+ days) are automatically cleaned up when the server starts.
-  - The **Clear Cache** button on the web UI (starter page or chat page) clears them on demand. It removes uploaded files, TTS audio, page templates, and generated images that are no longer part of the conversation.
-  - Your conversation is kept, and so are the images it still shows, so clearing the cache never leaves the history with broken pictures. Hover the button to see the same summary before clicking.
-- No external dependencies required
-  - All features work out of the box with macOS built-in tools.
+  - The **Clear Cache** button on the web UI (starter page or chat page) clears them on demand. It removes uploaded files, TTS audio, page templates, and images that the current text conversation does not refer to.
+  - The current text conversation is kept, with the images it refers to. Images on the image generation history page are not protected and may be removed, by Clear Cache or by the 7-day cleanup; use the Save folder setting, or download the images you want to keep.
+- External tools
+  - None are needed, except SoX (`rec`) for the terminal recorder started by `openai-speech`. Voice input in the web UI needs nothing extra.
 
 ## Author
 
