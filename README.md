@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://platform.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows file understanding 📎 (images, PDFs, Office documents, code, and more), image generation 🖼️, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `5.7.0`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `5.8.0`)
 
 You can execute all the above features using:
 
@@ -59,6 +59,11 @@ To start using this workflow, you must set the environment variable `apikey`, wh
 
 **Recent Changelog**
 
+- 5.8.0:
+  - New models `gpt-6.1-sol`, `gpt-6-sol` and `gpt-6-luna`; `gpt-6-luna` is the new default at less than half the price of the previous one
+  - Fix: reasoning effort `none` was not applied (requests ran at `medium`)
+  - Fix: continuing a saved conversation could resend a removed model or an unsupported effort
+  - Fix: the 7-day cache cleanup no longer removes images from an image session that is still open
 - 5.7.0:
   - New image models `gpt-image-2.5-flare` (now the default) and `gpt-image-2.5-sunburst`, with `xhigh` and `max` quality
   - Fix: voice input from the Web UI works again (broken since 5.0.0)
@@ -356,9 +361,12 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 
 **Chat Parameters**
 
-- **Model**: The chat model (default: `gpt-5.6-luna`). Available models: `gpt-6-astra`, `gpt-5.6-sol`, `gpt-5.6-terra`, `gpt-5.6-luna`, `gpt-5.5`, `gpt-5.4`, `gpt-5.4-mini`, `gpt-5.4-nano`, and `gpt-5.3-codex`. See the model selection policy under Reasoning Effort below.
+- **Model**: The chat model (default: `gpt-6-luna`). Available models: `gpt-6.1-sol`, `gpt-6-astra`, `gpt-6-sol`, `gpt-6-luna`, `gpt-5.6-sol`, `gpt-5.6-terra`, `gpt-5.6-luna`, `gpt-5.5`, `gpt-5.4`, `gpt-5.4-mini`, `gpt-5.4-nano`, and `gpt-5.3-codex`. See the model selection policy under Reasoning Effort below.
 - **Reasoning Effort**: For reasoning models, set the reasoning effort to control how many reasoning tokens the model generates before creating a response. Available values and defaults vary by model:
+  - **gpt-6.1-sol**: `low`, `medium`, `high`, `xhigh`, `max` (default: `low`)
   - **gpt-6-astra**: `low`, `medium`, `high`, `xhigh`, `max` (default: `low`)
+  - **gpt-6-sol**: `none`, `low`, `medium`, `high`, `xhigh`, `max` (default: `none`)
+  - **gpt-6-luna**: `none`, `low`, `medium`, `high`, `xhigh`, `max` (default: `none`)
   - **gpt-5.6-sol**: `none`, `low`, `medium`, `high`, `xhigh`, `max` (default: `none`)
   - **gpt-5.6-terra**: `none`, `low`, `medium`, `high`, `xhigh`, `max` (default: `none`)
   - **gpt-5.6-luna**: `none`, `low`, `medium`, `high`, `xhigh`, `max` (default: `none`)
@@ -372,7 +380,7 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 
   **Note**: When using Alfred's Configuration Builder (not the Web UI), all reasoning effort options are shown regardless of the selected model. If an invalid combination is selected (e.g., `max` with `gpt-5.4-mini`), the workflow automatically falls back to the model's default reasoning effort at runtime.
 
-  **Model selection policy**: This workflow targets quick-turnaround Alfred interactions. Flagship `pro` variants (e.g., `gpt-5.5-pro`) and the `o`-series reasoning models are intentionally **not** bundled. Other models are included regardless of price. The default model is `gpt-5.6-luna`, which keeps common usage inexpensive; you can switch to a flagship (`gpt-6-astra`, `gpt-5.6-sol`, `gpt-5.5`) for harder tasks. `gpt-6-astra` is the most capable model available and is priced accordingly ($10.00 / $50.00 per 1M tokens); it is the one model that does not accept `none` reasoning effort, so selecting it uses `low` instead. Note that `gpt-5.6-luna` is the nano tier: its recall drops sharply past roughly 256,000 tokens of context, so prefer `gpt-5.6-terra` when working through a very large document.
+  **Model selection policy**: This workflow targets quick-turnaround Alfred interactions. Flagship `pro` variants (e.g., `gpt-5.5-pro`) and the `o`-series reasoning models are intentionally **not** bundled. Other models are included regardless of price. The default model is `gpt-6-luna` ($0.10 / $0.50 per 1M tokens), which keeps common usage inexpensive; you can switch to `gpt-6-sol` or `gpt-6.1-sol` (both $2 / $10) or `gpt-6-astra` for harder tasks. `gpt-6-astra` is the most capable model available and is priced accordingly ($10.00 / $50.00 per 1M tokens); it and `gpt-6.1-sol` do not accept `none` reasoning effort, so selecting either uses `low` instead. Prices shown are for prompts up to 272K tokens; longer prompts are billed at higher rates. The `gpt-5.6` and older models remain available, and a model already selected in your settings is kept after updating.
 
   See OpenAI's [documentation](https://platform.openai.com/docs/guides/reasoning#reasoning-effort).
 - **Max Tokens**: Maximum number of tokens to generate (default: `4000`). Not used by the bundled models: they are all reasoning models, for which the limit would also count the model's reasoning and could leave the answer empty, so the workflow does not send it and the field is disabled. The value has no effect while only reasoning models are bundled.
@@ -420,7 +428,7 @@ Image generation and editing are available for all three GPT Image models.
 **Other Settings**
 - **Sound**: If checked, a notification sound plays when a response or an error is returned, and for some text-to-speech actions. (default: `disabled`)
 - **Debug Mode**: If enabled, errors include debug details. (default: `disabled`)
-- **Save Folder**: If set, text results are saved here as Markdown files and generated images are copied here. If not set, results stay only in the workflow's cache, where files older than 7 days are removed the next time the local server starts (the current text conversation and the images it refers to are kept; see Troubleshooting). The folder must already exist. A folder inside the workflow folder or the cache is refused: no copy is written there, and a notification says why. (default: `not set`)
+- **Save Folder**: If set, text results are saved here as Markdown files and generated images are copied here. If not set, results stay only in the workflow's cache, where files older than 7 days are removed the next time the local server starts (the current conversation is kept; generated images are kept only until you start a new session; see Troubleshooting). The folder must already exist. A folder inside the workflow folder or the cache is refused: no copy is written there, and a notification says why. (default: `not set`)
 
 **Environment Variables**
 
@@ -442,8 +450,8 @@ Environment variables can be accessed by clicking the `[x]` button located at th
   - If startup error notifications do not appear, check System Settings → Notifications → allow notifications for Alfred.
 - Cache management
   - Uploaded files, TTS audio, generated images, and temporary HTML are cached in `$alfred_workflow_cache`. Old files (7+ days) are automatically cleaned up when the server starts.
-  - The **Clear Cache** button on the web UI (starter page or chat page) clears them on demand. It removes uploaded files, TTS audio, page templates, and images that the current text conversation does not refer to.
-  - The current text conversation is kept, with the images it refers to. Images on the image generation history page are not protected and may be removed, by Clear Cache or by the 7-day cleanup; use the Save folder setting, or download the images you want to keep.
+  - The **Clear Cache** button on the web UI (starter page or chat page) clears them on demand. It removes uploaded files, TTS audio, page templates, and images that are no longer shown.
+  - The current text conversation is kept, with the images attached to it. Generated images are kept only while their image session lasts: starting a new session (`Start New Chat`, or opening the web UI again, which is how you get back to the Clear Cache button) ends it, after which Clear Cache and the 7-day cleanup remove them. To keep images, use the Save folder setting or download them.
 - External tools
   - None are needed, except SoX (`rec`) for the terminal recorder started by `openai-speech`. Voice input in the web UI needs nothing extra.
 

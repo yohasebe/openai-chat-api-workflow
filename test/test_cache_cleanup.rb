@@ -112,5 +112,45 @@ class TestCacheCleanup < Minitest::Test
     assert_equal %w[data.json image_history.html pid webui.html workflow.log], names
   end
 
+# Generated images are named only by the image history page, not by data.json.
+def write_image_history(names)
+  html = names.map do |n|
+    "<a href='http://127.0.0.1:8787/images/#{n}'><img src='http://127.0.0.1:8787/images/#{n}' " \
+      "data-filepath='#{File.join(CACHE_TEST_DIR, n)}' /></a>"
+  end.join("\n")
+  File.write(File.join(CACHE_TEST_DIR, "image_history.html"), html)
+end
+
+def test_force_cleanup_keeps_images_on_the_image_history_page
+  write_conversation([])
+  write_image_history(["generated.png"])
+  write("generated.png")
+  write("orphan.png")
+
+  force_cleanup
+
+  assert_includes names, "generated.png"
+  refute_includes names, "orphan.png"
+end
+
+def test_auto_cleanup_keeps_old_images_on_the_image_history_page
+  write_conversation([])
+  write_image_history(["generated.png"])
+  write("generated.png", age_days: 30)
+
+  auto_cleanup
+
+  assert_includes names, "generated.png"
+end
+
+def test_images_lose_protection_once_the_history_page_is_gone
+  write_conversation([])
+  write("generated.png")
+
+  force_cleanup
+
+  refute_includes names, "generated.png"
+end
+
   Minitest.after_run { FileUtils.rm_rf(CACHE_TEST_DIR) }
 end
