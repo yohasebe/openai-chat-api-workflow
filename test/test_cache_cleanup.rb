@@ -5,10 +5,7 @@ require 'tmpdir'
 require 'fileutils'
 require 'json'
 
-ALFRED_WORKFLOW_DIR = ENV["ALFRED_WORKFLOW_DIR"] || File.join(
-  File.expand_path("~/Library/CloudStorage/Dropbox/alfred/Alfred.alfredpreferences/workflows"),
-  "user.workflow.9B4A6B7F-DA97-4FBA-9034-E793AB9E39C2"
-)
+require_relative "workflow_dir"
 
 # cache_cleanup.rb reads its directory from the environment at load time, so the
 # variable has to be set before the require.

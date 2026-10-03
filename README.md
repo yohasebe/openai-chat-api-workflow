@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://platform.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows file understanding 📎 (images, PDFs, Office documents, code, and more), image generation 🖼️, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `5.8.0`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `5.9.0`)
 
 You can execute all the above features using:
 
@@ -59,6 +59,8 @@ To start using this workflow, you must set the environment variable `apikey`, wh
 
 **Recent Changelog**
 
+- 5.9.0:
+  - The API key setting can hold a 1Password reference (`op://…`) or a keychain reference (`keychain:<name>`) instead of the key itself
 - 5.8.0:
   - New models `gpt-6.1-sol`, `gpt-6-sol` and `gpt-6-luna`; `gpt-6-luna` is the new default at less than half the price of the previous one
   - Fix: reasoning effort `none` was not applied (requests ran at `medium`)
@@ -349,7 +351,11 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 
 **Required Settings**
 
-- **OpenAI API Key**: Your secret API key for OpenAI. Get one at [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys).
+- **OpenAI API Key**: Your secret API key for OpenAI. Get one at [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys). Alfred stores this setting in the workflow's folder, which is synced if you sync your Alfred preferences. To keep the key itself out of that folder, enter a reference instead:
+  - `op://Vault/Item/field`: read from 1Password each time it is needed, with the [1Password CLI](https://developer.1password.com/docs/cli/) (`op read`). The CLI must be installed and signed in; turning on its integration with the 1Password app lets you approve with Touch ID.
+  - `keychain:<name>`: read from the macOS keychain, from a generic password whose service is `<name>`. Add it with `security add-generic-password -s <name> -a openai -w` (you are prompted for the key). Useful if you run the workflow often and want to avoid 1Password prompts.
+
+  The key read through a reference is used for the request and not stored anywhere. If it cannot be read (the CLI is missing or signed out, or the item does not exist), the result explains why. Entering the key itself keeps working as before.
 - **Base URL**: The base URL of the OpenAI API. Change it only if you use a different endpoint. Chat, image, transcription and translation requests use it; text-to-speech always goes to OpenAI. (default: `https://api.openai.com/v1`)
 
 **Web UI Parameters**

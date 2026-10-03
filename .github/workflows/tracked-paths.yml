@@ -1,0 +1,19 @@
+name: tracked paths
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tracked-paths:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+      - name: Every tracked file is on the allow list
+        run: ruby lint/check_tracked_paths.rb

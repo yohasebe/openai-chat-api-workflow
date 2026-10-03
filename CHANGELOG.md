@@ -1,5 +1,7 @@
 # Change Log
 
+- 5.9.0:
+  - **The OpenAI API key setting can hold a reference instead of the key**: `op://Vault/Item/field` reads it from 1Password with the 1Password CLI, and `keychain:<name>` reads it from the macOS keychain. Only the reference is then stored in the workflow's settings, which Alfred keeps in the workflow folder. Entering the key itself works as before
 - 5.8.0:
   - **New models `gpt-6.1-sol`, `gpt-6-sol` and `gpt-6-luna`. `gpt-6-luna` is now the default**: $0.10 / $0.50 per 1M tokens, less than half the price of `gpt-5.6-luna` ($0.20 / $1.20), the previous default. `gpt-6.1-sol` and `gpt-6-sol` ($2 / $10 each) sit between it and `gpt-6-astra`. `gpt-6-sol` and `gpt-6-luna` accept reasoning effort `none` through `max`; `gpt-6.1-sol`, like `gpt-6-astra`, starts at `low`, which it uses when `none` is selected. The `gpt-5.6` and older models remain available, and a model already selected in your settings is kept
   - **Fix: reasoning effort `none` was not applied.** The workflow left the setting out of the request when it was `none`, and the API treats a missing setting as `medium`. Since 5.5.0 made `none` the default, requests have therefore run at `medium`; they now run at the effort you chose. Simple questions may be answered with less deliberation than before; choose a higher effort for tasks that need it
