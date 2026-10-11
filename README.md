@@ -4,7 +4,7 @@
 
 🎩 An [Alfred 5](https://www.alfredapp.com/) Workflow for using the [OpenAI](https://platform.openai.com/) Chat API to interact with GPT models 🤖💬. It also allows file understanding 📎 (images, PDFs, Office documents, code, and more), image generation 🖼️, speech-to-text conversion 🎤, and text-to-speech synthesis 🔈.
 
-📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `5.9.0`)
+📦 Download [**OpenAI Chat API Workflow**](https://github.com/yohasebe/openai-chat-api-workflow/raw/main/openai-chat-api.alfredworkflow) (version `6.0.0`)
 
 You can execute all the above features using:
 
@@ -59,6 +59,11 @@ To start using this workflow, you must set the environment variable `apikey`, wh
 
 **Recent Changelog**
 
+- 6.0.0:
+  - The web UI ports are now settings in the workflow configuration, and the streaming port defaults to 8788 instead of 8080. If you had changed either port in the environment variables, set it again in the configuration
+  - Removed `gpt-5.4-nano` and `gpt-5.3-codex`, which OpenAI is shutting down
+  - Fix: a file whose name contains Japanese or other non-ASCII characters could not be attached
+  - Fix: the Web UI counted non-ASCII prompts as several times their length against Max Characters
 - 5.9.0:
   - The API key setting can hold a 1Password reference (`op://…`) or a keychain reference (`keychain:<name>`) instead of the key itself
 - 5.8.0:
@@ -367,7 +372,7 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 
 **Chat Parameters**
 
-- **Model**: The chat model (default: `gpt-6-luna`). Available models: `gpt-6.1-sol`, `gpt-6-astra`, `gpt-6-sol`, `gpt-6-luna`, `gpt-5.6-sol`, `gpt-5.6-terra`, `gpt-5.6-luna`, `gpt-5.5`, `gpt-5.4`, `gpt-5.4-mini`, `gpt-5.4-nano`, and `gpt-5.3-codex`. See the model selection policy under Reasoning Effort below.
+- **Model**: The chat model (default: `gpt-6-luna`). Available models: `gpt-6.1-sol`, `gpt-6-astra`, `gpt-6-sol`, `gpt-6-luna`, `gpt-5.6-sol`, `gpt-5.6-terra`, `gpt-5.6-luna`, `gpt-5.5`, `gpt-5.4`, and `gpt-5.4-mini`. See the model selection policy under Reasoning Effort below.
 - **Reasoning Effort**: For reasoning models, set the reasoning effort to control how many reasoning tokens the model generates before creating a response. Available values and defaults vary by model:
   - **gpt-6.1-sol**: `low`, `medium`, `high`, `xhigh`, `max` (default: `low`)
   - **gpt-6-astra**: `low`, `medium`, `high`, `xhigh`, `max` (default: `low`)
@@ -379,8 +384,6 @@ You can set various parameters in the settings panel of this Workflow. Some of t
   - **gpt-5.5**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
   - **gpt-5.4**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
   - **gpt-5.4-mini**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
-  - **gpt-5.4-nano**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
-  - **gpt-5.3-codex**: `none`, `low`, `medium`, `high`, `xhigh` (default: `none`)
 
   The `none` setting provides lower-latency interactions similar to non-reasoning models. `xhigh`, and `max` where the model accepts it, allow more reasoning for complex tasks, usually with a much longer wait. The web UI automatically adjusts available options based on the selected model.
 
@@ -435,21 +438,20 @@ Image generation and editing are available for all three GPT Image models.
 - **Sound**: If checked, a notification sound plays when a response or an error is returned, and for some text-to-speech actions. (default: `disabled`)
 - **Debug Mode**: If enabled, errors include debug details. (default: `disabled`)
 - **Save Folder**: If set, text results are saved here as Markdown files and generated images are copied here. If not set, results stay only in the workflow's cache, where files older than 7 days are removed the next time the local server starts (the current conversation is kept; generated images are kept only until you start a new session; see Troubleshooting). The folder must already exist. A folder inside the workflow folder or the cache is refused: no copy is written there, and a notification says why. (default: `not set`)
+- **Web UI Port**: The port of the local web server that serves the web UI. Change it if another program already uses the port. (default: `8787`)
+- **Streaming Port**: The port used to stream responses to the web UI. Change it if another program already uses the port. (default: `8788`)
 
 **Environment Variables**
 
 Environment variables can be accessed by clicking the `[x]` button located at the top right of the workflow settings screen. Normally, there is no need to change the values of the environment variables.
 
 - `http_keep_alive`: This workflow starts an HTTP server when the web UI is first displayed. After that, if the web UI is not used for the time (in seconds) set by this environment variable, the server will stop. (default: `7200` = 2 hours)
-- `http_port`: Specifies the port number for the web UI. (default: `8787`)
-  - Note: Default changed to 8787 in v4.0.0 to avoid privileged port conflicts.
 - `http_server_wait`: Specifies the wait time from when the HTTP server is started until the page is displayed in the browser. (default: `2.5`)
-- `websocket_port`: Specifies the port number for websocket communication used to display responses in streaming on the web UI. (default: `8080`)
 
 ## Troubleshooting
 
 - Port conflict or permission error
-  - The web UI binds to `127.0.0.1` on `http_port` (default `8787`). If startup fails with a port error, change the environment variable `http_port` to a free non‑privileged port (e.g., `8888`).
+  - The web UI binds to `127.0.0.1` on the Web UI Port (default `8787`) and streams responses on the Streaming Port (default `8788`). If a notification says a port is in use, choose another free port above 1023 for that setting in the workflow configuration.
 - Logs location and rotation
   - Logs are written to `$alfred_workflow_cache/workflow.log` with simple rotation (up to ~1MB × 5 files).
 - macOS notification permission

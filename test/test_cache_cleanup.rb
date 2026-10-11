@@ -66,6 +66,19 @@ class TestCacheCleanup < Minitest::Test
     assert_equal 1, result[:removed]
   end
 
+  # macOS can store a name in decomposed form (\u304B\u3099) while the history
+  # records the composed one (\u304C). They name the same file and must match.
+  def test_a_decomposed_name_still_matches_the_history
+    write_conversation(["\u304C.png"])
+    write("\u304B\u3099.png")
+    write("orphan.png")
+
+    force_cleanup
+
+    assert_equal 1, Dir.children(CACHE_TEST_DIR).count { |n| n.unicode_normalize(:nfc) == "\u304C.png" }
+    refute_includes names, "orphan.png"
+  end
+
   def test_force_cleanup_removes_disposable_files
     write_conversation([])
     %w[tts_1.mp3 template_abc.html leftover.png].each { |f| write(f) }

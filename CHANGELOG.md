@@ -1,5 +1,11 @@
 # Change Log
 
+- 6.0.0:
+  - **The web UI ports are now settings**: Web UI Port and Streaming Port appear in the workflow configuration instead of among the environment variables, so a port you change is kept when you update the workflow. **The streaming port now defaults to 8788** instead of 8080, which development servers often use; when 8080 was taken, responses failed with "WebSocket port 8080 is in use". If you had changed either port in the environment variables, set it again in the configuration
+  - **Removed `gpt-5.4-nano` and `gpt-5.3-codex`**, which OpenAI is shutting down on 2027-04-01. A saved setting naming either falls back to the default, `gpt-6-luna`; OpenAI suggests `gpt-6-luna` in place of `gpt-5.4-nano` and `gpt-6-sol` in place of `gpt-5.3-codex`
+  - **Fix: a file whose name contains non-ASCII characters, such as Japanese, could not be attached.** File Input and Import File failed with "incompatible character encodings: UTF-8 and ASCII-8BIT" before anything was sent
+  - **Fix: the Web UI counted non-ASCII prompts as several times their length** against the Max Characters setting, so a Japanese prompt was refused as too long at about a ninth of the limit. It now counts characters as typed, the same way the workflow does
+  - Fix: Clear Cache and the 7-day cleanup could delete an image the conversation still shows when its file name contains characters such as Japanese kana with dakuten, which macOS can store in a different but equivalent form
 - 5.9.0:
   - **The OpenAI API key setting can hold a reference instead of the key**: `op://Vault/Item/field` reads it from 1Password with the 1Password CLI, and `keychain:<name>` reads it from the macOS keychain. Only the reference is then stored in the workflow's settings, which Alfred keeps in the workflow folder. Entering the key itself works as before
 - 5.8.0:
