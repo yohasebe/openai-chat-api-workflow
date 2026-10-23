@@ -357,8 +357,12 @@ You can set various parameters in the settings panel of this Workflow. Some of t
 **Required Settings**
 
 - **OpenAI API Key**: Your secret API key for OpenAI. Get one at [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys). Alfred stores this setting in the workflow's folder, which is synced if you sync your Alfred preferences. To keep the key itself out of that folder, enter a reference instead:
-  - `op://Vault/Item/field`: read from 1Password each time it is needed, with the [1Password CLI](https://developer.1password.com/docs/cli/) (`op read`). The CLI must be installed and signed in; turning on its integration with the 1Password app lets you approve with Touch ID.
-  - `keychain:<name>`: read from the macOS keychain, from a generic password whose service is `<name>`. Add it with `security add-generic-password -s <name> -a openai -w` (you are prompted for the key). Useful if you run the workflow often and want to avoid 1Password prompts.
+  - `op://Vault/Item/field`: read from 1Password each time it is needed, with the [1Password CLI](https://developer.1password.com/docs/cli/) (`op read`).
+    - The CLI is a separate program from the 1Password app; having the app is not enough. Install it with `brew install --cask 1password-cli`.
+    - It is needed on every Mac that runs the workflow. If your Alfred preferences are synced, the reference reaches your other Macs but the CLI does not, and there the workflow reports that the 1Password CLI was not found.
+    - In the 1Password app, turn on Settings › Developer › Integrate with 1Password CLI. Without it the CLI reports that it is not signed in; with it you approve with Touch ID.
+    - To check a reference without showing the key: `op read "op://Vault/Item/field" >/dev/null && echo OK`
+  - `keychain:<name>`: read from the macOS keychain, from a generic password whose service is `<name>`. Add it with `security add-generic-password -s <name> -a openai -w` (you are prompted for the key). Useful if you run the workflow often and want to avoid 1Password prompts. The item lives in the login keychain of that Mac, so add it on each Mac that runs the workflow. Check it with `security find-generic-password -s <name> -w >/dev/null && echo OK`.
 
   The key read through a reference is used for the request and not stored anywhere. If it cannot be read (the CLI is missing or signed out, or the item does not exist), the result explains why. Entering the key itself keeps working as before.
 - **Base URL**: The base URL of the OpenAI API. Change it only if you use a different endpoint. Chat, image, transcription and translation requests use it; text-to-speech always goes to OpenAI. (default: `https://api.openai.com/v1`)
